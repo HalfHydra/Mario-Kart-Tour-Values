@@ -3,15 +3,136 @@
 <head>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-
+@font-face {font-family: track;src: url('./Font/trackname.otf');}
 </style>
 </head>
 <body>
 <h2>Testing Unit</h2>
 
+<div id="data">
+	<h3>Data</h3>
+
+</div>
+
+<div id="inventory" style="display:block;width: 500px">
+	<h3>Inventory</h3>
+</div>
+
+<div id="manager">
+	<h3>Manager</h3>
+<img src="./Images/Course Image/SGB.png"> </img>
+</div>
+
+<div id="missing">
+	<h3>Missing</h3>
+
+</div>
+
+<div id="pipe">
+	<h3>Pipe</h3>
+</div>
+
 
 <script>
+var values;
 
+var characteridinternal = ["1","2","3","4","5","6","7","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","30","31","32","33","34","35","37","38","40","41","43","44","45","46","47","49","50","51","52","57","58","59","60","62","67","70","76","78","79","80","82","85","89","91","92","93","107","111","112","115","117","120","122","126","127","128","131","132","137","138","139","140","142","143","144","145","149","150","153","155","158","159","161","164","165","169","170","178","179"];
+var characterid = ["25","26","23","27","24","6","10","14","30","31","32","33","34","35","37","5","7","9","11","2","16","22","4","80","67","3","1","50","13","17","21","20","15","70","117","38","76","107","51","58","60","59","111","93","18","57","41","47","44","43","132","46","40","19","142","120","143","78","122","161","150","137","62","82","138","159","139","169","155","92","49","85","179","170","12","131","126","89","115","158","164","128","127","165","91","45","145","52","178"];
+var charrarityinternal = ["2","2","2","2","2","1","2","2","1","2","3","2","1","2","2","2","3","3","2","2","2","1","1","1","1","1","1","1","1","1","1","1","1","2","3","3","3","3","3","3","3","3","32","2","3","3","2","2","2","3","2","2","2","3","3","2","3","3","3","3","3","32","2","2","3","3","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3"];
+var charrarity = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3","3"];
+
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                values = JSON.parse(allText);
+                console.log(values);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
+
+			let makeCharacters = () => {
+                let output = document.getElementById('inventory');
+                characterid.forEach((t, i) => {
+                	var panel = document.createElement('div');
+                	panel.style.width = "54px";
+                	panel.style.height = "70px";
+                	panel.style.display = "inline-block";
+
+
+                	let bottomimg = document.createElement('img');
+                	switch(charrarity[i]){
+                	case "1":
+                	bottomimg.src = `./Images/UI/bgnormal.png`;
+                	break;
+                	case "2":
+                	bottomimg.src = `./Images/UI/bgrare.png`;
+                	break;
+                	case "3":
+                	bottomimg.src = `./Images/UI/bghighend.png`;
+                	break;
+                }
+                	bottomimg.style.width = "54px";
+                	bottomimg.style.height = "70px";
+                	bottomimg.style.position = "absolute";
+                	panel.appendChild(bottomimg);
+
+                    let newCharacter = document.createElement('img');
+                    newCharacter.className = 'inventoryCharacter';
+                    newCharacter.src = `./Images/Character Icon/${t}.png`;
+                    newCharacter.style.width = "auto";
+                    newCharacter.style.height = "64px";
+                    newCharacter.style.position = "absolute";
+                    newCharacter.addEventListener('click', function() {
+                        invCharacter(this);
+                    });
+                    panel.appendChild(newCharacter);
+
+                    let topimg = document.createElement('img');
+                    switch(charrarity[i]){
+                	case "1":
+                	topimg.src = `./Images/UI/outlinenormal.png`;
+                	break;
+                	case "2":
+                	topimg.src = `./Images/UI/outlinerare.png`;
+                	break;
+                	case "3":
+                	topimg.src = `./Images/UI/outlinehighend.png`;
+                	break;
+                }
+                	topimg.style.width = "54px";
+                	topimg.style.height = "70px";
+                	topimg.style.position = "absolute";
+                	topimg.style.zIndex = "10";
+                	panel.appendChild(topimg);
+
+                    output.appendChild(panel);
+                });
+            }
+
+            function invCharacter(){
+
+            }
+
+            function getMoreGoodAt(){
+
+            }
+
+            function getGoodAt(){
+
+            }
+
+            makeCharacters();
 </script>
 
 </body>	
