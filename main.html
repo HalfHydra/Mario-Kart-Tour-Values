@@ -2,24 +2,44 @@
 <html>
 <head>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-@font-face {font-family: track;src: url('./Font/trackname.otf');}
+@font-face {font-family: try;src: url('./Font/try.ttf');}
+@font-face {font-family: try2;src: url('./Font/try2.ttf');}
+@font-face {font-family: try3;src: url('./Font/try3.otf');}
+@font-face {font-family: try4;src: url('./Font/try4.ttf');}
+@font-face {font-family: try5;src: url('./Font/try5.ttf');}
+@font-face {font-family: try6;src: url('./Font/DB003FDFD.otf') format("opentype");}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  /*background: #8598bc;*/
+  background: #b5ceff;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5a677f; 
+}
 </style>
 </head>
 <body>
 <h2>Testing Unit</h2>
 
 <div id="data">
-	<h3>Data</h3>
+	<h3 style="font-family: try6">Data</h3>
 
 </div>
 
 <div id="inventory" style="display:block;width: 500px">
-	<h3>Inventory</h3>
-	<div id="inventoryshelves" style="display:block;width: 500px">
-	</div>
+	<h3 style="font-family: try4">Inventory</h3>
 </div>
 
+<div id="inventoryshelves" style="display:block;width: 500px">
+	</div>
 <div id="manager">
 	<h3>Manager</h3>
 <img src="./Images/Course Image/SGB.png"> </img>
@@ -76,7 +96,7 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                 	panel.style.height = "70px";
                 	panel.style.display = "inline-block";
                 	panel.addEventListener('click', function() {
-                        invCharacter(characterid[i]);
+                        invCharacter(characterid[i], i);
                     });
 
 
@@ -139,14 +159,14 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                 });
             }
 
-            function invCharacter(selected){
+            function invCharacter(selected, i){
             	//let item = [...selected.parentNode.children].indexOf(selected);
             	let item = selected;
             	console.log(item);
 
             	if(!viewshelvechar.includes(item)){
             		viewshelvechar.push(item);
-            	}
+            	
             	let moreGoodAt = values[item].moreGoodAt;
             	let goodAt = values[item].goodAt;
             	console.log(moreGoodAt);
@@ -155,15 +175,59 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
             	let output = document.getElementById('inventoryshelves');
             	var shelfpanel = document.createElement('div');
                 	shelfpanel.style.width = "250px";
-                	shelfpanel.style.height = "70px";
+                	shelfpanel.style.height = "350px";
                 	shelfpanel.style.display = "inline-block";
+                	shelfpanel.style.backgroundColor = "black";
+                	shelfpanel.style.backgroundImage = "url('./Images/UI/inventorybg.png')";
+                	shelfpanel.style.overflowY = "scroll";
+                	shelfpanel.style.overflowX = "hidden";
+
+                	var namepanel = document.createElement('div');
+                	namepanel.style.width = "240px";
+                	namepanel.style.height = "36px";
+                	namepanel.style.marginTop = "-14px";
+                	namepanel.style.marginLeft = "3px";
+                	namepanel.style.backgroundImage = "url('./Images/UI/namebar.png')";
+                	shelfpanel.appendChild(namepanel);
+
+
+                	let toptext = document.createElement('p');
+                    toptext.innerHTML = values[item].nameEng;
+                    toptext.style.marginTop = "15px";
+                    toptext.style.textAlign = "center";
+                    toptext.style.fontFamily = "Tahoma";
+                    toptext.style.fontWeight = "bold";
+                    toptext.style.lineHeight = "30px";
+                    //toptext.style.verticalAlign = "middle";
+                    namepanel.appendChild(toptext);
+
+                    let rarityimage = document.createElement('img');
+                    switch(charrarity[i]){
+                	case "1":
+                	rarityimage.src = `./Images/UI/invnormal.png`;
+                	break;
+                	case "2":
+                	rarityimage.src = `./Images/UI/invrare.png`;
+                	break;
+                	case "3":
+                	rarityimage.src = `./Images/UI/invhighend.png`;
+                	break;
+                	}
+                	rarityimage.style.width = "248px";
+                	rarityimage.style.height = "132px";
+                	rarityimage.style.marginLeft = "1px";
+                	rarityimage.style.marginTop = "-5px";
+                	shelfpanel.appendChild(rarityimage);
 
                 var panel = document.createElement('div');
                 	panel.style.width = "54px";
                 	panel.style.height = "70px";
                 	panel.style.display = "inline-block";
+                	panel.style.marginLeft = "100px";
+                	panel.style.marginTop = "-250px";
+                	panel.style.position = "relative";
                 	let bottomimg = document.createElement('img');
-                	switch(charrarity[item]){
+                	switch(charrarity[i]){
                 	case "1":
                 	bottomimg.src = `./Images/UI/bgnormal.png`;
                 	break;
@@ -188,7 +252,7 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                     panel.appendChild(newCharacter);
 
                     let topimg = document.createElement('img');
-                    switch(charrarity[item]){
+                    switch(charrarity[i]){
                 	case "1":
                 	topimg.src = `./Images/UI/outlinenormal.png`;
                 	break;
@@ -205,17 +269,69 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                 	topimg.style.zIndex = "10";
                 	panel.appendChild(topimg);
 
-                	let charitem = document.createElement('img');
+                	let charaitem = document.createElement('img');
                     //item.className = 'inventoryCharacter';
-                    charitem.src = `./Images/Items/` + charitem[item] + `.png`;
-                    console.log(`./Images/Items/` + charitem[item] + `.png`);
-                    charitem.style.width = "30px";
-                    charitem.style.height = "30px";
-                    charitem.style.marginTop = "40px";
-                    charitem.style.position = "absolute";
-                    charitem.style.zIndex = "11";
+                    charaitem.src = `./Images/Items/` + charitem[i] + `.png`;
+                    console.log(`./Images/Items/` + charitem[i] + `.png`);
+                    charaitem.style.width = "30px";
+                    charaitem.style.height = "30px";
+                    charaitem.style.marginTop = "40px";
+                    charaitem.style.position = "absolute";
+                    charaitem.style.zIndex = "11";
                     //item.style.border = "5px solid #FFF"
-                    panel.appendChild(charitem);
+                    panel.appendChild(charaitem);
+
+                    shelfpanel.appendChild(panel);
+
+                    let whitebar3item = document.createElement('img');
+                	whitebar3item.src = `./Images/UI/3itemsbar.png`;
+                	whitebar3item.style.width = "240px";
+                	whitebar3item.style.height = "30px";
+                	whitebar3item.style.marginLeft = "5px";
+                	whitebar3item.style.marginTop = "5px";
+                	//whitebar3item.style.position = "absolute";
+                	shelfpanel.appendChild(whitebar3item);
+
+
+                    var moreGoodAtPanel = document.createElement('div');
+                	moreGoodAtPanel.style.width = "240px";
+                	moreGoodAtPanel.style.height = "70px";
+                	moreGoodAtPanel.style.display = "inline-block";
+                	moreGoodAtPanel.style.marginLeft = "5px";
+                	moreGoodAtPanel.style.marginTop = "0px";
+                	//moreGoodAtPanel.style.position = "absolute";
+                	//moreGoodAtPanel.style.backgroundColor = "blue";
+
+
+                	moreGoodAt.forEach((t, i) => {
+                	var coursePanel = document.createElement('div');
+                	coursePanel.style.width = "124px";
+                	coursePanel.style.height = "64px";
+                	coursePanel.style.display = "inline";
+                	coursePanel.style.marginLeft = "0px";
+                	coursePanel.style.marginTop = "0px";
+                	//coursePanel.style.position = "absolute";
+                	
+                	let courseimg = document.createElement('img');
+                	courseimg.src = `./Images/Course Image/${t}.png`;
+                	courseimg.style.width = "116px";
+                	courseimg.style.height = "58px";
+                	courseimg.style.marginLeft = "2px";
+                	courseimg.style.marginTop = "0px";
+                	//courseimg.style.position = "absolute";
+                	coursePanel.appendChild(courseimg);
+
+
+
+                	moreGoodAtPanel.appendChild(coursePanel);
+                	});
+
+
+                	shelfpanel.appendChild(moreGoodAtPanel);
+
+                    output.appendChild(shelfpanel);
+
+                }
 
             }
 
