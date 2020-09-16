@@ -152,16 +152,70 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
             	console.log(moreGoodAt);
             	console.log(goodAt);
             	//values.selected.goodAt
+            	let output = document.getElementById('inventoryshelves');
+            	var shelfpanel = document.createElement('div');
+                	shelfpanel.style.width = "250px";
+                	shelfpanel.style.height = "70px";
+                	shelfpanel.style.display = "inline-block";
 
+                var panel = document.createElement('div');
+                	panel.style.width = "54px";
+                	panel.style.height = "70px";
+                	panel.style.display = "inline-block";
+                	let bottomimg = document.createElement('img');
+                	switch(charrarity[item]){
+                	case "1":
+                	bottomimg.src = `./Images/UI/bgnormal.png`;
+                	break;
+                	case "2":
+                	bottomimg.src = `./Images/UI/bgrare.png`;
+                	break;
+                	case "3":
+                	bottomimg.src = `./Images/UI/bghighend.png`;
+                	break;
+                	}
+                	bottomimg.style.width = "54px";
+                	bottomimg.style.height = "70px";
+                	bottomimg.style.position = "absolute";
+                	panel.appendChild(bottomimg);
 
+                    let newCharacter = document.createElement('img');
+                    newCharacter.className = 'inventoryCharacter';
+                    newCharacter.src = `./Images/Character Icon/` + item + `.png`;
+                    newCharacter.style.width = "auto";
+                    newCharacter.style.height = "64px";
+                    newCharacter.style.position = "absolute";
+                    panel.appendChild(newCharacter);
 
-            }
+                    let topimg = document.createElement('img');
+                    switch(charrarity[item]){
+                	case "1":
+                	topimg.src = `./Images/UI/outlinenormal.png`;
+                	break;
+                	case "2":
+                	topimg.src = `./Images/UI/outlinerare.png`;
+                	break;
+                	case "3":
+                	topimg.src = `./Images/UI/outlinehighend.png`;
+                	break;
+                }
+                	topimg.style.width = "54px";
+                	topimg.style.height = "70px";
+                	topimg.style.position = "absolute";
+                	topimg.style.zIndex = "10";
+                	panel.appendChild(topimg);
 
-            function getMoreGoodAt(){
-
-            }
-
-            function getGoodAt(){
+                	let charitem = document.createElement('img');
+                    //item.className = 'inventoryCharacter';
+                    charitem.src = `./Images/Items/` + charitem[item] + `.png`;
+                    console.log(`./Images/Items/` + charitem[item] + `.png`);
+                    charitem.style.width = "30px";
+                    charitem.style.height = "30px";
+                    charitem.style.marginTop = "40px";
+                    charitem.style.position = "absolute";
+                    charitem.style.zIndex = "11";
+                    //item.style.border = "5px solid #FFF"
+                    panel.appendChild(charitem);
 
             }
 
