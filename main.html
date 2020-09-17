@@ -35,7 +35,7 @@
 	<h3 style="font-family: tour">Inventory</h3>
 </div>
 
-<div id="inventoryshelves" style="display:block;width: 810px">
+<div id="inventoryshelves" style="display:block;width: 1320px">
 	</div>
 <div id="manager">
 	<h3>Manager</h3>
@@ -98,8 +98,8 @@ readTextFile("./Data/course_names.json", 2);
                 let output = document.getElementById('inventory');
                 characterid.forEach((t, i) => {
                 	var panel = document.createElement('div');
-                	panel.style.width = "54px";
-                	panel.style.height = "70px";
+                	panel.style.width = "67.5px";
+                	panel.style.height = "87.5px";
                 	panel.style.display = "inline-block";
                 	panel.addEventListener('click', function() {
                         invCharacter(characterid[i], i);
@@ -118,8 +118,8 @@ readTextFile("./Data/course_names.json", 2);
                 	bottomimg.src = `./Images/UI/bghighend.png`;
                 	break;
                 }
-                	bottomimg.style.width = "54px";
-                	bottomimg.style.height = "70px";
+                	bottomimg.style.width = "67.5px";
+                	bottomimg.style.height = "87.5px";
                 	bottomimg.style.position = "absolute";
                 	panel.appendChild(bottomimg);
 
@@ -127,7 +127,7 @@ readTextFile("./Data/course_names.json", 2);
                     newCharacter.className = 'inventoryCharacter';
                     newCharacter.src = `./Images/Character Icon/${t}.png`;
                     newCharacter.style.width = "auto";
-                    newCharacter.style.height = "64px";
+                    newCharacter.style.height = "80px";
                     newCharacter.style.position = "absolute";
                     panel.appendChild(newCharacter);
 
@@ -143,8 +143,8 @@ readTextFile("./Data/course_names.json", 2);
                 	topimg.src = `./Images/UI/outlinehighend.png`;
                 	break;
                 }
-                	topimg.style.width = "54px";
-                	topimg.style.height = "70px";
+                	topimg.style.width = "67.5px";
+                	topimg.style.height = "87.5px";
                 	topimg.style.position = "absolute";
                 	topimg.style.zIndex = "10";
                 	panel.appendChild(topimg);
@@ -153,9 +153,9 @@ readTextFile("./Data/course_names.json", 2);
                     //item.className = 'inventoryCharacter';
                     item.src = `./Images/Items/` + charitem[i] + `.png`;
                     console.log(`./Images/Items/` + charitem[i] + `.png`);
-                    item.style.width = "30px";
-                    item.style.height = "30px";
-                    item.style.marginTop = "40px";
+                    item.style.width = "37.5px";
+                    item.style.height = "37.5px";
+                    item.style.marginTop = "50px";
                     item.style.position = "absolute";
                     item.style.zIndex = "11";
                     //item.style.border = "5px solid #FFF"
@@ -180,37 +180,38 @@ readTextFile("./Data/course_names.json", 2);
             	//values.selected.goodAt
             	let output = document.getElementById('inventoryshelves');
             	var shelfpanel = document.createElement('div');
-                	shelfpanel.style.width = "250px";
-                	shelfpanel.style.height = "350px";
+                	shelfpanel.style.width = "312.5px";
+                	shelfpanel.style.height = "437.5px";
                 	shelfpanel.style.display = "inline-block";
                 	shelfpanel.style.backgroundColor = "black";
                 	shelfpanel.style.backgroundImage = "url('./Images/UI/inventorybg.png')";
+                	shelfpanel.style.backgroundSize = "312.5px 437.5px";
                 	shelfpanel.style.overflowY = "scroll";
                 	shelfpanel.style.overflowX = "hidden";
 
                 	var namepanel = document.createElement('div');
-                	namepanel.style.width = "240px";
-                	namepanel.style.height = "36px";
-                	namepanel.style.marginTop = "-14px";
-                	namepanel.style.marginLeft = "3px";
+                	namepanel.style.width = "300px";
+                	namepanel.style.height = "45px";
+                	namepanel.style.marginTop = "-17.5px";
+                	namepanel.style.marginLeft = "3.75px";
                 	namepanel.style.backgroundImage = "url('./Images/UI/namebar.png')";
                 	shelfpanel.appendChild(namepanel);
 
 
                 	let toptext = document.createElement('p');
                     toptext.innerHTML = values[item].nameEng;
-                    toptext.style.marginTop = "15px";
+                    toptext.style.marginTop = "18.75px";
                     toptext.style.textAlign = "center";
                     toptext.style.fontFamily = "headername";
                     toptext.style.fontWeight = "bold";
-                    toptext.style.lineHeight = "35px";
+                    toptext.style.lineHeight = "43.75px";
 					toptext.style.color = "#005096";
                     namepanel.appendChild(toptext);
 
 
                     let characterpanel = document.createElement('div');
-                    characterpanel.style.width = "248px";
-                	characterpanel.style.height = "136px";
+                    characterpanel.style.width = "310px";
+                	characterpanel.style.height = "170px";
                 	characterpanel.style.marginTop = "0px";
                 	characterpanel.style.marginLeft = "0px";
                 	characterpanel.style.position = "relative";
@@ -228,19 +229,19 @@ readTextFile("./Data/course_names.json", 2);
                 	rarityimage.src = `./Images/UI/invhighend.png`;
                 	break;
                 	}
-                	rarityimage.style.width = "240px";
-                	rarityimage.style.height = "132px";
-                	rarityimage.style.marginLeft = "-152px";
+                	rarityimage.style.width = "300px";
+                	rarityimage.style.height = "165px";
+                	rarityimage.style.marginLeft = "-190px";
                 	rarityimage.style.marginTop = "0px";
                 	rarityimage.style.position = "absolute";
                 	rarityimage.style.zIndex = 1;
 
                 var panel = document.createElement('div');
-                	panel.style.width = "54px";
-                	panel.style.height = "70px";
+                	panel.style.width = "67.5px";
+                	panel.style.height = "87.5px";
                 	panel.style.display = "inline-block";
-                	panel.style.marginLeft = "100px";
-                	panel.style.marginTop = "35px";
+                	panel.style.marginLeft = "125px";
+                	panel.style.marginTop = "43.75px";
                 	panel.style.position = "relative";
                 	panel.style.zIndex = 2;
                 	let bottomimg = document.createElement('img');
@@ -255,8 +256,8 @@ readTextFile("./Data/course_names.json", 2);
                 	bottomimg.src = `./Images/UI/bghighend.png`;
                 	break;
                 	}
-                	bottomimg.style.width = "54px";
-                	bottomimg.style.height = "70px";
+                	bottomimg.style.width = "67.5px";
+                	bottomimg.style.height = "87.5px";
                 	bottomimg.style.position = "absolute";
                 	panel.appendChild(bottomimg);
 
@@ -264,7 +265,7 @@ readTextFile("./Data/course_names.json", 2);
                     newCharacter.className = 'inventoryCharacter';
                     newCharacter.src = `./Images/Character Icon/` + item + `.png`;
                     newCharacter.style.width = "auto";
-                    newCharacter.style.height = "64px";
+                    newCharacter.style.height = "80px";
                     newCharacter.style.position = "absolute";
                     panel.appendChild(newCharacter);
 
@@ -280,8 +281,8 @@ readTextFile("./Data/course_names.json", 2);
                 	topimg.src = `./Images/UI/outlinehighend.png`;
                 	break;
                 }
-                	topimg.style.width = "54px";
-                	topimg.style.height = "70px";
+                	topimg.style.width = "67.5px";
+                	topimg.style.height = "87.5px";
                 	topimg.style.position = "absolute";
                 	topimg.style.zIndex = "10";
                 	panel.appendChild(topimg);
@@ -290,9 +291,9 @@ readTextFile("./Data/course_names.json", 2);
                     //item.className = 'inventoryCharacter';
                     charaitem.src = `./Images/Items/` + charitem[i] + `.png`;
                     console.log(`./Images/Items/` + charitem[i] + `.png`);
-                    charaitem.style.width = "30px";
-                    charaitem.style.height = "30px";
-                    charaitem.style.marginTop = "40px";
+                    charaitem.style.width = "37.5px";
+                    charaitem.style.height = "37.5px";
+                    charaitem.style.marginTop = "50px";
                     charaitem.style.position = "absolute";
                     charaitem.style.zIndex = "11";
                     //item.style.border = "5px solid #FFF"
@@ -306,8 +307,8 @@ readTextFile("./Data/course_names.json", 2);
 
                     let whitebar3item = document.createElement('img');
                 	whitebar3item.src = `./Images/UI/3itemsbar.png`;
-                	whitebar3item.style.width = "240px";
-                	whitebar3item.style.height = "30px";
+                	whitebar3item.style.width = "300px";
+                	whitebar3item.style.height = "37.5px";
                 	whitebar3item.style.marginLeft = "5px";
                 	whitebar3item.style.marginTop = "-5px";
                 	//whitebar3item.style.position = "absolute";
@@ -315,10 +316,10 @@ readTextFile("./Data/course_names.json", 2);
 
 
                     var moreGoodAtPanel = document.createElement('div');
-                	moreGoodAtPanel.style.width = "240px";
-                	moreGoodAtPanel.style.height = "70px";
+                	moreGoodAtPanel.style.width = "300px";
+                	moreGoodAtPanel.style.height = "87.5px";
                 	moreGoodAtPanel.style.display = "inline-block";
-                	moreGoodAtPanel.style.marginLeft = "5px";
+                	moreGoodAtPanel.style.marginLeft = "6.25px";
                 	moreGoodAtPanel.style.marginTop = "0px";
                 	//moreGoodAtPanel.style.position = "absolute";
                 	//moreGoodAtPanel.style.backgroundColor = "blue";
@@ -326,8 +327,8 @@ readTextFile("./Data/course_names.json", 2);
 
                 	moreGoodAt.forEach((t, i) => {
                 	var coursePanel = document.createElement('div');
-                	coursePanel.style.width = "124px";
-                	coursePanel.style.height = "64px";
+                	coursePanel.style.width = "155px";
+                	coursePanel.style.height = "80px";
                 	coursePanel.style.display = "inline";
                 	coursePanel.style.marginLeft = "0px";
                 	coursePanel.style.marginTop = "0px";
@@ -335,9 +336,9 @@ readTextFile("./Data/course_names.json", 2);
                 	
                 	let courseimg = document.createElement('img');
                 	courseimg.src = `./Images/Course Image/${t}.png`;
-                	courseimg.style.width = "116px";
-                	courseimg.style.height = "58px";
-                	courseimg.style.marginLeft = "2px";
+                	courseimg.style.width = "145px";
+                	courseimg.style.height = "72.5px";
+                	courseimg.style.marginLeft = "2.5px";
                 	courseimg.style.marginTop = "0px";
                 	//courseimg.style.position = "absolute";
                 	coursePanel.appendChild(courseimg);
@@ -347,16 +348,16 @@ readTextFile("./Data/course_names.json", 2);
                     //coursetxt.style.marginTop = "15px";
                     coursetxt.style.textAlign = "center";
                     coursetxt.style.fontFamily = "tour";
-                    coursetxt.style.fontSize = "8.5px";
+                    coursetxt.style.fontSize = "10.625px";
                     //coursetxt.style.fontWeight = "bold";
                     coursetxt.style.position = "absolute";
                     coursetxt.style.display = "inline";
                     coursetxt.style.color = "white";
-                    coursetxt.style.marginLeft = "-118px";
-                	coursetxt.style.top = "-50.0px";
-                	coursetxt.style.width = "120px";
-                	coursetxt.style.height = "16px";
-                	coursetxt.style.lineHeight = "10px";
+                    coursetxt.style.marginLeft = "-147.5px";
+                	coursetxt.style.top = "-65px";
+                	coursetxt.style.width = "150px";
+                	coursetxt.style.height = "20px";
+                	coursetxt.style.lineHeight = "12.5px";
                     coursePanel.appendChild(coursetxt);
 
 
@@ -373,19 +374,19 @@ readTextFile("./Data/course_names.json", 2);
 
                 	let whitebar2item = document.createElement('img');
                 	whitebar2item.src = `./Images/UI/2itemsbar.png`;
-                	whitebar2item.style.width = "240px";
-                	whitebar2item.style.height = "30px";
-                	whitebar2item.style.marginLeft = "5px";
-                	whitebar2item.style.marginTop = "-10px";
+                	whitebar2item.style.width = "300px";
+                	whitebar2item.style.height = "37.5px";
+                	whitebar2item.style.marginLeft = "6.25px";
+                	whitebar2item.style.marginTop = "-12.5px";
                 	whitebar2item.style.position = "relative";
                 	//shelfpanel.appendChild(whitebar2item);
 
 
                     var goodAtPanel = document.createElement('div');
-                	goodAtPanel.style.width = "240px";
-                	goodAtPanel.style.height = "70px";
+                	goodAtPanel.style.width = "300px";
+                	goodAtPanel.style.height = "87.5px";
                 	goodAtPanel.style.display = "inline-block";
-                	goodAtPanel.style.marginLeft = "5px";
+                	goodAtPanel.style.marginLeft = "6.25px";
                 	goodAtPanel.style.marginTop = "0px";
                 	//moreGoodAtPanel.style.position = "absolute";
                 	//moreGoodAtPanel.style.backgroundColor = "blue";
@@ -393,8 +394,8 @@ readTextFile("./Data/course_names.json", 2);
 
                 	goodAt.forEach((t, i) => {
                 	var coursePanel = document.createElement('div');
-                	coursePanel.style.width = "124px";
-                	coursePanel.style.height = "64px";
+                	coursePanel.style.width = "155px";
+                	coursePanel.style.height = "80px";
                 	coursePanel.style.display = "inline";
                 	coursePanel.style.marginLeft = "0px";
                 	coursePanel.style.marginTop = "0px";
@@ -402,9 +403,9 @@ readTextFile("./Data/course_names.json", 2);
                 	
                 	let courseimg = document.createElement('img');
                 	courseimg.src = `./Images/Course Image/${t}.png`;
-                	courseimg.style.width = "116px";
-                	courseimg.style.height = "58px";
-                	courseimg.style.marginLeft = "2px";
+                	courseimg.style.width = "145px";
+                	courseimg.style.height = "72.5px";
+                	courseimg.style.marginLeft = "2.5px";
                 	courseimg.style.marginTop = "0px";
                 	//courseimg.style.position = "absolute";
                 	coursePanel.appendChild(courseimg);
@@ -414,16 +415,16 @@ readTextFile("./Data/course_names.json", 2);
                     //coursetxt.style.marginTop = "15px";
                     coursetxt.style.textAlign = "center";
                     coursetxt.style.fontFamily = "tour";
-                    coursetxt.style.fontSize = "8.5px";
+                    coursetxt.style.fontSize = "10.625px";
                     //coursetxt.style.fontWeight = "bold";
                     coursetxt.style.position = "absolute";
                     coursetxt.style.display = "inline";
                     coursetxt.style.color = "white";
-                    coursetxt.style.marginLeft = "-118px";
-                	coursetxt.style.marginTop = "3.0px";
-                	coursetxt.style.width = "120px";
-                	coursetxt.style.height = "16px";
-                	coursetxt.style.lineHeight = "10px";
+                    coursetxt.style.marginLeft = "-147.5px";
+                	coursetxt.style.top = "-65px";
+                	coursetxt.style.width = "150px";
+                	coursetxt.style.height = "20px";
+                	coursetxt.style.lineHeight = "12.5px";
                     coursePanel.appendChild(coursetxt);
 
 
