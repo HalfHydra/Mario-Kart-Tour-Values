@@ -68,7 +68,7 @@ var charrarity = ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2
 var charitem = ["22","16","16","16","22","30","31","30","30","22","16","15","19","31","26","12","26","20","26","25","25","15","12","22","20","18","19","33","30","18","31","31","17","32","12","21","26","21","27","22","14","12","21","35","12","35","17","31","35","36","15","36","12","36","17","20","36","32","35","15","14","14","26","14","25","17","15","20","31","27","32","26","17","25","36","15","27","31","12","25","18","32","35","28","36","32","36","33","28","32","12","17","32","23","28"];
 var viewshelvechar = [];
 
-function readTextFile(file)
+function readTextFile(file, unit)
 {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -79,14 +79,23 @@ function readTextFile(file)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                values = JSON.parse(allText);
-                console.log(values);
+                switch(unit){
+                	case 1:
+                	values = JSON.parse(allText);
+                	console.log(values);
+                	break;
+                	case 2:
+                	coursenames = JSON.parse(allText);
+                	console.log(coursenames);
+                	break;
+                }
             }
         }
     }
     rawFile.send(null);
 }
-readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
+readTextFile("./Data/super_mario_kart_tour_preferred_courses.json", 1);
+readTextFile("./Data/course_names.json", 2);
 
 			let makeCharacters = () => {
                 let output = document.getElementById('inventory');
@@ -197,9 +206,17 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                     toptext.style.textAlign = "center";
                     toptext.style.fontFamily = "Tahoma";
                     toptext.style.fontWeight = "bold";
-                    toptext.style.lineHeight = "30px";
-                    //toptext.style.verticalAlign = "middle";
+                    toptext.style.lineHeight = "35px";
                     namepanel.appendChild(toptext);
+
+
+                    let characterpanel = document.createElement('div');
+                    characterpanel.style.width = "248px";
+                	characterpanel.style.height = "136px";
+                	characterpanel.style.marginTop = "0px";
+                	characterpanel.style.marginLeft = "0px";
+                	characterpanel.style.position = "relative";
+
 
                     let rarityimage = document.createElement('img');
                     switch(charrarity[i]){
@@ -215,17 +232,19 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                 	}
                 	rarityimage.style.width = "248px";
                 	rarityimage.style.height = "132px";
-                	rarityimage.style.marginLeft = "1px";
-                	rarityimage.style.marginTop = "-5px";
-                	shelfpanel.appendChild(rarityimage);
+                	rarityimage.style.marginLeft = "-152px";
+                	rarityimage.style.marginTop = "0px";
+                	rarityimage.style.position = "absolute";
+                	rarityimage.style.zIndex = 1;
 
                 var panel = document.createElement('div');
                 	panel.style.width = "54px";
                 	panel.style.height = "70px";
                 	panel.style.display = "inline-block";
                 	panel.style.marginLeft = "100px";
-                	panel.style.marginTop = "-250px";
+                	panel.style.marginTop = "35px";
                 	panel.style.position = "relative";
+                	panel.style.zIndex = 2;
                 	let bottomimg = document.createElement('img');
                 	switch(charrarity[i]){
                 	case "1":
@@ -281,14 +300,18 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                     //item.style.border = "5px solid #FFF"
                     panel.appendChild(charaitem);
 
-                    shelfpanel.appendChild(panel);
+                    characterpanel.appendChild(panel);
+                    characterpanel.appendChild(rarityimage);
+
+                    //comment this for no charcater image
+                    shelfpanel.appendChild(characterpanel);
 
                     let whitebar3item = document.createElement('img');
                 	whitebar3item.src = `./Images/UI/3itemsbar.png`;
                 	whitebar3item.style.width = "240px";
                 	whitebar3item.style.height = "30px";
                 	whitebar3item.style.marginLeft = "5px";
-                	whitebar3item.style.marginTop = "5px";
+                	whitebar3item.style.marginTop = "-5px";
                 	//whitebar3item.style.position = "absolute";
                 	shelfpanel.appendChild(whitebar3item);
 
@@ -310,7 +333,7 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                 	coursePanel.style.display = "inline";
                 	coursePanel.style.marginLeft = "0px";
                 	coursePanel.style.marginTop = "0px";
-                	//coursePanel.style.position = "absolute";
+                	coursePanel.style.position = "relative";
                 	
                 	let courseimg = document.createElement('img');
                 	courseimg.src = `./Images/Course Image/${t}.png`;
@@ -321,13 +344,97 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json");
                 	//courseimg.style.position = "absolute";
                 	coursePanel.appendChild(courseimg);
 
+                	let coursetxt = document.createElement('p');
+                	coursetxt.innerHTML = coursenames[t];
+                    //coursetxt.style.marginTop = "15px";
+                    coursetxt.style.textAlign = "center";
+                    //coursetxt.style.fontFamily = "Tahoma";
+                    coursetxt.style.fontSize = "10px";
+                    //coursetxt.style.fontWeight = "bold";
+                    coursetxt.style.position = "absolute";
+                    coursetxt.style.display = "inline";
+                    coursetxt.style.color = "white";
+                    coursetxt.style.marginLeft = "-118px";
+                	coursetxt.style.marginTop = "0px";
+                	coursetxt.style.width = "120px";
+                	coursetxt.style.height = "16px";
+                    coursePanel.appendChild(coursetxt);
+
 
 
                 	moreGoodAtPanel.appendChild(coursePanel);
                 	});
 
 
+
+
+
+
+
+
+                	let whitebar2item = document.createElement('img');
+                	whitebar2item.src = `./Images/UI/2itemsbar.png`;
+                	whitebar2item.style.width = "240px";
+                	whitebar2item.style.height = "30px";
+                	whitebar2item.style.marginLeft = "5px";
+                	whitebar2item.style.marginTop = "-10px";
+                	whitebar2item.style.position = "relative";
+                	//shelfpanel.appendChild(whitebar2item);
+
+
+                    var goodAtPanel = document.createElement('div');
+                	goodAtPanel.style.width = "240px";
+                	goodAtPanel.style.height = "70px";
+                	goodAtPanel.style.display = "inline-block";
+                	goodAtPanel.style.marginLeft = "5px";
+                	goodAtPanel.style.marginTop = "0px";
+                	//moreGoodAtPanel.style.position = "absolute";
+                	//moreGoodAtPanel.style.backgroundColor = "blue";
+
+
+                	goodAt.forEach((t, i) => {
+                	var coursePanel = document.createElement('div');
+                	coursePanel.style.width = "124px";
+                	coursePanel.style.height = "64px";
+                	coursePanel.style.display = "inline";
+                	coursePanel.style.marginLeft = "0px";
+                	coursePanel.style.marginTop = "0px";
+                	coursePanel.style.position = "relative";
+                	
+                	let courseimg = document.createElement('img');
+                	courseimg.src = `./Images/Course Image/${t}.png`;
+                	courseimg.style.width = "116px";
+                	courseimg.style.height = "58px";
+                	courseimg.style.marginLeft = "2px";
+                	courseimg.style.marginTop = "0px";
+                	//courseimg.style.position = "absolute";
+                	coursePanel.appendChild(courseimg);
+
+                	let coursetxt = document.createElement('p');
+                	coursetxt.innerHTML = coursenames[t];
+                    //coursetxt.style.marginTop = "15px";
+                    coursetxt.style.textAlign = "center";
+                    //coursetxt.style.fontFamily = "Tahoma";
+                    coursetxt.style.fontSize = "10px";
+                    //coursetxt.style.fontWeight = "bold";
+                    coursetxt.style.position = "absolute";
+                    coursetxt.style.display = "inline";
+                    coursetxt.style.color = "white";
+                    coursetxt.style.marginLeft = "-118px";
+                	coursetxt.style.marginTop = "0px";
+                	coursetxt.style.width = "120px";
+                	coursetxt.style.height = "16px";
+                    coursePanel.appendChild(coursetxt);
+
+
+
+                	goodAtPanel.appendChild(coursePanel);
+                	});
+
+
                 	shelfpanel.appendChild(moreGoodAtPanel);
+                	shelfpanel.appendChild(whitebar2item);
+                	shelfpanel.appendChild(goodAtPanel);
 
                     output.appendChild(shelfpanel);
 
