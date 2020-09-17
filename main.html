@@ -4,9 +4,9 @@
 <head>
 <style>
 @font-face {font-family: tour;src: url('./Font/nintendoP_NTLG-NR-DB_003.ttf');}
-@font-face {font-family: try6;src: url('./Font/DB003FDFD.otf');}
-
-::-webkit-scrollbar {
+@font-face {font-family: headername;src: url('./Font/nintendoP_NTLG-NR-UB_003.ttf');}
+</style>
+<!--::-webkit-scrollbar {
   width: 15px;
 }
 ::-webkit-scrollbar-track {
@@ -21,7 +21,7 @@
 /*::-webkit-scrollbar-thumb:hover {
   background: #5a677f; 
 }*/
-</style>
+</style>-->
 </head>
 <body>
 <h2>Testing Unit</h2>
@@ -180,7 +180,7 @@ readTextFile("./Data/course_names.json", 2);
             	//values.selected.goodAt
             	let output = document.getElementById('inventoryshelves');
             	var shelfpanel = document.createElement('div');
-                	shelfpanel.style.width = "270px";
+                	shelfpanel.style.width = "250px";
                 	shelfpanel.style.height = "350px";
                 	shelfpanel.style.display = "inline-block";
                 	shelfpanel.style.backgroundColor = "black";
@@ -201,7 +201,7 @@ readTextFile("./Data/course_names.json", 2);
                     toptext.innerHTML = values[item].nameEng;
                     toptext.style.marginTop = "15px";
                     toptext.style.textAlign = "center";
-                    toptext.style.fontFamily = "Tahoma";
+                    toptext.style.fontFamily = "headername";
                     toptext.style.fontWeight = "bold";
                     toptext.style.lineHeight = "35px";
 					toptext.style.color = "#005096";
@@ -228,7 +228,7 @@ readTextFile("./Data/course_names.json", 2);
                 	rarityimage.src = `./Images/UI/invhighend.png`;
                 	break;
                 	}
-                	rarityimage.style.width = "248px";
+                	rarityimage.style.width = "240px";
                 	rarityimage.style.height = "132px";
                 	rarityimage.style.marginLeft = "-152px";
                 	rarityimage.style.marginTop = "0px";
@@ -353,7 +353,7 @@ readTextFile("./Data/course_names.json", 2);
                     coursetxt.style.display = "inline";
                     coursetxt.style.color = "white";
                     coursetxt.style.marginLeft = "-118px";
-                	coursetxt.style.marginTop = "3.0px";
+                	coursetxt.style.top = "-50.0px";
                 	coursetxt.style.width = "120px";
                 	coursetxt.style.height = "16px";
                 	coursetxt.style.lineHeight = "10px";
