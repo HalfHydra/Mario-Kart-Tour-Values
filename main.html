@@ -1,15 +1,16 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <style>
 @font-face {font-family: tour;src: url('./Font/nintendoP_NTLG-NR-DB_003.ttf');}
-@font-face {font-family: try6;src: url('./Font/DB003FDFD.otf') format("opentype");}
+@font-face {font-family: try6;src: url('./Font/DB003FDFD.otf');}
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 15px;
 }
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  /*box-shadow: inset 0 0 5px grey; */
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
@@ -17,9 +18,9 @@
   background: #b5ceff;
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover {
+/*::-webkit-scrollbar-thumb:hover {
   background: #5a677f; 
-}
+}*/
 </style>
 </head>
 <body>
@@ -34,7 +35,7 @@
 	<h3 style="font-family: tour">Inventory</h3>
 </div>
 
-<div id="inventoryshelves" style="display:block;width: 500px">
+<div id="inventoryshelves" style="display:block;width: 810px">
 	</div>
 <div id="manager">
 	<h3>Manager</h3>
@@ -179,7 +180,7 @@ readTextFile("./Data/course_names.json", 2);
             	//values.selected.goodAt
             	let output = document.getElementById('inventoryshelves');
             	var shelfpanel = document.createElement('div');
-                	shelfpanel.style.width = "250px";
+                	shelfpanel.style.width = "270px";
                 	shelfpanel.style.height = "350px";
                 	shelfpanel.style.display = "inline-block";
                 	shelfpanel.style.backgroundColor = "black";
@@ -352,9 +353,10 @@ readTextFile("./Data/course_names.json", 2);
                     coursetxt.style.display = "inline";
                     coursetxt.style.color = "white";
                     coursetxt.style.marginLeft = "-118px";
-                	coursetxt.style.marginTop = "3.5px";
+                	coursetxt.style.marginTop = "3.0px";
                 	coursetxt.style.width = "120px";
                 	coursetxt.style.height = "16px";
+                	coursetxt.style.lineHeight = "10px";
                     coursePanel.appendChild(coursetxt);
 
 
@@ -418,9 +420,10 @@ readTextFile("./Data/course_names.json", 2);
                     coursetxt.style.display = "inline";
                     coursetxt.style.color = "white";
                     coursetxt.style.marginLeft = "-118px";
-                	coursetxt.style.marginTop = "3.5px";
+                	coursetxt.style.marginTop = "3.0px";
                 	coursetxt.style.width = "120px";
                 	coursetxt.style.height = "16px";
+                	coursetxt.style.lineHeight = "10px";
                     coursePanel.appendChild(coursetxt);
 
 
