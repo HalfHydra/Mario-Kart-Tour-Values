@@ -30,7 +30,7 @@
 	width: 37.5px;height: 37.5px;margin-top: 50px;position: absolute;z-index: 11;
 }
 .shelfpanel {
-	width: 320px;height: 437.5px;display: inline-block;background-color: black; background-image: url('./Images/UI/inventorybg.png');background-size: 312.5px 437.5px;overflow-y: scroll; overflow-x: hidden;
+	width: 320px;height: 437.5px;display: inline-block;background-color: black; background-image: url('./Images/UI/inventorybg.png');background-size: 312.5px 437.5px;overflow-y: scroll; overflow-x: hidden;text-align: initial;
 }
 .xbtn {
 	width: 35px; height: 35px;position: absolute;z-index: 15;margin-left: 260px;margin-top: -52px;
@@ -64,7 +64,7 @@
 	width: 145px;height: 72.5px;margin-left: 2.5px;/*margin-top: 0px;*/
 }
 .coursetxt {
-	width: 150px;height: 20px;text-align: center;font-family: tour;font-size:10.625px;line-height: 12.5px;position: absolute;display: inline;color: white;margin-left: -147.5px;margin-top: -65px;
+	width: 150px;height: 20px;text-align: center;font-family: tour;font-size:10.625px;line-height: 12.5px;position: absolute;display: inline;color: white;margin-left: -147.5px;top: -65px;
 }
 .whitebar2item {
 	width: 300px;height: 37.5px;margin-left:6.25px;margin-top:-12.5px;position: relative;
@@ -126,7 +126,7 @@
 	<div id="inventoryglide"></div>
 </div>
 
-<div id="inventoryshelves" style="display:block;width: 1000px">
+<div id="inventoryshelves" style="display:block;width: 1000px;text-align: center;">
 	</div>
 </div>
 
@@ -188,7 +188,11 @@ function readTextFile(file, unit)
 readTextFile("./Data/super_mario_kart_tour_preferred_courses.json", 1);
 readTextFile("./Data/course_names.json", 2);
 
+
+
+//INVENTORY
 			let makeCharacters = () => {
+				document.getElementById('inventorychar').innerHTML = "";
                 let output = document.getElementById('inventorychar');
                 characterid.forEach((t, i) => {
                 	var panel = document.createElement('div');
@@ -292,16 +296,11 @@ readTextFile("./Data/course_names.json", 2);
                         viewshelvechar.splice(viewshelvechar.indexOf(item), 1);
                 		document.getElementById(`invtopimgselected${selected}`).className = `topimg`;
                     });
-                	//xbtn.style.right = "1px";
                 	namepanel.appendChild(xbtn);
 
 
                     let characterpanel = document.createElement('div');
-                    characterpanel.style.width = "310px";
-                	characterpanel.style.height = "170px";
-                	characterpanel.style.marginTop = "0px";
-                	characterpanel.style.marginLeft = "0px";
-                	characterpanel.style.position = "relative";
+                    characterpanel.className = 'characterpanel';
 
 
                     let rarityimage = document.createElement('img');
@@ -316,21 +315,10 @@ readTextFile("./Data/course_names.json", 2);
                 	rarityimage.src = `./Images/UI/invhighend.png`;
                 	break;
                 	}
-                	rarityimage.style.width = "300px";
-                	rarityimage.style.height = "165px";
-                	rarityimage.style.marginLeft = "-190px";
-                	rarityimage.style.marginTop = "0px";
-                	rarityimage.style.position = "absolute";
-                	rarityimage.style.zIndex = 1;
+                	rarityimage.className = 'rarityimg';
 
                 var panel = document.createElement('div');
-                	panel.style.width = "67.5px";
-                	panel.style.height = "87.5px";
-                	panel.style.display = "inline-block";
-                	panel.style.marginLeft = "125px";
-                	panel.style.marginTop = "43.75px";
-                	panel.style.position = "relative";
-                	panel.style.zIndex = 2;
+                	panel.className = 'ckgpanel2';
                 	let bottomimg = document.createElement('img');
                 	switch(charrarity[i]){
                 	case "1":
@@ -343,17 +331,12 @@ readTextFile("./Data/course_names.json", 2);
                 	bottomimg.src = `./Images/UI/bghighend.png`;
                 	break;
                 	}
-                	bottomimg.style.width = "67.5px";
-                	bottomimg.style.height = "87.5px";
-                	bottomimg.style.position = "absolute";
+                	bottomimg.className = 'bottomimg'
                 	panel.appendChild(bottomimg);
 
                     let newCharacter = document.createElement('img');
-                    newCharacter.className = 'inventoryCharacter';
+                    newCharacter.className = 'newCharacter';
                     newCharacter.src = `./Images/Character Icon/` + item + `.png`;
-                    newCharacter.style.width = "auto";
-                    newCharacter.style.height = "80px";
-                    newCharacter.style.position = "absolute";
                     panel.appendChild(newCharacter);
 
                     let topimg = document.createElement('img');
@@ -368,22 +351,12 @@ readTextFile("./Data/course_names.json", 2);
                 	topimg.src = `./Images/UI/outlinehighend.png`;
                 	break;
                 }
-                	topimg.style.width = "67.5px";
-                	topimg.style.height = "87.5px";
-                	topimg.style.position = "absolute";
-                	topimg.style.zIndex = "10";
+                	topimg.className = 'topimg';
                 	panel.appendChild(topimg);
 
                 	let charaitem = document.createElement('img');
-                    //item.className = 'inventoryCharacter';
                     charaitem.src = `./Images/Items/` + charitem[i] + `.png`;
-                    console.log(`./Images/Items/` + charitem[i] + `.png`);
-                    charaitem.style.width = "37.5px";
-                    charaitem.style.height = "37.5px";
-                    charaitem.style.marginTop = "50px";
-                    charaitem.style.position = "absolute";
-                    charaitem.style.zIndex = "11";
-                    //item.style.border = "5px solid #FFF"
+                    charaitem.className = 'itemboxitem';
                     panel.appendChild(charaitem);
 
                     characterpanel.appendChild(panel);
@@ -394,122 +367,55 @@ readTextFile("./Data/course_names.json", 2);
 
                     let whitebar3item = document.createElement('img');
                 	whitebar3item.src = `./Images/UI/3itemsbar.png`;
-                	whitebar3item.style.width = "300px";
-                	whitebar3item.style.height = "37.5px";
-                	whitebar3item.style.marginLeft = "5px";
-                	whitebar3item.style.marginTop = "-5px";
-                	//whitebar3item.style.position = "absolute";
+                	whitebar3item.className = 'whitebar3item';
                 	shelfpanel.appendChild(whitebar3item);
 
 
                     var moreGoodAtPanel = document.createElement('div');
-                	moreGoodAtPanel.style.width = "300px";
-                	moreGoodAtPanel.style.height = "87.5px";
-                	moreGoodAtPanel.style.display = "inline-block";
-                	moreGoodAtPanel.style.marginLeft = "6.25px";
-                	moreGoodAtPanel.style.marginTop = "0px";
-                	//moreGoodAtPanel.style.position = "absolute";
-                	//moreGoodAtPanel.style.backgroundColor = "blue";
+                	moreGoodAtPanel.className = 'goodAtPanel';
 
 
                 	moreGoodAt.forEach((t, i) => {
                 	var coursePanel = document.createElement('div');
-                	coursePanel.style.width = "155px";
-                	coursePanel.style.height = "80px";
-                	coursePanel.style.display = "inline";
-                	coursePanel.style.marginLeft = "0px";
-                	coursePanel.style.marginTop = "0px";
-                	coursePanel.style.position = "relative";
+                	coursePanel.className = 'coursepanel';
                 	
                 	let courseimg = document.createElement('img');
                 	courseimg.src = `./Images/Course Image/${t}.png`;
-                	courseimg.style.width = "145px";
-                	courseimg.style.height = "72.5px";
-                	courseimg.style.marginLeft = "2.5px";
-                	courseimg.style.marginTop = "0px";
-                	//courseimg.style.position = "absolute";
+                	courseimg.className = 'courseimg';
                 	coursePanel.appendChild(courseimg);
 
                 	let coursetxt = document.createElement('p');
                 	coursetxt.innerHTML = coursenames[t];
-                    //coursetxt.style.marginTop = "15px";
-                    coursetxt.style.textAlign = "center";
-                    coursetxt.style.fontFamily = "tour";
-                    coursetxt.style.fontSize = "10.625px";
-                    //coursetxt.style.fontWeight = "bold";
-                    coursetxt.style.position = "absolute";
-                    coursetxt.style.display = "inline";
-                    coursetxt.style.color = "white";
-                    coursetxt.style.marginLeft = "-147.5px";
-                	coursetxt.style.top = "-65px";
-                	coursetxt.style.width = "150px";
-                	coursetxt.style.height = "20px";
-                	coursetxt.style.lineHeight = "12.5px";
+                    coursetxt.className = 'coursetxt';
                     coursePanel.appendChild(coursetxt);
-
-
 
                 	moreGoodAtPanel.appendChild(coursePanel);
                 	});
 
                 	let whitebar2item = document.createElement('img');
                 	whitebar2item.src = `./Images/UI/2itemsbar.png`;
-                	whitebar2item.style.width = "300px";
-                	whitebar2item.style.height = "37.5px";
-                	whitebar2item.style.marginLeft = "6.25px";
-                	whitebar2item.style.marginTop = "-12.5px";
-                	whitebar2item.style.position = "relative";
-                	//shelfpanel.appendChild(whitebar2item);
-
+                	whitebar2item.className = 'whitebar2item';
 
                     var goodAtPanel = document.createElement('div');
-                	goodAtPanel.style.width = "300px";
-                	goodAtPanel.style.height = "87.5px";
-                	goodAtPanel.style.display = "inline-block";
-                	goodAtPanel.style.marginLeft = "6.25px";
-                	goodAtPanel.style.marginTop = "0px";
-                	//moreGoodAtPanel.style.position = "absolute";
-                	//moreGoodAtPanel.style.backgroundColor = "blue";
+                	goodAtPanel.className = 'goodAtPanel';
 
 
                 	goodAt.forEach((t, i) => {
                 	var coursePanel = document.createElement('div');
-                	coursePanel.style.width = "155px";
-                	coursePanel.style.height = "80px";
-                	coursePanel.style.display = "inline";
-                	coursePanel.style.marginLeft = "0px";
-                	coursePanel.style.marginTop = "0px";
-                	coursePanel.style.position = "relative";
+                	coursePanel.className = 'coursepanel';
                 	
                 	let courseimg = document.createElement('img');
                 	courseimg.src = `./Images/Course Image/${t}.png`;
-                	courseimg.style.width = "145px";
-                	courseimg.style.height = "72.5px";
-                	courseimg.style.marginLeft = "2.5px";
-                	courseimg.style.marginTop = "0px";
-                	//courseimg.style.position = "absolute";
+                	courseimg.className = 'courseimg'
                 	coursePanel.appendChild(courseimg);
 
                 	let coursetxt = document.createElement('p');
                 	coursetxt.innerHTML = coursenames[t];
-                    //coursetxt.style.marginTop = "15px";
-                    coursetxt.style.textAlign = "center";
-                    coursetxt.style.fontFamily = "tour";
-                    coursetxt.style.fontSize = "10.625px";
-                    //coursetxt.style.fontWeight = "bold";
-                    coursetxt.style.position = "absolute";
-                    coursetxt.style.display = "inline";
-                    coursetxt.style.color = "white";
-                    coursetxt.style.marginLeft = "-147.5px";
-                	coursetxt.style.top = "-65px";
-                	coursetxt.style.width = "150px";
-                	coursetxt.style.height = "20px";
-                	coursetxt.style.lineHeight = "12.5px";
+                    coursetxt.className = 'coursetxt';
                     coursePanel.appendChild(coursetxt);
 
                 	goodAtPanel.appendChild(coursePanel);
                 	});
-
 
                 	shelfpanel.appendChild(moreGoodAtPanel);
                 	shelfpanel.appendChild(whitebar2item);
@@ -528,7 +434,7 @@ readTextFile("./Data/course_names.json", 2);
             function removeShelfPanel(id){
             	document.getElementById(`shelfpanel${id}`).remove();
             }
-
+            changemode(1);
             function changemode(mode){
             	switch(mode){
             		case 1:
@@ -539,6 +445,7 @@ readTextFile("./Data/course_names.json", 2);
             		document.getElementById('settings').style.display = "none";
             		break;
             		case 2:
+            		makeCharacters();
             		document.getElementById('data').style.display = "none";
             		document.getElementById('inventory').style.display = "block";
             		document.getElementById('courses').style.display = "none";
@@ -568,8 +475,6 @@ readTextFile("./Data/course_names.json", 2);
             		break;
             	}
             }
-
-            makeCharacters();
 </script>
 
 </body>	
