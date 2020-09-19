@@ -5,6 +5,70 @@
 <style>
 @font-face {font-family: tour;src: url('./Font/nintendoP_NTLG-NR-DB_003.ttf');}
 @font-face {font-family: headername;src: url('./Font/nintendoP_NTLG-NR-UB_003.ttf');}
+.inventory  {
+	background: url('./Images/UI/mktpattern.png') repeat;
+}
+.main {
+	background: #9dd7ef;background-image: url('./Images/UI/background.png'), linear-gradient(to bottom, #87CEFA 0%, #FFFFFF 100%);background-repeat: no-repeat;background-attachment: fixed;background-position: center bottom;
+}
+.ckgpanel {
+	width: 67.5px;height: 87.5px;display: inline-block;
+}
+.bottomimg {
+	width: 67.5px;height: 87.5px;position: absolute;
+}
+.newCharacter {
+	width: auto; height: 80px;position: absolute; 
+}
+.topimg {
+	width: 67.5px;height: 87.5px;position: absolute;z-index: 10;
+}
+.invtopimgselected {
+	width: 67.5px;height: 87.5px;position: absolute;z-index: 10;background: rgba(0,255,62,0.35);
+}
+.itemboxitem {
+	width: 37.5px;height: 37.5px;margin-top: 50px;position: absolute;z-index: 11;
+}
+.shelfpanel {
+	width: 320px;height: 437.5px;display: inline-block;background-color: black; background-image: url('./Images/UI/inventorybg.png');background-size: 312.5px 437.5px;overflow-y: scroll; overflow-x: hidden;
+}
+.xbtn {
+	width: 35px; height: 35px;position: absolute;z-index: 15;margin-left: 260px;margin-top: -52px;
+	filter: drop-shadow(0px 0px 5px #222);
+}
+.namepanel {
+	width: 300px;height:45px;margin-top: -17.5px;margin-left:3.75px;background-image:url('./Images/UI/namebar.png');
+}
+.toptext {
+	margin-top: 18.75px;text-align: center;font-family: headername;font-weight: bold; line-height: 43.75px;color: #005096;
+}
+.characterpanel {
+	width: 310px;height: 170px;/*margin-top: 0px;margin-left: 0px;*/position: relative;
+}
+.rarityimg {
+	width: 300px;height: 165px;margin-left: -190px;/*margin-top: 0;*/position: absolute;z-index: 1;
+}
+.ckgpanel2 {
+	width: 67.5px;height: 87.5px;display: inline-block;margin-left: 125px;margin-top: 43.75px;position:relative;z-index: 2; 
+}
+.whitebar3item {
+	width: 300px;height: 37.5px;margin-left: 5px;margin-top: -5px;
+}
+.goodAtPanel {
+	width: 300px;height: 87.5px;display: inline-block;margin-left: 6.25px;/*margin-top: 0px;*/
+}
+.coursepanel {
+	width: 155px;height: 80px; display: inline;/*margin-left: 0px;margin-top: 0px;*/position: relative;
+}
+.courseimg {
+	width: 145px;height: 72.5px;margin-left: 2.5px;/*margin-top: 0px;*/
+}
+.coursetxt {
+	width: 150px;height: 20px;text-align: center;font-family: tour;font-size:10.625px;line-height: 12.5px;position: absolute;display: inline;color: white;margin-left: -147.5px;margin-top: -65px;
+}
+.whitebar2item {
+	width: 300px;height: 37.5px;margin-left:6.25px;margin-top:-12.5px;position: relative;
+}
 </style>
 <!--::-webkit-scrollbar {
   width: 15px;
@@ -23,36 +87,62 @@
 }*/
 </style>-->
 </head>
-<body style="background: #9dd7ef;background-image: url('./Images/UI/background.png'), linear-gradient(to bottom, #87CEFA 0%, #FFFFFF 100%);background-repeat: no-repeat;background-attachment: fixed;background-position: center bottom;">
-<h2>Testing Unit</h2>
-<!--<div id="crowd" style="position: fixed;top: 600px;left: 250px;">
-<div id="background" style="position: fixed;z-index:-100;bottom:0px;right: 0;left: 0;margin: 0px auto;"
-	<img src="./Images/UI/crowd.png" style="position:absolute;"> </img>
-	</div>-->
+<body class="main" style="">
+<div style="margin: 0px auto;width: 540px;right: 0;left: 0;"> <!--<h2>Testing Unit</h2>-->
+
+<div style="width: 100px;height: 120px;display: inline-block;">
+	<img src="./Images/UI/cupdata.png" style="width: 100px;height: 100px;" onclick="changemode(1)">  </img>
+	<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Enter Data </p>
+</div>
+<div style="width: 100px;height: 120px;display: inline-block;">
+	<img src="./Images/UI/cupinventory.png" style="width: 100px;height: 100px;" onclick="changemode(2)"> </img>
+	<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Inventory </p>
+</div>
+<div style="width: 100px;height: 120px;display: inline-block;">
+	<img src="./Images/UI/cupcourse.png" style="width: 100px;height: 100px;" onclick="changemode(3)"> </img>
+	<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Courses </p>
+</div>
+<div style="width: 100px;height: 120px;display: inline-block;">
+	<img src="./Images/UI/cupvalues.png" style="width: 100px;height: 100px;" onclick="changemode(4)"> </img>
+	<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Missing </p>
+</div>
+<div style="width: 100px;height: 120px;display: inline-block;">
+	<img src="./Images/UI/cupsettings.png" style="width: 100px;height: 100px;" onclick="changemode(5)"> </img>
+	<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Settings </p>
+</div>
+</div>
+
 <div style="margin: 0px auto;width: 1000px;right: 0;left: 0;" id="content">
 <div id="data">
 	<h3 style="font-family: try6">Data</h3>
 
 </div>
 
-<div id="inventory" style="display:block;width: 540px;right: 0;left: 0;margin: 0px auto;">
+<div id="inventory" style="right: 0;left: 0;margin: 0px auto;">
+<div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 540px;right: 0;left: 0;margin: 0px auto;">
 	<h3 style="font-family: tour">Inventory</h3>
+	<div id="inventorychar" style=""></div>
+	<div id="inventorykart"></div>
+	<div id="inventoryglide"></div>
 </div>
 
 <div id="inventoryshelves" style="display:block;width: 1000px">
 	</div>
-<div id="manager">
-	<h3>Manager</h3>
-<img src="./Images/Course Image/SGB.png"> </img>
+</div>
+
+<div id="courses">
+	<h3>Courses</h3>
 </div>
 
 <div id="missing">
 	<h3>Missing</h3>
-
 </div>
 
-<div id="pipe">
+<!--<div id="pipe">
 	<h3>Pipe</h3>
+</div>-->
+<div id="settings">
+	<h3>Settings</h3>
 </div>
 
 </div>
@@ -99,12 +189,11 @@ readTextFile("./Data/super_mario_kart_tour_preferred_courses.json", 1);
 readTextFile("./Data/course_names.json", 2);
 
 			let makeCharacters = () => {
-                let output = document.getElementById('inventory');
+                let output = document.getElementById('inventorychar');
                 characterid.forEach((t, i) => {
                 	var panel = document.createElement('div');
-                	panel.style.width = "67.5px";
-                	panel.style.height = "87.5px";
-                	panel.style.display = "inline-block";
+                	panel.className = 'ckgpanel';
+                	panel.id = `invcharpanel${t}`;
                 	panel.addEventListener('click', function() {
                         invCharacter(characterid[i], i);
                     });
@@ -121,18 +210,13 @@ readTextFile("./Data/course_names.json", 2);
                 	case "3":
                 	bottomimg.src = `./Images/UI/bghighend.png`;
                 	break;
-                }
-                	bottomimg.style.width = "67.5px";
-                	bottomimg.style.height = "87.5px";
-                	bottomimg.style.position = "absolute";
+                	}
+                	bottomimg.className = 'bottomimg';
                 	panel.appendChild(bottomimg);
 
                     let newCharacter = document.createElement('img');
-                    newCharacter.className = 'inventoryCharacter';
+                    newCharacter.className = 'newCharacter';
                     newCharacter.src = `./Images/Character Icon/${t}.png`;
-                    newCharacter.style.width = "auto";
-                    newCharacter.style.height = "80px";
-                    newCharacter.style.position = "absolute";
                     panel.appendChild(newCharacter);
 
                     let topimg = document.createElement('img');
@@ -146,37 +230,26 @@ readTextFile("./Data/course_names.json", 2);
                 	case "3":
                 	topimg.src = `./Images/UI/outlinehighend.png`;
                 	break;
-                }
-                	topimg.style.width = "67.5px";
-                	topimg.style.height = "87.5px";
-                	topimg.style.position = "absolute";
-                	topimg.style.zIndex = "10";
+                	}
+                	topimg.className = 'topimg';
+                	topimg.id = `invtopimgselected${t}`;
                 	panel.appendChild(topimg);
 
-                	let item = document.createElement('img');
-                    //item.className = 'inventoryCharacter';
-                    item.src = `./Images/Items/` + charitem[i] + `.png`;
-                    console.log(`./Images/Items/` + charitem[i] + `.png`);
-                    item.style.width = "37.5px";
-                    item.style.height = "37.5px";
-                    item.style.marginTop = "50px";
-                    item.style.position = "absolute";
-                    item.style.zIndex = "11";
-                    //item.style.border = "5px solid #FFF"
-                    panel.appendChild(item);
+                	let charaitem = document.createElement('img');
+                    charaitem.src = `./Images/Items/` + charitem[i] + `.png`;
+                    charaitem.className = 'itemboxitem';
+                    panel.appendChild(charaitem);
 
                     output.appendChild(panel);
                 });
             }
 
             function invCharacter(selected, i){
-            	//let item = [...selected.parentNode.children].indexOf(selected);
             	let item = selected;
-            	console.log(item);
 
             	if(!viewshelvechar.includes(item)){
             		viewshelvechar.push(item);
-            	
+            	document.getElementById(`invtopimgselected${selected}`).className = `invtopimgselected`;
             	let moreGoodAt = values[item].moreGoodAt;
             	let goodAt = values[item].goodAt;
             	console.log(moreGoodAt);
@@ -184,33 +257,43 @@ readTextFile("./Data/course_names.json", 2);
             	//values.selected.goodAt
             	let output = document.getElementById('inventoryshelves');
             	var shelfpanel = document.createElement('div');
-                	shelfpanel.style.width = "312.5px";
-                	shelfpanel.style.height = "437.5px";
-                	shelfpanel.style.display = "inline-block";
-                	shelfpanel.style.backgroundColor = "black";
-                	shelfpanel.style.backgroundImage = "url('./Images/UI/inventorybg.png')";
-                	shelfpanel.style.backgroundSize = "312.5px 437.5px";
-                	shelfpanel.style.overflowY = "scroll";
-                	shelfpanel.style.overflowX = "hidden";
+                	shelfpanel.className = 'shelfpanel';
+                	shelfpanel.id = `shelfpanel${selected}`
 
                 	var namepanel = document.createElement('div');
-                	namepanel.style.width = "300px";
-                	namepanel.style.height = "45px";
-                	namepanel.style.marginTop = "-17.5px";
-                	namepanel.style.marginLeft = "3.75px";
-                	namepanel.style.backgroundImage = "url('./Images/UI/namebar.png')";
+                	namepanel.className = 'namepanel';
                 	shelfpanel.appendChild(namepanel);
 
 
                 	let toptext = document.createElement('p');
                     toptext.innerHTML = values[item].nameEng;
-                    toptext.style.marginTop = "18.75px";
-                    toptext.style.textAlign = "center";
-                    toptext.style.fontFamily = "headername";
-                    toptext.style.fontWeight = "bold";
-                    toptext.style.lineHeight = "43.75px";
-					toptext.style.color = "#005096";
+                    toptext.className = 'toptext';
+                    switch(selected){
+                    	case '115':
+                    	toptext.style.fontSize = "14px";
+                    	break;
+                    	case '126':
+                    	toptext.style.fontSize = "16px";
+                    	break;
+                    	case '131':
+                    	toptext.style.fontSize = "13.5px";
+                    	break;
+                    	case '178':
+                    	toptext.style.fontSize = "15px";
+                    	break;
+                    }
                     namepanel.appendChild(toptext);
+
+                    let xbtn = document.createElement('img');
+                	xbtn.src = "./Images/UI/xbtn.png";
+                	xbtn.className = 'xbtn';
+                	xbtn.addEventListener('click', function() {
+                        removeShelfPanel(item);
+                        viewshelvechar.splice(viewshelvechar.indexOf(item), 1);
+                		document.getElementById(`invtopimgselected${selected}`).className = `topimg`;
+                    });
+                	//xbtn.style.right = "1px";
+                	namepanel.appendChild(xbtn);
 
 
                     let characterpanel = document.createElement('div');
@@ -369,13 +452,6 @@ readTextFile("./Data/course_names.json", 2);
                 	moreGoodAtPanel.appendChild(coursePanel);
                 	});
 
-
-
-
-
-
-
-
                 	let whitebar2item = document.createElement('img');
                 	whitebar2item.src = `./Images/UI/2itemsbar.png`;
                 	whitebar2item.style.width = "300px";
@@ -431,8 +507,6 @@ readTextFile("./Data/course_names.json", 2);
                 	coursetxt.style.lineHeight = "12.5px";
                     coursePanel.appendChild(coursetxt);
 
-
-
                 	goodAtPanel.appendChild(coursePanel);
                 	});
 
@@ -443,8 +517,56 @@ readTextFile("./Data/course_names.json", 2);
 
                     output.appendChild(shelfpanel);
 
+                } else {
+                	removeShelfPanel(item);
+                	viewshelvechar.splice(viewshelvechar.indexOf(item), 1);
+                	document.getElementById(`invtopimgselected${selected}`).className = `topimg`;
                 }
 
+            }
+
+            function removeShelfPanel(id){
+            	document.getElementById(`shelfpanel${id}`).remove();
+            }
+
+            function changemode(mode){
+            	switch(mode){
+            		case 1:
+            		document.getElementById('data').style.display = "block";
+            		document.getElementById('inventory').style.display = "none";
+            		document.getElementById('courses').style.display = "none";
+            		document.getElementById('missing').style.display = "none";
+            		document.getElementById('settings').style.display = "none";
+            		break;
+            		case 2:
+            		document.getElementById('data').style.display = "none";
+            		document.getElementById('inventory').style.display = "block";
+            		document.getElementById('courses').style.display = "none";
+            		document.getElementById('missing').style.display = "none";
+            		document.getElementById('settings').style.display = "none";
+            		break;
+            		case 3:
+            		document.getElementById('data').style.display = "none";
+            		document.getElementById('inventory').style.display = "none";
+            		document.getElementById('courses').style.display = "block";
+            		document.getElementById('missing').style.display = "none";
+            		document.getElementById('settings').style.display = "none";
+            		break;
+            		case 4:
+            		document.getElementById('data').style.display = "none";
+            		document.getElementById('inventory').style.display = "none";
+            		document.getElementById('courses').style.display = "none";
+            		document.getElementById('missing').style.display = "block";
+            		document.getElementById('settings').style.display = "none";
+            		break;
+            		case 5:
+            		document.getElementById('data').style.display = "none";
+            		document.getElementById('inventory').style.display = "none";
+            		document.getElementById('courses').style.display = "none";
+            		document.getElementById('missing').style.display = "none";
+            		document.getElementById('settings').style.display = "block";
+            		break;
+            	}
             }
 
             makeCharacters();
