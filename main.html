@@ -8,6 +8,37 @@
 .whiteoutline {
 	color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+.datafield {
+	width: 240px;display: inline-block;
+}
+.datackgpanel {
+	width: 67.5px;height: 87.5px;display: inline-block;-webkit-filter: grayscale(100%);
+}
+.datackgpanelenabled {
+	width: 67.5px;height: 87.5px;display: inline-block;-webkit-filter: grayscale(0%);
+}
+.levelbtn {
+	width:40px;height:40px;display: inline-block;
+}
+.numberpanel {
+	width: 120px;height: 100px;display: inline-block;
+}
+.numberbtn {
+	width: 40px;height: 40px;display:inline-block;
+}
+.numberbtnselected {
+	width: 40px;height: 40px;display:inline-block;filter: hue-rotate(260deg);
+}
+.numberimg {
+	width: 25px;height: 25px;margin-left: -32px;top: -5px;position: relative;
+}
+.itemenabledbox {
+    width: 30px;height: 30px;background: #34547F;border-radius: 5px;border: 2px solid #2B466A;margin-left: 10px;
+}
+.itemboxenabled:checked {
+            background: url('./Assets/UI/Checked.png');
+            background-size: 47px 47px;
+}
 .inventory  {
 	background: url('./Images/UI/mktpattern.png') repeat;
 }
@@ -125,8 +156,8 @@
 </div>
 
 <div style="margin: 0px auto;width: 1000px;height: 1000px;right: 0;left: 0;" id="content">
-<div id="data" style="/*background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/infback3.gif');height: 1000px;box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75);border: 10px solid #FFF;background-size: 1179px auto;*/background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;background-attachment: fixed;">
-	<h3 style="font-family: try6">Data</h3>
+<div id="data" style="/*background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/infback3.gif');height: 1000px;box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75);border: 10px solid #FFF;background-size: 1179px auto;*/background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;background-attachment: fixed;overflow-y: scroll;">
+	<h3 style="font-family: tour;width: 100px;display: inline-block;margin-left: 10px;">Data</h3><!--<button style="float: right;width: 150px;height: 30px;" onclick="downloadsavedata()">Download Save Data</button>--><div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;"><input type="file" id="inputsavedata" name="filename"><button style="height:30px;" onclick="importsavedata()" id='isd'>Import Save Data</button><button style="float: right;width: 150px;height: 30px;" onclick="downloadsavedata()">Download Save Data</button></div><div> </div>
 
 </div>
 
@@ -168,17 +199,31 @@
 <!--<div id="pipe">
 	<h3>Pipe</h3>
 </div>-->
-<div id="settings">
+<div id="settings" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;background-attachment: fixed;overflow-y: scroll;">
 	<h3>Settings</h3>
+	<h4 style="display:inline-block;">Debug Save Data Viewer</h4><input type="checkbox" id="changedebugsave"  oninput="changedebugsave()" style="vertical-align:middle;margin-top: 15px;width: 30px;height: 30px;">
 	<h4>Zoom Level (Unstable)</h4> <p id="zoomtext">100%</p>
 	<input type="range" min="50" max="150" value="100" class="slider" id="zoomslider" oninput="document.getElementById('zoomtext').innerHTML = document.getElementById('zoomslider').value + '%'" onchange="zoomLevel(document.getElementById('zoomslider').value)">
 </div>
 
 </div>
+
+<div id="debugsave">
+            <button style="z-index: 2;position: fixed; float:left; left:0%; top:0%;" onclick="updatesavedata()">Update Save Data</button>
+            <textarea style="position: fixed; float:left; left:0%; top:0%;margin-top: 35px" id="json" rows="60" cols="41"></textarea>
+        </div>
+
+
 <script>
 //global
 var isDataEntered = false;
 var values;
+
+let savedata = {
+                Items: {
+
+                }
+            }
 
 //inventory
 var characteridinternal = ["1","2","3","4","5","6","7","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","30","31","32","33","34","35","37","38","40","41","43","44","45","46","47","49","50","51","52","57","58","59","60","62","67","70","76","78","79","80","82","85","89","91","92","93","107","111","112","115","117","120","122","126","127","128","131","132","137","138","139","140","142","143","144","145","149","150","153","155","158","159","161","164","165","169","170","178","179"];
@@ -223,9 +268,185 @@ function readTextFile(file, unit)
 }
 readTextFile("./Data/super_mario_kart_tour_preferred_courses.json", 1);
 readTextFile("./Data/course_names.json", 2);
+//DATA
+			let makeDataFields = () => {
+				let output = document.getElementById('data');
+				characterid.forEach((t, i) => {
+					var field = document.createElement('div');
+					field.className = 'datafield';
+					field.id = `datafield${t}`;
+
+                	var panel = document.createElement('div');
+                	panel.className = 'datackgpanel';
+                	panel.id = `invcharpanel${t}`;
+
+                	let bottomimg = document.createElement('img');
+                	switch(charrarity[i]){
+                	case "1":
+                	bottomimg.src = `./Images/UI/bgnormal.png`;
+                	break;
+                	case "2":
+                	bottomimg.src = `./Images/UI/bgrare.png`;
+                	break;
+                	case "3":
+                	bottomimg.src = `./Images/UI/bghighend.png`;
+                	break;
+                	}
+                	bottomimg.className = 'bottomimg';
+                	panel.appendChild(bottomimg);
+
+                    let newCharacter = document.createElement('img');
+                    newCharacter.className = 'newCharacter';
+                    newCharacter.src = `./Images/Character Icon/${t}.png`;
+                    panel.appendChild(newCharacter);
+
+                    let topimg = document.createElement('img');
+                    switch(charrarity[i]){
+                	case "1":
+                	topimg.src = `./Images/UI/outlinenormal.png`;
+                	break;
+                	case "2":
+                	topimg.src = `./Images/UI/outlinerare.png`;
+                	break;
+                	case "3":
+                	topimg.src = `./Images/UI/outlinehighend.png`;
+                	break;
+                	}
+                	topimg.className = 'topimg';
+                	if(viewshelvechar.includes(t)){
+                		topimg.className = 'invtopimgselected';
+                	}
+                	//topimg.id = `invtopimgselected${t}`;
+                	panel.appendChild(topimg);
+
+                	let charaitem = document.createElement('img');
+                    charaitem.src = `./Images/Items/` + charitem[i] + `.png`;
+                    charaitem.className = 'itemboxitem';
+                    panel.appendChild(charaitem);
+                    field.appendChild(panel);
 
 
 
+                    let numbers = document.createElement('div');
+                    numbers.className = 'numberpanel';
+
+                    let itemenabledbox = document.createElement(`input`);
+                    itemenabledbox.type = "checkbox";
+                    itemenabledbox.id = `itemenabledbox${t}`;
+                    itemenabledbox.className = 'itemenabledbox';
+                    itemenabledbox.addEventListener('click', function() {
+                        enableItem(t);
+                    });
+                    field.appendChild(itemenabledbox);
+
+                    for(let k=0;k<6;++k){
+                    	let levelbtn = document.createElement('div');
+                    	levelbtn.className = "levelbtn";
+                    	levelbtn.addEventListener('click', function() {
+                        changeLevel(t, k+1);
+                    	});
+
+                    	let numberbtn = document.createElement('img');
+                    	numberbtn.className = 'numberbtn';
+                    	numberbtn.id = `datafield${t}num${k+1}`;
+                    	numberbtn.src = `./Images/UI/emptybtn3.png`;
+                    	//numberbtn.src = `./Images/UI/${k+1}.png`;
+                    	levelbtn.appendChild(numberbtn);
+
+                    	let numberimg = document.createElement('img');
+                    	numberimg.className = 'numberimg';
+                    	numberimg.src = `./Images/UI/${k+1}.png`;
+                    	levelbtn.appendChild(numberimg);
+                    	numbers.appendChild(levelbtn);
+
+                    }
+                    field.appendChild(numbers);
+
+                    output.appendChild(field);
+                });
+			}
+
+			var enableditems = [];
+			function enableItem(item) {
+				if(document.getElementById(`itemenabledbox${item}`).checked){
+				enableditems.push(item);
+				document.getElementById(`invcharpanel${item}`).className = "datackgpanelenabled"
+				document.getElementById(`datafield${item}num1`).className = 'numberbtnselected';
+				savedata.Items[item] = '1';
+				} else {
+				enableditems.splice(enableditems.indexOf(item), 1);
+				document.getElementById(`invcharpanel${item}`).className = "datackgpanel"
+					document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+				delete savedata.Items[item];
+				}
+			}
+
+			function changeLevel(item, level){
+				document.getElementById(`invcharpanel${item}`).className = "datackgpanelenabled"
+				document.getElementById(`itemenabledbox${item}`).checked = true;
+				switch(level){
+					case 1:
+					document.getElementById(`datafield${item}num1`).className = 'numberbtnselected';
+					document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+					savedata.Items[item] = '1';
+					break;
+					case 2:
+					document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num2`).className = 'numberbtnselected';
+					document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+					savedata.Items[item] = '2';
+					break;
+					case 3:
+					document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num3`).className = 'numberbtnselected';
+					document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+					savedata.Items[item] = '3';
+					break;
+					case 4:
+					document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num4`).className = 'numberbtnselected';
+					document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+					savedata.Items[item] = '4';
+					break;
+					case 5:
+					document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num5`).className = 'numberbtnselected';
+					document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+					savedata.Items[item] = '5';
+					break;
+					case 6:
+					document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+					document.getElementById(`datafield${item}num6`).className = 'numberbtnselected';
+					savedata.Items[item] = '6';
+					break;
+				}
+			}
+makeDataFields();
 //INVENTORY
 			let makeCharacters = () => {
 				document.getElementById('inventorychar').innerHTML = "";
@@ -1055,6 +1276,41 @@ readTextFile("./Data/course_names.json", 2);
             		}
             		break;
             	}
+            }
+
+            function updatesavedata(){
+            	document.getElementById('json').innerHTML = JSON.stringify(savedata, null, 2);
+            }
+
+            function changedebugsave(){
+            	if(document.getElementById('changedebugsave').checked){
+            		document.getElementById('debugsave').style.display = "block";
+            	} else {
+            		document.getElementById('debugsave').style.display = "none";
+            	}
+            }
+
+            function downloadsavedata(data) {
+                var data = JSON.stringify(savedata, null, 2);
+                var filename = "MKTValuesSave.json";
+                var type = "text";
+                var a = document.createElement("a"),
+                    file = new Blob([data], {
+                        type: type
+                    });
+                if (window.navigator.msSaveOrOpenBlob) // IE10+
+                    window.navigator.msSaveOrOpenBlob(file, filename);
+                else { // Others
+                    var url = URL.createObjectURL(file);
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(function() {
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                    }, 0);
+                }
             }
 
             function zoomLevel(zoom){
