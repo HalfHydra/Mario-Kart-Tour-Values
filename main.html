@@ -996,8 +996,10 @@ makeDataFields();
                     charaitem.className = 'itemboxitem';
                     panel.appendChild(charaitem);
 
+                    let itemlvl = savedata.Items.Drivers[item];
+                    if(itemlvl != null){
                     let levelicon =  document.createElement('img');
-                    levelicon.src = './Images/UI/0.png';
+                    levelicon.src = `./Images/UI/${itemlvl}.png`;
                     levelicon.className = 'levelicon';
                     levelicon.id = `shelf_levelnumber${item}`;
                     panel.appendChild(levelicon);
@@ -1006,6 +1008,7 @@ makeDataFields();
                     lvicon.src = './Images/UI/lv.png';
                     lvicon.className = 'lvicon';
                     panel.appendChild(lvicon);
+                	}
 
                     characterpanel.appendChild(panel);
                     characterpanel.appendChild(rarityimage);
