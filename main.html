@@ -867,8 +867,10 @@ makeDataFields();
                     charaitem.className = 'itemboxitem';
                     panel.appendChild(charaitem);
 
+                    let itemlvl = savedata.Items.Drivers[t];
+                    if(itemlvl != null){
                     let levelicon =  document.createElement('img');
-                    levelicon.src = './Images/UI/0.png';
+                    levelicon.src = `./Images/UI/${itemlvl}.png`;
                     levelicon.className = 'levelicon';
                     levelicon.id = `inv_levelnumber${t}`;
                     panel.appendChild(levelicon);
@@ -877,6 +879,7 @@ makeDataFields();
                     lvicon.src = './Images/UI/lv.png';
                     lvicon.className = 'lvicon';
                     panel.appendChild(lvicon);
+                	}
 
                     output.appendChild(panel);
                 });
@@ -1133,8 +1136,10 @@ makeDataFields();
                     charaitem.className = 'bonuspointtype';
                     panel.appendChild(charaitem);
 
+                    let itemlvl = savedata.Items.Karts[t];
+                    if(itemlvl != null){
                     let levelicon =  document.createElement('img');
-                    levelicon.src = './Images/UI/0.png';
+                    levelicon.src = `./Images/UI/${itemlvl}.png`;
                     levelicon.className = 'levelicon';
                     levelicon.id = `inv_levelnumber${t}`;
                     panel.appendChild(levelicon);
@@ -1143,6 +1148,7 @@ makeDataFields();
                     lvicon.src = './Images/UI/lv.png';
                     lvicon.className = 'lvicon';
                     panel.appendChild(lvicon);
+                	}
 
                     output.appendChild(panel);
                 });
@@ -1399,8 +1405,10 @@ makeDataFields();
                     charaitem.className = 'bonuspointtype';
                     panel.appendChild(charaitem);
 
+                    let itemlvl = savedata.Items.Gliders[t];
+                    if(itemlvl != null){
                     let levelicon =  document.createElement('img');
-                    levelicon.src = './Images/UI/0.png';
+                    levelicon.src = `./Images/UI/${itemlvl}.png`;
                     levelicon.className = 'levelicon';
                     levelicon.id = `inv_levelnumber${t}`;
                     panel.appendChild(levelicon);
@@ -1409,6 +1417,7 @@ makeDataFields();
                     lvicon.src = './Images/UI/lv.png';
                     lvicon.className = 'lvicon';
                     panel.appendChild(lvicon);
+                	}
 
                     output.appendChild(panel);
                 });
