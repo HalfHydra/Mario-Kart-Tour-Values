@@ -86,7 +86,7 @@
 	filter: drop-shadow(0px 0px 5px #222);
 }
 .namepanel {
-	width: 300px;height:45px;margin-top: -17.5px;margin-left:3.75px;background-image:url('./Images/UI/namebar.png');
+	width: 300px;height:45px;margin-top: -17.5px;margin-left:3.75px;background-image:url('./Images/UI/namebar.png');position: relative;
 }
 .toptext {
 	margin-top: 18.75px;text-align: center;font-family: headername;font-weight: bold; line-height: 43.75px;color: #005096;
@@ -171,27 +171,28 @@
 
 </div>
 
-<div id="inventory" style="right: 0;left: 0;margin: 0px auto;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: auto;background-size: 394px auto;background-attachment: fixed;">
+<div id="inventory" style="right: 0;left: 0;margin: 0px auto;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: auto;background-size: 394px auto;background-attachment: fixed;overflow-y: scroll;height:1000px;">
 <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 540px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
 	<h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Inventory</h3>
-
-	<div id="itembtns" style="display: inline-block;position: absolute;margin-top: -10px;margin-left: 200px;">
-		<div style="width: 75px;height: 120px;display: inline-block;">
+	<div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
+		<div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
 		<img id='driversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(0)">  </img>
 		<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
 		</div>
-		<div style="width: 75px;height: 120px;display: inline-block;">
+		<div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
 		<img id='kartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(1)">  </img>
 		<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
 		</div>
-		<div style="width: 75px;height: 120px;display: inline-block;">
+		<div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
 		<img id='glidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(2)">  </img>
 		<p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
 		</div>
 	</div>
+	<div style="position: relative;">
 	<div id="inventorychar" style=""></div>
 	<div id="inventorykart"></div>
 	<div id="inventoryglider"></div>
+</div>
 </div>
 
 <div id="inventoryshelves" style="display:block;width: auto;text-align: center;background-color: rgba(0, 0, 0, 0.3);padding:10px;">
@@ -209,7 +210,7 @@
 <!--<div id="pipe">
 	<h3>Pipe</h3>
 </div>-->
-<div id="settings" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;background-attachment: fixed;overflow-y: scroll;">
+<div id="settings" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height:1000px;background-size: 394px auto;background-attachment: fixed;overflow-y: scroll;">
 	<h3>Settings</h3>
 	<h4 style="display:inline-block;">Debug Save Data Viewer</h4><input type="checkbox" id="changedebugsave"  oninput="changedebugsave()" style="vertical-align:middle;margin-top: 15px;width: 30px;height: 30px;">
 	<h4>Zoom Level (Unstable)</h4> <p id="zoomtext">100%</p>
@@ -1884,6 +1885,10 @@ makeDataFields();
             		});
 
             	});
+            }
+
+            function makeCourseIcons(){
+
             }
 </script>
 
