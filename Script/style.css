@@ -1,0 +1,134 @@
+.whiteoutline {
+         color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+         }
+         .datafield {
+         width: 240px;display: inline-block;
+         }
+         .datackgpanel {
+         width: 67.5px;height: 87.5px;display: inline-block;-webkit-filter: grayscale(100%);
+         }
+         .datackgpanelenabled {
+         width: 67.5px;height: 87.5px;display: inline-block;-webkit-filter: grayscale(0%);
+         }
+         .levelbtn {
+         width:40px;height:40px;display: inline-block;
+         }
+         .numberpanel {
+         width: 120px;height: 100px;display: inline-block;
+         }
+         .numberbtn {
+         width: 40px;height: 40px;display:inline-block;
+         }
+         .numberbtnselected {
+         width: 40px;height: 40px;display:inline-block;filter: hue-rotate(260deg);
+         }
+         .numberimg {
+         width: 25px;height: 25px;margin-left: -32px;top: -5px;position: relative;
+         }
+         .itemenabledbox {
+         width: 30px;height: 30px;background: #34547F;border-radius: 5px;border: 2px solid #2B466A;margin-left: 10px;
+         }
+         .itemboxenabled:checked {
+         background: url('./Assets/UI/Checked.png');
+         background-size: 47px 47px;
+         }
+         .inventory  {
+         background: url('./Images/UI/mktpattern.png') repeat;
+         }
+         .main {
+         background: #9dd7ef;background-image: url('../Images/UI/background.png'), linear-gradient(to bottom, #87CEFA 0%, #FFFFFF 100%);background-repeat: no-repeat;background-attachment: fixed;background-position: center bottom;
+         }
+         .ckgpanel {
+         width: 67.5px;height: 87.5px;display: inline-block;
+         }
+         .bottomimg {
+         width: 67.5px;height: 87.5px;position: absolute;
+         }
+         .newCharacter {
+         width: auto; height: 80px;position: absolute; 
+         }
+         .newKart {
+         width: 67.5px; height: auto;position: absolute;margin-left: 5px; 
+         }
+         .newGlider {
+         width: 67.5px; height: auto;position: absolute;margin-left: 5px; 
+         }
+         .topimg {
+         width: 67.5px;height: 87.5px;position: absolute;z-index: 10;
+         }
+         .invtopimgselected {
+         width: 67.5px;height: 87.5px;position: absolute;z-index: 10;background: rgba(0,255,62,0.35);
+         }
+         .itemboxitem {
+         width: 37.5px;height: 37.5px;margin-top: 50px;position: absolute;z-index: 11;
+         }
+         .lvicon {
+         width: 20px; height: 20px;position: absolute;margin-top: 60px;margin-left: 30px;z-index: 15;
+         }
+         .levelicon {
+         width: 25px; height: 25px;position: absolute;margin-top: 60px;margin-left: 45px;z-index: 15;
+         }
+         .bonuspointtype {
+         width: 30px;height: 30px;margin-top: 57.5px;position: absolute;z-index: 11;
+         }
+         .shelfpanel {
+         width: 320px;height: 437.5px;display: inline-block;background-color: black; background-image: url('../Images/UI/inventorybg.png');background-size: 312.5px 437.5px;overflow-y: scroll; overflow-x: hidden;text-align: initial;
+         }
+         .xbtn {
+         width: 35px; height: 35px;position: absolute;z-index: 15;margin-left: 260px;margin-top: -52px;
+         filter: drop-shadow(0px 0px 4px #222);
+         }
+         .namepanel {
+         width: 300px;height:45px;margin-top: -17.5px;margin-left:3.75px;background-image:url('../Images/UI/namebar.png');position: relative;
+         }
+         .toptext {
+         margin-top: 18.75px;text-align: center;font-family: headername;font-weight: bold; line-height: 43.75px;color: #005096;
+         }
+         .characterpanel {
+         width: 310px;height: 170px;/*margin-top: 0px;margin-left: 0px;*/position: relative;
+         }
+         .rarityimg {
+         width: 300px;height: 165px;margin-left: -190px;/*margin-top: 0;*/position: absolute;z-index: 1;
+         }
+         .ckgpanel2 {
+         width: 67.5px;height: 87.5px;display: inline-block;margin-left: 125px;margin-top: 43.75px;position:relative;z-index: 2; 
+         }
+         .valuecounttxt {
+         width: 30px;height: 30px;color: #005096;background-image: url('../Images/UI/obtn.png');background-size: cover;position: absolute;margin-left: 115px;z-index: 20;font-family: tour;text-align: center;font-size: 17.5px;margin-top: -100px;filter: drop-shadow(0px 0px 4px #222);
+         }
+         .whitebar3item {
+         width: 300px;height: 37.5px;margin-left: 5px;margin-top: -5px;
+         }
+         .goodAtPanel {
+         width: 300px;height: 87.5px;display: inline-block;margin-left: 6.25px;/*margin-top: 0px;*/
+         }
+         .coursepanel {
+         width: 155px;height: 80px; display: inline;/*margin-left: 0px;margin-top: 0px;*/position: relative;
+         }
+         .courseimg {
+         width: 145px;height: 72.5px;margin-left: 2.5px;/*margin-top: 0px;*/
+         }
+         .coursetxt {
+         width: 150px;height: 20px;text-align: center;font-family: tour;font-size:10.5px;line-height: 12.5px;position: absolute;display: inline;color: white;margin-left: -147.5px;top: -65px;
+         }
+         .whitebar2item {
+         width: 300px;height: 37.5px;margin-left:6.25px;margin-top:-12.5px;position: relative;
+         }
+         h4 {
+         	font-family: tour;font-size: 16px;
+         }
+         /*::-webkit-scrollbar {
+         width: 15px;
+         }
+         ::-webkit-scrollbar-track {
+         border-radius: 10px;
+         }
+         ::-webkit-scrollbar-thumb {
+         /*background: #8598bc;*/
+         /*background: #b5ceff;
+         border-radius: 10px;
+         }
+         ::-webkit-scrollbar-thumb:hover {
+         background: #5a677f; 
+         }*/
+         
