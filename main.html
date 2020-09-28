@@ -66,11 +66,11 @@
                   <div id="inventoryglider"></div>
                </div>
             </div>
-            <div id="inventoryshelves" style="display:block;width: auto;text-align: center;background-color: rgba(0, 0, 0, 0.3);padding:10px;">
+            <div id="inventoryshelves" style="display:block;width: auto;text-align: center;background-color: rgba(0, 0, 0, 0.3);padding:0px;">
             </div>
          </div>
          <div id="courses" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;overflow-y: scroll;">
-         	<div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 1000px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
+         	<div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Courses</h3>
                <div id="coursebtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 520px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
@@ -91,10 +91,10 @@
                   </div>
                </div>
            </div>
-            <h3>Courses</h3>
+            <!--<h3>Courses</h3>-->
             <div style="position: relative;">
                   <div id="selectcourses" style="">
-                  	
+                  	<!--<h3>Select Courses</h3>-->
                   </div>
                   <div id="topshelfpreview">
                   	
@@ -119,7 +119,7 @@
             	<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">General</h3>
             <h4 style="display:inline-block;margin-bottom: 0px;">Debug Save Data Viewer</h4>
             <input type="checkbox" id="changedebugsave"  oninput="changedebugsave()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
-            <h4 style = "margin-bottom: 0px;">Zoom Level (Unstable)</h4>
+            <h4 style = "margin-bottom: 0px;width: 210px;display: inline-block;">Zoom Level (Unstable)</h4>
             <p id="zoomtext" style="display: inline-block;margin-bottom: 0px;">100%</p>
             <input type="range" min="75" max="125" value="100" class="slider" id="zoomslider" oninput="document.getElementById('zoomtext').innerHTML = document.getElementById('zoomslider').value + '%'" onchange="zoomLevel(document.getElementById('zoomslider').value)">
         	</div>
@@ -127,6 +127,10 @@
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Inventory</h3>
         		<h4 style="display:inline-block;margin-bottom: 0px;">Disable City Tracks in Value Count</h4>
             <input type="checkbox" id="changecityvalue"  oninput="changecityvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+            <h4 style="display:inline-block;margin-bottom: 0px;">Disable Character Panel in Values Menu</h4>
+            <input type="checkbox" id="changecharpanelvalue"  oninput="changecharpanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+            <h4 style="display:inline-block;margin-bottom: 0px;">Enable Multiple Panels in Inventory</h4>
+            <input type="checkbox" id="changecharpanelvalue"  oninput="changemultiplepanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
         	</div>
          </div>
       </div>

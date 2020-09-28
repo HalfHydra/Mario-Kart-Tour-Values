@@ -43,9 +43,6 @@ let makeDataFields = ()=>{
             break;
         }
         topimg.className = 'topimg';
-        if (viewshelvechar.includes(t)) {
-            topimg.className = 'invtopimgselected';
-        }
         //topimg.id = `invtopimgselected${t}`;
         panel.appendChild(topimg);
 
@@ -151,9 +148,6 @@ let makeDataFields = ()=>{
             break;
         }
         topimg.className = 'topimg';
-        if (viewshelvechar.includes(t)) {
-            topimg.className = 'invtopimgselected';
-        }
         //topimg.id = `invtopimgselected${t}`;
         panel.appendChild(topimg);
 
@@ -259,9 +253,6 @@ let makeDataFields = ()=>{
             break;
         }
         topimg.className = 'topimg';
-        if (viewshelvechar.includes(t)) {
-            topimg.className = 'invtopimgselected';
-        }
         //topimg.id = `invtopimgselected${t}`;
         panel.appendChild(topimg);
 

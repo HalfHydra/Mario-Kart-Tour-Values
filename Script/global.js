@@ -2,6 +2,7 @@
 var isDataEntered = false;
 var values;
 var disableCityValue = false;
+var disableCharPanel = false;
 
 let savedata = {
     Items: {
@@ -27,6 +28,10 @@ var viewshelvechar = [];
 var currentmode = -1;
 
 var dataFieldsMade = false;
+
+var courseListMade = false;
+
+var topShelfPreviewMade = false;
 
 var selectedcourses = [];
 
@@ -63,12 +68,17 @@ function changemode(mode) {
         document.getElementById('settings').style.display = "none";
         break;
     case 3:
+        generateCourseList();
         document.getElementById('intro').style.display = "none";
         document.getElementById('data').style.display = "none";
         document.getElementById('inventory').style.display = "none";
         document.getElementById('courses').style.display = "block";
         document.getElementById('missing').style.display = "none";
         document.getElementById('settings').style.display = "none";
+        if(!courseListMade){
+                makeCourseList();
+                courseListMade = true;
+        }
         break;
     case 4:
         document.getElementById('intro').style.display = "none";
@@ -98,49 +108,26 @@ function changecoursemode(mode) {
         document.getElementById('itemspecificcourses').style.display = "none";
         break;
     case 1:
-        if (!dataFieldsMade) {
-            makeDataFields();
-            dataFieldsMade = true;
+        if(!topShelfPreviewMade){
+        makeTopShelfPreview();
+        topShelfPreviewMade = true;
         }
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "block";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "none";
+        document.getElementById('selectcourses').style.display = "none";
+        document.getElementById('topshelfpreview').style.display = "block";
+        document.getElementById('selectedcourses').style.display = "none";
+        document.getElementById('itemspecificcourses').style.display = "none";
         break;
     case 2:
-        changeckg(currentmode);
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "block";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "none";
+        document.getElementById('selectcourses').style.display = "none";
+        document.getElementById('topshelfpreview').style.display = "none";
+        document.getElementById('selectedcourses').style.display = "block";
+        document.getElementById('itemspecificcourses').style.display = "none";
         break;
     case 3:
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "block";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "none";
-        break;
-    case 4:
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "block";
-        document.getElementById('settings').style.display = "none";
-        break;
-    case 5:
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "block";
+        document.getElementById('selectcourses').style.display = "none";
+        document.getElementById('topshelfpreview').style.display = "none";
+        document.getElementById('selectedcourses').style.display = "none";
+        document.getElementById('itemspecificcourses').style.display = "block";
         break;
     }
 }
@@ -200,7 +187,7 @@ function changeckg(mode) {
 
 function updatesavedata() {
     generateCourseList();
-    document.getElementById('json').innerHTML = JSON.stringify(coursedata, null, 2);
+    document.getElementById('json').innerHTML = JSON.stringify(savedata, null, 2);
 }
 
 function changedebugsave() {
@@ -216,6 +203,14 @@ function changecityvalue() {
         disableCityValue = true;
     } else {
         disableCityValue = false;
+    }
+}
+
+function changecharpanelvalue() {
+    if (document.getElementById('changecharpanelvalue').checked) {
+        disableCharPanel = true;
+    } else {
+        disableCharPanel = false;
     }
 }
 

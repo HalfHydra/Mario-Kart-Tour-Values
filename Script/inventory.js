@@ -87,7 +87,7 @@ function invCharacter(selected, i) {
         //values.selected.goodAt
         let output = document.getElementById('inventoryshelves');
         var shelfpanel = document.createElement('div');
-        shelfpanel.className = 'shelfpanel';
+        shelfpanel.className = 'shelfpanel stripedbg';
         shelfpanel.id = `shelfpanel${selected}`
 
         var namepanel = document.createElement('div');
@@ -217,7 +217,14 @@ function invCharacter(selected, i) {
         characterpanel.appendChild(valuecounttxt);
 
         //comment this for no charcater image
+        if(!disableCharPanel){
         shelfpanel.appendChild(characterpanel);
+        } else {
+        var minivaluecounttxt = document.createElement('p');
+        minivaluecounttxt.className = "minivaluecounttxt";
+        minivaluecounttxt.innerHTML = valuecount;
+        namepanel.appendChild(minivaluecounttxt);
+        }
 
         let whitebar3item = document.createElement('img');
         whitebar3item.src = `./Images/UI/3itemsbar.png`;
@@ -502,7 +509,14 @@ function invKart(selected, i) {
         characterpanel.appendChild(valuecounttxt);
 
         //comment this for no charcater image
+        if(!disableCharPanel){
         shelfpanel.appendChild(characterpanel);
+        } else {
+        var minivaluecounttxt = document.createElement('p');
+        minivaluecounttxt.className = "minivaluecounttxt";
+        minivaluecounttxt.innerHTML = valuecount;
+        namepanel.appendChild(minivaluecounttxt);
+        }
 
         let whitebar3item = document.createElement('img');
         whitebar3item.src = `./Images/UI/bonuspoints2x.png`;
@@ -787,7 +801,14 @@ function invGlider(selected, i) {
         characterpanel.appendChild(valuecounttxt);
 
         //comment this for no charcater image
+        if(!disableCharPanel){
         shelfpanel.appendChild(characterpanel);
+        } else {
+        var minivaluecounttxt = document.createElement('p');
+        minivaluecounttxt.className = "minivaluecounttxt";
+        minivaluecounttxt.innerHTML = valuecount;
+        namepanel.appendChild(minivaluecounttxt);
+        }
 
         let whitebar3item = document.createElement('img');
         whitebar3item.src = `./Images/UI/bigcombotimeboost.png`;

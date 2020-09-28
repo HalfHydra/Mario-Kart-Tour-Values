@@ -74,5 +74,54 @@ function generateCourseList() {
     );
 }
 
-function makeCourseIcons() {
+function makeCourseList() {
+       generateCourseList();
+       let courses = Object.keys(coursedata.Courses);
+
+       let output = document.getElementById('selectcourses');
+
+       courses.forEach((t,i)=>{
+       var coursePanel = document.createElement('div');
+       coursePanel.className = 'coursepanel';
+
+       let courseimg = document.createElement('img');
+       courseimg.src = `./Images/Course Image/${t}.png`;
+       courseimg.className = 'courseimg';
+       coursePanel.appendChild(courseimg);
+
+       let coursetxt = document.createElement('p');
+       coursetxt.innerHTML = coursenames[t];
+       coursetxt.className = 'coursetxt';
+       coursePanel.appendChild(coursetxt);
+
+       output.appendChild(coursePanel);
+
+
+       });
 }
+
+function makeTopShelfPreview() {
+       let courses = Object.keys(coursedata.Courses);
+
+       let output = document.getElementById('topshelfpreview');
+
+       courses.forEach((t,i)=>{
+       var coursePanel = document.createElement('div');
+       coursePanel.className = 'coursepaneltopshelf';
+
+       let courseimg = document.createElement('img');
+       courseimg.src = `./Images/Course Image/${t}.png`;
+       courseimg.className = 'courseimgtopshelf';
+       coursePanel.appendChild(courseimg);
+
+       let coursetxt = document.createElement('p');
+       coursetxt.innerHTML = coursenames[t];
+       coursetxt.className = 'coursetxttopshelf';
+       coursePanel.appendChild(coursetxt);
+
+       output.appendChild(coursePanel);
+
+
+       });
+}
+

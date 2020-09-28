@@ -166,12 +166,20 @@
     width: 320px;
     height: 437.5px;
     display: inline-block;
-    background-color: black;
+    /*background-color: black;
     background-image: url('../Images/UI/inventorybg.png');
     background-size: 312.5px 437.5px;
+
+    background-image: linear-gradient(#4498e8,#061a64);*/
+    background-image: linear-gradient(#5eb0ff,#0a299a);
     overflow-y: scroll;
     overflow-x: hidden;
     text-align: initial;
+}
+
+.stripedbg {
+    background-image: linear-gradient(-45deg,transparent 25%,rgba(0,0,0,.041666) 0,rgba(0,0,0,.041666) 50%,transparent 0,transparent 75%,rgba(0,0,0,.041666) 0,rgba(0,0,0,.041666)),linear-gradient(#5eb0ff,#0a299a);
+    background-size: .75rem .75rem,100%;
 }
 
 .xbtn {
@@ -244,6 +252,22 @@
     filter: drop-shadow(0px 0px 4px #222);
 }
 
+.minivaluecounttxt {
+    width: 30px;
+    height: 30px;
+    color: #005096;
+    background-image: url('../Images/UI/obtn.png');
+    background-size: cover;
+    position: absolute;
+    margin-left: 10px;
+    z-index: 20;
+    font-family: tour;
+    text-align: center;
+    font-size: 17.5px;
+    margin-top: -50px;
+    filter: drop-shadow(0px 0px 4px #222);
+}
+
 .whitebar3item {
     width: 300px;
     height: 37.5px;
@@ -267,6 +291,14 @@
     position: relative;
 }
 
+.coursepaneltopshelf {
+    width: 245px;
+    height: 126px;
+    display: inline;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
+}
+
 .courseimg {
     width: 145px;
     height: 72.5px;
@@ -274,19 +306,41 @@
     /*margin-top: 0px;*/
 }
 
+.courseimgtopshelf {
+    width: 229px;
+    height: 115px;
+    margin-left: 4px;
+    /*margin-top: 0px;*/
+}
+
 .coursetxt {
-    width: 150px;
+    width: 155px;
     height: 20px;
     text-align: center;
     font-family: tour;
     font-size: 10.5px;
-    line-height: 12.5px;
+    line-height: 20px;
     position: absolute;
     display: inline;
     color: white;
     margin-left: -147.5px;
-    top: -65px;
+    top: -70px;
 }
+
+.coursetxttopshelf {
+    width: 237px;
+    height: 32px;
+    text-align: center;
+    font-family: tour;
+    font-size: 16.5px;
+    line-height: 12.5px;
+    position: absolute;
+    display: inline;
+    color: white;
+    margin-left: -233px;
+    top: -110px;
+}
+
 
 .whitebar2item {
     width: 300px;
@@ -299,6 +353,8 @@
 h4 {
     font-family: tour;
     font-size: 16px;
+    margin-left: 10px;
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
 }
 
 /*::-webkit-scrollbar {
