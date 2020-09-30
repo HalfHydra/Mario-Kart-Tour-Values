@@ -127,7 +127,7 @@ function invCharacter(selected, i) {
         characterpanel.className = 'characterpanel';
 
         let rarityimage = document.createElement('img');
-        switch (charrarity[i]) {
+        switch (charrarity[characterid.indexOf(item)]) {
         case "1":
             rarityimage.src = `./Images/UI/invnormal.png`;
             break;
@@ -143,7 +143,7 @@ function invCharacter(selected, i) {
         var panel = document.createElement('div');
         panel.className = 'ckgpanel2';
         let bottomimg = document.createElement('img');
-        switch (charrarity[i]) {
+        switch (charrarity[characterid.indexOf(item)]) {
         case "1":
             bottomimg.src = `./Images/UI/bgnormal.png`;
             break;
@@ -163,7 +163,7 @@ function invCharacter(selected, i) {
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
-        switch (charrarity[i]) {
+        switch (charrarity[characterid.indexOf(item)]) {
         case "1":
             topimg.src = `./Images/UI/outlinenormal.png`;
             break;
@@ -178,7 +178,7 @@ function invCharacter(selected, i) {
         panel.appendChild(topimg);
 
         let charaitem = document.createElement('img');
-        charaitem.src = `./Images/Items/` + charitem[i] + `.png`;
+        charaitem.src = `./Images/Items/` + charitem[characterid.indexOf(item)] + `.png`;
         charaitem.className = 'itemboxitem';
         panel.appendChild(charaitem);
 

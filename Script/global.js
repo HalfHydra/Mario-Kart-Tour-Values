@@ -3,6 +3,11 @@ var isDataEntered = false;
 var values;
 var disableCityValue = false;
 var disableCharPanel = false;
+var resettingCourses = false;
+
+var topshelfmode = 0;
+
+var missingCourses = [];
 
 let savedata = {
     Items: {
@@ -79,6 +84,7 @@ function changemode(mode) {
                 makeCourseList();
                 courseListMade = true;
         }
+        changecoursemode(0);
         break;
     case 4:
         document.getElementById('intro').style.display = "none";
@@ -108,7 +114,7 @@ function changecoursemode(mode) {
         document.getElementById('itemspecificcourses').style.display = "none";
         break;
     case 1:
-        if(!topShelfPreviewMade){
+        if(!topShelfPreviewMade || resettingCourses){
         makeTopShelfPreview();
         topShelfPreviewMade = true;
         }
@@ -181,6 +187,38 @@ function changeckg(mode) {
             document.getElementById('inventoryglider').style.display = 'block';
             currentmode = 2;
         }
+        break;
+    }
+}
+
+function changecourseckg(mode) {
+    switch (mode) {
+    case 0:
+            document.getElementById('coursedriversbtn').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtn').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtn').src = './Images/UI/invglidebtn.png';
+            document.getElementById('coursedriversbtn').src = './Images/UI/invcharbtnselected.png';
+            topshelfmode = 0;
+            resettingCourses = true;
+            makeTopShelfPreview();
+        break;
+    case 1:
+            document.getElementById('coursedriversbtn').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtn').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtn').src = './Images/UI/invglidebtn.png';
+            document.getElementById('coursekartsbtn').src = './Images/UI/invkartbtnselected.png';
+            topshelfmode = 1;
+            resettingCourses = true;
+            makeTopShelfPreview();
+        break;
+    case 2:
+            document.getElementById('coursedriversbtn').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtn').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtn').src = './Images/UI/invglidebtn.png';
+            document.getElementById('courseglidersbtn').src = './Images/UI/invglidebtnselected.png';
+            topshelfmode = 2;
+            resettingCourses = true;
+            makeTopShelfPreview();
         break;
     }
 }

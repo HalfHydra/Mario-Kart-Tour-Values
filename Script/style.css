@@ -86,7 +86,12 @@
     height: 87.5px;
     display: inline-block;
 }
-
+.ckgpaneldisabled {
+    width: 67.5px;
+    height: 87.5px;
+    display: inline-block;
+   -webkit-filter: grayscale(100%);
+}
 .bottomimg {
     width: 67.5px;
     height: 87.5px;
@@ -293,7 +298,7 @@
 
 .coursepaneltopshelf {
     width: 245px;
-    height: 126px;
+    height: 250px;
     display: inline;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
@@ -313,6 +318,18 @@
     /*margin-top: 0px;*/
 }
 
+.coursepreviewtopshelfpanel {
+    width: 275px;
+    height: 105px;
+    display: inline-block;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
 .coursetxt {
     width: 155px;
     height: 20px;
@@ -324,7 +341,7 @@
     display: inline;
     color: white;
     margin-left: -147.5px;
-    top: -70px;
+    top: -69px;
 }
 
 .coursetxttopshelf {
@@ -338,7 +355,7 @@
     display: inline;
     color: white;
     margin-left: -233px;
-    top: -110px;
+    top: -107px;
 }
 
 

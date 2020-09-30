@@ -72,7 +72,23 @@
          <div id="courses" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;overflow-y: scroll;">
          	<div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Courses</h3>
-               <div id="coursebtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 520px;">
+
+               <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
+                     <img id='coursedriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(0)">  </img>
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
+                     <img id='coursekartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(1)">  </img>
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
+                     <img id='courseglidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(2)">  </img>
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
+                  </div>
+               </div>
+
+               <div id="coursebtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 320px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
                      <img id='courseselectbtn' src="./Images/UI/courseselectbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecoursemode(0)">  </img>
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Select Courses</p>

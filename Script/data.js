@@ -578,6 +578,9 @@ document.getElementById('inputsavedata').addEventListener('change', function() {
         }
         );
 
+        resettingCourses = true;
+        
+
     }
     reader.readAsText(this.files[0]);
 
