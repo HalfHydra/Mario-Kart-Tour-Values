@@ -112,28 +112,47 @@ function changecoursemode(mode) {
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "none";
         document.getElementById('itemspecificcourses').style.display = "none";
+        document.getElementById('items3barslc').style.display = "none";
+        document.getElementById('items2barslc').style.display = "none";
+        document.getElementById('courseitembtns').style.display = "none";
+        document.getElementById('coursebtns').style.marginLeft = "524px";
+
         break;
     case 1:
         if(!topShelfPreviewMade || resettingCourses){
         makeTopShelfPreview();
         topShelfPreviewMade = true;
+        document.getElementById('coursedriversbtn').src = "./Images/UI/invcharbtnselected.png";
         }
         document.getElementById('selectcourses').style.display = "none";
         document.getElementById('topshelfpreview').style.display = "block";
         document.getElementById('selectedcourses').style.display = "none";
         document.getElementById('itemspecificcourses').style.display = "none";
+        document.getElementById('items3barslc').style.display = "none";
+        document.getElementById('items2barslc').style.display = "none";
+        document.getElementById('courseitembtns').style.display = "inline-block";
+        document.getElementById('coursebtns').style.marginLeft = "320px";
         break;
     case 2:
         document.getElementById('selectcourses').style.display = "none";
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "block";
         document.getElementById('itemspecificcourses').style.display = "none";
+        document.getElementById('items3barslc').style.display = "inline-block";
+        document.getElementById('items2barslc').style.display = "inline-block";
+        document.getElementById('courseitembtns').style.display = "none";
+        document.getElementById('coursebtns').style.marginLeft = "524px";
+        selectedCourses();
         break;
     case 3:
         document.getElementById('selectcourses').style.display = "none";
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "none";
         document.getElementById('itemspecificcourses').style.display = "block";
+        document.getElementById('items3barslc').style.display = "none";
+        document.getElementById('items2barslc').style.display = "none";
+        document.getElementById('courseitembtns').style.display = "none";
+        document.getElementById('coursebtns').style.marginLeft = "524px";
         break;
     }
 }

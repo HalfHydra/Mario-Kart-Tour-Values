@@ -294,6 +294,18 @@
     display: inline;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
+    color: white;
+}
+.coursepanelselected {
+    width: 155px;
+    height: 80px;
+    display: inline;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
+    color:rgba(0,255,62,1);
+    /*background: rgba(0,255,62,0.35);*/
+    /*box-shadow: 0 3000px rgba(204, 0, 255, 0.9) inset;*/
+
 }
 
 .coursepaneltopshelf {
@@ -302,6 +314,33 @@
     display: inline;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
+    color: white;
+}
+.coursepaneltopshelfselected {
+    width: 245px;
+    height: 250px;
+    display: inline;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
+    color:rgba(0,255,62,1);
+}
+.coursepanelslc {
+    width: 245px;
+    height: 250px;
+    display: inline;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
+    color: white;
+    vertical-align: center;
+}
+.coursepanelslcselected {
+    width: 245px;
+    height: 250px;
+    display: inline;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
+    color:rgba(0,255,62,1);
+    vertical-align: center;
 }
 
 .courseimg {
@@ -317,6 +356,14 @@
     margin-left: 4px;
     /*margin-top: 0px;*/
 }
+.courseimgslc {
+    width: 229px;
+    height: 115px;
+    margin-left: 4px;
+    /*margin-top: 0px;*/
+    float: left;
+    margin-top: 100px;
+}
 
 .coursepreviewtopshelfpanel {
     width: 275px;
@@ -330,6 +377,24 @@
     white-space: nowrap;
 }
 
+.coursepreviewselectedpanel {
+    width: 355px;
+    height: 105px;
+    display: inline-block;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.combTS {
+   width: 375px;
+   height: 320px;
+   display: inline-block;
+}
+
 .coursetxt {
     width: 155px;
     height: 20px;
@@ -339,7 +404,7 @@
     line-height: 20px;
     position: absolute;
     display: inline;
-    color: white;
+    color: inherit;
     margin-left: -147.5px;
     top: -69px;
 }
@@ -353,9 +418,21 @@
     line-height: 12.5px;
     position: absolute;
     display: inline;
-    color: white;
+    color: inherit;
     margin-left: -233px;
     top: -107px;
+}
+
+.coursetxtslc {
+    width: 237px;
+    height: 32px;
+    text-align: center;
+    font-family: tour;
+    font-size: 16.5px;
+    line-height: 12.5px;
+    position: absolute;
+    color: inherit;
+    margin-top: 108px;
 }
 
 
@@ -365,6 +442,19 @@
     margin-left: 6.25px;
     margin-top: -12.5px;
     position: relative;
+}
+
+.items3barslc {
+   display: inline-block;
+   width: 375px;
+   height: auto;
+   margin-left: 185px;
+}
+
+.items2barslc {
+   display: inline-block;
+   width: 375px;
+   height: auto;
 }
 
 h4 {

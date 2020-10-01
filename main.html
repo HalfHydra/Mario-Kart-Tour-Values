@@ -7,7 +7,7 @@
          @font-face {font-family: headername;src: url('./Font/nintendoP_NTLG-NR-UB_003.ttf');}
       </style>
    </head>
-   <body class="main" style="" id="bigbody">
+   <body class="main" style="height: 100%" id="bigbody">
       <div style="margin: 0px auto;width: 540px;right: 0;left: 0;">
          <div style="width: 100px;height: 120px;display: inline-block;">
             <img src="./Images/UI/cupdata.png" style="width: 100px;height: 100px;" onclick="changemode(1)">  </img>
@@ -30,20 +30,21 @@
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Settings </p>
          </div>
       </div>
-      <div style="margin: 0px auto;width: 1000px;height: 1000px;right: 0;left: 0;" id="content">
-         <div id="intro" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;overflow-y: scroll;">
+      <div style="margin: 0px auto;width: 1000px;height: calc(100vh - 140px);overflow-y: scroll;overflow-x: hidden;right: 0;left: 0;   background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;" id="content">
+         <div id="intro" style="height: auto;">
             <h3 style="font-family: tour;text-align: center;display: inline-block;margin-left: 10px;">Landing Page</h3>
             <div> </div>
             <p style="font-family: tour;margin-left: 10px;">Welcome to the  </p>
          </div>
-         <div id="data" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;overflow-y: scroll;">
+         <div id="data" style="height: auto;">
+         	<div style="position: sticky;top: 0;z-index: 30;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;"> 
             <h3 style="font-family: tour;width: 100px;display: inline-block;margin-left: 10px;">Data</h3>
             <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;">
                <input type="file" id="inputsavedata" style="height: 30px;"><button style="float: right;width: 150px;height: 30px;" onclick="downloadsavedata()">Download Save Data</button>
             </div>
-            <div> </div>
+        </div>
          </div>
-         <div id="inventory" style="right: 0;left: 0;margin: 0px auto;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: auto;background-size: 394px auto;overflow-y: scroll;height:1000px;">
+         <div id="inventory" style="height: auto;">
             <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 540px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Inventory</h3>
                <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
@@ -69,11 +70,11 @@
             <div id="inventoryshelves" style="display:block;width: auto;text-align: center;background-color: rgba(0, 0, 0, 0.3);padding:0px;">
             </div>
          </div>
-         <div id="courses" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height: 1000px;background-size: 394px auto;overflow-y: scroll;">
-         	<div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
+         <div id="courses" style="height: auto;">
+         	<div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Courses</h3>
 
-               <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
+               <div id="courseitembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
                      <img id='coursedriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(0)">  </img>
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
@@ -106,30 +107,35 @@
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Item Specific</p>
                   </div>
                </div>
+               <img id="items3barslc" src="./Images/UI/3itemsbar.png" class="items3barslc">
+               <img id="items2barslc" src="./Images/UI/2itemsbar.png" class="items2barslc">
            </div>
             <!--<h3>Courses</h3>-->
             <div style="position: relative;">
-                  <div id="selectcourses" style="">
+                  <div id="selectcourses" style="margin-left: 50px;">
                   	<!--<h3>Select Courses</h3>-->
                   </div>
                   <div id="topshelfpreview">
                   	
                   </div>
                   <div id="selectedcourses">
-                  	
+
                   </div>
                   <div id="itemspecificcourses">
                   	
                   </div>
                </div>
          </div>
-         <div id="missing">
-            <h3>Missing</h3>
+         <div id="missing" style="height: auto;">
+            <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
+               <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 300px;display: inline-block;margin-bottom: 30px;">Missing Courses</h3>
+            </div>
+            
          </div>
          <!--<div id="pipe">
             <h3>Pipe</h3>
             </div>-->
-         <div id="settings" style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');height:1000px;background-size: 394px auto;overflow-y: scroll;">
+         <div id="settings" style="height:auto;">
             <h3 style="font-family: tour;font-size: 24px;text-align: center;margin-left: 10px;">Settings</h3>
             <div id='general' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;">
             	<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">General</h3>
