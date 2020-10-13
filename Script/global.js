@@ -30,6 +30,8 @@ var courseListMade = false;
 
 var topShelfPreviewMade = false;
 
+var onlyOwnedItems = false;
+
 var selectedcourses = [];
 
 let savedata = {
@@ -321,6 +323,14 @@ function changeusedata() {
         isDataEntered = false;
     } else {
         isDataEntered = true;
+    }
+}
+
+function changeowneditems() {
+    if (document.getElementById('changeusedata').checked) {
+        onlyOwnedItems = true;
+    } else {
+        onlyOwnedItems = false;
     }
 }
 

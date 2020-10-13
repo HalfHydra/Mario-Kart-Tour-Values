@@ -317,8 +317,13 @@ function specificitemcourses(){
             lvicon.className = 'lvicon';
             panel.appendChild(lvicon);
         }
-
+       let savedrivers = [];
+       savedrivers = Object.keys(savedata.Items.Drivers);
+       if(savedrivers.includes(t) && isDataEntered){
         specificitemcourse.appendChild(panel);
+       } else if(onlyOwnedItems == false){
+        specificitemcourse.appendChild(panel);
+       }
         specificitemcourses.appendChild(specificitemcourse);
     }
     );
@@ -911,8 +916,8 @@ function makeTopShelfPreview() {
               missingcoursesd.push(t);
        }*/
 
-       
-       
+
+
        topshelves = tempOwned.concat(tempNotOwned);
        //console.log(topshelves);
 
