@@ -107,7 +107,10 @@ function changemode(mode) {
                 courseListMade = true;
         }
         changemissingckg(0);
+        if(isDataEntered){
+        calcMissingValues();
         missingCourses();
+        }
         document.getElementById('intro').style.display = "none";
         document.getElementById('data').style.display = "none";
         document.getElementById('inventory').style.display = "none";
@@ -310,6 +313,14 @@ function changedebugsave() {
         document.getElementById('debugsave').style.display = "block";
     } else {
         document.getElementById('debugsave').style.display = "none";
+    }
+}
+
+function changeusedata() {
+    if (document.getElementById('changeusedata').checked) {
+        isDataEntered = false;
+    } else {
+        isDataEntered = true;
     }
 }
 

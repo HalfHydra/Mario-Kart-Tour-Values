@@ -1,8 +1,4 @@
 function missingCourses(){
-      if(!isMissingCalculated){
-        calcMissingValues();
-        isMissingCalculated = true;
-      }
       document.getElementById('missingcourses').innerHTML = "";
       let output = document.getElementById('missingcourses');
       let missingcourses = [];
