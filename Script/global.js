@@ -4,6 +4,9 @@ var values;
 var disableCityValue = false;
 var disableCharPanel = false;
 var resettingCourses = false;
+
+var isMissingCalculated = false;
+
 var startToggle = true;
 var currentspecificitem = 0;
 var currentitemtype = 0;
@@ -11,8 +14,23 @@ var currentitemrarity = 0;
 var currentitemitem = 0;
 
 var topshelfmode = 0;
+var missingmode = 0;
 
-var missingCourses = [];
+var missingcoursesd = [];
+var missingcoursesk = [];
+var missingcoursesg = [];
+
+var viewshelvechar = [];
+
+var currentmode = -1;
+
+var dataFieldsMade = false;
+
+var courseListMade = false;
+
+var topShelfPreviewMade = false;
+
+var selectedcourses = [];
 
 let savedata = {
     Items: {
@@ -32,18 +50,6 @@ var kartitem = ["B", "C", "D", "A", "B", "B", "D", "C", "B", "A", "B", "A", "A",
 var gliderid = ["30001", "30020", "30021", "30015", "30082", "30083", "30090", "30080", "30084", "30024", "30017", "30075", "30099", "30148", "30211", "30209", "30205", "30224", "30062", "30087", "30069", "30172", "30061", "30147", "30029", "30143", "30074", "30076", "30140", "30150", "30145", "30088", "30174", "30184", "30177", "30179", "30180", "30193", "30171", "30202", "30109", "30181", "30192", "30201", "30151", "30225", "30222", "30155", "30054", "30159", "30188", "30170", "30139", "30190", "30257", "30200", "30255", "30265", "30156", "30196", "30261", "30241", "30281", "30208", "30010", "30063", "30019", "30108", "30141", "30146", "30163", "30239", "30207", "30164", "30276", "30284", "30111", "30114", "30112", "30116", "30113", "30117", "30133", "30123", "30124","30126"]
 var gliderrarity = ["1", "1", "1", "1", "1", "1", "1", "1", "1", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3","3"];
 var glideritem = ["4", "6", "2", "2", "6", "1", "6", "4", "34", "3", "1", "3", "10", "24", "34", "13", "2", "2", "5", "2", "9", "9", "1", "6", "13", "24", "4", "34", "3", "4", "13", "3", "10", "2", "13", "4", "13", "5", "3", "24", "9", "1", "3", "10", "34", "1", "5", "24", "5", "34", "3", "13", "5", "4", "24", "9", "5", "10", "10", "1", "2", "10", "4", "34", "5", "9", "10", "10", "24", "13", "1", "1", "2", "6", "6", "6", "4", "3", "34", "9", "6", "34", "9", "3", "24","4"];
-
-var viewshelvechar = [];
-
-var currentmode = -1;
-
-var dataFieldsMade = false;
-
-var courseListMade = false;
-
-var topShelfPreviewMade = false;
-
-var selectedcourses = [];
 
 changemode(0);
 function changemode(mode) {
@@ -78,7 +84,10 @@ function changemode(mode) {
         document.getElementById('settings').style.display = "none";
         break;
     case 3:
-        generateCourseList();
+        if(!courseListMade){
+                makeCourseList();
+                courseListMade = true;
+        }
         document.getElementById('intro').style.display = "none";
         document.getElementById('data').style.display = "none";
         document.getElementById('inventory').style.display = "none";
@@ -93,6 +102,12 @@ function changemode(mode) {
         selectspecificitem();
         break;
     case 4:
+        if(!courseListMade){
+                makeCourseList();
+                courseListMade = true;
+        }
+        changemissingckg(0);
+        missingCourses();
         document.getElementById('intro').style.display = "none";
         document.getElementById('data').style.display = "none";
         document.getElementById('inventory').style.display = "none";
@@ -249,6 +264,38 @@ function changecourseckg(mode) {
             topshelfmode = 2;
             resettingCourses = true;
             makeTopShelfPreview();
+        break;
+    }
+}
+
+function changemissingckg(mode) {
+    switch (mode) {
+    case 0:
+            document.getElementById('missingdriversbtn').src = './Images/UI/invcharbtn.png';
+            document.getElementById('missingkartsbtn').src = './Images/UI/invkartbtn.png';
+            document.getElementById('missingglidersbtn').src = './Images/UI/invglidebtn.png';
+            document.getElementById('missingdriversbtn').src = './Images/UI/invcharbtnselected.png';
+            missingmode = 0;
+            resettingMissing = true;
+            missingCourses();
+        break;
+    case 1:
+            document.getElementById('missingdriversbtn').src = './Images/UI/invcharbtn.png';
+            document.getElementById('missingkartsbtn').src = './Images/UI/invkartbtn.png';
+            document.getElementById('missingglidersbtn').src = './Images/UI/invglidebtn.png';
+            document.getElementById('missingkartsbtn').src = './Images/UI/invkartbtnselected.png';
+            missingmode = 1;
+            resettingMissing = true;
+            missingCourses();
+        break;
+    case 2:
+            document.getElementById('missingdriversbtn').src = './Images/UI/invcharbtn.png';
+            document.getElementById('missingkartsbtn').src = './Images/UI/invkartbtn.png';
+            document.getElementById('missingglidersbtn').src = './Images/UI/invglidebtn.png';
+            document.getElementById('missingglidersbtn').src = './Images/UI/invglidebtnselected.png';
+            missingmode = 2;
+            resettingMissing = true;
+            missingCourses();
         break;
     }
 }

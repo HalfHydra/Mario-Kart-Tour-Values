@@ -549,6 +549,9 @@ document.getElementById('inputsavedata').addEventListener('change', function() {
         document.getElementById('json').innerHTML = JSON.stringify(savedata, null, 2);
         //temp = (encode(decode(array)));
         //console.log([...array]);
+        makeCourseList();
+        courseListMade = true;
+        calcMissingValues();
         isDataEntered = true;
 
         let savedrivers = [];

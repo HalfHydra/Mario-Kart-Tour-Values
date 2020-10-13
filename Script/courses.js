@@ -907,10 +907,12 @@ function makeTopShelfPreview() {
        //console.log(tempOwned);
        //console.log(tempNotOwned);
 
-       if(tempOwned.length == 0){
-              missingCourses.push(t);
-       }
+       /*if(tempOwned.length == 0){
+              missingcoursesd.push(t);
+       }*/
 
+       
+       
        topshelves = tempOwned.concat(tempNotOwned);
        //console.log(topshelves);
 
