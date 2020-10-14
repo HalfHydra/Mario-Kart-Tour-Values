@@ -1,3 +1,7 @@
+//tour specific
+var currentTourName = "1st Anniversary Tour";
+var currentTourFileName = currentTourName.replace(/ /g, "");
+
 //global
 var isDataEntered = false;
 var values;
@@ -352,4 +356,31 @@ function changecharpanelvalue() {
 
 function zoomLevel(zoom) {
     document.getElementById('bigbody').style.zoom = `${zoom}%`
+}
+
+function downloadcoursejson(){
+    generateCourseList();
+    courseListMade = true;
+    var data = JSON.stringify(coursedata, null, 2);
+    var filename = "MKTCourseJson" + currentTourFileName + ".json";
+    var type = "text";
+    var a = document.createElement("a")
+      , file = new Blob([data],{
+        type: type
+    });
+    if (window.navigator.msSaveOrOpenBlob)
+        // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else {
+        // Others
+        var url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
 }
