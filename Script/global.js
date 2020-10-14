@@ -358,11 +358,27 @@ function zoomLevel(zoom) {
     document.getElementById('bigbody').style.zoom = `${zoom}%`
 }
 
-function downloadcoursejson(){
+function downloadcoursejson(mode){
     generateCourseList();
     courseListMade = true;
-    var data = JSON.stringify(coursedata, null, 2);
-    var filename = "MKTCourseJson" + currentTourFileName + ".json";
+    var data = "";
+    switch(mode){
+    case 0:
+    data = JSON.stringify(coursedata, null, 2);
+    break;
+    case 1:
+    data = JSON.stringify(coursedataeng, null, 2);
+    break;
+    }
+    var filename = "";
+    switch(mode){
+        case 0:
+        filename = "MKTCoursesIDs" + currentTourFileName + ".json";
+        break;
+        case 1:
+        filename = "MKTCoursesNames" + currentTourFileName + ".json";
+        break;
+    }
     var type = "text";
     var a = document.createElement("a")
       , file = new Blob([data],{

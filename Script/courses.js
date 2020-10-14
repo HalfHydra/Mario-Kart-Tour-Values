@@ -2,6 +2,10 @@ var coursedata = {
     Courses: {}
 }
 
+var coursedataeng = {
+    Courses: {}
+}
+
 function generateCourseList() {
     Object.keys(coursenames).forEach((t,i)=>{
         coursedata.Courses[t] = {};
@@ -13,6 +17,15 @@ function generateCourseList() {
         coursedata.Courses[t].goodAt.Drivers = [];
         coursedata.Courses[t].goodAt.Karts = [];
         coursedata.Courses[t].goodAt.Gliders = [];
+        coursedataeng.Courses[t] = {};
+        coursedataeng.Courses[t].moreGoodAt = {};
+        coursedataeng.Courses[t].goodAt = {};
+        coursedataeng.Courses[t].moreGoodAt.Drivers = [];
+        coursedataeng.Courses[t].moreGoodAt.Karts = [];
+        coursedataeng.Courses[t].moreGoodAt.Gliders = [];
+        coursedataeng.Courses[t].goodAt.Drivers = [];
+        coursedataeng.Courses[t].goodAt.Karts = [];
+        coursedataeng.Courses[t].goodAt.Gliders = [];
         characterid.forEach((charid,i)=>{
             let moreGoodAt = values[charid].moreGoodAt;
             let goodAt = values[charid].goodAt;
@@ -25,6 +38,18 @@ function generateCourseList() {
             goodAt.forEach((courseid,i)=>{
                 if (courseid == t) {
                     coursedata.Courses[t].goodAt['Drivers'].push(charid);
+                }
+            }
+            );
+            moreGoodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedataeng.Courses[t].moreGoodAt['Drivers'].push(values[charid].nameEng);
+                }
+            }
+            );
+            goodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedataeng.Courses[t].goodAt['Drivers'].push(values[charid].nameEng);
                 }
             }
             );
@@ -45,6 +70,18 @@ function generateCourseList() {
                 }
             }
             );
+            moreGoodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedataeng.Courses[t].moreGoodAt['Karts'].push(values[karid].nameEng);
+                }
+            }
+            );
+            goodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedataeng.Courses[t].goodAt['Karts'].push(values[karid].nameEng);
+                }
+            }
+            );
         }
         );
         gliderid.forEach((glidid,i)=>{
@@ -59,6 +96,18 @@ function generateCourseList() {
             goodAt.forEach((courseid,i)=>{
                 if (courseid == t) {
                     coursedata.Courses[t].goodAt['Gliders'].push(glidid);
+                }
+            }
+            );
+            moreGoodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedataeng.Courses[t].moreGoodAt['Gliders'].push(values[glidid].nameEng);
+                }
+            }
+            );
+            goodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedataeng.Courses[t].goodAt['Gliders'].push(values[glidid].nameEng);
                 }
             }
             );
