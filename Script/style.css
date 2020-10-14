@@ -1,7 +1,19 @@
+.landingpagetxt {
+   font-family: tour;
+   margin-left: 10px;
+   font-size: 20px;
+}
+
 .whiteoutline {
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
+.blackoutline {
+    color: black;
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+}
+
 
 .datafield {
     width: 240px;
