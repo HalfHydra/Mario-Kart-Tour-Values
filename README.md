@@ -1,7 +1,7 @@
 # Mario-Kart-Tour-Values
-This is a tool to compare your values in the game, and allow you to see what is available on the courses. You can save your data to reupload and not have to enter everything again. 
+This is a tool to compare your values in the game, and allow you to see what is available on the courses. You can save your data to a file and reupload to not have to enter everything again. 
 
-# The tool so far does all of the following:
+**The tool so far does all of the following:**
 - Allows you to view your inventory
 - Allows you to compare characters, karts, and gliders easier
 - Contains a list of courses that you can compare the top shelf and middle shelf items
@@ -11,7 +11,7 @@ This is a tool to compare your values in the game, and allow you to see what is 
 - Enter Data to see all the levels of your items on these features
 - Check missing values once you have your data inputted
 
-# I am planning to implement these ideas:
+**I am planning to implement these ideas:**
 - Reverting to previous tour data
 - Bonus Points Calculator
 - Pipe Simulator&nbsp;
