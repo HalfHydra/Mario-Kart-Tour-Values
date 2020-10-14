@@ -553,8 +553,6 @@ document.getElementById('inputsavedata').addEventListener('change', function() {
     reader.onload = function() {
         savedata = JSON.parse(this.result);
         document.getElementById('json').innerHTML = JSON.stringify(savedata, null, 2);
-        //temp = (encode(decode(array)));
-        //console.log([...array]);
         makeCourseList();
         courseListMade = true;
         calcMissingValues();

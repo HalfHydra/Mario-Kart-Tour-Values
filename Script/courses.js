@@ -17,14 +17,12 @@ function generateCourseList() {
             let moreGoodAt = values[charid].moreGoodAt;
             let goodAt = values[charid].goodAt;
             moreGoodAt.forEach((courseid,i)=>{
-                //console.log('if ' + courseid + ' == ' + t);
                 if (courseid == t) {
                     coursedata.Courses[t].moreGoodAt['Drivers'].push(charid);
                 }
             }
             );
             goodAt.forEach((courseid,i)=>{
-                //console.log('if ' + courseid + ' == ' + t);
                 if (courseid == t) {
                     coursedata.Courses[t].goodAt['Drivers'].push(charid);
                 }
@@ -36,14 +34,12 @@ function generateCourseList() {
             let moreGoodAt = values[karid].moreGoodAt;
             let goodAt = values[karid].goodAt;
             moreGoodAt.forEach((courseid,i)=>{
-                //console.log('if ' + courseid + ' == ' + t);
                 if (courseid == t) {
                     coursedata.Courses[t].moreGoodAt['Karts'].push(karid);
                 }
             }
             );
             goodAt.forEach((courseid,i)=>{
-                //console.log('if ' + courseid + ' == ' + t);
                 if (courseid == t) {
                     coursedata.Courses[t].goodAt['Karts'].push(karid);
                 }
@@ -55,14 +51,12 @@ function generateCourseList() {
             let moreGoodAt = values[glidid].moreGoodAt;
             let goodAt = values[glidid].goodAt;
             moreGoodAt.forEach((courseid,i)=>{
-                //console.log('if ' + courseid + ' == ' + t);
                 if (courseid == t) {
                     coursedata.Courses[t].moreGoodAt['Gliders'].push(glidid);
                 }
             }
             );
             goodAt.forEach((courseid,i)=>{
-                //console.log('if ' + courseid + ' == ' + t);
                 if (courseid == t) {
                     coursedata.Courses[t].goodAt['Gliders'].push(glidid);
                 }
@@ -247,7 +241,6 @@ function selectspecificitem(){
 }
 
 function specificitemcourses(){
-       console.log('pog');
        var specificitemcourses = document.getElementById('itemspecificcourses');
        var specificitemcourse = document.createElement('div');
        specificitemcourses.innerHTML = "";
@@ -474,11 +467,6 @@ function specificchoicemade(t, type, rarity, item) {
        var specificitem = document.getElementById('specificitem');
        specificitemcourses.innerHTML = "";
        let courses = values[t].moreGoodAt;
-       console.log("[1]" + t);
-       console.log("[2]" + type);
-       console.log("[3]" + rarity);
-       console.log("[4]" + item);
-       console.log('courses = ' + courses);
        currentspecificitem = t;
        currentitemtype = type;
        currentitemrarity = rarity;
@@ -909,17 +897,10 @@ function makeTopShelfPreview() {
               });
               break;
               }  
-       //console.log(tempOwned);
-       //console.log(tempNotOwned);
-
-       /*if(tempOwned.length == 0){
-              missingcoursesd.push(t);
-       }*/
 
 
 
        topshelves = tempOwned.concat(tempNotOwned);
-       //console.log(topshelves);
 
        }
 

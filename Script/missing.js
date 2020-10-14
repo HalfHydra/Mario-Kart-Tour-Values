@@ -408,9 +408,6 @@ function calcMissingValues(){
               });
               break;
               }  
-       //console.log(tempOwned);
-       //console.log(tempNotOwned);
-
        if(tempOwned.length == 0){
               switch(topshelfmode){
                 case 0:
@@ -426,9 +423,8 @@ function calcMissingValues(){
        }
 
        
-       
+      
        topshelves = tempOwned.concat(tempNotOwned);
-       //console.log(topshelves);
 
        }
      }
