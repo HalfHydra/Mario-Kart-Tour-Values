@@ -16,6 +16,8 @@ UPDATE: Nintendo decided to release an update that seriously changes how the gam
 **I am planning to implement these ideas:**
 - Ranked Review - Current Ranked Cups and their courses
 - A nudge to enter data before checking missing courses
+- Setting to remove certain city courses from missing that do not have more course amounts yet (not tracks you should focus on)
+- A fix for the textboxes not showing up properly on some browsers/devices
 - Reverting to previous tour data
 - Bonus Points Calculator
 - Pipe Simulator
