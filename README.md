@@ -1,6 +1,8 @@
 # Mario-Kart-Tour-Values
 This is a tool to compare your values in the game, and allow you to see what is available on the courses. You can save your data to a file and reupload to not have to enter everything again. 
 
+UPDATE: Nintendo decided to release an update that seriously changes how the game works. Immediately after I believed I had finished the main functionality. I guess it's true that a programmer's work is never done. I will be updating this after I find the time to do so.
+
 **The tool so far does all of the following:**
 - Allows you to view your inventory
 - Allows you to compare characters, karts, and gliders easier
@@ -12,6 +14,10 @@ This is a tool to compare your values in the game, and allow you to see what is 
 - Check missing values once you have your data inputted
 
 **I am planning to implement these ideas:**
+- Ranked Review - Current Ranked Cups and their courses
+- A nudge to enter data before checking missing courses
+- Setting to remove certain city courses from missing that do not have more course amounts yet (not tracks you should focus on)
+- A fix for the textboxes not showing up properly on some browsers/devices
 - Reverting to previous tour data
 - Bonus Points Calculator
 - Pipe Simulator
