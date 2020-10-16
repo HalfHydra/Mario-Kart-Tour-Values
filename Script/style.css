@@ -323,12 +323,16 @@
 }
 
 .coursepaneltopshelf {
-    width: 245px;
-    height: 250px;
+    /*width: 245px;
+    height: 250px;*/
+    width: 220.5px;
+    height: 225px;
     display: inline;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
     color: white;
+    -moz-transform: scale(0.9);
+    -moz-transform-origin: 0 0;
 }
 .coursepaneltopshelfselected {
     width: 245px;
@@ -388,8 +392,10 @@
 }
 
 .courseimgtopshelf {
-    width: 229px;
-    height: 115px;
+    /*width: 229px;
+    height: 115px;*/
+    width: 206.1px;
+    height: 103.5px;
     margin-left: 4px;
     /*margin-top: 0px;*/
 }
@@ -399,7 +405,7 @@
     margin-left: 4px;
     /*margin-top: 0px;*/
     float: left;
-    margin-top: 100px;
+    margin-top: 15px;
 }
 
 .coursepreviewtopshelfpanel {
@@ -432,6 +438,7 @@
    display: inline-block;
    border-radius: 5px;
    border: 10px solid #2B466A;
+   margin-top: -50px;
 }
 
 .coursetxt {
@@ -449,17 +456,21 @@
 }
 
 .coursetxttopshelf {
-    width: 237px;
-    height: 32px;
+    /*width: 237px;
+    height: 32px;*/
+    width: 218.3px;
+    height: 28.8px;
     text-align: center;
     font-family: tour;
-    font-size: 16.5px;
+    font-size: 15.0px;
     line-height: 12.5px;
     position: absolute;
     display: inline;
     color: inherit;
-    margin-left: -233px;
-    top: -107px;
+    /*margin-left: -233px;
+    top: -107px;*/
+    margin-left: -209.7px;
+    top: -96.3px;
 }
 
 .coursetxtslc {
@@ -469,9 +480,9 @@
     font-family: tour;
     font-size: 16.5px;
     line-height: 12.5px;
-    position: absolute;
+    position: relative;
     color: inherit;
-    margin-top: 108px;
+    top: -108px;
 }
 
 
