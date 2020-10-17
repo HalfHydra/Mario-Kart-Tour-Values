@@ -24,3 +24,5 @@ UPDATE: Nintendo decided to release an update that seriously changes how the gam
 
 I hope this helps with anything you should need! There is a copy hosted on my [github site](https://halfhydra.github.io/MarioKartTourValues/main.html).
 Feel free to make suggestions.
+
+Special Thanks to tryso and spotlight for assisting in providing the jsons!
