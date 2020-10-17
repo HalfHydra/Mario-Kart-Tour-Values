@@ -113,8 +113,12 @@
 }
 
 .newCharacter {
-    width: auto;
-    height: 80px;
+    width: 67.5px;
+    max-height: 70.5px;
+    margin-top: 6px;
+    height: auto;
+    transform-origin: top left;
+    object-fit: contain;
     position: absolute;
 }
 

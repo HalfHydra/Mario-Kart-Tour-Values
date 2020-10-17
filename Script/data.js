@@ -33,13 +33,13 @@ let makeDataFields = ()=>{
         let topimg = document.createElement('img');
         switch (charrarity[i]) {
         case "1":
-            topimg.src = `./Images/UI/outlinenormal.png`;
+            topimg.src = `./Images/UI/outlinenormalchar.png`;
             break;
         case "2":
-            topimg.src = `./Images/UI/outlinerare.png`;
+            topimg.src = `./Images/UI/outlinerarechar.png`;
             break;
         case "3":
-            topimg.src = `./Images/UI/outlinehighend.png`;
+            topimg.src = `./Images/UI/outlinehighendchar.png`;
             break;
         }
         topimg.className = 'topimg';
