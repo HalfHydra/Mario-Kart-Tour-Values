@@ -134,6 +134,30 @@
     margin-left: 45px;
 }
 
+.newKartModal {
+    width: 220px;
+    max-height: 140px;
+    margin-top: 16px;
+    height: auto;
+    transform-origin: top center;
+    object-fit: contain;
+    position: absolute;
+    z-index: 100;
+    margin-left: 50px;
+}
+
+.newGliderModal {
+    width: 220px;
+    max-height: 140px;
+    margin-top: -5px;
+    height: auto;
+    transform-origin: top center;
+    object-fit: contain;
+    position: absolute;
+    z-index: 100;
+    margin-left: 50px;
+}
+
 .newKart {
     width: 67.5px;
     height: auto;
