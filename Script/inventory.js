@@ -77,6 +77,7 @@ let makeCharacters = ()=>{
 function invCharacter(selected, i) {
     let item = selected;
 
+    if(isMultipleShelves){
     if (!viewshelvechar.includes(item)) {
         viewshelvechar.push(item);
         document.getElementById(`invtopimgselected${selected}`).className = `invtopimgselected`;
@@ -288,6 +289,166 @@ function invCharacter(selected, i) {
         viewshelvechar.splice(viewshelvechar.indexOf(item), 1);
         document.getElementById(`invtopimgselected${selected}`).className = `topimg`;
     }
+}//if
+else {
+    inventorymodal.style.display = "block";
+    let moreGoodAt = values[item].moreGoodAt;
+        let goodAt = values[item].goodAt;
+        console.log(moreGoodAt);
+        console.log(goodAt);
+        //values.selected.goodAt
+        //let output = document.getElementById('inventorymodal');
+        //var shelfpanel = document.createElement('div');
+        //shelfpanel.className = 'shelfpanel stripedbg';
+        //shelfpanel.id = `shelfpanel${selected}`
+        var shelfpanel = document.getElementById('singleinv');
+
+        var namepanel = document.createElement('div');
+        namepanel.className = 'namepanel';
+        shelfpanel.appendChild(namepanel);
+
+        let toptext = document.createElement('p');
+        toptext.innerHTML = values[item].nameEng;
+        toptext.className = 'toptext';
+        namepanel.appendChild(toptext);
+
+        let xbtn = document.createElement('img');
+        xbtn.src = "./Images/UI/xbtn.png";
+        xbtn.className = 'xbtn';
+        xbtn.addEventListener('click', function() {
+            hideModal();
+        });
+        shelfpanel.appendChild(xbtn);
+
+        let characterpanel = document.createElement('div');
+        characterpanel.className = 'characterpanel';
+
+        let rarityimage = document.createElement('img');
+        switch (charrarity[characterid.indexOf(item)]) {
+        case "1":
+            rarityimage.src = `./Images/UI/invnormal.png`;
+            break;
+        case "2":
+            rarityimage.src = `./Images/UI/invrare.png`;
+            break;
+        case "3":
+            rarityimage.src = `./Images/UI/invhighend.png`;
+            break;
+        }
+        rarityimage.className = 'rarityimgmodal';
+
+        let newCharacter = document.createElement('img');
+        newCharacter.className = 'newCharacterModal';
+        newCharacter.src = `./Images/Full Icon/Character/` + item + `.png`;
+        characterpanel.appendChild(newCharacter);
+
+        let charaitem = document.createElement('img');
+        charaitem.src = `./Images/Items/` + charitem[characterid.indexOf(item)] + `.png`;
+        charaitem.className = 'itemboxitemmodal';
+        characterpanel.appendChild(charaitem);
+
+        let levelpanel = document.createElement('div');
+        levelpanel.className = ('levelmodalpanel');
+
+        let itemlvl = savedata.Items.Drivers[item];
+        if (itemlvl != null) {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'leveliconmodal';
+            levelicon.id = `shelf_levelnumber${item}`;
+            levelpanel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lviconmodal';
+            levelpanel.appendChild(lvicon);
+        }
+        characterpanel.appendChild(levelpanel);
+        characterpanel.appendChild(rarityimage);
+
+        let valuecount = 0;
+        if (disableCityValue == true) {
+            moreGoodAt.forEach((coursekey,i)=>{
+                if (!moreGoodAt[i].includes('New_')) {
+                    valuecount++;
+                }
+            }
+            );
+        } else {
+            valuecount = moreGoodAt.length;
+        }
+
+        var valuecounttxt = document.createElement('p');
+        valuecounttxt.className = "valuecounttxtmodal";
+        valuecounttxt.innerHTML = valuecount;
+        characterpanel.appendChild(valuecounttxt);
+
+        //comment this for no charcater image
+        if(!disableCharPanel){
+        shelfpanel.appendChild(characterpanel);
+        } else {
+        var minivaluecounttxt = document.createElement('p');
+        minivaluecounttxt.className = "minivaluecounttxt";
+        minivaluecounttxt.innerHTML = valuecount;
+        namepanel.appendChild(minivaluecounttxt);
+        }
+
+        let whitebar3item = document.createElement('img');
+        whitebar3item.src = `./Images/UI/3itemsbar.png`;
+        whitebar3item.className = 'whitebar3item';
+        shelfpanel.appendChild(whitebar3item);
+
+        var moreGoodAtPanel = document.createElement('div');
+        moreGoodAtPanel.className = 'goodAtPanel';
+
+        moreGoodAt.forEach((t,i)=>{
+            var coursePanel = document.createElement('div');
+            coursePanel.className = 'coursepanel';
+
+            let courseimg = document.createElement('img');
+            courseimg.src = `./Images/Course Image/${t}.png`;
+            courseimg.className = 'courseimg';
+            coursePanel.appendChild(courseimg);
+
+            let coursetxt = document.createElement('p');
+            coursetxt.innerHTML = coursenames[t];
+            coursetxt.className = 'coursetxt';
+            coursePanel.appendChild(coursetxt);
+
+            moreGoodAtPanel.appendChild(coursePanel);
+        }
+        );
+
+        let whitebar2item = document.createElement('img');
+        whitebar2item.src = `./Images/UI/2itemsbar.png`;
+        whitebar2item.className = 'whitebar2item';
+
+        var goodAtPanel = document.createElement('div');
+        goodAtPanel.className = 'goodAtPanel';
+
+        goodAt.forEach((t,i)=>{
+            var coursePanel = document.createElement('div');
+            coursePanel.className = 'coursepanel';
+
+            let courseimg = document.createElement('img');
+            courseimg.src = `./Images/Course Image/${t}.png`;
+            courseimg.className = 'courseimg'
+            coursePanel.appendChild(courseimg);
+
+            let coursetxt = document.createElement('p');
+            coursetxt.innerHTML = coursenames[t];
+            coursetxt.className = 'coursetxt';
+            coursePanel.appendChild(coursetxt);
+
+            goodAtPanel.appendChild(coursePanel);
+        }
+        );
+
+        shelfpanel.appendChild(moreGoodAtPanel);
+        shelfpanel.appendChild(whitebar2item);
+        shelfpanel.appendChild(goodAtPanel);
+
+}
 
 }
 

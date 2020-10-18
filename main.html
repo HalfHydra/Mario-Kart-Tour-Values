@@ -8,6 +8,16 @@
       </style>
    </head>
    <body class="main" style="height: 100%" id="bigbody">
+
+      <div id="inventorymodal" class="inventorymodal">
+  <!-- Modal content -->
+      <div id="singleinv" class="inventorymodal-content stripedbg">
+      <!--<span class="inventorymodalclose">&times;</span>
+      <p>Some text in the Modal..</p>-->
+
+      </div>
+
+      </div>
       <div style="margin: 0px auto;width: 540px;right: 0;left: 0;">
          <div style="width: 100px;height: 120px;display: inline-block;">
             <img src="./Images/UI/cupdata.png" style="width: 100px;height: 100px;" onclick="changemode(1)">  </img>
@@ -58,9 +68,9 @@
         </div>
          </div>
          <div id="inventory" style="height: auto;">
-            <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;display:block;width: 540px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;">
+            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;/*position: sticky;*/top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Inventory</h3>
-               <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
+               <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 600px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
                      <img id='driversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(0)">  </img>
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
@@ -186,8 +196,8 @@
             <input type="checkbox" id="changecityvalue"  oninput="changecityvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
             <h4 style="display:inline-block;margin-bottom: 0px;">Disable Character Panel in Values Menu</h4>
             <input type="checkbox" id="changecharpanelvalue"  oninput="changecharpanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
-            <h4 style="display:inline-block;margin-bottom: 0px;">Enable Multiple Panels in Inventory</h4>
-            <input type="checkbox" id="changecharpanelvalue"  oninput="changemultiplepanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+            <h4 style="display:inline-block;margin-bottom: 0px;">[OLD] Enable Multiple Panels in Inventory</h4>
+            <input type="checkbox" id="changemultiplepanelvalue"  oninput="changemultiplepanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
         	</div>
         	<div id='courses' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;margin-top: 5px;">
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Courses</h3>
@@ -202,6 +212,8 @@
             <button onclick="downloadcoursejson(0)" style="vertical-align:middle;margin-left: 10px;margin-top: -3px;width: auto;height: 30px;">Download</button>
             <h4 style="display:inline-block;margin-bottom: 0px;">Download Course Data [Item Names]</h4>
             <button onclick="downloadcoursejson(1)" style="vertical-align:middle;margin-left: 10px;margin-top: -3px;width: auto;height: 30px;">Download</button>
+            <h4 style="display:inline-block;margin-bottom: 0px;">Download Values Data [Reformatted]</h4>
+            <button onclick="downloadcoursejson(2)" style="vertical-align:middle;margin-left: 10px;margin-top: -3px;width: auto;height: 30px;">Download</button>
         	</div>
          </div>
       </div>
@@ -210,6 +222,7 @@
          <textarea style="position: fixed; float:left; left:0%; top:0%;margin-top: 35px" id="json" rows="60" cols="41"></textarea>
       </div>
       <script type="text/javascript" src="./Script/global.js"></script>
+      <script type="text/javascript" src="./Script/convert.js"></script>
       <script type="text/javascript" src="./Script/data.js"></script>
       <script type="text/javascript" src="./Script/inventory.js"></script>
       <script type="text/javascript" src="./Script/courses.js"></script>
@@ -239,8 +252,10 @@
              }
              rawFile.send(null);
          }
-         readTextFile("./Data/1st_anniversary_tour_preferred_courses.json", 1);
+         //readTextFile("./Data/1st_anniversary_tour_preferred_courses.json", 1);
+         readTextFile("./Data/1st_anniversary_tour_courses_v2.6.0_update.json", 1);
          readTextFile("./Data/course_names.json", 2);
+         convertToUsable();
       </script>
    </body>
 </html>
