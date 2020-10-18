@@ -148,6 +148,8 @@ function changemode(mode) {
         document.getElementById('missing').style.display = "none";
         document.getElementById('settings').style.display = "block";
         break;
+        case 6:
+        break;
     }
 }
 
