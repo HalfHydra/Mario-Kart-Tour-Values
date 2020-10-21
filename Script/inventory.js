@@ -83,8 +83,12 @@ function invCharacter(selected, i) {
         document.getElementById(`invtopimgselected${selected}`).className = `invtopimgselected`;
         let moreGoodAt = values[item].moreGoodAt;
         let goodAt = values[item].goodAt;
+        let unlock3 = values[item].unlock3;
+        let unlock6 = values[item].unlock6;
         console.log(moreGoodAt);
         console.log(goodAt);
+        console.log(unlock3);
+        console.log(unlock6);
         //values.selected.goodAt
         let output = document.getElementById('inventoryshelves');
         var shelfpanel = document.createElement('div');
@@ -291,11 +295,16 @@ function invCharacter(selected, i) {
     }
 }//if
 else {
+    removefrom2ndshelf = [];
     inventorymodal.style.display = "block";
     let moreGoodAt = values[item].moreGoodAt;
         let goodAt = values[item].goodAt;
+        let unlock3 = values[item].unlock3;
+        let unlock6 = values[item].unlock6;
         console.log(moreGoodAt);
         console.log(goodAt);
+        console.log(unlock3);
+        console.log(unlock6);
         //values.selected.goodAt
         //let output = document.getElementById('inventorymodal');
         //var shelfpanel = document.createElement('div');
@@ -419,6 +428,100 @@ else {
         }
         );
 
+        unlock3.forEach((t,i)=>{
+            var coursePanel = document.createElement('div');
+            coursePanel.className = 'coursepanel';
+
+            if(isDataEntered && savedata.Items.Drivers[item] == null || isDataEntered && savedata.Items.Drivers[item] < 3 || !isDataEntered){
+            let courseimg = document.createElement('img');
+            courseimg.src = `./Images/Course Image/${t}.png`;
+            courseimg.className = 'courseimgunlock3';
+            coursePanel.appendChild(courseimg);
+
+            let coursetxt = document.createElement('p');
+            coursetxt.innerHTML = coursenames[t];
+            coursetxt.className = 'coursetxtunlock3';
+            coursePanel.appendChild(coursetxt);
+
+            let lockimg = document.createElement('img');
+            lockimg.src = `./Images/UI/lock.png`;
+            lockimg.className = 'courselockimg';
+            coursePanel.appendChild(lockimg);
+
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/3.png`;
+            levelicon.className = 'leveliconunlock';
+            levelicon.id = `inv_levelnumber${t}`;
+            coursePanel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lviconunlock';
+            coursePanel.appendChild(lvicon);
+            } else {
+            let courseimg = document.createElement('img');
+            courseimg.src = `./Images/Course Image/${t}.png`;
+            courseimg.className = 'courseimg';
+            coursePanel.appendChild(courseimg);
+
+            let coursetxt = document.createElement('p');
+            coursetxt.innerHTML = coursenames[t];
+            coursetxt.className = 'coursetxtunlock3';
+            coursePanel.appendChild(coursetxt);
+
+            removefrom2ndshelf.push(t); 
+            }
+
+            moreGoodAtPanel.appendChild(coursePanel);
+        });
+
+        unlock6.forEach((t,i)=>{
+            var coursePanel = document.createElement('div');
+            coursePanel.className = 'coursepanel';
+
+            if(isDataEntered && savedata.Items.Drivers[item] == null || isDataEntered && savedata.Items.Drivers[item] < 6 || !isDataEntered){
+            let courseimg = document.createElement('img');
+            courseimg.src = `./Images/Course Image/${t}.png`;
+            courseimg.className = 'courseimgunlock3';
+            coursePanel.appendChild(courseimg);
+
+            let coursetxt = document.createElement('p');
+            coursetxt.innerHTML = coursenames[t];
+            coursetxt.className = 'coursetxtunlock3';
+            coursePanel.appendChild(coursetxt);
+
+            let lockimg = document.createElement('img');
+            lockimg.src = `./Images/UI/lock.png`;
+            lockimg.className = 'courselockimg';
+            coursePanel.appendChild(lockimg);
+
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/6.png`;
+            levelicon.className = 'leveliconunlock';
+            levelicon.id = `inv_levelnumber${t}`;
+            coursePanel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lviconunlock';
+            coursePanel.appendChild(lvicon);
+            } else {
+            let courseimg = document.createElement('img');
+            courseimg.src = `./Images/Course Image/${t}.png`;
+            courseimg.className = 'courseimg';
+            coursePanel.appendChild(courseimg);
+
+            let coursetxt = document.createElement('p');
+            coursetxt.innerHTML = coursenames[t];
+            coursetxt.className = 'coursetxtunlock3';
+            coursePanel.appendChild(coursetxt);
+
+            removefrom2ndshelf.push(t); 
+            }
+
+            moreGoodAtPanel.appendChild(coursePanel);
+        });
+
         let whitebar2item = document.createElement('img');
         whitebar2item.src = `./Images/UI/2itemsbar.png`;
         whitebar2item.className = 'whitebar2item';
@@ -427,6 +530,7 @@ else {
         goodAtPanel.className = 'goodAtPanel';
 
         goodAt.forEach((t,i)=>{
+            if(!removefrom2ndshelf.includes(t)){
             var coursePanel = document.createElement('div');
             coursePanel.className = 'coursepanel';
 
@@ -441,6 +545,7 @@ else {
             coursePanel.appendChild(coursetxt);
 
             goodAtPanel.appendChild(coursePanel);
+            }
         }
         );
 

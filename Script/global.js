@@ -40,6 +40,8 @@ var isMultipleShelves = false;
 
 var selectedcourses = [];
 
+var removefrom2ndshelf = [];
+
 let savedata = {
     Items: {
         Drivers: {},
@@ -149,6 +151,7 @@ function changemode(mode) {
         document.getElementById('settings').style.display = "block";
         break;
         case 6:
+        alert('Ranked Review - Coming Soon!')
         break;
     }
 }

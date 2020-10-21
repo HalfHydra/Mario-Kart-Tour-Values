@@ -22,9 +22,11 @@ function convertToUsable() {
 				convertedData[t].goodAt.push(y.name);
 				break;
 				case 3:
+				convertedData[t].goodAt.push(y.name);
 				convertedData[t].unlock3.push(y.name);
 				break;
 				case 6:
+				convertedData[t].goodAt.push(y.name);
 				convertedData[t].unlock6.push(y.name);
 				break;
 			}

@@ -1000,6 +1000,7 @@ function makeTopShelfPreview() {
 
 
        let topshelves = [];
+       let topshelvestypes = [];
        switch(topshelfmode){
               case 0:
               coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
@@ -1018,15 +1019,45 @@ function makeTopShelfPreview() {
               break;
        }
        let tempOwned = [];
+       let tempOwnedTypes = [];
+       let tempOwnedIndex = 0;
        let tempNotOwned = [];
+       let tempNotOwnedTypes = [];
+       let tempNotOwnedIndex = 0;
        if(isDataEntered){
             switch(topshelfmode){
               case 0:
               coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
                      if(savedata.Items.Drivers[t] != null){
                      tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 0;
+                     tempOwnedIndex++;
                      } else {
-                     tempNotOwned.push(t)       
+                     tempNotOwned.push(t);
+                     tempNotOwnedTypes[tempOwnedIndex] = 0;
+                     tempNotOwnedIndex++;       
+                     }
+              });
+              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+                     if(savedata.Items.Drivers[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 1;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 1;
+                     tempNotOwnedIndex++;           
+                     }
+              });
+              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+                     if(savedata.Items.Drivers[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 2;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 2;
+                     tempNotOwnedIndex++;           
                      }
               });
               break;
@@ -1034,8 +1065,34 @@ function makeTopShelfPreview() {
               coursedata.Courses[t].moreGoodAt.Karts.forEach((t,i)=>{ 
                      if(savedata.Items.Karts[t] != null){
                      tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 0;
+                     tempOwnedIndex++;
                      } else {
-                     tempNotOwned.push(t)       
+                     tempNotOwned.push(t);
+                     tempNotOwnedTypes[tempOwnedIndex] = 0;
+                     tempNotOwnedIndex++;       
+                     }
+              });
+              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+                     if(savedata.Items.Karts[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 1;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 1;
+                     tempNotOwnedIndex++;           
+                     }
+              });
+              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+                     if(savedata.Items.Karts[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 2;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 2;
+                     tempNotOwnedIndex++;           
                      }
               });
               break;
@@ -1043,8 +1100,34 @@ function makeTopShelfPreview() {
               coursedata.Courses[t].moreGoodAt.Gliders.forEach((t,i)=>{ 
                      if(savedata.Items.Gliders[t] != null){
                      tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 0;
+                     tempOwnedIndex++;
                      } else {
-                     tempNotOwned.push(t)       
+                     tempNotOwned.push(t);
+                     tempNotOwnedTypes[tempOwnedIndex] = 0;
+                     tempNotOwnedIndex++;       
+                     }
+              });
+              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+                     if(savedata.Items.Gliders[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 1;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 1;
+                     tempNotOwnedIndex++;           
+                     }
+              });
+              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+                     if(savedata.Items.Gliders[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 2;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 2;
+                     tempNotOwnedIndex++;           
                      }
               });
               break;
@@ -1052,10 +1135,16 @@ function makeTopShelfPreview() {
 
 
 
+
+
        topshelves = tempOwned.concat(tempNotOwned);
+       topshelvestypes = tempOwnedTypes.concat(tempNotOwnedTypes);
+       console.log(topshelves);
+       console.log(topshelvestypes);
 
        }
 
+       /*
        let unlock3topshelves = [];
        let unlock6topshelves = [];
        switch(topshelfmode){
@@ -1083,7 +1172,7 @@ function makeTopShelfPreview() {
               unlock6topshelves.push(t)
               });
               break;
-       }
+       }*/
 
        topshelves.forEach((t,i)=>{ 
        var panel = document.createElement('div');
@@ -1233,7 +1322,7 @@ function makeTopShelfPreview() {
               itemlvl = savedata.Items.Gliders[t];
               break;
         }
-        if (itemlvl != null && isDataEntered) {
+        if (itemlvl != null && isDataEntered && topshelvestypes[i] == 0) {
             let levelicon = document.createElement('img');
             levelicon.src = `./Images/UI/${itemlvl}.png`;
             levelicon.className = 'levelicon';
@@ -1244,8 +1333,75 @@ function makeTopShelfPreview() {
             lvicon.src = './Images/UI/lv.png';
             lvicon.className = 'lvicon';
             panel.appendChild(lvicon);
+        } else if(topshelvestypes[i] == 1 && itemlvl > 2) {
+          let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+        } else if(topshelvestypes[i] == 2 && itemlvl > 5) {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+        } else if(topshelvestypes[i] == 1 && itemlvl < 3){
+          //purposefuly empty
+        } else if(topshelvestypes[i] == 2 && itemlvl < 6) {
+          //purposefuly empty
         } else {
-              panel.className = 'ckgpaneldisabled';
+            panel.className = 'ckgpaneldisabled';
+        }
+
+        if(topshelvestypes[i] == 1 && itemlvl < 3){
+          let lockimg = document.createElement('img');
+            lockimg.src = `./Images/UI/lock.png`;
+            lockimg.className = 'courselockimgts';
+            lockimg.style.filter = "grayscale(0%)";
+            panel.appendChild(lockimg);
+
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/3.png`;
+            levelicon.className = 'leveliconunlockts';
+            levelicon.style.filter = "grayscale(0%)";
+            levelicon.id = `inv_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lviconunlockts';
+            lvicon.style.filter = "grayscale(0%)";
+            panel.appendChild(lvicon);
+        }
+        if(topshelvestypes[i] == 2 && itemlvl < 6){
+          let lockimg = document.createElement('img');
+            lockimg.src = `./Images/UI/lock.png`;
+            lockimg.className = 'courselockimgts';
+            lockimg.style.filter = "grayscale(0%)";
+            panel.appendChild(lockimg);
+
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/6.png`;
+            levelicon.className = 'leveliconunlockts';
+            levelicon.style.filter = "grayscale(0%)";
+            levelicon.id = `inv_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lviconunlockts';
+            lvicon.style.filter = "grayscale(0%)";
+            panel.appendChild(lvicon);
         }
 
         if(!isDataEntered){
@@ -1255,6 +1411,8 @@ function makeTopShelfPreview() {
         topShelfPanel.appendChild(panel);
 
        });
+
+      
 
        coursePanel.appendChild(topShelfPanel);
        output.appendChild(coursePanel);
@@ -1295,8 +1453,8 @@ function makeTopShelfPreview() {
 
        let topshelves = [];
 
-       for(var m = 0; m<2;m++){
-       for(var x = 0; x<3;x++){
+       for(var m = 0; m<2;m++){//topshelf and middleshelf
+       for(var x = 0; x<3;x++){//drivers karts and gliders
        var topShelfPanel = document.createElement('div');
        topShelfPanel.className = 'coursepreviewselectedpanel';
        if(selectedcourses.includes(t)){
@@ -1343,7 +1501,11 @@ function makeTopShelfPreview() {
               }
        }
        let tempOwned = [];
+       let tempOwnedTypes = [];
+       let tempOwnedIndex = 0;
        let tempNotOwned = [];
+       let tempNotOwnedTypes = [];
+       let tempNotOwnedIndex = 0;
        if(isDataEntered){
               if(m == 0){
             switch(x){
@@ -1351,8 +1513,34 @@ function makeTopShelfPreview() {
               coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
                      if(savedata.Items.Drivers[t] != null){
                      tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 0;
+                     tempOwnedIndex++;
                      } else {
-                     tempNotOwned.push(t)       
+                     tempNotOwned.push(t);
+                     tempNotOwnedTypes[tempOwnedIndex] = 0;
+                     tempNotOwnedIndex++;       
+                     }
+              });
+              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+                     if(savedata.Items.Drivers[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 1;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 1;
+                     tempNotOwnedIndex++;           
+                     }
+              });
+              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+                     if(savedata.Items.Drivers[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 2;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 2;
+                     tempNotOwnedIndex++;           
                      }
               });
               break;
@@ -1360,8 +1548,34 @@ function makeTopShelfPreview() {
               coursedata.Courses[t].moreGoodAt.Karts.forEach((t,i)=>{ 
                      if(savedata.Items.Karts[t] != null){
                      tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 0;
+                     tempOwnedIndex++;
                      } else {
-                     tempNotOwned.push(t)       
+                     tempNotOwned.push(t);
+                     tempNotOwnedTypes[tempOwnedIndex] = 0;
+                     tempNotOwnedIndex++;       
+                     }
+              });
+              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+                     if(savedata.Items.Karts[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 1;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 1;
+                     tempNotOwnedIndex++;           
+                     }
+              });
+              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+                     if(savedata.Items.Karts[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 2;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 2;
+                     tempNotOwnedIndex++;           
                      }
               });
               break;
@@ -1369,8 +1583,34 @@ function makeTopShelfPreview() {
               coursedata.Courses[t].moreGoodAt.Gliders.forEach((t,i)=>{ 
                      if(savedata.Items.Gliders[t] != null){
                      tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 0;
+                     tempOwnedIndex++;
                      } else {
-                     tempNotOwned.push(t)       
+                     tempNotOwned.push(t);
+                     tempNotOwnedTypes[tempOwnedIndex] = 0;
+                     tempNotOwnedIndex++;       
+                     }
+              });
+              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+                     if(savedata.Items.Gliders[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 1;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 1;
+                     tempNotOwnedIndex++;           
+                     }
+              });
+              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+                     if(savedata.Items.Gliders[t] != null){
+                     tempOwned.push(t)
+                     tempOwnedTypes[tempOwnedIndex] = 2;
+                     tempOwnedIndex++;
+                     } else {
+                     tempNotOwned.push(t)
+                     tempNotOwnedTypes[tempOwnedIndex] = 2;
+                     tempNotOwnedIndex++;           
                      }
               });
               break;
@@ -1415,6 +1655,7 @@ function makeTopShelfPreview() {
        }*/
 
        topshelves = tempOwned.concat(tempNotOwned);
+       topshelvestypes = tempOwnedTypes.concat(tempNotOwnedTypes);
 
        }
 
@@ -1566,7 +1807,7 @@ function makeTopShelfPreview() {
               itemlvl = savedata.Items.Gliders[t];
               break;
         }
-        if (itemlvl != null && isDataEntered) {
+        if (itemlvl != null && isDataEntered && topshelvestypes[i] == 0  || m == 0) {
             let levelicon = document.createElement('img');
             levelicon.src = `./Images/UI/${itemlvl}.png`;
             levelicon.className = 'levelicon';
@@ -1577,8 +1818,75 @@ function makeTopShelfPreview() {
             lvicon.src = './Images/UI/lv.png';
             lvicon.className = 'lvicon';
             panel.appendChild(lvicon);
+        } else if(topshelvestypes[i] == 1 && itemlvl > 2) {
+          let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+        } else if(topshelvestypes[i] == 2 && itemlvl > 5) {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+        } else if(topshelvestypes[i] == 1 && itemlvl < 3){
+          //purposefuly empty
+        } else if(topshelvestypes[i] == 2 && itemlvl < 6) {
+          //purposefuly empty
         } else {
-              panel.className = 'ckgpaneldisabled';
+            panel.className = 'ckgpaneldisabled';
+        }
+
+        if(topshelvestypes[i] == 1 && itemlvl < 3){
+          let lockimg = document.createElement('img');
+            lockimg.src = `./Images/UI/lock.png`;
+            lockimg.className = 'courselockimgts';
+            lockimg.style.filter = "grayscale(0%)";
+            panel.appendChild(lockimg);
+
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/3.png`;
+            levelicon.className = 'leveliconunlockts';
+            levelicon.style.filter = "grayscale(0%)";
+            levelicon.id = `inv_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lviconunlockts';
+            lvicon.style.filter = "grayscale(0%)";
+            panel.appendChild(lvicon);
+        }
+        if(topshelvestypes[i] == 2 && itemlvl < 6){
+          let lockimg = document.createElement('img');
+            lockimg.src = `./Images/UI/lock.png`;
+            lockimg.className = 'courselockimgts';
+            lockimg.style.filter = "grayscale(0%)";
+            panel.appendChild(lockimg);
+
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/6.png`;
+            levelicon.className = 'leveliconunlockts';
+            levelicon.style.filter = "grayscale(0%)";
+            levelicon.id = `inv_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lviconunlockts';
+            lvicon.style.filter = "grayscale(0%)";
+            panel.appendChild(lvicon);
         }
 
         if(!isDataEntered){

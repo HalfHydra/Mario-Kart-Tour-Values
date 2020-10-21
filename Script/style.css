@@ -104,7 +104,8 @@
     width: 67.5px;
     height: 87.5px;
     display: inline-block;
-   -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
 }
 .bottomimg {
     width: 67.5px;
@@ -218,6 +219,24 @@
     z-index: 15;
 }
 
+.lviconunlock {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: -110px;
+    z-index: 15;
+}
+
+.lviconunlockts {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 30px;
+    z-index: 15;
+}
+
 .lviconmodal {
     width: 20px;
     height: 20px;
@@ -232,6 +251,24 @@
     height: 25px;
     position: absolute;
     margin-top: 60px;
+    margin-left: 45px;
+    z-index: 15;
+}
+
+.leveliconunlock {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: -95px;
+    z-index: 15;
+}
+
+.leveliconunlockts {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    margin-top: 35px;
     margin-left: 45px;
     z-index: 15;
 }
@@ -503,6 +540,34 @@
     /*margin-top: 0px;*/
 }
 
+.courselockimg {
+    width: 24px;
+    height: 30px;
+    margin-left: -140.5px;
+    margin-top: 20px;
+    /*margin-top: 0px;*/
+    position: absolute;
+    z-index: 20;
+}
+
+.courselockimgts {
+    width: 24px;
+    height: 30px;
+    margin-left: 4px;
+    margin-top: 30px;
+    /*margin-top: 0px;*/
+    position: absolute;
+    z-index: 20;
+}
+
+.courseimgunlock3 {
+    width: 145px;
+    height: 72.5px;
+    margin-left: 2.5px;
+    filter: brightness(30%);
+    /*margin-top: 0px;*/
+}
+
 .courseimgtopshelf {
     /*width: 229px;
     height: 115px;*/
@@ -563,6 +628,20 @@
     position: absolute;
     display: inline;
     color: inherit;
+    margin-left: -147.5px;
+    top: -69px;
+}
+
+.coursetxtunlock3 {
+    width: 155px;
+    height: 20px;
+    text-align: center;
+    font-family: tour;
+    font-size: 10.5px;
+    line-height: 20px;
+    position: absolute;
+    display: inline;
+    color: yellow;
     margin-left: -147.5px;
     top: -69px;
 }
