@@ -618,7 +618,17 @@ function specificchoicemade(t, type, rarity, item) {
        var specificitemcourses = document.getElementById('itemspecificcourses');
        var specificitem = document.getElementById('specificitem');
        specificitemcourses.innerHTML = "";
-       let courses = values[t].moreGoodAt;
+       let courses = [];
+       values[t].moreGoodAt.forEach((t,i)=>{
+        courses.push(t);
+       });
+       values[t].unlock3.forEach((t,i)=>{
+        courses.push(t);
+       });
+       values[t].unlock6.forEach((t,i)=>{
+        courses.push(t);
+       });
+       console.log(courses);
        currentspecificitem = t;
        currentitemtype = type;
        currentitemrarity = rarity;
