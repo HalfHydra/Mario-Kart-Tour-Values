@@ -1,9 +1,10 @@
 # Mario-Kart-Tour-Values
-This is a tool to compare your values in the game, and allow you to see what is available on the courses. You can save your data to a file and reupload to not have to enter everything again. 
+This is a tool to compare your values in the game, and allow you to see what is available on the courses. You can save your data to a file, in addition to the data saving automatically to your local browser storage (will be cleared upon cache removal). 
 
-UPDATE: Nintendo decided to release an update that seriously changes how the game works. Immediately after I believed I had finished the main functionality. I guess it's true that a programmer's work is never done. I will be updating this after I find the time to do so.
+Latest Update: Update 2.6.0 support implemented.
 
 **The tool so far does all of the following:**
+- Enter and store your data for later (until you clear cache)
 - Allows you to view your inventory
 - Allows you to compare characters, karts, and gliders easier
 - Contains a list of courses that you can compare the top shelf and middle shelf items
@@ -20,9 +21,9 @@ UPDATE: Nintendo decided to release an update that seriously changes how the gam
 - Reverting to previous tour data
 - Bonus Points Calculator
 - Pipe Simulator
-- Close all and open all for courses and inventory menu
+- Close all and open all for courses and old inventory menu
 
 I hope this helps with anything you should need! There is a copy hosted on my [github site](https://halfhydra.github.io/MarioKartTourValues/main.html).
 Feel free to make suggestions.
 
-Special Thanks to tryso and spotlight for assisting in providing the jsons!
+Special Thanks to tryso and spotlight for assisting in providing the jsons. Additional thanks to demogorgon as well as hack_nug for some suggestions.
