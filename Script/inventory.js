@@ -353,13 +353,14 @@ else {
 
         let charaitem = document.createElement('img');
         charaitem.src = `./Images/Items/` + charitem[characterid.indexOf(item)] + `.png`;
-        charaitem.className = 'itemboxitemmodal';
-        characterpanel.appendChild(charaitem);
 
         let levelpanel = document.createElement('div');
         levelpanel.className = ('levelmodalpanel');
 
         let itemlvl = savedata.Items.Drivers[item];
+        if(itemlvl == 6){
+            levelpanel.className = ('levelmodalpanelmax');
+        }
         if (itemlvl != null) {
             let levelicon = document.createElement('img');
             levelicon.src = `./Images/UI/${itemlvl}.png`;
@@ -374,6 +375,15 @@ else {
         }
         characterpanel.appendChild(levelpanel);
         characterpanel.appendChild(rarityimage);
+
+        if(charrarity[characterid.indexOf(item)] == 2 && parseInt(itemlvl) > 4 ){
+        charaitem.className = 'itemboxitemmodalplus';
+        } else if(charrarity[characterid.indexOf(item)] == 3 && parseInt(itemlvl) > 3){
+        charaitem.className = 'itemboxitemmodalplus';
+        } else {
+        charaitem.className = 'itemboxitemmodal';  
+        }
+        characterpanel.appendChild(charaitem);
 
         let valuecount = 0;
         if (disableCityValue == true) {
@@ -391,6 +401,11 @@ else {
         valuecounttxt.className = "valuecounttxtmodal";
         valuecounttxt.innerHTML = valuecount;
         characterpanel.appendChild(valuecounttxt);
+
+        var valuecounttxtfooter = document.createElement('p');
+        valuecounttxtfooter.className = "valuecounttxtfooter";
+        valuecounttxtfooter.innerHTML = "Values";
+        characterpanel.appendChild(valuecounttxtfooter);
 
         //comment this for no charcater image
         if(!disableCharPanel){

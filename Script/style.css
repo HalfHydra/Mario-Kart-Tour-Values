@@ -210,6 +210,20 @@
     outline-offset:1px;  
 }
 
+.itemboxitemmodalplus {
+    width: 50px;
+    height: 50px;
+    margin-top: 100px;
+    margin-left: 5px;
+    position: absolute;
+    z-index: 11;
+    padding: 10px;
+    padding: 2px;
+    background-color: rgba(255,215,0,0.9);
+    outline: solid 2px #000;
+    outline-offset:1px;  
+}
+
 .lvicon {
     width: 20px;
     height: 20px;
@@ -294,6 +308,17 @@
     outline-offset:1px; 
 }
 
+.levelmodalpanelmax {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    margin-top: 105px;
+    margin-left: 253px;
+    z-index: 45;
+    background-color: rgba(255,215,0,0.9);
+    outline: solid 2px #000;
+    outline-offset:1px; 
+}
 
 .bonuspointtype {
     width: 30px;
@@ -344,7 +369,7 @@
 }
 
 .toptext {
-    margin-top: 18.75px;
+    margin-top: 17px;
     text-align: center;
     font-family: headername;
     font-weight: bold;
@@ -417,6 +442,21 @@
     font-size: 17.5px;
     line-height: 35px;
     /*margin-top: -100px;*/
+    filter: drop-shadow(0px 0px 4px #222);
+}
+
+.valuecounttxtfooter {
+    width: 35px;
+    height: 35px;
+    color: #005096;
+    position: absolute;
+    z-index: 20;
+    font-family: headername;
+    text-align: center;
+    font-size: 16px;
+    /*line-height: 35px;*/
+    margin-top: 50px;
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
     filter: drop-shadow(0px 0px 4px #222);
 }
 

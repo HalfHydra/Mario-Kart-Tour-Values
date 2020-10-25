@@ -418,7 +418,6 @@ function missingCourses(){
        topshelves = topshelves.concat(tempNotOwned);
        topshelves = topshelves.concat(temp3NotOwned);
        topshelves = topshelves.concat(temp6NotOwned);
-       console.log(topshelves);
        //console.log(topshelvestypes);
        //0 = Owned
        //1 = Owned Unlock 3
@@ -444,7 +443,6 @@ function missingCourses(){
        temp6NotOwned.forEach((t,i)=>{ 
           topshelvestypes.push('5');
        });
-       console.log(topshelvestypes);
      }//isdataentered
 
 

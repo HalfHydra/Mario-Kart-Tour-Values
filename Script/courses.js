@@ -628,7 +628,6 @@ function specificchoicemade(t, type, rarity, item) {
        values[t].unlock6.forEach((t,i)=>{
         courses.push(t);
        });
-       console.log(courses);
        currentspecificitem = t;
        currentitemtype = type;
        currentitemrarity = rarity;
@@ -1041,7 +1040,6 @@ function specificchoicemade(t, type, rarity, item) {
        topshelves = topshelves.concat(tempNotOwned);
        topshelves = topshelves.concat(temp3NotOwned);
        topshelves = topshelves.concat(temp6NotOwned);
-       console.log(topshelves);
        //console.log(topshelvestypes);
        //0 = Owned
        //1 = Owned Unlock 3
@@ -1067,7 +1065,6 @@ function specificchoicemade(t, type, rarity, item) {
        temp6NotOwned.forEach((t,i)=>{ 
           topshelvestypes.push('5');
        });
-       console.log(topshelvestypes);
      }//isdataentered
 
 
@@ -1697,7 +1694,6 @@ let unlock6topshelves = [];
        topshelves = topshelves.concat(tempNotOwned);
        topshelves = topshelves.concat(temp3NotOwned);
        topshelves = topshelves.concat(temp6NotOwned);
-       console.log(topshelves);
        //console.log(topshelvestypes);
        //0 = Owned
        //1 = Owned Unlock 3
@@ -1723,7 +1719,6 @@ let unlock6topshelves = [];
        temp6NotOwned.forEach((t,i)=>{ 
           topshelvestypes.push('5');
        });
-       console.log(topshelvestypes);
       }
 
        topshelves.forEach((t,i)=>{ 
@@ -2448,7 +2443,6 @@ let unlock6topshelves = [];
        topshelves = topshelves.concat(tempNotOwned);
        topshelves = topshelves.concat(temp3NotOwned);
        topshelves = topshelves.concat(temp6NotOwned);
-       console.log(topshelves);
        //console.log(topshelvestypes);
        //0 = Owned
        //1 = Owned Unlock 3
@@ -2474,7 +2468,6 @@ let unlock6topshelves = [];
        temp6NotOwned.forEach((t,i)=>{ 
           topshelvestypes.push('5');
        });
-       console.log(topshelvestypes);
      }//isdataentered
 
 

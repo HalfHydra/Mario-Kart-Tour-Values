@@ -87,10 +87,6 @@ function changemode(mode) {
         document.getElementById('settings').style.display = "none";
         break;
     case 1:
-        if (!dataFieldsMade) {
-            makeDataFields();
-            dataFieldsMade = true;
-        }
         document.getElementById('intro').style.display = "none";
         document.getElementById('data').style.display = "block";
         document.getElementById('inventory').style.display = "none";
@@ -385,6 +381,10 @@ function changemultiplepanelvalue(){
 
 function zoomLevel(zoom) {
     document.getElementById('bigbody').style.zoom = `${zoom}%`
+}
+
+function updateLocalSaveData(){
+    localStorage.setItem("MKTVSaveData",JSON.stringify(savedata, null, 2));
 }
 
 function downloadcoursejson(mode){

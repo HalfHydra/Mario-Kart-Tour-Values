@@ -6,9 +6,10 @@
          @font-face {font-family: tour;src: url('./Font/nintendoP_NTLG-NR-DB_003.ttf');}
          @font-face {font-family: headername;src: url('./Font/nintendoP_NTLG-NR-UB_003.ttf');}
       </style>
+      <link rel="preload" href="./Images/UI/Loading.png" as="image"> 
    </head>
    <body class="main" style="height: 100%" id="bigbody">
-
+      <img id="loadingimg" src="./Images/UI/Loading.png" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 1000;">  </img>
       <div id="inventorymodal" class="inventorymodal">
   <!-- Modal content -->
       <div id="singleinv" class="inventorymodal-content stripedbg">
@@ -63,7 +64,7 @@
             <p class="landingpagetxt" style="text-align: center;">Hope this helps!</p>
 
          </div>
-         <div id="data" style="height: auto;">
+         <div id="data" style="height: auto;display:none;">
          	<div style="position: sticky;top: 0;z-index: 30;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;"> 
             <h3 style="font-family: tour;width: 100px;display: inline-block;margin-left: 10px;">Data</h3>
             <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;">
@@ -71,7 +72,7 @@
             </div>
         </div>
          </div>
-         <div id="inventory" style="height: auto;">
+         <div id="inventory" style="height: auto;display:none;">
             <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;/*position: sticky;*/top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Inventory</h3>
                <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 600px;">
@@ -97,7 +98,7 @@
             <div id="inventoryshelves" style="display:block;width: auto;text-align: center;background-color: rgba(0, 0, 0, 0.3);padding:0px;">
             </div>
          </div>
-         <div id="courses" style="height: auto;">
+         <div id="courses" style="height: auto;display:none;">
          	<div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Courses</h3>
 
@@ -156,7 +157,7 @@
                   </div>
                </div>
          </div>
-         <div id="missing" style="height: auto;">
+         <div id="missing" style="height: auto;display:none;">
             <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 300px;display: inline-block;margin-bottom: 30px;">Missing Courses</h3>
                <div id="courseitembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
@@ -184,7 +185,7 @@
          <!--<div id="pipe">
             <h3>Pipe</h3>
             </div>-->
-         <div id="settings" style="height:auto;">
+         <div id="settings" style="height:auto;display:none;">
             <h3 style="font-family: tour;font-size: 24px;text-align: center;margin-left: 10px;">Settings</h3>
             <div id='general' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;">
             	<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">General</h3>
@@ -260,6 +261,47 @@
          readTextFile("./Data/1st_anniversary_tour_courses_v2.6.0_update.json", 1);
          readTextFile("./Data/course_names.json", 2);
          convertToUsable();
+         makeDataFields();
+         if(localStorage.getItem("MKTVSaveData") != null){
+        savedata = JSON.parse(localStorage.getItem("MKTVSaveData"));
+        document.getElementById('json').innerHTML = JSON.stringify(savedata, null, 2);
+        makeCourseList();
+        courseListMade = true;
+        calcMissingValues();
+        isDataEntered = true;
+
+        let savedrivers = [];
+        savedrivers = Object.keys(savedata.Items.Drivers);
+        let savedriverslvl = [];
+        savedriverslvl = Object.values(savedata.Items.Drivers);
+        savedrivers.forEach((t,i)=>{
+            changeLevel(t, parseInt(savedriverslvl[i]), 1);
+        }
+        );
+
+        let savekarts = [];
+        savekarts = Object.keys(savedata.Items.Karts);
+        let savekartslvl = [];
+        savekartslvl = Object.values(savedata.Items.Karts);
+        savekarts.forEach((t,i)=>{
+            changeLevel(t, parseInt(savekartslvl[i]), 2);
+        }
+        );
+
+        let savegliders = [];
+        savegliders = Object.keys(savedata.Items.Gliders);
+        let savegliderslvl = [];
+        savegliderslvl = Object.values(savedata.Items.Gliders);
+        savegliders.forEach((t,i)=>{
+            changeLevel(t, parseInt(savegliderslvl[i]), 3);
+        }
+        );
+
+        resettingCourses = true;
+         }
+      window.onload = function() {
+         document.getElementById('loadingimg').style.display = "none";
+      }
       </script>
    </body>
 </html>
