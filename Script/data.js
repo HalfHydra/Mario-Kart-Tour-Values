@@ -381,6 +381,7 @@ function enableItem(item, type) {
         }
         break;
     }
+    updateLocalSaveData();
 }
 
 function changeLevel(item, level, type) {
@@ -521,6 +522,7 @@ function changeLevel(item, level, type) {
         }
         break;
     }
+    updateLocalSaveData();
 }
 
 function downloadsavedata(data) {
@@ -586,6 +588,7 @@ document.getElementById('inputsavedata').addEventListener('change', function() {
         );
 
         resettingCourses = true;
+        updateLocalSaveData();
         
 
     }
