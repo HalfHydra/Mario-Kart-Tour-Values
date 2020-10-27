@@ -79,41 +79,17 @@ changemode(0);
 function changemode(mode) {
     switch (mode) {
     case 0:
-        document.getElementById('intro').style.display = "block";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "none";
+        hideAllBesidesOne('intro');
         break;
     case 1:
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "block";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "none";
+        hideAllBesidesOne('data');
         break;
     case 2:
         changeckg(currentmode);
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "block";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "none";
+        hideAllBesidesOne('inventory');
         break;
     case 3:
-        if(!courseListMade){
-                makeCourseList();
-                courseListMade = true;
-        }
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "block";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "none";
+        hideAllBesidesOne('courses');
         if(!courseListMade){
                 makeCourseList();
                 courseListMade = true;
@@ -131,25 +107,26 @@ function changemode(mode) {
         calcMissingValues();
         missingCourses();
         }
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "block";
-        document.getElementById('settings').style.display = "none";
+        hideAllBesidesOne('missing');
         break;
     case 5:
-        document.getElementById('intro').style.display = "none";
-        document.getElementById('data').style.display = "none";
-        document.getElementById('inventory').style.display = "none";
-        document.getElementById('courses').style.display = "none";
-        document.getElementById('missing').style.display = "none";
-        document.getElementById('settings').style.display = "block";
+        hideAllBesidesOne('settings');
         break;
         case 6:
-        alert('Ranked Review - Coming Soon!')
+        hideAllBesidesOne('ranked');
         break;
     }
+}
+
+function hideAllBesidesOne(mode){
+    document.getElementById('intro').style.display = "none";
+    document.getElementById('data').style.display = "none";
+    document.getElementById('inventory').style.display = "none";
+    document.getElementById('courses').style.display = "none";
+    document.getElementById('missing').style.display = "none";
+    document.getElementById('ranked').style.display = "none";
+    document.getElementById('settings').style.display = "none";
+    document.getElementById(mode).style.display = "block";
 }
 
 function changecoursemode(mode) {
@@ -377,10 +354,6 @@ function changemultiplepanelvalue(){
     } else {
         isMultipleShelves = false;
     }
-}
-
-function zoomLevel(zoom) {
-    document.getElementById('bigbody').style.zoom = `${zoom}%`
 }
 
 function updateLocalSaveData(){

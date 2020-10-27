@@ -189,9 +189,10 @@
 }
 
 .itemboxitem {
-    width: 37.5px;
-    height: 37.5px;
-    margin-top: 50px;
+    width: 30px;
+    height: 30px;
+    margin-top: 54px;
+    margin-left: 2px;
     position: absolute;
     z-index: 11;
 }
@@ -366,6 +367,8 @@
     /*margin-left: 3.75px;*/
     background-image: url('../Images/UI/namebar.png');
     position: relative;
+    transform: scale(1.13);
+    /*margin-left: -8px;*/
 }
 
 .toptext {
@@ -394,7 +397,7 @@
 }
 
 .rarityimgmodal {
-    width: 315px;
+    width: 330px;
     height: 165px;
     margin-left: 0px;
     /*margin-top: 0;*/
@@ -451,11 +454,13 @@
     color: #005096;
     position: absolute;
     z-index: 20;
-    font-family: headername;
+    font-family: Tahoma;
+    font-weight: bold;
     text-align: center;
     font-size: 16px;
     /*line-height: 35px;*/
     margin-top: 50px;
+    margin-left: 6px;
     text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
     filter: drop-shadow(0px 0px 4px #222);
 }

@@ -21,7 +21,6 @@ function missingCourses(){
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
        courseimg.className = 'courseimgslc';
-       courseimg.style.zoom = "90%"
        courseimg.addEventListener('click', function() {
             selectCourse(t);
         });
@@ -30,7 +29,6 @@ function missingCourses(){
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxtslc';
-       coursetxt.style.zoom = "90%"
        coursePanel.appendChild(coursetxt);
 
        let combTS = document.createElement('div');

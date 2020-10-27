@@ -182,6 +182,9 @@
                   </div>
             
          </div>
+         <div id="ranked">
+            <h3>Ranked</h3>
+         </div>
          <!--<div id="pipe">
             <h3>Pipe</h3>
             </div>-->
@@ -189,9 +192,6 @@
             <h3 style="font-family: tour;font-size: 24px;text-align: center;margin-left: 10px;">Settings</h3>
             <div id='general' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;">
             	<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">General</h3>
-            <h4 style = "margin-bottom: 0px;width: 210px;display: inline-block;">Zoom Level (Unstable)</h4>
-            <p id="zoomtext" style="display: inline-block;margin-bottom: 0px;">100%</p>
-            <input type="range" min="75" max="125" value="100" class="slider" id="zoomslider" oninput="document.getElementById('zoomtext').innerHTML = document.getElementById('zoomslider').value + '%'" onchange="zoomLevel(document.getElementById('zoomslider').value)">
             <h4 style="display:inline-block;margin-bottom: 0px;">Disable Data Usage After Entered</h4>
             <input type="checkbox" id="changeusedata"  oninput="changeusedata()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
         	</div>
@@ -299,6 +299,9 @@
 
         resettingCourses = true;
          }
+      window.onbeforeunload = function(){
+         document.getElementById('loadingimg').style.display = "block";
+      }
       window.onload = function() {
          document.getElementById('loadingimg').style.display = "none";
       }
