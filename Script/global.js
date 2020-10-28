@@ -456,10 +456,10 @@ function applyLocalSettings(){
     }
     //missingIncludesCityCourses
     if (settingsavedata.Settings.missingIncludesCityCourses) {
-        missingIncludesCityCourses = false;
-    } else {
         missingIncludesCityCourses = true;
         document.getElementById('changecitymissing').checked = true;
+    } else {
+        missingIncludesCityCourses = false;
     }
     selectedcourses = settingsavedata.Settings.selectedcourses;
     selectedCourses();
