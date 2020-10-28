@@ -131,7 +131,7 @@ function changemode(mode) {
         missingCourses();
         }
         if(!isDataEntered && !document.getElementById('changeusedata').checked){
-            alert('You need to enter your data first before this tab works! Be sure that the disable data usage is unchecked in th settings if you have entered your data.');
+            alert('You need to enter your data first before this tab works! Be sure that the disable data usage is unchecked in the settings if you have entered your data.');
         }
         hideAllBesidesOne('missing');
         break;
