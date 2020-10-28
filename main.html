@@ -5,6 +5,7 @@
       <style>
          @font-face {font-family: tour;src: url('./Font/nintendoP_NTLG-NR-DB_003.ttf');}
          @font-face {font-family: headername;src: url('./Font/nintendoP_NTLG-NR-UB_003.ttf');}
+         @font-face {font-family: headername2;src: url('./Font/nintendop_ntlg-nr-ub_003.otf') format('opentype');}
       </style>
       <link rel="preload" href="./Images/UI/Loading.png" as="image"> 
    </head>
@@ -117,6 +118,11 @@
                   </div>
                </div>
 
+               <div id="removeselected" style="width: 90px;height: 120px;display: inline-block;position:absolute;margin-left: 160px;margin-top: -90px">
+                     <img id='deleteall' src="./Images/UI/xbtn.png" style="width: 50px;height: 50px;display: inline-block;margin-left: 20px" onclick="removeselected()">  </img>
+                     <p style="margin-top: -5px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Delete All Selected </p>
+                  </div>
+
                <div id="specificitem"> 
                </div>
 
@@ -182,7 +188,7 @@
                   </div>
             
          </div>
-         <div id="ranked">
+         <div id="ranked" style="display: none;">
             <h3>Ranked</h3>
          </div>
          <!--<div id="pipe">
@@ -199,8 +205,8 @@
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Inventory</h3>
         		<h4 style="display:inline-block;margin-bottom: 0px;">Disable City Tracks in Value Count</h4>
             <input type="checkbox" id="changecityvalue"  oninput="changecityvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
-            <h4 style="display:inline-block;margin-bottom: 0px;">Disable Character Panel in Values Menu</h4>
-            <input type="checkbox" id="changecharpanelvalue"  oninput="changecharpanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+            <!--<h4 style="display:inline-block;margin-bottom: 0px;">Disable Character Panel in Values Menu</h4>
+            <input type="checkbox" id="changecharpanelvalue"  oninput="changecharpanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">-->
             <h4 style="display:inline-block;margin-bottom: 0px;">[OLD] Enable Multiple Panels in Inventory</h4>
             <input type="checkbox" id="changemultiplepanelvalue"  oninput="changemultiplepanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
         	</div>
@@ -209,7 +215,12 @@
         		<h4 style="display:inline-block;margin-bottom: 0px;">Only Show Owned Items in Specific Items</h4>
             <input type="checkbox" id="changeowneditems"  oninput="changeowneditems()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
         	</div>
-        	<div id='JSON' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-top: 5px;">
+         <div id='courses' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-top: 5px;">
+            <h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Courses</h3>
+            <h4 style="display:inline-block;margin-bottom: 0px;">Hide City Courses from Missing</h4>
+            <input type="checkbox" id="changecitymissing"  oninput="changecitymissing()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+         </div>
+        	<div id='JSON' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;margin-top: 5px;">
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">JSON</h3>
         		<h4 style="display:inline-block;margin-bottom: 0px;">Debug Save Data Viewer</h4>
             <input type="checkbox" id="changedebugsave"  oninput="changedebugsave()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
@@ -299,9 +310,15 @@
 
         resettingCourses = true;
          }
+      if(localStorage.getItem("MKTVSettingData") != null){
+         settingsavedata = JSON.parse(localStorage.getItem("MKTVSettingData"));
+      } 
       window.onbeforeunload = function(){
          document.getElementById('loadingimg').style.display = "block";
       }
+      window.addEventListener('DOMContentLoaded', (event) => {
+      applyLocalSettings();
+      });
       window.onload = function() {
          document.getElementById('loadingimg').style.display = "none";
       }

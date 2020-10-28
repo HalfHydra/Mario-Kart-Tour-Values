@@ -3,10 +3,11 @@ var currentTourName = "1st Anniversary Tour";
 var currentTourFileName = currentTourName.replace(/ /g, "");
 
 //global
+var currentCup = 0;
 var isDataEntered = false;
 var values;
 var disableCityValue = false;
-var disableCharPanel = false;
+var disableCharPanel = false; //unused
 var resettingCourses = false;
 
 var isMissingCalculated = false;
@@ -42,11 +43,26 @@ var selectedcourses = [];
 
 var removefrom2ndshelf = [];
 
+var missingIncludesCityCourses = true;
+
+var cityCourses = ["New_Gmob_NewYork1", "New_Gmob_NewYork1X", "New_Gmob_NewYork1R", "New_Gmob_NewYork1RX", "New_Gmob_Tokyo1", "New_Gmob_Tokyo1X", "New_Gmob_Tokyo1R", "New_Gmob_Tokyo1RX", "New_Gmob_Paris1", "New_Gmob_Paris1X", "New_Gmob_Paris1R", "New_Gmob_Paris1RX", "New_Gmob_London1", "New_Gmob_London1X", "New_Gmob_London1R", "New_Gmob_London1RX", "New_Gmob_NewYork2", "New_Gmob_NewYork2X", "New_Gmob_NewYork2R", "New_Gmob_NewYork2RX", "New_Gmob_Tokyo2", "New_Gmob_Tokyo2X", "New_Gmob_Tokyo2R", "New_Gmob_Tokyo2RX", "New_Gmob_Paris2", "New_Gmob_Paris2X", "New_Gmob_Paris2R", "New_Gmob_Paris2RX", "New_Gmob_Vancouver1", "New_Gmob_Vancouver1X", "New_Gmob_Vancouver1R", "New_Gmob_Vancouver1RX", "New_Gmob_London2", "New_Gmob_London2X", "New_Gmob_London2R", "New_Gmob_London2RX", "New_Gmob_Tokyo3", "New_Gmob_Tokyo3X", "New_Gmob_Tokyo3R", "New_Gmob_LosAngeles1", "New_Gmob_LosAngeles1X", "New_Gmob_LosAngeles1R", "New_Gmob_LosAngeles1RX", "New_Gmob_NewYork3", "New_Gmob_NewYork3X", "New_Gmob_NewYork3R", "New_Gmob_NewYork3RX"];
+
 let savedata = {
     Items: {
         Drivers: {},
         Karts: {},
         Gliders: {}
+    }
+}
+let settingsavedata = {
+    Settings: {
+        currentCup: 0,
+        isDataEntered: true,
+        disableCityValue: false,
+        isMultipleShelves: false,
+        onlyOwnedItems: false,
+        missingIncludesCityCourses: true,
+        selectedcourses: []
     }
 }
 
@@ -75,8 +91,13 @@ function hideModal() {
     document.getElementById('singleinv').innerHTML = "";
 }
 
-changemode(0);
+//changemode(0);
 function changemode(mode) {
+    if(mode != 6){
+    currentCup = mode;
+    settingsavedata.Settings.currentCup = mode;
+    }
+    updateLocalSettingData();
     switch (mode) {
     case 0:
         hideAllBesidesOne('intro');
@@ -107,13 +128,17 @@ function changemode(mode) {
         calcMissingValues();
         missingCourses();
         }
+        if(!isDataEntered){
+            alert('You need to enter your data first before this tab works! Be sure that the disable data usage is unchecked in th settings if you have entered your data.');
+        }
         hideAllBesidesOne('missing');
         break;
     case 5:
         hideAllBesidesOne('settings');
         break;
-        case 6:
-        hideAllBesidesOne('ranked');
+    case 6:
+        //hideAllBesidesOne('ranked');
+        alert('Ranked Review and Bonus Points Calculator - Coming Soon!');
         break;
     }
 }
@@ -141,7 +166,7 @@ function changecoursemode(mode) {
         document.getElementById('courseitembtns').style.display = "none";
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "none";
-
+        document.getElementById('removeselected').style.display = "block";
         break;
     case 1:
         if(!topShelfPreviewMade || resettingCourses){
@@ -158,6 +183,7 @@ function changecoursemode(mode) {
         document.getElementById('courseitembtns').style.display = "inline-block";
         document.getElementById('coursebtns').style.marginLeft = "320px";
         document.getElementById('specificitem').style.display = "none";
+        document.getElementById('removeselected').style.display = "none";
         break;
     case 2:
         document.getElementById('selectcourses').style.display = "none";
@@ -169,6 +195,7 @@ function changecoursemode(mode) {
         document.getElementById('courseitembtns').style.display = "none";
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "none";
+        document.getElementById('removeselected').style.display = "block";
         selectedCourses();
         break;
     case 3:
@@ -177,11 +204,12 @@ function changecoursemode(mode) {
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "none";
         document.getElementById('itemspecificcourses').style.display = "block";
-        document.getElementById('items3barslc').style.display = "none";
-        document.getElementById('items2barslc').style.display = "none";
+        document.getElementById('items3barslc').style.display = "inline-block";
+        document.getElementById('items2barslc').style.display = "inline-block";
         document.getElementById('courseitembtns').style.display = "none";
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "inline";
+        document.getElementById('removeselected').style.display = "none";
         break;
     }
 }
@@ -305,7 +333,7 @@ function changemissingckg(mode) {
 
 function updatesavedata() {
     generateCourseList();
-    document.getElementById('json').innerHTML = JSON.stringify(savedata, null, 2);
+    document.getElementById('json').innerHTML = JSON.stringify(settingsavedata, null, 2);
 }
 
 function changedebugsave() {
@@ -319,25 +347,34 @@ function changedebugsave() {
 function changeusedata() {
     if (document.getElementById('changeusedata').checked) {
         isDataEntered = false;
+        settingsavedata.Settings.isDataEntered = false;
     } else {
         isDataEntered = true;
+        settingsavedata.Settings.isDataEntered = true;
     }
+    updateLocalSettingData();
 }
 
 function changeowneditems() {
-    if (document.getElementById('changeusedata').checked) {
+    if (document.getElementById('changeowneditems').checked) {
         onlyOwnedItems = true;
+        settingsavedata.Settings.onlyOwnedItems = true;
     } else {
         onlyOwnedItems = false;
+        settingsavedata.Settings.onlyOwnedItems = false;
     }
+    updateLocalSettingData();
 }
 
 function changecityvalue() {
     if (document.getElementById('changecityvalue').checked) {
         disableCityValue = true;
+        settingsavedata.Settings.disableCityValue = true;
     } else {
         disableCityValue = false;
+        settingsavedata.Settings.disableCityValue = false;
     }
+    updateLocalSettingData();
 }
 
 function changecharpanelvalue() {
@@ -351,13 +388,81 @@ function changecharpanelvalue() {
 function changemultiplepanelvalue(){
     if (document.getElementById('changemultiplepanelvalue').checked) {
         isMultipleShelves = true;
+        settingsavedata.Settings.isMultipleShelves = true;
     } else {
         isMultipleShelves = false;
+        settingsavedata.Settings.isMultipleShelves = false;
     }
+    updateLocalSettingData();
+}
+
+function changecitymissing(){
+    if (document.getElementById('changecitymissing').checked) {
+        missingIncludesCityCourses = false;
+        settingsavedata.Settings.missingIncludesCityCourses = false;
+    } else {
+        missingIncludesCityCourses = true;
+        settingsavedata.Settings.missingIncludesCityCourses = true;
+    }
+    updateLocalSettingData();
+}
+
+function removeselected(){
+    delete settingsavedata.Settings.selectedcourses; 
+    settingsavedata.Settings.selectedcourses = [];
+    selectedcourses = settingsavedata.Settings.selectedcourses;
+    updateLocalSettingData();
+    makeCourseList();
+    selectedCourses();
 }
 
 function updateLocalSaveData(){
     localStorage.setItem("MKTVSaveData",JSON.stringify(savedata, null, 2));
+}
+
+function updateLocalSettingData(){
+    localStorage.setItem("MKTVSettingData",JSON.stringify(settingsavedata, null, 2));
+}
+
+function applyLocalSettings(){
+    changemode(settingsavedata.Settings.currentCup);
+    //disableData
+    if (settingsavedata.Settings.isDataEntered) {
+        isDataEntered = true;
+    } else {
+        isDataEntered = false;
+        document.getElementById('changeusedata').checked = true;
+    }
+    //disableCityValue
+    if (settingsavedata.Settings.disableCityValue) {
+        disableCityValue = true;
+        document.getElementById('changecityvalue').checked = true;
+    } else {
+        disableCityValue = false;
+    }
+    //isMultipleShelves
+    if (settingsavedata.Settings.isMultipleShelves) {
+        isMultipleShelves = true;
+        document.getElementById('changemultiplepanelvalue').checked = true;
+    } else {
+        isMultipleShelves = false;
+    }
+    //onlyOwnedItems
+    if (settingsavedata.Settings.onlyOwnedItems) {
+        onlyOwnedItems = true;
+        document.getElementById('changeowneditems').checked = true;
+    } else {
+        onlyOwnedItems = false;
+    }
+    //missingIncludesCityCourses
+    if (settingsavedata.Settings.missingIncludesCityCourses) {
+        missingIncludesCityCourses = false;
+    } else {
+        missingIncludesCityCourses = true;
+        document.getElementById('changecitymissing').checked = true;
+    }
+    selectedcourses = settingsavedata.Settings.selectedcourses;
+    selectedCourses();
 }
 
 function downloadcoursejson(mode){

@@ -38,4 +38,5 @@ function convertToUsable() {
 	values = convertedData;
 	console.log(values);
 	console.log(coursedata);
+	generateCourseList();
 }

@@ -732,14 +732,15 @@
 
 .items3barslc {
    display: inline-block;
-   width: 375px;
+   width: 360px;
    height: auto;
-   margin-left: 185px;
+   margin-left: 221px;
+   /*margin-right: -5px;*/
 }
 
 .items2barslc {
    display: inline-block;
-   width: 375px;
+   width: 360px;
    height: auto;
 }
 

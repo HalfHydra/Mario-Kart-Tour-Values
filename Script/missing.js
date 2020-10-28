@@ -662,6 +662,7 @@ function missingCourses(){
                 break;
                 case "1":
             panel.className = 'ckgpanel';
+            if(itemlvl < 3){
             let lockimg = document.createElement('img');
             lockimg.src = `./Images/UI/lock.png`;
             lockimg.className = 'courselockimgts';
@@ -680,9 +681,22 @@ function missingCourses(){
             lvicon.className = 'lviconunlockts';
             lvicon.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "2":
             panel.className = 'ckgpanel';
+            if(itemlvl < 6){
             let lockimg2 = document.createElement('img');
             lockimg2.src = `./Images/UI/lock.png`;
             lockimg2.className = 'courselockimgts';
@@ -701,6 +715,18 @@ function missingCourses(){
             lvicon2.className = 'lviconunlockts';
             lvicon2.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon2);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "3":
                 break;
@@ -827,7 +853,14 @@ function missingCourses(){
        coursePanel.appendChild(combTS);
        coursePanel.appendChild(combTS2);
        }
+       if(cityCourses.includes(t) && missingIncludesCityCourses){
        output.appendChild(coursePanel);
+       } else if(missingIncludesCityCourses == false && cityCourses.includes(t)){
+        //intentionally left blank
+       } else {
+       output.appendChild(coursePanel);
+       }
+
        });
 }
 

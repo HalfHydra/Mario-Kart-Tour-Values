@@ -222,7 +222,8 @@ function generateCourseList() {
 }
 
 function makeCourseList() {
-       generateCourseList();
+       document.getElementById('selectcourses').innerHTML = "";
+       //generateCourseList();
        let courses = Object.keys(coursedata.Courses);
 
        let output = document.getElementById('selectcourses');
@@ -252,20 +253,21 @@ function makeCourseList() {
 }
 
 function selectCourse(course) {
-       if(!selectedcourses.includes(course)){
-              selectedcourses.push(course);
+       if(!settingsavedata.Settings.selectedcourses.includes(course)){
+              settingsavedata.Settings.selectedcourses.push(course);
               document.getElementById(`selectcourse_${course}`).className = `coursepanelselected`;
               if(topShelfPreviewMade){
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelfselected`;
               }
        } else {
-              selectedcourses.splice(selectedcourses.indexOf(course), 1);
+              settingsavedata.Settings.selectedcourses.splice(selectedcourses.indexOf(course), 1);
               document.getElementById(`selectcourse_${course}`).className = `coursepanel`;
               if(topShelfPreviewMade){
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelf`;
               }
        }
        selectedCourses();
+       updateLocalSettingData();
 }
 
 function selectspecificitem(){
@@ -538,7 +540,13 @@ function specificitemcourses(){
             panel.appendChild(lvicon);
         }
 
+       let savekarts = [];
+       savekarts = Object.keys(savedata.Items.Karts);
+       if(savekarts.includes(t) && isDataEntered){
         specificitemcourse.appendChild(panel);
+       } else if(onlyOwnedItems == false){
+        specificitemcourse.appendChild(panel);
+       }
         specificitemcourses.appendChild(specificitemcourse);
     }
     );
@@ -608,7 +616,13 @@ function specificitemcourses(){
             panel.appendChild(lvicon);
         }
 
+       let savegliders = [];
+       savegliders = Object.keys(savedata.Items.Gliders);
+       if(savegliders.includes(t) && isDataEntered){
         specificitemcourse.appendChild(panel);
+       } else if(onlyOwnedItems == false){
+        specificitemcourse.appendChild(panel);
+       }
         specificitemcourses.appendChild(specificitemcourse);
     }
     );
@@ -1286,6 +1300,7 @@ function specificchoicemade(t, type, rarity, item) {
                 break;
                 case "1":
             panel.className = 'ckgpanel';
+            if(itemlvl < 3){
             let lockimg = document.createElement('img');
             lockimg.src = `./Images/UI/lock.png`;
             lockimg.className = 'courselockimgts';
@@ -1304,9 +1319,22 @@ function specificchoicemade(t, type, rarity, item) {
             lvicon.className = 'lviconunlockts';
             lvicon.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "2":
             panel.className = 'ckgpanel';
+            if(itemlvl < 6){
             let lockimg2 = document.createElement('img');
             lockimg2.src = `./Images/UI/lock.png`;
             lockimg2.className = 'courselockimgts';
@@ -1325,6 +1353,18 @@ function specificchoicemade(t, type, rarity, item) {
             lvicon2.className = 'lviconunlockts';
             lvicon2.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon2);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "3":
                 break;
@@ -1348,7 +1388,6 @@ function specificchoicemade(t, type, rarity, item) {
             lvicon3.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon3);
                 break;
-                case "5":
             let lockimg4 = document.createElement('img');
             lockimg4.src = `./Images/UI/lock.png`;
             lockimg4.className = 'courselockimgts';
@@ -1938,6 +1977,7 @@ let unlock6topshelves = [];
                 break;
                 case "1":
             panel.className = 'ckgpanel';
+            if(itemlvl < 3){
             let lockimg = document.createElement('img');
             lockimg.src = `./Images/UI/lock.png`;
             lockimg.className = 'courselockimgts';
@@ -1956,9 +1996,22 @@ let unlock6topshelves = [];
             lvicon.className = 'lviconunlockts';
             lvicon.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "2":
             panel.className = 'ckgpanel';
+            if(itemlvl < 6){
             let lockimg2 = document.createElement('img');
             lockimg2.src = `./Images/UI/lock.png`;
             lockimg2.className = 'courselockimgts';
@@ -1977,6 +2030,18 @@ let unlock6topshelves = [];
             lvicon2.className = 'lviconunlockts';
             lvicon2.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon2);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "3":
                 break;
@@ -2039,6 +2104,7 @@ let unlock6topshelves = [];
        let output = document.getElementById('selectedcourses');
 
               selectedcourses.forEach((t,i)=>{ 
+                document.getElementById(`selectcourse_${t}`).className = "coursepanelselected";
                      var coursePanel = document.createElement('div');
        coursePanel.className = 'coursepanelslcselected';
        coursePanel.id = `coursets_${t}`;
@@ -2689,6 +2755,7 @@ let unlock6topshelves = [];
                 break;
                 case "1":
             panel.className = 'ckgpanel';
+            if(itemlvl < 3){
             let lockimg = document.createElement('img');
             lockimg.src = `./Images/UI/lock.png`;
             lockimg.className = 'courselockimgts';
@@ -2707,9 +2774,22 @@ let unlock6topshelves = [];
             lvicon.className = 'lviconunlockts';
             lvicon.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "2":
             panel.className = 'ckgpanel';
+            if(itemlvl < 6){
             let lockimg2 = document.createElement('img');
             lockimg2.src = `./Images/UI/lock.png`;
             lockimg2.className = 'courselockimgts';
@@ -2728,6 +2808,18 @@ let unlock6topshelves = [];
             lvicon2.className = 'lviconunlockts';
             lvicon2.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon2);
+            } else {
+            let levelicon = document.createElement('img');
+            levelicon.src = `./Images/UI/${itemlvl}.png`;
+            levelicon.className = 'levelicon';
+            levelicon.id = `coursets_levelnumber${t}`;
+            panel.appendChild(levelicon);
+
+            let lvicon = document.createElement('img');
+            lvicon.src = './Images/UI/lv.png';
+            lvicon.className = 'lvicon';
+            panel.appendChild(lvicon);
+            }
                 break;
                 case "3":
                 break;
