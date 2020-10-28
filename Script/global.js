@@ -47,6 +47,8 @@ var missingIncludesCityCourses = true;
 
 var cityCourses = ["New_Gmob_NewYork1", "New_Gmob_NewYork1X", "New_Gmob_NewYork1R", "New_Gmob_NewYork1RX", "New_Gmob_Tokyo1", "New_Gmob_Tokyo1X", "New_Gmob_Tokyo1R", "New_Gmob_Tokyo1RX", "New_Gmob_Paris1", "New_Gmob_Paris1X", "New_Gmob_Paris1R", "New_Gmob_Paris1RX", "New_Gmob_London1", "New_Gmob_London1X", "New_Gmob_London1R", "New_Gmob_London1RX", "New_Gmob_NewYork2", "New_Gmob_NewYork2X", "New_Gmob_NewYork2R", "New_Gmob_NewYork2RX", "New_Gmob_Tokyo2", "New_Gmob_Tokyo2X", "New_Gmob_Tokyo2R", "New_Gmob_Tokyo2RX", "New_Gmob_Paris2", "New_Gmob_Paris2X", "New_Gmob_Paris2R", "New_Gmob_Paris2RX", "New_Gmob_Vancouver1", "New_Gmob_Vancouver1X", "New_Gmob_Vancouver1R", "New_Gmob_Vancouver1RX", "New_Gmob_London2", "New_Gmob_London2X", "New_Gmob_London2R", "New_Gmob_London2RX", "New_Gmob_Tokyo3", "New_Gmob_Tokyo3X", "New_Gmob_Tokyo3R", "New_Gmob_LosAngeles1", "New_Gmob_LosAngeles1X", "New_Gmob_LosAngeles1R", "New_Gmob_LosAngeles1RX", "New_Gmob_NewYork3", "New_Gmob_NewYork3X", "New_Gmob_NewYork3R", "New_Gmob_NewYork3RX"];
 
+var disableDataUsage = false;
+
 let savedata = {
     Items: {
         Drivers: {},
@@ -57,7 +59,7 @@ let savedata = {
 let settingsavedata = {
     Settings: {
         currentCup: 0,
-        isDataEntered: true,
+        isDataEntered: false,
         disableCityValue: false,
         isMultipleShelves: false,
         onlyOwnedItems: false,
@@ -124,11 +126,11 @@ function changemode(mode) {
                 courseListMade = true;
         }
         changemissingckg(0);
-        if(isDataEntered){
+        if(isDataEntered && localStorage.getItem("MKTVSaveData") != null){
         calcMissingValues();
         missingCourses();
         }
-        if(!isDataEntered){
+        if(!isDataEntered && !document.getElementById('changeusedata').checked){
             alert('You need to enter your data first before this tab works! Be sure that the disable data usage is unchecked in th settings if you have entered your data.');
         }
         hideAllBesidesOne('missing');
@@ -349,8 +351,10 @@ function changeusedata() {
         isDataEntered = false;
         settingsavedata.Settings.isDataEntered = false;
     } else {
+        if(localStorage.getItem("MKTVSaveData") != null){
         isDataEntered = true;
         settingsavedata.Settings.isDataEntered = true;
+        }
     }
     updateLocalSettingData();
 }
@@ -431,7 +435,9 @@ function applyLocalSettings(){
         isDataEntered = true;
     } else {
         isDataEntered = false;
-        document.getElementById('changeusedata').checked = true;
+        if(localStorage.getItem("MKTVSaveData") != null){
+            document.getElementById('changeusedata').checked = true;
+        }
     }
     //disableCityValue
     if (settingsavedata.Settings.disableCityValue) {
@@ -457,9 +463,9 @@ function applyLocalSettings(){
     //missingIncludesCityCourses
     if (settingsavedata.Settings.missingIncludesCityCourses) {
         missingIncludesCityCourses = true;
-        document.getElementById('changecitymissing').checked = true;
     } else {
         missingIncludesCityCourses = false;
+        document.getElementById('changecitymissing').checked = true;
     }
     selectedcourses = settingsavedata.Settings.selectedcourses;
     selectedCourses();
