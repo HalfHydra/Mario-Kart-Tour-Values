@@ -546,9 +546,9 @@
     vertical-align: center;
 }
 .coursepanelslcselected {
-    width: 245px;
-    height: 250px;
-    display: inline;
+    width: 980px;
+    height: 350px;
+    display: inline-block;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
     color:rgba(0,255,62,1);
@@ -803,4 +803,28 @@ h4 {
   font-size: 28px;
   font-weight: bold;
   z-index: 99;
+}
+
+.rankedcourseimg {
+    width: 150px;
+    height: 125px;
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+    /*margin-top: 20px;*/
+    border-radius: 5px;
+    border: 2px solid #2B466A;
+}
+
+.rankedcoursetxt {
+    font-family: tour;
+    font-size: 13px;
+    max-width: 150px;
+    height: 42px;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: -5px;
+    margin-bottom: 0px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }

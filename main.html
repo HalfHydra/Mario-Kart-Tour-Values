@@ -10,7 +10,7 @@
       <link rel="preload" href="./Images/UI/Loading.png" as="image"> 
    </head>
    <body class="main" style="height: 100%" id="bigbody">
-      <img id="loadingimg" src="./Images/UI/Loading.png" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 1000;">  </img>
+      <img id="loadingimg" src="./Images/UI/Loading.png" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 1000;">
       <div id="inventorymodal" class="inventorymodal">
   <!-- Modal content -->
       <div id="singleinv" class="inventorymodal-content stripedbg">
@@ -22,31 +22,32 @@
       </div>
       <div style="margin: 0px auto;width: 630px;right: 0;left: 0;">
          <div style="width: 100px;height: 120px;display: inline-block;">
-            <img src="./Images/UI/cupdata.png" style="width: 100px;height: 100px;" onclick="changemode(1)">  </img>
+            <img src="./Images/UI/cupdata.png" style="width: 100px;height: 100px;" onclick="changemode(1)">
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Enter Data </p>
          </div>
          <div style="width: 100px;height: 120px;display: inline-block;">
-            <img src="./Images/UI/cupinventory.png" style="width: 100px;height: 100px;" onclick="changemode(2)"> </img>
+            <img src="./Images/UI/cupinventory.png" style="width: 100px;height: 100px;" onclick="changemode(2)">
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Inventory </p>
          </div>
          <div style="width: 100px;height: 120px;display: inline-block;">
-            <img src="./Images/UI/cupcourse.png" style="width: 100px;height: 100px;" onclick="changemode(3)"> </img>
+            <img src="./Images/UI/cupcourse.png" style="width: 100px;height: 100px;" onclick="changemode(3)">
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Courses </p>
          </div>
          <div style="width: 100px;height: 120px;display: inline-block;">
-            <img src="./Images/UI/cupvalues.png" style="width: 100px;height: 100px;" onclick="changemode(4)"> </img>
+            <img src="./Images/UI/cupvalues.png" style="width: 100px;height: 100px;" onclick="changemode(4)">
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Missing </p>
          </div>
          <div style="width: 100px;height: 120px;display: inline-block;">
-            <img src="./Images/UI/cupranked.png" style="width: 100px;height: 100px;filter: brightness(30%);" onclick="changemode(6)"> </img>
+            <img src="./Images/UI/cupranked.png" style="width: 100px;height: 100px;/*filter: brightness(30%);*/" onclick="changemode(6)">
+            <img id="rankcupimg" style="width: 60px;height: 60px;position: absolute;margin-left: -80px;margin-top: 20px;display:none;" onclick="changemode(6)">
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Ranked </p>
          </div>
          <div style="width: 100px;height: 120px;display: inline-block;">
-            <img src="./Images/UI/cupsettings.png" style="width: 100px;height: 100px;" onclick="changemode(5)"> </img>
+            <img src="./Images/UI/cupsettings.png" style="width: 100px;height: 100px;" onclick="changemode(5)">
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Settings </p>
          </div>
       </div>
-      <div style="margin: 0px auto;width: 1000px;height: calc(100vh - 140px);overflow-y: scroll;overflow-x: hidden;right: 0;left: 0;   background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;" id="content">
+      <div style="margin: 0px auto;width: 1000px;height: calc(100vh - 150px);overflow-y: scroll;overflow-x: hidden;right: 0;left: 0;   background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;border: 5px solid #b5ceff;" id="content">
          <div id="intro" style="height: auto;">
             <h3 class="blackoutline"style="font-family: tour;font-size: 36px;text-align: center;">Landing Page</h3>
             <div> </div>
@@ -74,19 +75,19 @@
         </div>
          </div>
          <div id="inventory" style="height: auto;display:none;">
-            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;/*position: sticky;*/top: 0;z-index: 30;">
+            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*//*position: sticky;*/top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Inventory</h3>
                <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 600px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
-                     <img id='driversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(0)">  </img>
+                     <img id='driversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(0)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
-                     <img id='kartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(1)">  </img>
+                     <img id='kartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(1)"> 
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
-                     <img id='glidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(2)">  </img>
+                     <img id='glidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(2)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
                   </div>
                </div>
@@ -100,26 +101,26 @@
             </div>
          </div>
          <div id="courses" style="height: auto;display:none;">
-         	<div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;position: sticky;top: 0;z-index: 30;">
+         	<div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Courses</h3>
 
-               <div id="courseitembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
+               <div id="courseitembtnscourses" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
-                     <img id='coursedriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(0)">  </img>
+                     <img id='coursedriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(0)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
-                     <img id='coursekartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(1)">  </img>
+                     <img id='coursekartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(1)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
-                     <img id='courseglidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(2)">  </img>
+                     <img id='courseglidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(2)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
                   </div>
                </div>
 
                <div id="removeselected" style="width: 90px;height: 120px;display: inline-block;position:absolute;margin-left: 160px;margin-top: -90px">
-                     <img id='deleteall' src="./Images/UI/xbtn.png" style="width: 50px;height: 50px;display: inline-block;margin-left: 20px" onclick="removeselected()">  </img>
+                     <img id='deleteall' src="./Images/UI/xbtn.png" style="width: 50px;height: 50px;display: inline-block;margin-left: 20px" onclick="removeselected()">
                      <p style="margin-top: -5px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Delete All Selected </p>
                   </div>
 
@@ -128,19 +129,19 @@
 
                <div id="coursebtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 320px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
-                     <img id='courseselectbtn' src="./Images/UI/courseselectbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecoursemode(0)">  </img>
+                     <img id='courseselectbtn' src="./Images/UI/courseselectbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecoursemode(0)"> 
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Select Courses</p>
                   </div>
                   <div style="width: 95px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 70px;">
-                     <img id='coursetopshelfbtn' src="./Images/UI/coursetopshelfbtn.png" style="width: 75px;height: 75px;display: inline-block;margin-left: 15px;" onclick="changecoursemode(1)">  </img>
+                     <img id='coursetopshelfbtn' src="./Images/UI/coursetopshelfbtn.png" style="width: 75px;height: 75px;display: inline-block;margin-left: 15px;" onclick="changecoursemode(1)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Top Shelf Preview</p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 170px;">
-                     <img id='courseselectedbtn' src="./Images/UI/courseselectedbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecoursemode(2)">  </img>
+                     <img id='courseselectedbtn' src="./Images/UI/courseselectedbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecoursemode(2)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Selected Courses</p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 255px;">
-                     <img id='coursedkgbtn' src="./Images/UI/coursedkgbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecoursemode(3)">  </img>
+                     <img id='coursedkgbtn' src="./Images/UI/coursedkgbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecoursemode(3)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;line-height: 20px;"> Item Specific</p>
                   </div>
                </div>
@@ -164,19 +165,19 @@
                </div>
          </div>
          <div id="missing" style="height: auto;display:none;">
-            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 950px;right: 0;left: 0;margin: 0px auto;border: 5px solid #b5ceff;position: sticky;top: 0;z-index: 30;">
+            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 300px;display: inline-block;margin-bottom: 30px;">Missing Courses</h3>
-               <div id="courseitembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
+               <div id="courseitembtnsmissing" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
-                     <img id='missingdriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changemissingckg(0)">  </img>
+                     <img id='missingdriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changemissingckg(0)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
-                     <img id='missingkartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changemissingckg(1)">  </img>
+                     <img id='missingkartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changemissingckg(1)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
-                     <img id='missingglidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changemissingckg(2)">  </img>
+                     <img id='missingglidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changemissingckg(2)"> 
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
                   </div>
                </div>
@@ -189,8 +190,35 @@
             
          </div>
          <div id="ranked" style="display: none;">
-            <h3>Ranked</h3>
+            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;height: 160px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
+               <h3 class='whiteoutline' style="font-family: tour;font-size: 18px;width: 300px;display: inline-block;position: absolute">Current Ranked Cup: </h3>
+            <div style="display: inline-block;position: absolute;margin-left:270px;">
+               <img src="./Images/UI/cupranked.png" style="width: 100px;height: 100px;">
+               <img id="rankcupimgranked" style="width: 60px;height: 60px;position: absolute;margin-left: -80px;margin-top: 20px;">
+            </div>
+            <div style="position: absolute;margin-left: 167px;margin-top: 130px;">
+               <p id="cupnamecurrent" class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;width: 305px;"> Baby Rosalina Cup </p>
+            </div>
+            <div style="display: inline-block;margin-left: 420px;">
+               <div style="display: inline-block;vertical-align: top;height: 170px;">
+               <img id="rankcourseimg1" class="rankedcourseimg">
+               <p class="rankedcoursetxt" id="rankedcoursetxt1">Maple Treeway R</p>
+               </div>
+               <div style="display: inline-block;vertical-align: top;height: 170px;">
+               <img id="rankcourseimg2" class="rankedcourseimg">
+               <p class="rankedcoursetxt" id="rankedcoursetxt2">Maple Treeway</p>
+               </div>
+               <div style="display: inline-block;vertical-align: top;height: 170px;">
+               <img id="rankcourseimg3" class="rankedcourseimg">
+               <p class="rankedcoursetxt" id="rankedcoursetxt3">Maple Treeway R/T</p>
+               </div>
+            </div>
+            <div id="rankedcourses">
+
+                  </div>
+
          </div>
+      </div>
          <!--<div id="pipe">
             <h3>Pipe</h3>
             </div>-->
@@ -243,6 +271,7 @@
       <script type="text/javascript" src="./Script/inventory.js"></script>
       <script type="text/javascript" src="./Script/courses.js"></script>
       <script type="text/javascript" src="./Script/missing.js"></script>
+      <script type="text/javascript" src="./Script/ranked.js"></script>
       <script>
          function readTextFile(file, unit)
          {
@@ -313,10 +342,13 @@
       if(localStorage.getItem("MKTVSettingData") != null){
          settingsavedata = JSON.parse(localStorage.getItem("MKTVSettingData"));
       } 
+      getCurrentRanked();
       window.onbeforeunload = function(){
          document.getElementById('loadingimg').style.display = "block";
       }
       window.addEventListener('DOMContentLoaded', (event) => {
+      document.getElementById('rankcupimg').src = `./Images/Cups/${currentseasoncup} Cup.png`;
+      document.getElementById('rankcupimg').style.display = "inline-block";
       applyLocalSettings();
       });
       window.onload = function() {

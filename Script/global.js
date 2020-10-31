@@ -95,10 +95,8 @@ function hideModal() {
 
 //changemode(0);
 function changemode(mode) {
-    if(mode != 6){
     currentCup = mode;
     settingsavedata.Settings.currentCup = mode;
-    }
     updateLocalSettingData();
     switch (mode) {
     case 0:
@@ -139,8 +137,10 @@ function changemode(mode) {
         hideAllBesidesOne('settings');
         break;
     case 6:
-        //hideAllBesidesOne('ranked');
-        alert('Ranked Review and Bonus Points Calculator - Coming Soon!');
+        hideAllBesidesOne('ranked');
+        getCurrentRanked();
+        updateRanked();
+        //alert('Ranked Review and Bonus Points Calculator - Coming Soon!');
         break;
     }
 }
@@ -165,7 +165,7 @@ function changecoursemode(mode) {
         document.getElementById('itemspecificcourses').style.display = "none";
         document.getElementById('items3barslc').style.display = "none";
         document.getElementById('items2barslc').style.display = "none";
-        document.getElementById('courseitembtns').style.display = "none";
+        document.getElementById('courseitembtnscourses').style.display = "none";
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "block";
@@ -182,7 +182,7 @@ function changecoursemode(mode) {
         document.getElementById('itemspecificcourses').style.display = "none";
         document.getElementById('items3barslc').style.display = "none";
         document.getElementById('items2barslc').style.display = "none";
-        document.getElementById('courseitembtns').style.display = "inline-block";
+        document.getElementById('courseitembtnscourses').style.display = "inline-block";
         document.getElementById('coursebtns').style.marginLeft = "320px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "none";
@@ -194,7 +194,7 @@ function changecoursemode(mode) {
         document.getElementById('itemspecificcourses').style.display = "none";
         document.getElementById('items3barslc').style.display = "inline-block";
         document.getElementById('items2barslc').style.display = "inline-block";
-        document.getElementById('courseitembtns').style.display = "none";
+        document.getElementById('courseitembtnscourses').style.display = "none";
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "block";
@@ -208,7 +208,7 @@ function changecoursemode(mode) {
         document.getElementById('itemspecificcourses').style.display = "block";
         document.getElementById('items3barslc').style.display = "inline-block";
         document.getElementById('items2barslc').style.display = "inline-block";
-        document.getElementById('courseitembtns').style.display = "none";
+        document.getElementById('courseitembtnscourses').style.display = "none";
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "inline";
         document.getElementById('removeselected').style.display = "none";
@@ -335,7 +335,7 @@ function changemissingckg(mode) {
 
 function updatesavedata() {
     generateCourseList();
-    document.getElementById('json').innerHTML = JSON.stringify(settingsavedata, null, 2);
+    document.getElementById('json').innerHTML = JSON.stringify(savedata, null, 2);
 }
 
 function changedebugsave() {
@@ -469,6 +469,7 @@ function applyLocalSettings(){
     }
     selectedcourses = settingsavedata.Settings.selectedcourses;
     selectedCourses();
+    missingCourses();
 }
 
 function downloadcoursejson(mode){
