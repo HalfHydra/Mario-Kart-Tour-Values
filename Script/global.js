@@ -171,11 +171,12 @@ function changecoursemode(mode) {
         document.getElementById('removeselected').style.display = "block";
         break;
     case 1:
-        if(!topShelfPreviewMade || resettingCourses){
+        /*if(!topShelfPreviewMade || resettingCourses){
         makeTopShelfPreview();
         topShelfPreviewMade = true;
         document.getElementById('coursedriversbtn').src = "./Images/UI/invcharbtnselected.png";
-        }
+        }*/
+        makeTopShelfPreview();
         document.getElementById('selectcourses').style.display = "none";
         document.getElementById('topshelfpreview').style.display = "block";
         document.getElementById('selectedcourses').style.display = "none";
