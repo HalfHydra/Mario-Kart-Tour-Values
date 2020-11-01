@@ -367,7 +367,18 @@ function selectspecificitem(){
        }
         panel.appendChild(charaitem);
 
-        let itemlvl = savedata.Items.Drivers[currentspecificitem];
+        let itemlvl = "";
+        switch(currentitemtype){
+          case 0:
+          itemlvl = savedata.Items.Drivers[currentspecificitem];
+          break;
+          case 1:
+          itemlvl = savedata.Items.Karts[currentspecificitem];
+          break;
+          case 2:
+          itemlvl = savedata.Items.Gliders[currentspecificitem];
+          break;
+        }
         if (itemlvl != null) {
             let levelicon = document.createElement('img');
             levelicon.src = `./Images/UI/${itemlvl}.png`;
@@ -395,10 +406,12 @@ function selectspecificitem(){
 }
 
 function specificitemcourses(){
+      document.getElementById('courseitemspecificbtnscourses').style.display = "inline-block";
        var specificitemcourses = document.getElementById('itemspecificcourses');
        var specificitemcourse = document.createElement('div');
        specificitemcourses.innerHTML = "";
        specificitemcourse.className = 'specificitemcourse';
+       if(spcmode == 0 || spcmode == 3){
        characterid.forEach((t,i)=>{
         var panel = document.createElement('div');
         panel.className = 'ckgpanel';
@@ -474,6 +487,8 @@ function specificitemcourses(){
         specificitemcourses.appendChild(specificitemcourse);
     }
     );
+     }
+     if(spcmode == 1 || spcmode == 3){
        kartid.forEach((t,i)=>{
         var panel = document.createElement('div');
         panel.className = 'ckgpanel';
@@ -550,6 +565,8 @@ function specificitemcourses(){
         specificitemcourses.appendChild(specificitemcourse);
     }
     );
+     }
+     if(spcmode == 2 || spcmode == 3){
        gliderid.forEach((t,i)=>{
         var panel = document.createElement('div');
         panel.className = 'ckgpanel';
@@ -626,6 +643,7 @@ function specificitemcourses(){
         specificitemcourses.appendChild(specificitemcourse);
     }
     );
+     }
 }
 
 function specificchoicemade(t, type, rarity, item) {
@@ -646,9 +664,14 @@ function specificchoicemade(t, type, rarity, item) {
        currentitemtype = type;
        currentitemrarity = rarity;
        currentitemitem = item;
+       settingsavedata.Settings.currentspecificitem = t;
+       settingsavedata.Settings.currentitemtype = type;
+       settingsavedata.Settings.currentitemrarity = rarity;
+       settingsavedata.Settings.currentitemitem = item;
+       updateLocalSettingData();
        startToggle = false;
        selectspecificitem();
-
+       document.getElementById('courseitemspecificbtnscourses').style.display = "none";
        courses.forEach((t,i)=>{ 
                      var coursePanel = document.createElement('div');
        coursePanel.className = 'coursepanelslcselected';
@@ -1515,13 +1538,11 @@ function makeTopShelfPreview() {
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
        courseimg.className = 'courseimgtopshelf';
-       //courseimg.style.zoom = "90%"
        coursePanel.appendChild(courseimg);
 
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxttopshelf';
-       //coursetxt.style.zoom = "90%"
        coursePanel.appendChild(coursetxt);
 
        var topShelfPanel = document.createElement('div');

@@ -47,7 +47,7 @@
             <p class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;"> Settings </p>
          </div>
       </div>
-      <div style="margin: 0px auto;width: 1000px;height: calc(100vh - 150px);overflow-y: scroll;overflow-x: hidden;right: 0;left: 0;   background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;border: 5px solid #b5ceff;" id="content">
+      <div style="margin: 0px auto;width: 1000px;height: calc(100vh - 150px);overflow-y: scroll;overflow-x: hidden;right: 0;left: 0;   background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png'); background-size: 394px auto;border: 5px solid #b5ceff;" id="content">
          <div id="intro" style="height: auto;">
             <h3 class="blackoutline"style="font-family: tour;font-size: 36px;text-align: center;">Landing Page</h3>
             <div> </div>
@@ -67,7 +67,7 @@
 
          </div>
          <div id="data" style="height: auto;display:none;">
-         	<div style="position: sticky;top: 0;z-index: 30;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;"> 
+         	<div style="position: sticky;top: 0;z-index: 30;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;"> 
             <h3 style="font-family: tour;width: 100px;display: inline-block;margin-left: 10px;">Data</h3>
             <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;">
                <input type="file" id="inputsavedata" style="height: 30px;"><button style="float: right;width: 150px;height: 30px;" onclick="downloadsavedata()">Download Save Data</button>
@@ -75,38 +75,42 @@
         </div>
          </div>
          <div id="inventory" style="height: auto;display:none;">
-            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*//*position: sticky;*/top: 0;z-index: 30;">
+            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*//*position: sticky;*/top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Inventory</h3>
-               <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 600px;">
+               <div id="itembtns" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 525px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
+                     <img id='alldkgbtn' src="./Images/UI/coursedkgbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(3)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> All </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
                      <img id='driversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(0)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
                   </div>
-                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
                      <img id='kartsbtn' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(1)"> 
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
                   </div>
-                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 225px;">
                      <img id='glidersbtn' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changeckg(2)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
                   </div>
                </div>
-               <div style="position: relative;">
+            </div>
+            <div style="position: relative;margin-left: 10px;">
                   <div id="inventorychar" style=""></div>
                   <div id="inventorykart"></div>
                   <div id="inventoryglider"></div>
                </div>
-            </div>
             <div id="inventoryshelves" style="display:block;width: auto;text-align: center;background-color: rgba(0, 0, 0, 0.3);padding:0px;">
             </div>
          </div>
          <div id="courses" style="height: auto;display:none;">
-         	<div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
+         	<div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-bottom: 30px;">Courses</h3>
 
                <div id="courseitembtnscourses" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
-                     <img id='coursedriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(0)">
+                     <img id='coursedriversbtn' src="./Images/UI/invcharbtnselected.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changecourseckg(0)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
                   </div>
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
@@ -147,6 +151,24 @@
                </div>
                <img id="items3barslc" src="./Images/UI/3itemsbar.png" class="items3barslc">
                <img id="items2barslc" src="./Images/UI/2itemsbar.png" class="items2barslc">
+               <div id="courseitemspecificbtnscourses" class="courseitemspecificbtnscourses" style="display: none;">
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
+                     <img id='alldkgbtnspc' src="./Images/UI/coursedkgbtnselected.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changespcckg(3)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> All </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
+                     <img id='coursedriversbtnspc' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changespcckg(0)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
+                     <img id='coursekartsbtnspc' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changespcckg(1)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 225px;">
+                     <img id='courseglidersbtnspc' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changespcckg(2)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
+                  </div>
+               </div>
            </div>
             <!--<h3>Courses</h3>-->
             <div style="position: relative;">
@@ -165,9 +187,9 @@
                </div>
          </div>
          <div id="missing" style="height: auto;display:none;">
-            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
+            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 300px;display: inline-block;margin-bottom: 30px;">Missing Courses</h3>
-               <div id="courseitembtnsmissing" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
+               <div id="courseitembtnsmissing" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 400px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
                      <img id='missingdriversbtn' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changemissingckg(0)">
                      <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
@@ -190,7 +212,7 @@
             
          </div>
          <div id="ranked" style="display: none;">
-            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(21, 33, 255, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;height: 160px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
+            <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;height: 160px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 18px;width: 300px;display: inline-block;position: absolute">Current Ranked Cup: </h3>
             <div style="display: inline-block;position: absolute;margin-left:270px;">
                <img src="./Images/UI/cupranked.png" style="width: 100px;height: 100px;">
@@ -233,6 +255,8 @@
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Inventory</h3>
         		<h4 style="display:inline-block;margin-bottom: 0px;">Disable City Tracks in Value Count</h4>
             <input type="checkbox" id="changecityvalue"  oninput="changecityvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+            <h4 style="display:inline-block;margin-bottom: 0px;">Only Show Owned Items in Inventory</h4>
+            <input type="checkbox" id="changeowneditemsinv"  oninput="changeowneditemsinv()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
             <!--<h4 style="display:inline-block;margin-bottom: 0px;">Disable Character Panel in Values Menu</h4>
             <input type="checkbox" id="changecharpanelvalue"  oninput="changecharpanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">-->
             <h4 style="display:inline-block;margin-bottom: 0px;">[OLD] Enable Multiple Panels in Inventory</h4>

@@ -20,6 +20,8 @@ var currentitemitem = 0;
 
 var topshelfmode = 0;
 var missingmode = 0;
+var coursesmode = 0;
+var spcmode = 3;
 
 var missingcoursesd = [];
 var missingcoursesk = [];
@@ -36,6 +38,8 @@ var courseListMade = false;
 var topShelfPreviewMade = false;
 
 var onlyOwnedItems = false;
+
+var onlyOwnedItemsInv = false;
 
 var isMultipleShelves = false;
 
@@ -59,10 +63,19 @@ let savedata = {
 let settingsavedata = {
     Settings: {
         currentCup: 0,
+        currentmode: 0,
+        missingmode: 0,
+        coursesmode: 0,
+        topshelfmode: 0,
+        currentspecificitem: 0,
+        currentitemtype: 0,
+        currentitemrarity: 0,
+        currentitemitem: 0,
         isDataEntered: false,
         disableCityValue: false,
         isMultipleShelves: false,
         onlyOwnedItems: false,
+        onlyOwnedItemsInv: false,
         missingIncludesCityCourses: true,
         selectedcourses: []
     }
@@ -95,9 +108,6 @@ function hideModal() {
 
 //changemode(0);
 function changemode(mode) {
-    currentCup = mode;
-    settingsavedata.Settings.currentCup = mode;
-    updateLocalSettingData();
     switch (mode) {
     case 0:
         hideAllBesidesOne('intro');
@@ -106,7 +116,6 @@ function changemode(mode) {
         hideAllBesidesOne('data');
         break;
     case 2:
-        changeckg(currentmode);
         hideAllBesidesOne('inventory');
         break;
     case 3:
@@ -115,7 +124,8 @@ function changemode(mode) {
                 makeCourseList();
                 courseListMade = true;
         }
-        changecoursemode(0);
+        console.log(coursesmode);
+        changecoursemode(coursesmode);
         selectspecificitem();
         break;
     case 4:
@@ -123,7 +133,7 @@ function changemode(mode) {
                 makeCourseList();
                 courseListMade = true;
         }
-        changemissingckg(0);
+        //changemissingckg(missingmode);
         if(isDataEntered && localStorage.getItem("MKTVSaveData") != null){
         calcMissingValues();
         missingCourses();
@@ -143,6 +153,9 @@ function changemode(mode) {
         //alert('Ranked Review and Bonus Points Calculator - Coming Soon!');
         break;
     }
+    currentCup = mode;
+    settingsavedata.Settings.currentCup = mode;
+    updateLocalSettingData();
 }
 
 function hideAllBesidesOne(mode){
@@ -169,6 +182,13 @@ function changecoursemode(mode) {
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "block";
+        document.getElementById('courseitemspecificbtnscourses').style.display = "none";
+
+        document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtnselected.png';
+        document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
+        document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtn.png';
+        document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtn.png';
+        coursesmode = 0;
         break;
     case 1:
         /*if(!topShelfPreviewMade || resettingCourses){
@@ -187,6 +207,13 @@ function changecoursemode(mode) {
         document.getElementById('coursebtns').style.marginLeft = "320px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "none";
+        document.getElementById('courseitemspecificbtnscourses').style.display = "none";
+
+        document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
+        document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtnselected.png';
+        document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtn.png';
+        document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtn.png';
+        coursesmode = 1;
         break;
     case 2:
         document.getElementById('selectcourses').style.display = "none";
@@ -199,7 +226,14 @@ function changecoursemode(mode) {
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "block";
+        document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         selectedCourses();
+
+        document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
+        document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
+        document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtnselected.png';
+        document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtn.png';
+        coursesmode = 2;
         break;
     case 3:
         selectspecificitem();
@@ -213,18 +247,31 @@ function changecoursemode(mode) {
         document.getElementById('coursebtns').style.marginLeft = "524px";
         document.getElementById('specificitem').style.display = "inline";
         document.getElementById('removeselected').style.display = "none";
+        if(startToggle){
+        document.getElementById('courseitemspecificbtnscourses').style.display = "inline-block";
+        }
+
+        document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
+        document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
+        document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtn.png';
+        document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtnselected.png';
+        coursesmode = 3;
         break;
     }
+    settingsavedata.Settings.coursesmode = coursesmode;
+    updateLocalSettingData();
 }
 
 function changeckg(mode) {
+    settingsavedata.Settings.currentmode = mode;
     switch (mode) {
     case 0:
-        if (currentmode == 0) {
+        /*if (currentmode == 0) {
             document.getElementById('driversbtn').src = './Images/UI/invcharbtn.png';
             document.getElementById('inventorychar').style.display = 'none';
             currentmode = -1;
-        } else {
+        } else {*/
+            document.getElementById('alldkgbtn').src = './Images/UI/coursedkgbtn.png';
             document.getElementById('kartsbtn').src = './Images/UI/invkartbtn.png';
             document.getElementById('glidersbtn').src = './Images/UI/invglidebtn.png';
             document.getElementById('driversbtn').src = './Images/UI/invcharbtnselected.png';
@@ -233,14 +280,15 @@ function changeckg(mode) {
             document.getElementById('inventorykart').style.display = 'none';
             document.getElementById('inventoryglider').style.display = 'none';
             currentmode = 0;
-        }
+        //}
         break;
     case 1:
-        if (currentmode == 1) {
+        /*if (currentmode == 1) {
             document.getElementById('kartsbtn').src = './Images/UI/invkartbtn.png';
             document.getElementById('inventorykart').style.display = 'none';
             currentmode = -1;
-        } else {
+        } else {*/
+            document.getElementById('alldkgbtn').src = './Images/UI/coursedkgbtn.png';
             document.getElementById('driversbtn').src = './Images/UI/invcharbtn.png';
             document.getElementById('glidersbtn').src = './Images/UI/invglidebtn.png';
             document.getElementById('kartsbtn').src = './Images/UI/invkartbtnselected.png';
@@ -249,14 +297,15 @@ function changeckg(mode) {
             document.getElementById('inventorykart').style.display = 'block';
             document.getElementById('inventoryglider').style.display = 'none';
             currentmode = 1;
-        }
+        //}
         break;
     case 2:
-        if (currentmode == 2) {
+        /*if (currentmode == 2) {
             document.getElementById('glidersbtn').src = './Images/UI/invglidebtn.png';
             document.getElementById('inventoryglider').style.display = 'none';
             currentmode = -1;
-        } else {
+        } else {*/
+            document.getElementById('alldkgbtn').src = './Images/UI/coursedkgbtn.png';
             document.getElementById('driversbtn').src = './Images/UI/invcharbtn.png';
             document.getElementById('kartsbtn').src = './Images/UI/invkartbtn.png';
             document.getElementById('glidersbtn').src = './Images/UI/invglidebtnselected.png';
@@ -265,12 +314,76 @@ function changeckg(mode) {
             document.getElementById('inventorykart').style.display = 'none';
             document.getElementById('inventoryglider').style.display = 'block';
             currentmode = 2;
-        }
+        //}
+        break;
+    case 3:
+        /*if (currentmode == 3) {
+            document.getElementById('alldkgbtn').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('inventorychar').style.display = 'none';
+            document.getElementById('inventorykart').style.display = 'none';
+            document.getElementById('inventoryglider').style.display = 'none';
+            currentmode = -1;
+        } else {*/
+            document.getElementById('alldkgbtn').src = './Images/UI/coursedkgbtnselected.png';
+            document.getElementById('driversbtn').src = './Images/UI/invcharbtn.png';
+            document.getElementById('kartsbtn').src = './Images/UI/invkartbtn.png';
+            document.getElementById('glidersbtn').src = './Images/UI/invglidebtn.png';
+            makeCharacters();
+            makeKarts();
+            makeGliders();
+            document.getElementById('inventorychar').style.display = 'block';
+            document.getElementById('inventorykart').style.display = 'block';
+            document.getElementById('inventoryglider').style.display = 'block';
+            currentmode = 3;
+        //}
+        break;
+    }
+    updateLocalSettingData();
+}
+
+function changespcckg(mode){
+    switch (mode) {
+    case 0:
+            document.getElementById('alldkgbtnspc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtnspc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtnspc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtnspc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('coursedriversbtnspc').src = './Images/UI/invcharbtnselected.png';
+            spcmode = 0;
+            specificitemcourses();
+        break;
+    case 1:
+            document.getElementById('alldkgbtnspc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtnspc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtnspc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtnspc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('coursekartsbtnspc').src = './Images/UI/invkartbtnselected.png';
+            spcmode = 1;
+            specificitemcourses();
+        break;
+    case 2:
+            document.getElementById('alldkgbtnspc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtnspc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtnspc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtnspc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('courseglidersbtnspc').src = './Images/UI/invglidebtnselected.png';
+            spcmode = 2;
+            specificitemcourses();
+        break;
+    case 3:
+            document.getElementById('alldkgbtnspc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtnspc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtnspc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtnspc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('alldkgbtnspc').src = './Images/UI/coursedkgbtnselected.png';
+            spcmode = 3;
+            specificitemcourses();
         break;
     }
 }
 
 function changecourseckg(mode) {
+    settingsavedata.Settings.topshelfmode = mode;
     switch (mode) {
     case 0:
             document.getElementById('coursedriversbtn').src = './Images/UI/invcharbtn.png';
@@ -300,9 +413,11 @@ function changecourseckg(mode) {
             makeTopShelfPreview();
         break;
     }
+    updateLocalSettingData();
 }
 
 function changemissingckg(mode) {
+    settingsavedata.Settings.missingmode = mode;
     switch (mode) {
     case 0:
             document.getElementById('missingdriversbtn').src = './Images/UI/invcharbtn.png';
@@ -332,6 +447,7 @@ function changemissingckg(mode) {
             missingCourses();
         break;
     }
+    updateLocalSettingData();
 }
 
 function updatesavedata() {
@@ -368,6 +484,18 @@ function changeowneditems() {
         onlyOwnedItems = false;
         settingsavedata.Settings.onlyOwnedItems = false;
     }
+    updateLocalSettingData();
+}
+
+function changeowneditemsinv() {
+    if (document.getElementById('changeowneditemsinv').checked) {
+        onlyOwnedItemsInv = true;
+        settingsavedata.Settings.onlyOwnedItemsInv = true;
+    } else {
+        onlyOwnedItemsInv = false;
+        settingsavedata.Settings.onlyOwnedItemsInv = false;
+    }
+    changeckg(currentmode);
     updateLocalSettingData();
 }
 
@@ -430,7 +558,12 @@ function updateLocalSettingData(){
 }
 
 function applyLocalSettings(){
+    changecoursemode(settingsavedata.Settings.coursesmode);
+    changecourseckg(settingsavedata.Settings.topshelfmode);
+    specificchoicemade(settingsavedata.Settings.currentspecificitem,settingsavedata.Settings.currentitemtype,settingsavedata.Settings.currentitemrarity,settingsavedata.Settings.currentitemitem);
     changemode(settingsavedata.Settings.currentCup);
+    changeckg(settingsavedata.Settings.currentmode);
+    changemissingckg(settingsavedata.Settings.missingmode);
     //disableData
     if (settingsavedata.Settings.isDataEntered) {
         isDataEntered = true;
@@ -460,6 +593,13 @@ function applyLocalSettings(){
         document.getElementById('changeowneditems').checked = true;
     } else {
         onlyOwnedItems = false;
+    }
+    //onlyOwnedItemsInv
+    if (settingsavedata.Settings.onlyOwnedItemsInv) {
+        onlyOwnedItemsInv = true;
+        document.getElementById('changeowneditemsinv').checked = true;
+    } else {
+        onlyOwnedItemsInv = false;
     }
     //missingIncludesCityCourses
     if (settingsavedata.Settings.missingIncludesCityCourses) {

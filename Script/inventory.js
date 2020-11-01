@@ -68,8 +68,14 @@ let makeCharacters = ()=>{
             lvicon.className = 'lvicon';
             panel.appendChild(lvicon);
         }
-
+        let savedrivers = [];
+        savedrivers = Object.keys(savedata.Items.Drivers);
+        if(savedrivers.includes(t) && isDataEntered){
         output.appendChild(panel);
+       } else if(onlyOwnedItemsInv == false){
+        output.appendChild(panel);
+       }
+        //output.appendChild(panel);
     }
     );
 }
@@ -645,7 +651,14 @@ let makeKarts = ()=>{
             panel.appendChild(lvicon);
         }
 
+        let savekarts = [];
+        savekarts = Object.keys(savedata.Items.Karts);
+        if(savekarts.includes(t) && isDataEntered){
         output.appendChild(panel);
+       } else if(onlyOwnedItemsInv == false){
+        output.appendChild(panel);
+       }
+        //output.appendChild(panel);
     }
     );
 }
@@ -1209,7 +1222,14 @@ let makeGliders = ()=>{
             panel.appendChild(lvicon);
         }
 
+        let savegliders = [];
+        savegliders = Object.keys(savedata.Items.Gliders);
+        if(savegliders.includes(t) && isDataEntered){
         output.appendChild(panel);
+       } else if(onlyOwnedItemsInv == false){
+        output.appendChild(panel);
+       }
+        //output.appendChild(panel);
     }
     );
 }
