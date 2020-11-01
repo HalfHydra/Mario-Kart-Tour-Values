@@ -25,3 +25,4 @@ I hope this helps with anything you should need! There is a copy hosted on my [g
 Feel free to make suggestions.
 
 Special Thanks to tryso and spotlight for assisting in providing the jsons. Additional thanks to demogorgon as well as hack_nug for some suggestions.
+And lastly, HUGE THANKS to everyone who helped me test this out and provide feedback, as well as how to make the design more accurate to the game.
