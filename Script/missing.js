@@ -864,7 +864,7 @@ function missingCourses(){
        });
 }
 
-function calcMissingValues(){
+/*function calcMissingValues(){
       missingcoursesd = [];
       missingcoursesk = [];
       missingcoursesg = [];
@@ -924,6 +924,193 @@ function calcMissingValues(){
               break;
               }  
        if(tempOwned.length == 0){
+              switch(topshelfmode){
+                case 0:
+                missingcoursesd.push(t);
+                break;
+                case 1:
+                missingcoursesk.push(t);
+                break;
+                case 2:
+                missingcoursesg.push(t);
+                break;
+              }
+       }
+
+       
+      
+       topshelves = tempOwned.concat(tempNotOwned);
+
+       }
+     }
+   });
+}*/
+
+function calcMissingValues(){
+      missingcoursesd = [];
+      missingcoursesk = [];
+      missingcoursesg = [];
+       let courses = Object.keys(coursedata.Courses);
+
+       courses.forEach((t,i)=>{
+      for(var topshelfmode = 0; topshelfmode<3; topshelfmode++){
+
+       let topshelves = [];
+       let topshelvestypes = [];
+        switch(topshelfmode){
+              case 0:
+              coursedata.Courses[t].goodAt.Drivers.forEach((t,i)=>{ 
+              topshelves.push(t)
+              topshelvestypes.push('0');
+              });
+              break;
+              case 1:
+              coursedata.Courses[t].goodAt.Karts.forEach((t,i)=>{ 
+              topshelves.push(t)
+              topshelvestypes.push('0');
+              });
+              break;
+              case 2:
+              coursedata.Courses[t].goodAt.Gliders.forEach((t,i)=>{ 
+              topshelves.push(t)
+              topshelvestypes.push('0');
+              });
+              break;
+       }
+
+       switch(topshelfmode){
+              case 0:
+              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+              //unlock3topshelves.push(t)
+              topshelves.push(t)
+              topshelvestypes.push('1');
+              });
+              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+              //unlock6topshelves.push(t)
+              topshelves.push(t)
+              topshelvestypes.push('2');
+              });
+              break;
+              case 1:
+              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+              //unlock3topshelves.push(t)
+              topshelves.push(t)
+              topshelvestypes.push('1');
+              });
+              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+              //unlock6topshelves.push(t)
+              topshelves.push(t)
+              topshelvestypes.push('2');
+              });
+              break;
+              case 2:
+              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+              //unlock3topshelves.push(t)
+              topshelves.push(t)
+              topshelvestypes.push('1');
+              });
+              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+              //unlock6topshelves.push(t)
+              topshelves.push(t)
+              topshelvestypes.push('2');
+              });
+              break;
+       }
+       let tempOwned = [];
+       let tempNotOwned = [];
+       let temp3Owned = [];
+       let temp6Owned = [];
+       let temp3NotLeveled = [];
+       let temp6NotLeveled = [];
+       let temp3NotOwned = [];
+       let temp6NotOwned = [];
+       //0 = Owned
+       //1 = Owned Unlock 3
+       //2 = Owned Unlock 6
+       //3 = Not Owned
+       //4 = Not Owned Unlock 3
+       //5 = Not Owned Unlock 6
+       if(isDataEntered){
+            switch(topshelfmode){
+              case 0:
+              coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
+                     if(savedata.Items.Drivers[t] != null){
+                     tempOwned.push(t)
+                     } else {
+                     tempNotOwned.push(t)       
+                     }
+              });
+              break;
+              case 1:
+              coursedata.Courses[t].moreGoodAt.Karts.forEach((t,i)=>{ 
+                     if(savedata.Items.Karts[t] != null){
+                     tempOwned.push(t)
+                     } else {
+                     tempNotOwned.push(t)       
+                     }
+              });
+              break;
+              case 2:
+              coursedata.Courses[t].moreGoodAt.Gliders.forEach((t,i)=>{ 
+                     if(savedata.Items.Gliders[t] != null){
+                     tempOwned.push(t)
+                     } else {
+                     tempNotOwned.push(t)       
+                     }
+              });
+              break;
+              }
+              switch(topshelfmode){
+              case 0:
+              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+                if(savedata.Items.Drivers[t] >= 3 && savedata.Items.Drivers[t] != null){
+                     temp3Owned.push(t)
+                } else {
+                     temp3NotOwned.push(t)       
+                }
+              });
+              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+                if(savedata.Items.Drivers[t] == 6 && savedata.Items.Drivers[t] != null){
+                     temp6Owned.push(t)
+                } else {
+                     temp6NotOwned.push(t)       
+                }
+              });
+              break;
+              case 1:
+              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+                if(savedata.Items.Karts[t] >= 3 && savedata.Items.Karts[t] != null){
+                     temp3Owned.push(t)
+                } else {
+                     temp3NotOwned.push(t)       
+                }
+              });
+              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+                if(savedata.Items.Karts[t] == 6 && savedata.Items.Karts[t] != null){
+                     temp6Owned.push(t)
+                } else {
+                     temp6NotOwned.push(t)       
+                }
+              });
+              break;
+              case 2:
+              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+                if(savedata.Items.Gliders[t] >= 3 && savedata.Items.Gliders[t] != null){
+                     temp3Owned.push(t)
+                } else {
+                     temp3NotOwned.push(t)       
+                }
+              });
+              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+                if(savedata.Items.Gliders[t] == 6 && savedata.Items.Gliders[t] != null){
+                     temp6Owned.push(t)
+                } else {
+                     temp6NotOwned.push(t)       
+                }
+              });
+              break;
+       }  
+       if(tempOwned.length == 0 && temp3Owned.length == 0 && temp6Owned.length == 0){
               switch(topshelfmode){
                 case 0:
                 missingcoursesd.push(t);
