@@ -244,6 +244,26 @@ function makeCourseList() {
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxt';
+       switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
        coursePanel.appendChild(coursetxt);
 
        output.appendChild(coursePanel);
@@ -689,6 +709,26 @@ function specificchoicemade(t, type, rarity, item) {
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxtslc';
+       switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "15.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "15px";
+        break;
+       }
        //coursetxt.style.zoom = "90%"
        coursePanel.appendChild(coursetxt);
 
@@ -1540,6 +1580,27 @@ function makeTopShelfPreview() {
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxttopshelf';
+       switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "14px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "14px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "14px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "14.5px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "14.5px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "13.5px";
+        break;
+       }
+
        coursePanel.appendChild(coursetxt);
 
        var topShelfPanel = document.createElement('div');
@@ -2139,6 +2200,26 @@ let unlock6topshelves = [];
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxtslc';
+       switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "15.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "15px";
+        break;
+       }
        //coursetxt.style.zoom = "90%"
        coursePanel.appendChild(coursetxt);
 

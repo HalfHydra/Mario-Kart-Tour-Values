@@ -257,6 +257,26 @@ function invCharacter(selected, i) {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             moreGoodAtPanel.appendChild(coursePanel);
@@ -282,6 +302,26 @@ function invCharacter(selected, i) {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             goodAtPanel.appendChild(coursePanel);
@@ -443,6 +483,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             moreGoodAtPanel.appendChild(coursePanel);
@@ -462,6 +522,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             let lockimg = document.createElement('img');
@@ -488,6 +568,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             removefrom2ndshelf.push(t); 
@@ -509,6 +609,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             let lockimg = document.createElement('img');
@@ -535,6 +655,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             removefrom2ndshelf.push(t); 
@@ -566,6 +706,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             goodAtPanel.appendChild(coursePanel);
@@ -840,6 +1000,26 @@ function invKart(selected, i) {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             moreGoodAtPanel.appendChild(coursePanel);
@@ -865,6 +1045,26 @@ function invKart(selected, i) {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             goodAtPanel.appendChild(coursePanel);
@@ -1014,6 +1214,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             moreGoodAtPanel.appendChild(coursePanel);
@@ -1033,6 +1253,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             let lockimg = document.createElement('img');
@@ -1059,6 +1299,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             removefrom2ndshelf.push(t); 
@@ -1080,6 +1340,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             let lockimg = document.createElement('img');
@@ -1106,6 +1386,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             removefrom2ndshelf.push(t); 
@@ -1137,6 +1437,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             goodAtPanel.appendChild(coursePanel);
@@ -1407,6 +1727,26 @@ function invGlider(selected, i) {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             moreGoodAtPanel.appendChild(coursePanel);
@@ -1432,6 +1772,26 @@ function invGlider(selected, i) {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             goodAtPanel.appendChild(coursePanel);
@@ -1582,6 +1942,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             moreGoodAtPanel.appendChild(coursePanel);
@@ -1601,6 +1981,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             let lockimg = document.createElement('img');
@@ -1627,6 +2027,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             removefrom2ndshelf.push(t); 
@@ -1648,6 +2068,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             let lockimg = document.createElement('img');
@@ -1674,6 +2114,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxtunlock3';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             removefrom2ndshelf.push(t); 
@@ -1705,6 +2165,26 @@ else {
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
             coursetxt.className = 'coursetxt';
+            switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "10px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "9px";
+        break;
+       }
             coursePanel.appendChild(coursetxt);
 
             goodAtPanel.appendChild(coursePanel);

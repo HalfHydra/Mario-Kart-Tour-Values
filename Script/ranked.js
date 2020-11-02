@@ -80,6 +80,26 @@ function rankedCourses(){
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxtslc';
+       switch(t){
+        case "Classic_Gn64_KoopaTroopaBeachRX":
+        coursetxt.style.fontSize = "15.5px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2X":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_Gsfc_KoopaTroopaBeach2R":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonX":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonR":
+        coursetxt.style.fontSize = "16px";
+        break;
+        case "Classic_G3ds_CheepCheepLagoonRX":
+        coursetxt.style.fontSize = "15px";
+        break;
+       }
        //coursetxt.style.zoom = "90%"
        coursePanel.appendChild(coursetxt);
 
