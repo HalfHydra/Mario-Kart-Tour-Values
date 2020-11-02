@@ -1519,10 +1519,7 @@ function specificchoicemade(t, type, rarity, item) {
 }
 
 function makeTopShelfPreview() {
-       if(resettingCourses){
-              document.getElementById('topshelfpreview').innerHTML = "";
-              resettingCourses = false;
-       }
+       document.getElementById('topshelfpreview').innerHTML = "";
        let courses = Object.keys(coursedata.Courses);
 
        let output = document.getElementById('topshelfpreview');
