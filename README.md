@@ -1,7 +1,7 @@
 # Mario-Kart-Tour-Values
 This is a tool to compare your values in the game, and allow you to see what is available on the courses. You can save your data to a file, in addition to the data saving automatically to your local browser storage (will be cleared upon cache removal). 
 
-Latest Update: Saving! Stuff saves locally! No more annoying uploading and downloading.
+Latest Update: Many many quality of life improvements. Extended saving, UI changes, and more options for the different menus.
 
 **The tool so far does all of the following:**
 - Enter and store your data for later (until you clear cache)
@@ -25,3 +25,4 @@ I hope this helps with anything you should need! There is a copy hosted on my [g
 Feel free to make suggestions.
 
 Special Thanks to tryso and spotlight for assisting in providing the jsons. Additional thanks to demogorgon as well as hack_nug for some suggestions.
+And lastly, HUGE THANKS to everyone who helped me test this out and provide feedback, as well as how to make the design more accurate to the game.
