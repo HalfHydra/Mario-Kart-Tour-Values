@@ -132,7 +132,7 @@
     object-fit: contain;
     position: absolute;
     z-index: 100;
-    margin-left: 45px;
+    margin-left: 50px;
 }
 
 .newKartModal {
@@ -156,7 +156,7 @@
     object-fit: contain;
     position: absolute;
     z-index: 100;
-    margin-left: 50px;
+    margin-left: 55px;
 }
 
 .newKart {

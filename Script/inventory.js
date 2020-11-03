@@ -1640,7 +1640,7 @@ function invGlider(selected, i) {
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGlider';
-        newCharacter.src = `./Images/Glider Icon/${item}.png`;
+        newCharacter.src = `./Images/Full Icon/Glider/${item}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
