@@ -8,7 +8,7 @@ var season37week1courses = ["Classic_Gwii_MapleTreeway","Classic_Gds_LuigiMansio
 
 var season37week2cup = "Birdo";
 var season37week2cupname = "Birdo Cup";
-var season37week2endtime = 1604469600;
+var season37week2endtime = 1604466000;
 var season37week2courses = ["Classic_Gsfc_ChocoIsland2","Classic_G3ds_RainbowRoadRX","Classic_Gwii_MapleTreewayX"];
 //Current Season
 var currentseasonweek1cup = season37week1cup;

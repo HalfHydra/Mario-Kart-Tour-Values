@@ -216,10 +216,15 @@
                <h3 class='whiteoutline' style="font-family: tour;font-size: 18px;width: 300px;display: inline-block;position: absolute">Current Ranked Cup: </h3>
             <div style="display: inline-block;position: absolute;margin-left:270px;">
                <img src="./Images/UI/cupranked.png" style="width: 100px;height: 100px;">
+               <img src="./Images/UI/RankedHeaderLeaf.png" style="width: 200px;height: 100px;margin-left: -150px;position: absolute;">
                <img id="rankcupimgranked" style="width: 60px;height: 60px;position: absolute;margin-left: -80px;margin-top: 20px;">
             </div>
             <div style="position: absolute;margin-left: 167px;margin-top: 130px;">
                <p id="cupnamecurrent" class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;width: 305px;"> Baby Rosalina Cup </p>
+            </div>
+            <div id=timer style="position: absolute;width: 180px;height: 84px;margin-top: 55px;margin-left: 15px;background-image: url(./Images/UI/TimerBG.png);background-size: cover;border: 5px solid #FFF;"> 
+
+               <p id="timertxt" style="    font-size: 17px;color: white;font-family: 'tour';margin-top: 30px;text-align: center;"> Loading... </p>
             </div>
             <div style="display: inline-block;margin-left: 420px;">
                <div style="display: inline-block;vertical-align: top;height: 170px;">
@@ -379,6 +384,29 @@
       window.onload = function() {
          document.getElementById('loadingimg').style.display = "none";
       }
+
+  var countDownDate = new Date(season37week2endtime * 1000).getTime();
+  var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  //if()
+  document.getElementById("timertxt").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timertxt").innerHTML = "Finished";
+  }
+}, 1000);
       </script>
    </body>
 </html>
