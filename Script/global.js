@@ -613,7 +613,9 @@ function updateLocalSettingData(){
 function applyLocalSettings(){
     changecoursemode(settingsavedata.Settings.coursesmode);
     changecourseckg(settingsavedata.Settings.topshelfmode);
+    if(settingsavedata.Settings.currentspecificitem != 0){
     specificchoicemade(settingsavedata.Settings.currentspecificitem,settingsavedata.Settings.currentitemtype,settingsavedata.Settings.currentitemrarity,settingsavedata.Settings.currentitemitem);
+    }
     changemode(settingsavedata.Settings.currentCup);
     changeckg(settingsavedata.Settings.currentmode);
     changemissingckg(settingsavedata.Settings.missingmode);

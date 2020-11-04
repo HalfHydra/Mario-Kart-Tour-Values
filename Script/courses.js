@@ -277,8 +277,10 @@ function selectCourse(course) {
               settingsavedata.Settings.selectedcourses.push(course);
               document.getElementById(`selectcourse_${course}`).className = `coursepanelselected`;
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelfselected`;
+              if(values[currentspecificitem] != null){
               if(values[currentspecificitem].moreGoodAt.includes(course)){
               document.getElementById(`courseslc_${course}`).className = `coursepanelslcselected`;
+              }
               }
               if(missingcourses.includes(course)){
               document.getElementById(`coursemissing_${course}`).className = `coursepanelslcselected`;
@@ -287,8 +289,10 @@ function selectCourse(course) {
               settingsavedata.Settings.selectedcourses.splice(selectedcourses.indexOf(course), 1);
               document.getElementById(`selectcourse_${course}`).className = `coursepanel`;
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelf`;
+              if(values[currentspecificitem] != null){
               if(values[currentspecificitem].moreGoodAt.includes(course)){
               document.getElementById(`courseslc_${course}`).className = `coursepanelslc`;
+              }
               }
               if(missingcourses.includes(course)){
               document.getElementById(`coursemissing_${course}`).className = `coursepanelslc`;
