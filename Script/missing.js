@@ -1,7 +1,7 @@
 function missingCourses(){
       document.getElementById('missingcourses').innerHTML = "";
       let output = document.getElementById('missingcourses');
-      let missingcourses = [];
+      missingcourses = [];
       switch(missingmode) {
         case 0:
         missingcourses = missingcoursesd;
@@ -15,8 +15,12 @@ function missingCourses(){
       }
               missingcourses.forEach((t,i)=>{ 
                      var coursePanel = document.createElement('div');
-       coursePanel.className = 'coursepanelslcmissing';
-       coursePanel.id = `coursets_${t}`;
+       if(settingsavedata.Settings.selectedcourses.includes(t)){
+       coursePanel.className = 'coursepanelslcselected';
+      } else {
+       coursePanel.className = 'coursepanelslc';
+      }
+       coursePanel.id = `coursemissing_${t}`;
 
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
@@ -29,6 +33,7 @@ function missingCourses(){
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxtslc';
+       //coursetxt.style.color = "white";
        switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "15.5px";
@@ -64,9 +69,9 @@ function missingCourses(){
        for(var x = 0; x<3;x++){
        var topShelfPanel = document.createElement('div');
        topShelfPanel.className = 'coursepreviewselectedpanel';
-       if(missingcourses.includes(t)){
+       /*if(missingcourses.includes(t)){
               coursePanel.className = `coursepanelslcselected`;
-       }
+       }*/
 
        topshelves.splice(0,topshelves.length);
        topshelvestypes.splice(0,topshelvestypes.length);
@@ -469,6 +474,23 @@ function missingCourses(){
         panel.className = 'ckgpanel';
         //panel.style.zoom = "75%"
         panel.id = `coursetscharpanel${t}`;
+        switch(x){
+          case 0:
+          panel.addEventListener('click', function() {
+            invCharacter(t);
+          });
+          break;
+          case 1:
+          panel.addEventListener('click', function() {
+            invKart(t);
+          });
+          break;
+          case 2:
+          panel.addEventListener('click', function() {
+            invGlider(t);
+          });
+          break;
+        }
 
         let bottomimg = document.createElement('img');
         switch(x){

@@ -537,9 +537,9 @@
     color:rgba(0,255,62,1);
 }
 .coursepanelslc {
-    width: 245px;
-    height: 250px;
-    display: inline;
+    width: 980px;
+    height: 350px;
+    display: inline-block;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
     color: white;
@@ -561,6 +561,15 @@
     display: inline;
     margin-left: 130px;
     position: absolute;
+    color: white;
+}
+
+.coursepanelmodal {
+    width: 150px;
+    height: 80px;
+    display: inline-block;
+    /*margin-left: 0px;margin-top: 0px;*/
+    position: relative;
     color: white;
 }
 
@@ -689,6 +698,34 @@
     color: yellow;
     margin-left: -147.5px;
     top: -69px;
+}
+
+.coursetxtmodal {
+    width: 150px;
+    height: 20px;
+    text-align: center;
+    font-family: tour;
+    font-size: 10.5px;
+    line-height: 20px;
+    position: absolute;
+    display: inline-block;
+    color: inherit;
+    margin-left: -147.5px;
+    margin-top: 0px;
+}
+
+.coursetxtunlock3modal {
+    width: 150px;
+    height: 20px;
+    text-align: center;
+    font-family: tour;
+    font-size: 10.5px;
+    line-height: 20px;
+    position: absolute;
+    display: inline-block;
+    color: yellow;
+    margin-left: -147.5px;
+    margin-top: 0px;
 }
 
 .coursetxttopshelf {
@@ -833,4 +870,12 @@ h4 {
     position: absolute;
     margin-top: -37px;
     margin-left: -630px;
+}
+
+.levellockpanel {
+    position: absolute;
+    margin-top: -56px;
+    margin-left: 447px;
+    width: 155px;
+    height: 80px;
 }

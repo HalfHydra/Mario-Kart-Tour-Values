@@ -343,6 +343,7 @@ function invCharacter(selected, i) {
 else {
     removefrom2ndshelf = [];
     inventorymodal.style.display = "block";
+    inventorymodal.scrollTo(0, 0);
     let moreGoodAt = values[item].moreGoodAt;
         let goodAt = values[item].goodAt;
         let unlock3 = values[item].unlock3;
@@ -473,7 +474,7 @@ else {
 
         moreGoodAt.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             let courseimg = document.createElement('img');
             courseimg.src = `./Images/Course Image/${t}.png`;
@@ -482,7 +483,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxt';
+            coursetxt.className = 'coursetxtmodal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -511,7 +512,7 @@ else {
 
         unlock3.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             if(isDataEntered && savedata.Items.Drivers[item] == null || isDataEntered && savedata.Items.Drivers[item] < 3 || !isDataEntered){
             let courseimg = document.createElement('img');
@@ -521,7 +522,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -567,7 +568,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -598,7 +599,7 @@ else {
 
         unlock6.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             if(isDataEntered && savedata.Items.Drivers[item] == null || isDataEntered && savedata.Items.Drivers[item] < 6 || !isDataEntered){
             let courseimg = document.createElement('img');
@@ -608,7 +609,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -654,7 +655,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -696,7 +697,7 @@ else {
         goodAt.forEach((t,i)=>{
             if(!removefrom2ndshelf.includes(t)){
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             let courseimg = document.createElement('img');
             courseimg.src = `./Images/Course Image/${t}.png`;
@@ -705,7 +706,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxt';
+            coursetxt.className = 'coursetxtmodal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1086,6 +1087,7 @@ function invKart(selected, i) {
 else {
     removefrom2ndshelf = [];
     inventorymodal.style.display = "block";
+    inventorymodal.scrollTo(0, 0);
     let moreGoodAt = values[item].moreGoodAt;
         let goodAt = values[item].goodAt;
         let unlock3 = values[item].unlock3;
@@ -1213,7 +1215,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxt';
+            coursetxt.className = 'coursetxtmodal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1252,7 +1254,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1298,7 +1300,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1339,7 +1341,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1385,7 +1387,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1436,7 +1438,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxt';
+            coursetxt.className = 'coursetxtmodal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1814,6 +1816,7 @@ function invGlider(selected, i) {
 else {
     removefrom2ndshelf = [];
     inventorymodal.style.display = "block";
+    inventorymodal.scrollTo(0, 0);
     let moreGoodAt = values[item].moreGoodAt;
         let goodAt = values[item].goodAt;
         let unlock3 = values[item].unlock3;
@@ -1941,7 +1944,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxt';
+            coursetxt.className = 'coursetxtmodal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -1980,7 +1983,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -2026,7 +2029,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -2067,7 +2070,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -2113,7 +2116,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxtunlock3';
+            coursetxt.className = 'coursetxtunlock3modal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";
@@ -2164,7 +2167,7 @@ else {
 
             let coursetxt = document.createElement('p');
             coursetxt.innerHTML = coursenames[t];
-            coursetxt.className = 'coursetxt';
+            coursetxt.className = 'coursetxtmodal';
             switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "9.5px";

@@ -27,6 +27,8 @@ var missingcoursesd = [];
 var missingcoursesk = [];
 var missingcoursesg = [];
 
+var missingcourses = [];
+
 var viewshelvechar = [];
 
 var currentmode = -1;
@@ -341,6 +343,47 @@ function changeckg(mode) {
     updateLocalSettingData();
 }
 
+function changedatackg(mode) {
+    switch (mode) {
+    case 0:
+            document.getElementById('alldkgbtndata').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('kartsbtndata').src = './Images/UI/invkartbtn.png';
+            document.getElementById('glidersbtndata').src = './Images/UI/invglidebtn.png';
+            document.getElementById('driversbtndata').src = './Images/UI/invcharbtnselected.png';
+            document.getElementById('driversdata').style.display = 'block'
+            document.getElementById('kartsdata').style.display = 'none';
+            document.getElementById('glidersdata').style.display = 'none';
+        break;
+    case 1:
+            document.getElementById('alldkgbtndata').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('driversbtndata').src = './Images/UI/invcharbtn.png';
+            document.getElementById('glidersbtndata').src = './Images/UI/invglidebtn.png';
+            document.getElementById('kartsbtndata').src = './Images/UI/invkartbtnselected.png';
+            document.getElementById('driversdata').style.display = 'none'
+            document.getElementById('kartsdata').style.display = 'block';
+            document.getElementById('glidersdata').style.display = 'none';
+        break;
+    case 2:
+            document.getElementById('alldkgbtndata').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('driversbtndata').src = './Images/UI/invcharbtn.png';
+            document.getElementById('kartsbtndata').src = './Images/UI/invkartbtn.png';
+            document.getElementById('glidersbtndata').src = './Images/UI/invglidebtnselected.png';
+            document.getElementById('driversdata').style.display = 'none'
+            document.getElementById('kartsdata').style.display = 'none';
+            document.getElementById('glidersdata').style.display = 'block';
+        break;
+    case 3:
+            document.getElementById('alldkgbtndata').src = './Images/UI/coursedkgbtnselected.png';
+            document.getElementById('driversbtndata').src = './Images/UI/invcharbtn.png';
+            document.getElementById('kartsbtndata').src = './Images/UI/invkartbtn.png';
+            document.getElementById('glidersbtndata').src = './Images/UI/invglidebtn.png';
+            document.getElementById('driversdata').style.display = 'block'
+            document.getElementById('kartsdata').style.display = 'block';
+            document.getElementById('glidersdata').style.display = 'block';
+        break;
+    }
+}
+
 function changespcckg(mode){
     switch (mode) {
     case 0:
@@ -541,6 +584,16 @@ function changecitymissing(){
 }
 
 function removeselected(){
+    settingsavedata.Settings.selectedcourses.forEach((t,i)=>{
+    document.getElementById(`selectcourse_${t}`).className = `coursepanel`;
+    document.getElementById(`coursets_${t}`).className = `coursepaneltopshelf`;
+    if(values[currentspecificitem].moreGoodAt.includes(t)){
+    document.getElementById(`courseslc_${t}`).className = `coursepanelslc`;
+    }
+    if(missingcourses.includes(t)){
+    document.getElementById(`coursemissing_${t}`).className = `coursepanelslc`;
+    }
+    });
     delete settingsavedata.Settings.selectedcourses; 
     settingsavedata.Settings.selectedcourses = [];
     selectedcourses = settingsavedata.Settings.selectedcourses;

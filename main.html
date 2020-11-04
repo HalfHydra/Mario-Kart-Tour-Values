@@ -52,27 +52,53 @@
             <h3 class="blackoutline"style="font-family: tour;font-size: 36px;text-align: center;">Landing Page</h3>
             <div> </div>
             <p class="landingpagetxt" style="text-align: center;">Welcome!</p>
-            <p class="landingpagetxt" style="text-align: center;">The functions of the site break down into the 5 tabs at the top: </p>
+            <p class="landingpagetxt" style="text-align: center;">The functions of the site break down into the 6 tabs at the top: </p>
             <p class="landingpagetxt">1. Enter Data</p>
-            <p class="landingpagetxt">This tab is optional, but entering your levels from your game will help you get a better representation of what’s going to be better for you, as well as help you figure out what courses you are missing top shelves on.</p>
+            <p class="landingpagetxt">This tab is optional, but entering your levels from your game will help you get a better representation of what’s going to be better for you, as well as help you figure out what courses you are missing top shelves on. Entering your data will save upon reloading the page or exiting the browser, but I advise you to save a copy of your data if you plan to switch browsers or clear your browsing data.</p>
             <p class="landingpagetxt">2. Inventory</p>
             <p class="landingpagetxt">Here you can click on the Drivers Karts and Gliders to check values similarly to how you would in game. </p>
             <p class="landingpagetxt">3. Courses</p>
             <p class="landingpagetxt">This section allows you to view the top shelves of courses, and if you enter your data, you can compare with just the characters you own. You can also specify an item to reveal all of the courses for.</p>
             <p class="landingpagetxt">4. Missing</p>
             <p class="landingpagetxt">This option is separate because it focuses on everything that you are missing, and only shows that in a simple place.</p>
-            <p class="landingpagetxt">5. Settings</p>
-            <p class="landingpagetxt">These are for options such as disabling city tracks in the value count, or disabling the character panel to focus on just the tracks in the inventory tab.</p>
+            <p class="landingpagetxt">5. Ranked</p>
+            <p class="landingpagetxt">This option is specifically made for ranked, and will show the newest ranked cup, as well as a countdown timer depending on when the tool is updated to reflect the new tour.</p>
+            <p class="landingpagetxt">6. Settings</p>
+            <p class="landingpagetxt">These are for options such as disabling city tracks in the value count, or showing only items that you own in various parts of the tool.</p>
             <p class="landingpagetxt" style="text-align: center;">Hope this helps!</p>
 
          </div>
          <div id="data" style="height: auto;display:none;">
          	<div style="position: sticky;top: 0;z-index: 30;background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;"> 
-            <h3 style="font-family: tour;width: 100px;display: inline-block;margin-left: 10px;">Data</h3>
+            <h3 style="font-family: tour;width: 100px;display: inline-block;margin-left: 10px;margin-bottom: 60px;">Data</h3>
             <div style="background-color: rgba(0, 0, 0, 0.3);padding:10px;">
                <input type="file" id="inputsavedata" style="height: 30px;"><button style="float: right;width: 150px;height: 30px;" onclick="downloadsavedata()">Download Save Data</button>
             </div>
+            <div id="dataitembtns" style="display: inline-block;position: absolute;margin-top: -95px;margin-left: 639px;">
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
+                     <img id='alldkgbtndata' src="./Images/UI/coursedkgbtnselected.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changedatackg(3)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> All </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 75px;">
+                     <img id='driversbtndata' src="./Images/UI/invcharbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changedatackg(0)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Drivers </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 150px;">
+                     <img id='kartsbtndata' src="./Images/UI/invkartbtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changedatackg(1)"> 
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Karts </p>
+                  </div>
+                  <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;margin-left: 225px;">
+                     <img id='glidersbtndata' src="./Images/UI/invglidebtn.png" style="width: 75px;height: 75px;display: inline-block;" onclick="changedatackg(2)">
+                     <p style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;"> Gliders </p>
+                  </div>
+               </div>
         </div>
+        <div id="driversdata"> 
+            </div>
+            <div id="kartsdata"> 
+            </div>
+            <div id="glidersdata"> 
+            </div>
          </div>
          <div id="inventory" style="height: auto;display:none;">
             <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*//*position: sticky;*/top: 0;z-index: 30;">
@@ -213,11 +239,15 @@
          </div>
          <div id="ranked" style="display: none;">
             <div style="background-image: linear-gradient(to bottom, rgba(168, 207, 255, 0.9) 0%, rgba(3, 65, 202, 0.9) 100%), url('./Images/UI/fixedmktbg.png');background-size: 394px auto;padding:10px;display:block;width: 970px;height: 160px;right: 0;left: 0;margin: 0px auto;margin-bottom: 10px;/*border: 5px solid #b5ceff;*/position: sticky;top: 0;z-index: 30;">
-               <h3 class='whiteoutline' style="font-family: tour;font-size: 18px;width: 300px;display: inline-block;position: absolute">Current Ranked Cup: </h3>
+               <h3 class='whiteoutline' style="font-family: tour;font-size: 18px;width: 300px;display: inline-block;position: absolute">Current Ranked Cup </h3>
             <div style="display: inline-block;position: absolute;margin-left:270px;">
                <img src="./Images/UI/cupranked.png" style="width: 100px;height: 100px;">
-               <img src="./Images/UI/RankedHeaderLeaf.png" style="width: 200px;height: 100px;margin-left: -150px;position: absolute;">
-               <img id="rankcupimgranked" style="width: 60px;height: 60px;position: absolute;margin-left: -80px;margin-top: 20px;">
+               <div style="position: absolute;
+    margin-left: 100px;
+    margin-top: -124px;">
+               <img src="./Images/UI/RankedHeaderLeaf.png" style="width: 200px;height: 100px;margin-left: -150px;margin-top: 20px;position: absolute;">
+               <img id="rankcupimgranked" style="width: 60px;height: 60px;margin-left: -80px;margin-top: 40px;position: absolute;">
+               </div>
             </div>
             <div style="position: absolute;margin-left: 167px;margin-top: 130px;">
                <p id="cupnamecurrent" class='whiteoutline' style="margin-top: -10px;font-family: headername;font-size: 15px;text-align: center;width: 305px;"> Baby Rosalina Cup </p>
@@ -250,44 +280,69 @@
             <h3>Pipe</h3>
             </div>-->
          <div id="settings" style="height:auto;display:none;">
-            <h3 style="font-family: tour;font-size: 24px;text-align: center;margin-left: 10px;">Settings</h3>
-            <div id='general' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;">
+            <h3 style="font-family: tour;font-size: 28px;text-align: center;margin-left: 10px;text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;">Settings</h3>
+            <!--<div id='general' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgb(78 188 255 / 29%);padding:0px;margin-left: 10px;">-->
             	<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">General</h3>
+               <div style="text-align: center;">
             <h4 style="display:inline-block;margin-bottom: 0px;">Disable Data Usage After Entered</h4>
             <input type="checkbox" id="changeusedata"  oninput="changeusedata()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
-        	</div>
-        	<div id='inventory' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;">
+         </div>
+        	<!--</div>-->
+        	<!--<div id='inventory' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgb(78 188 255 / 29%);padding:0px;">-->
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Inventory</h3>
+            <div style="text-align: center;">
         		<h4 style="display:inline-block;margin-bottom: 0px;">Disable City Tracks in Value Count</h4>
             <input type="checkbox" id="changecityvalue"  oninput="changecityvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+         </div>
+         <div style="text-align: center;">
             <h4 style="display:inline-block;margin-bottom: 0px;">Only Show Owned Items in Inventory</h4>
             <input type="checkbox" id="changeowneditemsinv"  oninput="changeowneditemsinv()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+         </div>
             <!--<h4 style="display:inline-block;margin-bottom: 0px;">Disable Character Panel in Values Menu</h4>
             <input type="checkbox" id="changecharpanelvalue"  oninput="changecharpanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">-->
+            <div style="text-align: center;">
             <h4 style="display:inline-block;margin-bottom: 0px;">[OLD] Enable Multiple Panels in Inventory</h4>
             <input type="checkbox" id="changemultiplepanelvalue"  oninput="changemultiplepanelvalue()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
-        	</div>
-        	<div id='courses' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;margin-top: 5px;">
+         </div>
+        	<!--</div>-->
+        	<!--<div id='courses' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgb(78 188 255 / 29%);padding:0px;margin-left: 10px;margin-top: 5px;">-->
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Courses</h3>
+            <div style="text-align: center;">
         		<h4 style="display:inline-block;margin-bottom: 0px;">Only Show Owned Items in Specific Items</h4>
             <input type="checkbox" id="changeowneditems"  oninput="changeowneditems()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
-        	</div>
-         <div id='courses' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-top: 5px;">
+         </div>
+        	<!--</div>-->
+         <!--<div id='courses' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgb(78 188 255 / 29%);padding:0px;margin-top: 5px;">-->
             <h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">Courses</h3>
+            <div style="text-align: center;">
             <h4 style="display:inline-block;margin-bottom: 0px;">Hide City Courses from Missing</h4>
             <input type="checkbox" id="changecitymissing"  oninput="changecitymissing()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
          </div>
-        	<div id='JSON' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgba(0, 0, 0, 0.3);padding:0px;margin-left: 10px;margin-top: 5px;">
+         <!--</div>-->
+        	<!--<div id='JSON' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgb(78 188 255 / 29%);padding:0px;margin-left: 10px;margin-top: 5px;">-->
         		<h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;">JSON</h3>
+            <!--<div style="text-align: center;">
         		<h4 style="display:inline-block;margin-bottom: 0px;">Debug Save Data Viewer</h4>
             <input type="checkbox" id="changedebugsave"  oninput="changedebugsave()" style="vertical-align:middle;margin-top: -3px;width: 30px;height: 30px;">
+         </div>-->
+         <div style="text-align: center;">
             <h4 style="display:inline-block;margin-bottom: 0px;">Download Course Data [Item IDs]</h4>
             <button onclick="downloadcoursejson(0)" style="vertical-align:middle;margin-left: 10px;margin-top: -3px;width: auto;height: 30px;">Download</button>
+         </div>
+         <div style="text-align: center;">
             <h4 style="display:inline-block;margin-bottom: 0px;">Download Course Data [Item Names]</h4>
             <button onclick="downloadcoursejson(1)" style="vertical-align:middle;margin-left: 10px;margin-top: -3px;width: auto;height: 30px;">Download</button>
+         </div>
+         <div style="text-align: center;">
             <h4 style="display:inline-block;margin-bottom: 0px;">Download Values Data [Reformatted]</h4>
             <button onclick="downloadcoursejson(2)" style="vertical-align:middle;margin-left: 10px;margin-top: -3px;width: auto;height: 30px;">Download</button>
-        	</div>
+         </div>
+         <h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;margin-bottom: 0px;">Credits</h3>
+         <div style="text-align: center;width: 600px;margin: 0 auto;">
+         <h4 style="display:inline-block;text-align:center;margin-bottom: 0px;font-size: 20px;">Special Thanks to tryso and spotlight for assisting in providing the jsons initially. Additional thanks to demogorgon as well as hack_nug for some suggestions. And lastly, HUGE THANKS to everyone who helped me test this out and provide feedback, as well as how to make the design more accurate to the game.</h4>
+         </div>
+
+        	<!--</div>-->
          </div>
       </div>
       <div id="debugsave" style="display: none;">

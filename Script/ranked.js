@@ -80,6 +80,7 @@ function rankedCourses(){
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxtslc';
+       coursetxt.style.color = "gold";
        switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "15.5px";
@@ -521,6 +522,23 @@ function rankedCourses(){
         panel.className = 'ckgpanel';
         //panel.style.zoom = "75%"
         panel.id = `coursetscharpanel${t}`;
+        switch(x){
+          case 0:
+          panel.addEventListener('click', function() {
+            invCharacter(t);
+          });
+          break;
+          case 1:
+          panel.addEventListener('click', function() {
+            invKart(t);
+          });
+          break;
+          case 2:
+          panel.addEventListener('click', function() {
+            invGlider(t);
+          });
+          break;
+        }
 
         let bottomimg = document.createElement('img');
         switch(x){

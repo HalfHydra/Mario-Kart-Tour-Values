@@ -1,6 +1,7 @@
 //DATA
 let makeDataFields = ()=>{
     let output = document.getElementById('data');
+    output = document.getElementById('driversdata');
     characterid.forEach((t,i)=>{
         var field = document.createElement('div');
         field.className = 'datafield';
@@ -105,7 +106,7 @@ let makeDataFields = ()=>{
 
     let spacer = document.createElement('div');
     output.appendChild(spacer);
-
+    output = document.getElementById('kartsdata');
     kartid.forEach((t,i)=>{
         var field = document.createElement('div');
         field.className = 'datafield';
@@ -210,7 +211,7 @@ let makeDataFields = ()=>{
 
     let spacer2 = document.createElement('div');
     output.appendChild(spacer2);
-
+    output = document.getElementById('glidersdata');
     gliderid.forEach((t,i)=>{
         var field = document.createElement('div');
         field.className = 'datafield';

@@ -276,14 +276,22 @@ function selectCourse(course) {
        if(!settingsavedata.Settings.selectedcourses.includes(course)){
               settingsavedata.Settings.selectedcourses.push(course);
               document.getElementById(`selectcourse_${course}`).className = `coursepanelselected`;
-              if(topShelfPreviewMade){
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelfselected`;
+              if(values[currentspecificitem].moreGoodAt.includes(course)){
+              document.getElementById(`courseslc_${course}`).className = `coursepanelslcselected`;
+              }
+              if(missingcourses.includes(course)){
+              document.getElementById(`coursemissing_${course}`).className = `coursepanelslcselected`;
               }
        } else {
               settingsavedata.Settings.selectedcourses.splice(selectedcourses.indexOf(course), 1);
               document.getElementById(`selectcourse_${course}`).className = `coursepanel`;
-              if(topShelfPreviewMade){
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelf`;
+              if(values[currentspecificitem].moreGoodAt.includes(course)){
+              document.getElementById(`courseslc_${course}`).className = `coursepanelslc`;
+              }
+              if(missingcourses.includes(course)){
+              document.getElementById(`coursemissing_${course}`).className = `coursepanelslc`;
               }
        }
        selectedCourses();
@@ -411,6 +419,10 @@ function selectspecificitem(){
             lvicon.className = 'lvicon';
             panel.appendChild(lvicon);
         }
+
+        panel.addEventListener('click', function() {
+              specificitemcourses();
+        });
 
         var additembtn = document.createElement('img');
               additembtn.src = `./Images/UI/additembtn.png`;
@@ -694,8 +706,12 @@ function specificchoicemade(t, type, rarity, item) {
        document.getElementById('courseitemspecificbtnscourses').style.display = "none";
        courses.forEach((t,i)=>{ 
                      var coursePanel = document.createElement('div');
+       if(settingsavedata.Settings.selectedcourses.includes(t)){
        coursePanel.className = 'coursepanelslcselected';
-       coursePanel.id = `coursets_${t}`;
+      } else {
+       coursePanel.className = 'coursepanelslc';
+      }
+       coursePanel.id = `courseslc_${t}`;
 
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
@@ -709,6 +725,7 @@ function specificchoicemade(t, type, rarity, item) {
        let coursetxt = document.createElement('p');
        coursetxt.innerHTML = coursenames[t];
        coursetxt.className = 'coursetxtslc';
+       //coursetxt.style.color = "white";
        switch(t){
         case "Classic_Gn64_KoopaTroopaBeachRX":
         coursetxt.style.fontSize = "15.5px";
@@ -1150,6 +1167,24 @@ function specificchoicemade(t, type, rarity, item) {
         panel.className = 'ckgpanel';
         //panel.style.zoom = "75%"
         panel.id = `coursetscharpanel${t}`;
+        switch(x){
+          case 0:
+          panel.addEventListener('click', function() {
+            invCharacter(t);
+          });
+          break;
+          case 1:
+          panel.addEventListener('click', function() {
+            invKart(t);
+          });
+          break;
+          case 2:
+          panel.addEventListener('click', function() {
+            invGlider(t);
+          });
+          break;
+        }
+        
 
         let bottomimg = document.createElement('img');
         switch(x){
@@ -1844,6 +1879,23 @@ let unlock6topshelves = [];
         panel.className = 'ckgpanel';
         //panel.style.zoom = "75%"
         panel.id = `coursetscharpanel${t}`;
+        switch(x){
+          case 0:
+          panel.addEventListener('click', function() {
+            invCharacter(t);
+          });
+          break;
+          case 1:
+          panel.addEventListener('click', function() {
+            invKart(t);
+          });
+          break;
+          case 2:
+          panel.addEventListener('click', function() {
+            invGlider(t);
+          });
+          break;
+        }
 
         let bottomimg = document.createElement('img');
         switch(topshelfmode){
@@ -2641,6 +2693,23 @@ let unlock6topshelves = [];
         panel.className = 'ckgpanel';
         //panel.style.zoom = "75%"
         panel.id = `coursetscharpanel${t}`;
+        switch(x){
+          case 0:
+          panel.addEventListener('click', function() {
+            invCharacter(t);
+          });
+          break;
+          case 1:
+          panel.addEventListener('click', function() {
+            invKart(t);
+          });
+          break;
+          case 2:
+          panel.addEventListener('click', function() {
+            invGlider(t);
+          });
+          break;
+        }
 
         let bottomimg = document.createElement('img');
         switch(x){
