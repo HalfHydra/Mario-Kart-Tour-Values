@@ -1206,7 +1206,7 @@ else {
 
         moreGoodAt.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             let courseimg = document.createElement('img');
             courseimg.src = `./Images/Course Image/${t}.png`;
@@ -1244,7 +1244,7 @@ else {
 
         unlock3.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             if(isDataEntered && savedata.Items.Karts[item] == null || isDataEntered && savedata.Items.Karts[item] < 3 || !isDataEntered){
             let courseimg = document.createElement('img');
@@ -1331,7 +1331,7 @@ else {
 
         unlock6.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             if(isDataEntered && savedata.Items.Karts[item] == null || isDataEntered && savedata.Items.Karts[item] < 6 || !isDataEntered){
             let courseimg = document.createElement('img');
@@ -1429,7 +1429,7 @@ else {
         goodAt.forEach((t,i)=>{
             if(!removefrom2ndshelf.includes(t)){
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             let courseimg = document.createElement('img');
             courseimg.src = `./Images/Course Image/${t}.png`;
@@ -1935,7 +1935,7 @@ else {
 
         moreGoodAt.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             let courseimg = document.createElement('img');
             courseimg.src = `./Images/Course Image/${t}.png`;
@@ -1973,7 +1973,7 @@ else {
 
         unlock3.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             if(isDataEntered && savedata.Items.Gliders[item] == null || isDataEntered && savedata.Items.Gliders[item] < 3 || !isDataEntered){
             let courseimg = document.createElement('img');
@@ -2060,7 +2060,7 @@ else {
 
         unlock6.forEach((t,i)=>{
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             if(isDataEntered && savedata.Items.Gliders[item] == null || isDataEntered && savedata.Items.Gliders[item] < 6 || !isDataEntered){
             let courseimg = document.createElement('img');
@@ -2158,7 +2158,7 @@ else {
         goodAt.forEach((t,i)=>{
             if(!removefrom2ndshelf.includes(t)){
             var coursePanel = document.createElement('div');
-            coursePanel.className = 'coursepanel';
+            coursePanel.className = 'coursepanelmodal';
 
             let courseimg = document.createElement('img');
             courseimg.src = `./Images/Course Image/${t}.png`;
