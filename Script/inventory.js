@@ -1868,7 +1868,7 @@ else {
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGliderModal';
-        newCharacter.src = `./Images/Glider Icon/` + item + `.png`;
+        newCharacter.src = `./Images/Full Icon/Glider/` + item + `.png`;
         characterpanel.appendChild(newCharacter);
 
         let charaitem = document.createElement('img');

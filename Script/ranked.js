@@ -10,45 +10,63 @@ var season37week2cup = "Birdo";
 var season37week2cupname = "Birdo Cup";
 var season37week2endtime = 1604466000;
 var season37week2courses = ["Classic_Gsfc_ChocoIsland2","Classic_G3ds_RainbowRoadRX","Classic_Gwii_MapleTreewayX"];
-//Current Season
-var currentseasonweek1cup = season37week1cup;
-var currentseasonweek1cupname = season37week1cupname;
-var currentseasonweek1courses = season37week1courses;
+//Season 38
+var season38week1cup = "Peach";
+var season38week1cupname = "Peach Cup";
+var season38week1endtime = 1605067200;
+var season38week1courses = ["Classic_Gagb_SunsetWilds","Classic_G3ds_NeoBowserCityR","Classic_G3ds_MarioCircuitR"];
 
-var currentseasonweek2cup = season37week2cup;
-var currentseasonweek2cupname = season37week2cupname;
-var currentseasonweek2courses = season37week2courses;
+var season38week2cup = "Fire Bro";
+var season38week2cupname = "Fire Bro Cup";
+var season38week2endtime = 1605668400;
+var season38week2courses = ["Classic_Ggc_DinoDinoJungleX","Classic_Gn64_KalimariDesert2R","Classic_Gagb_SunsetWildsX"];
+//Current Season
+var currentseasonweek1cup = season38week1cup;
+var currentseasonweek1cupname = season38week1cupname;
+var currentseasonweek1courses = season38week1courses;
+
+var currentseasonweek2cup = season38week2cup;
+var currentseasonweek2cupname = season38week2cupname;
+var currentseasonweek2courses = season38week2courses;
 
 var currentseasoncup = "";
 var currentseasoncupname = "";
 var currentseasoncourses = [];
 
 var currentweek = "Week1";
-var currentseason = "Season37";
+var currentseason = "Season38";
+var currentendtime = 0;
 
 function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
-	if(epoch <= season37week1endtime){
+	if(epoch <= season38week1endtime){
 	currentweek = "Week1";
+	currentendtime = season38week1endtime;
 	currentseasoncup = currentseasonweek1cup;
 	currentseasoncupname = currentseasonweek1cupname;
 	currentseasoncourses = currentseasonweek1courses;
-	}
-	if(epoch <= season37week2endtime){
+	} else if(epoch <= season38week2endtime){
 	currentweek = "Week2";
+	currentendtime = season38week2endtime;
 	currentseasoncup = currentseasonweek2cup;
 	currentseasoncupname = currentseasonweek2cupname;
 	currentseasoncourses = currentseasonweek2courses;
-	}
-	if(epoch >= season37week2endtime){
+	} else if(epoch >= season38week2endtime){
 		//
 	}
 }
 
 function updateRanked(){
-
-	document.getElementById('cupnamecurrent').innerHTML = currentseasonweek2cupname;
-    document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasonweek2cup} Cup.png`;
+	switch(currentweek){
+		case "Week1":
+		document.getElementById('cupnamecurrent').innerHTML = currentseasonweek1cupname;
+    	document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasonweek1cup} Cup.png`;
+		break;
+		case "Week2":
+		document.getElementById('cupnamecurrent').innerHTML = currentseasonweek2cupname;
+    	document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasonweek2cup} Cup.png`;
+		break;
+	}
     document.getElementById('rankcourseimg1').src = `./Images/Ranked Icon/${currentseason}/${currentweek}/${currentseasoncourses[0]}.png`;
     document.getElementById('rankcourseimg2').src = `./Images/Ranked Icon/${currentseason}/${currentweek}/${currentseasoncourses[1]}.png`;
     document.getElementById('rankcourseimg3').src = `./Images/Ranked Icon/${currentseason}/${currentweek}/${currentseasoncourses[2]}.png`;

@@ -383,7 +383,8 @@
          }
          //readTextFile("./Data/1st_anniversary_tour_preferred_courses.json", 1);
          //readTextFile("./Data/1st_anniversary_tour_courses_v2.6.0_update.json", 1);
-         readTextFile("./Data/halloween_tour_courses_v2.6.0_update_hh.json", 1);
+         //readTextFile("./Data/halloween_tour_courses_v2.6.0_update_hh.json", 1);
+         readTextFile("./Data/Sunset_Tour_courses.json", 1);
          readTextFile("./Data/course_names.json", 2);
          convertToUsable();
          makeDataFields();
@@ -440,7 +441,7 @@
          document.getElementById('loadingimg').style.display = "none";
       }
 
-  var countDownDate = new Date(season37week2endtime * 1000).getTime();
+  var countDownDate = new Date(currentendtime * 1000).getTime();
   var x = setInterval(function() {
   var now = new Date().getTime();
   var distance = countDownDate - now;
