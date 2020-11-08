@@ -320,16 +320,20 @@ function selectspecificitem(){
               topimg.className = 'topimg';
               panel.appendChild(topimg);
 
-              var additembtn = document.createElement('img');
+              panel.addEventListener('click', function() {
+              specificitemcourses();
+              });
+
+              /*var additembtn = document.createElement('img');
               additembtn.src = `./Images/UI/additembtn.png`;
               additembtn.className = 'additembtn';
               additembtn.addEventListener('click', function() {
               specificitemcourses();
-        });
+        });*/
 
 
               specificitem.appendChild(panel);
-              specificitem.appendChild(additembtn);
+              //specificitem.appendChild(additembtn);
        } else {
        var panel = document.createElement('div');
         panel.className = 'ckgpanel';
@@ -428,15 +432,15 @@ function selectspecificitem(){
               specificitemcourses();
         });
 
-        var additembtn = document.createElement('img');
+        /*var additembtn = document.createElement('img');
               additembtn.src = `./Images/UI/additembtn.png`;
               additembtn.className = 'additembtn';
               additembtn.addEventListener('click', function() {
               specificitemcourses();
-        });
+        });*/
 
         specificitem.appendChild(panel);
-        specificitem.appendChild(additembtn);
+        //specificitem.appendChild(additembtn);
        }
 
 }

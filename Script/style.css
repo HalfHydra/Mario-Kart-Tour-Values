@@ -46,6 +46,7 @@
     width: 120px;
     height: 100px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .numberbtn {
@@ -99,6 +100,7 @@
     width: 67.5px;
     height: 87.5px;
     display: inline-block;
+    cursor: pointer;
 }
 .ckgpaneldisabled {
     width: 67.5px;
@@ -629,6 +631,7 @@
     height: 103.5px;
     margin-left: 4px;
     /*margin-top: 0px;*/
+    cursor: pointer;
 }
 .courseimgslc {
     width: 229px;
@@ -637,6 +640,7 @@
     /*margin-top: 0px;*/
     float: left;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 .coursepreviewtopshelfpanel {
@@ -771,7 +775,7 @@
    display: inline-block;
    width: 360px;
    height: auto;
-   margin-left: 221px;
+   margin-left: 240px;
    /*margin-right: -5px;*/
 }
 
@@ -782,10 +786,11 @@
 }
 
 h4 {
-    font-family: tour;
-    font-size: 16px;
+    font-family: Tahoma;
+    font-size: 18px;
     margin-left: 10px;
-    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /*::-webkit-scrollbar {
