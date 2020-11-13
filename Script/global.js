@@ -22,6 +22,7 @@ var topshelfmode = 0;
 var missingmode = 0;
 var coursesmode = 0;
 var spcmode = 3;
+var spcmodecalc = 4;
 
 var missingcoursesd = [];
 var missingcoursesk = [];
@@ -30,6 +31,8 @@ var missingcoursesg = [];
 var missingcourses = [];
 
 var viewshelvechar = [];
+
+var openedCalcPanels = [];
 
 var currentmode = -1;
 
@@ -44,6 +47,8 @@ var onlyOwnedItems = false;
 var onlyOwnedItemsInv = false;
 
 var isMultipleShelves = false;
+
+var isInvCol = false;
 
 var selectedcourses = [];
 
@@ -130,19 +135,10 @@ function changemode(mode) {
         selectspecificitem();
         break;
     case 4:
-        if(!courseListMade){
-                makeCourseList();
-                courseListMade = true;
-        }
-        //changemissingckg(missingmode);
-        if(isDataEntered && localStorage.getItem("MKTVSaveData") != null){
-        calcMissingValues();
-        missingCourses();
-        }
-        if(!isDataEntered && !document.getElementById('changeusedata').checked){
-            alert('You need to enter your data first before this tab works! Be sure that the disable data usage is unchecked in the settings if you have entered your data.');
-        }
-        hideAllBesidesOne('missing');
+        hideAllBesidesOne('bonuspoints');
+        makeCalcCharacters();
+        makeCalcKarts();
+        makeCalcGliders();
         break;
     case 5:
         hideAllBesidesOne('settings');
@@ -164,7 +160,7 @@ function hideAllBesidesOne(mode){
     document.getElementById('data').style.display = "none";
     document.getElementById('inventory').style.display = "none";
     document.getElementById('courses').style.display = "none";
-    document.getElementById('missing').style.display = "none";
+    document.getElementById('bonuspoints').style.display = "none";
     document.getElementById('ranked').style.display = "none";
     document.getElementById('settings').style.display = "none";
     document.getElementById(mode).style.display = "block";
@@ -177,18 +173,21 @@ function changecoursemode(mode) {
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "none";
         document.getElementById('itemspecificcourses').style.display = "none";
+        document.getElementById('missingcourses').style.display = "none";
         document.getElementById('items3barslc').style.display = "none";
         document.getElementById('items2barslc').style.display = "none";
         document.getElementById('courseitembtnscourses').style.display = "none";
-        document.getElementById('coursebtns').style.marginLeft = "524px";
+        document.getElementById('coursebtns').style.marginLeft = "650px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "block";
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
+        document.getElementById('courseitembtnsmissing').style.display = "none";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtnselected.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
         document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtn.png';
         document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtn.png';
+        document.getElementById('coursemissingbtn').src = './Images/UI/coursemissingbtn.png';
         coursesmode = 0;
         break;
     case 1:
@@ -202,18 +201,21 @@ function changecoursemode(mode) {
         document.getElementById('topshelfpreview').style.display = "block";
         document.getElementById('selectedcourses').style.display = "none";
         document.getElementById('itemspecificcourses').style.display = "none";
+        document.getElementById('missingcourses').style.display = "none";
         document.getElementById('items3barslc').style.display = "none";
         document.getElementById('items2barslc').style.display = "none";
         document.getElementById('courseitembtnscourses').style.display = "inline-block";
-        document.getElementById('coursebtns').style.marginLeft = "320px";
+        document.getElementById('coursebtns').style.marginLeft = "446px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "none";
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
+        document.getElementById('courseitembtnsmissing').style.display = "none";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtnselected.png';
         document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtn.png';
         document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtn.png';
+        document.getElementById('coursemissingbtn').src = './Images/UI/coursemissingbtn.png';
         coursesmode = 1;
         break;
     case 2:
@@ -221,19 +223,22 @@ function changecoursemode(mode) {
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "block";
         document.getElementById('itemspecificcourses').style.display = "none";
+        document.getElementById('missingcourses').style.display = "none";
         document.getElementById('items3barslc').style.display = "inline-block";
         document.getElementById('items2barslc').style.display = "inline-block";
         document.getElementById('courseitembtnscourses').style.display = "none";
-        document.getElementById('coursebtns').style.marginLeft = "524px";
+        document.getElementById('coursebtns').style.marginLeft = "650px";
         document.getElementById('specificitem').style.display = "none";
         document.getElementById('removeselected').style.display = "block";
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
+        document.getElementById('courseitembtnsmissing').style.display = "none";
         selectedCourses();
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
         document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtnselected.png';
         document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtn.png';
+        document.getElementById('coursemissingbtn').src = './Images/UI/coursemissingbtn.png';
         coursesmode = 2;
         break;
     case 3:
@@ -242,21 +247,58 @@ function changecoursemode(mode) {
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "none";
         document.getElementById('itemspecificcourses').style.display = "block";
+        document.getElementById('missingcourses').style.display = "none";
         document.getElementById('items3barslc').style.display = "inline-block";
         document.getElementById('items2barslc').style.display = "inline-block";
         document.getElementById('courseitembtnscourses').style.display = "none";
-        document.getElementById('coursebtns').style.marginLeft = "524px";
+        document.getElementById('coursebtns').style.marginLeft = "650px";
         document.getElementById('specificitem').style.display = "inline";
-        document.getElementById('removeselected').style.display = "none";
+        document.getElementById('removeselected').style.display = "block";
         if(startToggle){
         document.getElementById('courseitemspecificbtnscourses').style.display = "inline-block";
         }
+        document.getElementById('courseitembtnsmissing').style.display = "none";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
         document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtn.png';
         document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtnselected.png';
+        document.getElementById('coursemissingbtn').src = './Images/UI/coursemissingbtn.png';
         coursesmode = 3;
+        break;
+    case 4:
+        document.getElementById('selectcourses').style.display = "none";
+        document.getElementById('topshelfpreview').style.display = "none";
+        document.getElementById('selectedcourses').style.display = "none";
+        document.getElementById('itemspecificcourses').style.display = "none";
+        document.getElementById('missingcourses').style.display = "block";
+        document.getElementById('items3barslc').style.display = "inline-block";
+        document.getElementById('items2barslc').style.display = "inline-block";
+        document.getElementById('courseitembtnscourses').style.display = "none";
+        document.getElementById('coursebtns').style.marginLeft = "650px";
+        document.getElementById('specificitem').style.display = "none";
+        document.getElementById('removeselected').style.display = "block";
+        document.getElementById('courseitemspecificbtnscourses').style.display = "none";
+        document.getElementById('courseitembtnsmissing').style.display = "inline-block";
+        /*if(!courseListMade){
+                makeCourseList();
+                courseListMade = true;
+        }*/
+        //changemissingckg(missingmode);
+        if(isDataEntered && localStorage.getItem("MKTVSaveData") != null){
+        calcMissingValues();
+        missingCourses();
+        }
+        if(!isDataEntered && !document.getElementById('changeusedata').checked){
+            alert('You need to enter your data first before this tab works! Be sure that the disable data usage is unchecked in the settings if you have entered your data.');
+        }
+
+        document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
+        document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
+        document.getElementById('courseselectedbtn').src = './Images/UI/courseselectedbtn.png';
+        document.getElementById('coursedkgbtn').src = './Images/UI/coursedkgbtn.png';
+        document.getElementById('coursemissingbtn').src = './Images/UI/coursemissingbtnselected.png';
+        coursesmode = 4;
         break;
     }
     settingsavedata.Settings.coursesmode = coursesmode;
@@ -424,6 +466,71 @@ function changespcckg(mode){
     }
 }
 
+function changecalcckg(mode){
+    switch (mode) {
+    case 0:
+            document.getElementById('alldkgbtncalc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtncalc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtncalc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtncalc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('coursedriversbtncalc').src = './Images/UI/invcharbtnselected.png';
+            document.getElementById('nonebtn').src = './Images/UI/calcpanelbtn.png';
+            spcmodecalc = 0;
+            document.getElementById('choosedriver').style.display = 'block';
+            document.getElementById('choosekart').style.display = 'none';
+            document.getElementById('chooseglider').style.display = 'none';
+        break;
+    case 1:
+            document.getElementById('alldkgbtncalc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtncalc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtncalc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtncalc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('coursekartsbtncalc').src = './Images/UI/invkartbtnselected.png';
+            document.getElementById('nonebtn').src = './Images/UI/calcpanelbtn.png';
+            spcmodecalc = 1;
+            document.getElementById('choosedriver').style.display = 'none';
+            document.getElementById('choosekart').style.display = 'block';
+            document.getElementById('chooseglider').style.display = 'none';
+        break;
+    case 2:
+            document.getElementById('alldkgbtncalc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtncalc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtncalc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtncalc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('courseglidersbtncalc').src = './Images/UI/invglidebtnselected.png';
+            document.getElementById('nonebtn').src = './Images/UI/calcpanelbtn.png';
+            spcmodecalc = 2;
+            document.getElementById('choosedriver').style.display = 'none';
+            document.getElementById('choosekart').style.display = 'none';
+            document.getElementById('chooseglider').style.display = 'block';
+        break;
+    case 3:
+            document.getElementById('alldkgbtncalc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtncalc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtncalc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtncalc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('alldkgbtncalc').src = './Images/UI/coursedkgbtnselected.png';
+            document.getElementById('nonebtn').src = './Images/UI/calcpanelbtn.png';
+            spcmodecalc = 3;
+            document.getElementById('choosedriver').style.display = 'block';
+            document.getElementById('choosekart').style.display = 'block';
+            document.getElementById('chooseglider').style.display = 'block';
+        break;
+    
+    case 4:
+            document.getElementById('alldkgbtncalc').src = './Images/UI/coursedkgbtn.png';
+            document.getElementById('coursedriversbtncalc').src = './Images/UI/invcharbtn.png';
+            document.getElementById('coursekartsbtncalc').src = './Images/UI/invkartbtn.png';
+            document.getElementById('courseglidersbtncalc').src = './Images/UI/invglidebtn.png';
+            document.getElementById('nonebtn').src = './Images/UI/calcpanelbtnselected.png';
+            spcmodecalc = 4;
+            document.getElementById('choosedriver').style.display = 'none';
+            document.getElementById('choosekart').style.display = 'none';
+            document.getElementById('chooseglider').style.display = 'none';
+    break;
+    }
+}
+
 function changecourseckg(mode) {
     settingsavedata.Settings.topshelfmode = mode;
     switch (mode) {
@@ -560,6 +667,22 @@ function changecharpanelvalue() {
     }
 }
 
+function changeinventorycol() {
+    if (document.getElementById('changeuseinvcol').checked) {
+        useInvCol = true;
+        document.getElementById('inventorychar').style.width = "270px";
+        document.getElementById('inventorykart').style.width = "270px";
+        document.getElementById('inventoryglider').style.width = "270px";
+        settingsavedata.Settings.useInvCol = true;
+    } else {
+        useInvCol = false;
+        document.getElementById('inventorychar').style.width = "1020px";
+        document.getElementById('inventorykart').style.width = "1020px";
+        document.getElementById('inventoryglider').style.width = "1020px";
+        settingsavedata.Settings.useInvCol = false;
+    }
+}
+
 function changemultiplepanelvalue(){
     if (document.getElementById('changemultiplepanelvalue').checked) {
         isMultipleShelves = true;
@@ -662,6 +785,15 @@ function applyLocalSettings(){
         missingIncludesCityCourses = false;
         document.getElementById('changecitymissing').checked = true;
     }
+    //useInvCol
+    if (settingsavedata.Settings.useInvCol) {
+        useInvCol = true;
+        document.getElementById('changeuseinvcol').checked = true;
+    } else {
+        useInvCol = false;
+    }
+    changeinventorycol();
+    //final
     selectedcourses = settingsavedata.Settings.selectedcourses;
     selectedCourses();
     missingCourses();

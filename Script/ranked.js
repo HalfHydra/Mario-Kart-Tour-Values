@@ -13,12 +13,12 @@ var season37week2courses = ["Classic_Gsfc_ChocoIsland2","Classic_G3ds_RainbowRoa
 //Season 38
 var season38week1cup = "Peach";
 var season38week1cupname = "Peach Cup";
-var season38week1endtime = 1605067200;
+var season38week1endtime = 1605070800;
 var season38week1courses = ["Classic_Gagb_SunsetWilds","Classic_G3ds_NeoBowserCityR","Classic_G3ds_MarioCircuitR"];
 
 var season38week2cup = "Fire Bro";
 var season38week2cupname = "Fire Bro Cup";
-var season38week2endtime = 1605668400;
+var season38week2endtime = 1605668400 + 3600;
 var season38week2courses = ["Classic_Ggc_DinoDinoJungleX","Classic_Gn64_KalimariDesert2R","Classic_Gagb_SunsetWildsX"];
 //Current Season
 var currentseasonweek1cup = season38week1cup;

@@ -1,5 +1,5 @@
 .landingpagetxt {
-   font-family: tour;
+   font-family: Tahoma;
    margin-left: 10px;
    font-size: 20px;
    color: white;
@@ -19,6 +19,7 @@
 
 .datafield {
     width: 240px;
+    margin-left: 40px;
     display: inline-block;
 }
 
@@ -109,6 +110,39 @@
     filter: grayscale(100%);
     -moz-filter: grayscale(100%);
 }
+.ckgpanelcalc {
+    width: 67.5px;
+    height: 87.5px;
+    position: absolute;
+    margin-left: 65px;
+    margin-top: 80px;
+    transform: scale(2.0);
+    display: inline-block;
+}
+.calcpanel {
+    width: 550px;
+    height: 344px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 10px solid #2B466A;
+    margin-left: 5px;
+    background-image: url('../Images/UI/Background/BlackPattern.png');
+    background-size: contain;
+}
+.newLineBar {
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 160px;
+    width: 130px;
+    height: 100px;
+}
+.newLineBar2 {
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 160px;
+    width: 130px;
+    height: 100px;
+}
 .bottomimg {
     width: 67.5px;
     height: 87.5px;
@@ -117,8 +151,8 @@
 
 .newCharacter {
     width: 67.5px;
-    max-height: 70.5px;
-    margin-top: 6px;
+    max-height: 73.5px;
+    margin-top: 4px;
     height: auto;
     transform-origin: top left;
     object-fit: contain;
@@ -162,14 +196,14 @@
 }
 
 .newKart {
-    width: 67.5px;
+    width: 67.5px;/*62.5*/
     height: auto;
     position: absolute;
     margin-left: 5px;
 }
 
 .newGlider {
-    width: 67.5px;
+    width: 67.5px;/*61.5*/
     height: auto;
     position: absolute;
     margin-left: 5px;
@@ -271,6 +305,118 @@
     margin-left: 45px;
     z-index: 15;
 }
+
+.lviconcalc {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    margin-top: 54px;
+    margin-left: 40px;
+    z-index: 15;
+}
+
+.lviconcalcimg {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 130px;
+    z-index: 15;
+}
+
+.cccalcimg {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 128px;
+    z-index: 15;
+}
+
+
+.lviconinput {
+    width: 30px;
+    height: 15px;
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 160px;
+    text-align: center;
+    font-family: 'tour';
+    color: limegreen;
+    z-index: 15;
+}
+
+.pointsiconinput {
+    width: 50px;
+    height: 15px;
+    position: absolute;
+    margin-top: 32px;
+    margin-left: 160px;
+    text-align: center;
+    font-family: 'tour';
+    color: darkorange;
+    z-index: 15;
+}
+
+.ccinput {
+    width: 80px;
+    height: 24px;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 160px;
+    text-align: center;
+    font-family: 'tour';
+    color: darkblue;
+    z-index: 15;
+}
+
+.pointsiconcalcimg {
+    width: 25px;
+    height: 19px;
+    display: inline-block;
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 128px;
+    z-index: 15;
+}
+
+.itemboxitemcalc {
+    width: 25px;
+    height: 25px;
+    margin-top: 60px;
+    margin-left: 2px;
+    position: absolute;
+    z-index: 11;
+}
+
+.bonuspointtypecalc {
+    width: 25px;
+    height: 25px;
+    margin-top: 60px;
+    position: absolute;
+    z-index: 11;
+}
+
+.pointsiconcalc {
+    position: relative;
+    height: 25px;
+    width: 50px;
+    margin-left:21px;
+    text-align:right;
+    /*background-color: black;*/
+    margin-top: 68px;
+    z-index: 999;
+}
+
+.leveliconcalc {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin-top: 54px;
+    margin-left: 50px;
+    z-index: 15;
+}
+
 
 .leveliconunlock {
     width: 25px;
@@ -521,25 +667,25 @@
 .coursepaneltopshelf {
     /*width: 245px;
     height: 250px;*/
-    width: 220.5px;
+    width: 320.5px;
     height: 225px;
     display: inline;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
     color: white;
-    -moz-transform: scale(0.9);
-    -moz-transform-origin: 0 0;
 }
 .coursepaneltopshelfselected {
-    width: 245px;
-    height: 250px;
+    /*width: 245px;
+    height: 250px;*/
+    width: 320.5px;
+    height: 225px;
     display: inline;
     /*margin-left: 0px;margin-top: 0px;*/
     position: relative;
     color:rgba(0,255,62,1);
 }
 .coursepanelslc {
-    width: 980px;
+    width: 1180px;
     height: 350px;
     display: inline-block;
     /*margin-left: 0px;margin-top: 0px;*/
@@ -548,7 +694,7 @@
     vertical-align: center;
 }
 .coursepanelslcselected {
-    width: 980px;
+    width: 1180px;
     height: 350px;
     display: inline-block;
     /*margin-left: 0px;margin-top: 0px;*/
@@ -585,7 +731,13 @@
 }
 
 .specificitemcourse {
-   margin-left: 50px; 
+   width: 1020px;
+   margin: 0 auto;
+   display: block;
+}
+
+.chooseitems {
+   margin-left: 20px; 
    display: block;
 }
 
@@ -644,7 +796,7 @@
 }
 
 .coursepreviewtopshelfpanel {
-    width: 275px;
+    width: 385px;
     height: 105px;
     display: inline-block;
     /*margin-left: 0px;margin-top: 0px;*/
@@ -656,7 +808,7 @@
 }
 
 .coursepreviewselectedpanel {
-    width: 355px;
+    width: 455px;
     height: 105px;
     display: inline-block;
     /*margin-left: 0px;margin-top: 0px;*/
@@ -668,7 +820,7 @@
 }
 
 .combTS {
-   width: 350px;
+   width: 450px;
    height: 320px;
    display: inline-block;
    border-radius: 5px;
@@ -783,6 +935,7 @@
    display: inline-block;
    width: 360px;
    height: auto;
+   margin-left: 100px;
 }
 
 h4 {
@@ -883,4 +1036,252 @@ h4 {
     margin-left: 447px;
     width: 155px;
     height: 80px;
+}
+
+.score-comma {
+    width: calc(100vw * 14 / 750);
+    height: calc(100vw * 17 / 750);
+    margin: 0 calc(100vw * -3 / 750);
+    background-image: url(../Images/UI/PointsNum/comma.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 14 / 750) calc(100vw * 17 / 750);
+    position: relative;
+    bottom: calc(100vw * -3 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-comma {
+        width: 14px;
+        height: 17px;
+        margin: 0 -3px;
+        background-size: 14px 17px;
+        position: relative;
+        bottom: -3px
+    }
+}
+
+.score-0 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/0.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-0 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-1 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 23 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-1 {
+        width: 35px;
+        height: 45px;
+        background-size: 23px 45px
+    }
+}
+
+.score-2 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/2.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-2 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-3 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/3.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-3 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-4 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/4.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-4 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-5 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/5.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-5 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-6 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/6.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-6 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-7 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/7.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-7 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-8 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/8.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-8 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.score-9 {
+    width: calc(100vw * 35 / 750);
+    height: calc(100vw * 45 / 750);
+    background-image: url(../Images/UI/PointsNum/9.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: calc(100vw * 35 / 750) calc(100vw * 45 / 750)
+}
+
+@media screen and (min-width: 1024px) {
+    .score-9 {
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px
+    }
+}
+
+.scoreNumber {
+    width: auto;
+    height: 17px;
+    display: inline-block;
+}
+
+.bppatextdiv {
+    display: block;
+    position: absolute;
+    margin-top: 240px;
+    margin-left: 30px;
+    font-size: 24px;
+    font-family: Tahoma;
+}
+
+.textpart1 {
+    display: inline-block;
+    color: white;
+}
+
+
+.textpart2 {
+    display: inline-block;
+    color: white;
+}
+
+.bppa {
+    display: inline-block;
+    color: gold;
+    width: 60px;
+    text-align: center;
+    padding: 7px;
+}
+
+.xbtncalc {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 15;
+    margin-left: 490px;
+    margin-top: 10px; 
+    filter: drop-shadow(0px 0px 4px #222);
+}
+
+.dkgbtnscalc {
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 450px;
+}
+
+.chooseitemsdiv {
+    width: 1070px;
+    display: block;
 }

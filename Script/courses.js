@@ -278,7 +278,7 @@ function selectCourse(course) {
               document.getElementById(`selectcourse_${course}`).className = `coursepanelselected`;
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelfselected`;
               if(values[currentspecificitem] != null){
-              if(values[currentspecificitem].moreGoodAt.includes(course)){
+              if(values[currentspecificitem].moreGoodAt.includes(course) || values[currentspecificitem].unlock3.includes(course) || values[currentspecificitem].unlock6.includes(course)){
               document.getElementById(`courseslc_${course}`).className = `coursepanelslcselected`;
               }
               }
@@ -290,7 +290,7 @@ function selectCourse(course) {
               document.getElementById(`selectcourse_${course}`).className = `coursepanel`;
               document.getElementById(`coursets_${course}`).className = `coursepaneltopshelf`;
               if(values[currentspecificitem] != null){
-              if(values[currentspecificitem].moreGoodAt.includes(course)){
+              if(values[currentspecificitem].moreGoodAt.includes(course) || values[currentspecificitem].unlock3.includes(course) || values[currentspecificitem].unlock6.includes(course)){
               document.getElementById(`courseslc_${course}`).className = `coursepanelslc`;
               }
               }
@@ -451,6 +451,26 @@ function specificitemcourses(){
        var specificitemcourse = document.createElement('div');
        specificitemcourses.innerHTML = "";
        specificitemcourse.className = 'specificitemcourse';
+
+              var specificitem = document.getElementById('specificitem');
+              specificitem.innerHTML = "";
+              specificitem.className = 'coursepanelspecificitem';
+              var replacepanel = document.createElement('div');
+              replacepanel.className = 'ckgpanel';
+              let bottomimg = document.createElement('img');
+              bottomimg.src = `./Images/UI/bgnormal.png`;
+              bottomimg.className = 'bottomimg';
+              replacepanel.appendChild(bottomimg);
+              let topimg = document.createElement('img');
+              topimg.src = `./Images/UI/outlinenormal.png`;
+              topimg.className = 'topimg';
+              replacepanel.appendChild(topimg);
+
+              replacepanel.addEventListener('click', function() {
+              specificitemcourses();
+              });
+              specificitem.appendChild(replacepanel);
+
        if(spcmode == 0 || spcmode == 3){
        characterid.forEach((t,i)=>{
         var panel = document.createElement('div');
@@ -1887,7 +1907,7 @@ let unlock6topshelves = [];
         panel.className = 'ckgpanel';
         //panel.style.zoom = "75%"
         panel.id = `coursetscharpanel${t}`;
-        switch(x){
+        switch(topshelfmode){
           case 0:
           panel.addEventListener('click', function() {
             invCharacter(t);
@@ -2231,8 +2251,9 @@ let unlock6topshelves = [];
 
        });
 
-       coursePanel.appendChild(topShelfPanel);
+       //coursePanel.appendChild(topShelfPanel);
        output.appendChild(coursePanel);
+       output.appendChild(topShelfPanel);
 
 
        });
