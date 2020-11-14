@@ -78,6 +78,8 @@
         //panel.id = `specificitempanel${t}`;
 
         let bottomimg = document.createElement('img');
+        switch(type){
+        case 0:
         switch (rarity) {
         case "1":
             bottomimg.src = `./Images/UI/bgnormal.png`;
@@ -88,6 +90,34 @@
         case "3":
             bottomimg.src = `./Images/UI/bghighend.png`;
             break;
+        }
+        break;
+        case 1:
+        switch (rarity) {
+        case "1":
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
+            break;
+        case "2":
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
+            break;
+        case "3":
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
+            break;
+        }
+        break;
+        case 2:
+        switch (rarity) {
+        case "1":
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
+            break;
+        case "2":
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
+            break;
+        case "3":
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
+            break;
+        }
+        break;
         }
         bottomimg.className = 'bottomimg';
         panel.appendChild(bottomimg);
@@ -508,13 +538,13 @@ let makeCalcKarts = ()=>{
         let bottomimg = document.createElement('img');
         switch (kartrarity[i]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         bottomimg.className = 'bottomimg';
@@ -590,13 +620,13 @@ let makeCalcGliders = ()=>{
         let bottomimg = document.createElement('img');
         switch (gliderrarity[i]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         bottomimg.className = 'bottomimg';

@@ -119,13 +119,13 @@ let makeDataFields = ()=>{
         let bottomimg = document.createElement('img');
         switch (kartrarity[i]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         bottomimg.className = 'bottomimg';
@@ -224,13 +224,13 @@ let makeDataFields = ()=>{
         let bottomimg = document.createElement('img');
         switch (gliderrarity[i]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         bottomimg.className = 'bottomimg';
