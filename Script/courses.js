@@ -340,6 +340,8 @@ function selectspecificitem(){
         //panel.id = `specificitempanel${t}`;
 
         let bottomimg = document.createElement('img');
+        switch(currentitemtype){
+        case 0:
         switch (currentitemrarity) {
         case "1":
             bottomimg.src = `./Images/UI/bgnormal.png`;
@@ -350,6 +352,34 @@ function selectspecificitem(){
         case "3":
             bottomimg.src = `./Images/UI/bghighend.png`;
             break;
+        }
+        break;
+        case 1:
+        switch (currentitemrarity) {
+        case "1":
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
+            break;
+        case "2":
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
+            break;
+        case "3":
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
+            break;
+        }
+        break;
+        case 2:
+        switch (currentitemrarity) {
+        case "1":
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
+            break;
+        case "2":
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
+            break;
+        case "3":
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
+            break;
+        }
+        break;
         }
         bottomimg.className = 'bottomimg';
         panel.appendChild(bottomimg);
@@ -560,13 +590,13 @@ function specificitemcourses(){
         let bottomimg = document.createElement('img');
         switch (kartrarity[i]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         bottomimg.className = 'bottomimg';
@@ -638,13 +668,13 @@ function specificitemcourses(){
         let bottomimg = document.createElement('img');
         switch (gliderrarity[i]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         bottomimg.className = 'bottomimg';
@@ -741,6 +771,12 @@ function specificchoicemade(t, type, rarity, item) {
       }
        coursePanel.id = `courseslc_${t}`;
 
+       let bgimg = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimg.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimg.className = 'coursebgimg';
+       coursePanel.appendChild(bgimg);
+
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
        courseimg.className = 'courseimgslc';
@@ -782,6 +818,18 @@ function specificchoicemade(t, type, rarity, item) {
 
        let combTS2 = document.createElement('div');
        combTS2.className = 'combTS'
+
+       let bgimgCombTS = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS.className = 'coursebgimgCombTS';
+       combTS.appendChild(bgimgCombTS);
+
+       let bgimgCombTS2 = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS2.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS2.className = 'coursebgimgCombTS';
+       combTS2.appendChild(bgimgCombTS2);
 
        let topshelves = [];
        let topshelvestypes = [];
@@ -1233,26 +1281,26 @@ function specificchoicemade(t, type, rarity, item) {
         case 1:
         switch (kartrarity[kartid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;
         case 2:
         switch (gliderrarity[gliderid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;
@@ -1944,26 +1992,26 @@ let unlock6topshelves = [];
         case 1:
         switch (kartrarity[kartid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;
         case 2:
         switch (gliderrarity[gliderid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;
@@ -2269,6 +2317,12 @@ let unlock6topshelves = [];
        coursePanel.className = 'coursepanelslcselected';
        coursePanel.id = `coursets_${t}`;
 
+       let bgimg = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimg.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimg.className = 'coursebgimg';
+       coursePanel.appendChild(bgimg);
+
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
        courseimg.className = 'courseimgslc';
@@ -2309,6 +2363,18 @@ let unlock6topshelves = [];
 
        let combTS2 = document.createElement('div');
        combTS2.className = 'combTS'
+
+       let bgimgCombTS = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS.className = 'coursebgimgCombTS';
+       combTS.appendChild(bgimgCombTS);
+
+       let bgimgCombTS2 = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS2.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS2.className = 'coursebgimgCombTS';
+       combTS2.appendChild(bgimgCombTS2);
 
        let topshelves = [];
        let topshelvestypes = [];
@@ -2759,26 +2825,26 @@ let unlock6topshelves = [];
         case 1:
         switch (kartrarity[kartid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;
         case 2:
         switch (gliderrarity[gliderid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;

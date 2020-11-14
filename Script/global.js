@@ -1,17 +1,18 @@
 //tour specific
-var currentTourName = "Halloween Tour";
+var currentTourName = "Sunset Tour";
 var currentTourFileName = currentTourName.replace(/ /g, "");
 
 //global
 var currentCup = 0;
 var isDataEntered = false;
 var values;
+var coursenames;
+var courseimages;
 var disableCityValue = false;
 var disableCharPanel = false; //unused
 var resettingCourses = false;
 
 var isMissingCalculated = false;
-
 var startToggle = true;
 var currentspecificitem = 0;
 var currentitemtype = 0;
@@ -182,6 +183,7 @@ function changecoursemode(mode) {
         document.getElementById('removeselected').style.display = "block";
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "none";
+        document.getElementById('coursesoptionpanel').style.height = "110px";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtnselected.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
@@ -210,6 +212,7 @@ function changecoursemode(mode) {
         document.getElementById('removeselected').style.display = "none";
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "none";
+        document.getElementById('coursesoptionpanel').style.height = "110px";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtnselected.png';
@@ -232,6 +235,7 @@ function changecoursemode(mode) {
         document.getElementById('removeselected').style.display = "block";
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "none";
+        document.getElementById('coursesoptionpanel').style.height = "140px";
         selectedCourses();
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
@@ -258,6 +262,7 @@ function changecoursemode(mode) {
         document.getElementById('courseitemspecificbtnscourses').style.display = "inline-block";
         }
         document.getElementById('courseitembtnsmissing').style.display = "none";
+        document.getElementById('coursesoptionpanel').style.height = "140px";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
@@ -280,6 +285,7 @@ function changecoursemode(mode) {
         document.getElementById('removeselected').style.display = "block";
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "inline-block";
+        document.getElementById('coursesoptionpanel').style.height = "140px";
         /*if(!courseListMade){
                 makeCourseList();
                 courseListMade = true;

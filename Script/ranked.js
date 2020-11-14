@@ -83,13 +83,20 @@ function rankedCourses(){
         currentseasoncourses.forEach((t,i)=>{ 
                 //document.getElementById(`selectcourse_${t}`).className = "coursepanelselected";
                      var coursePanel = document.createElement('div');
-       coursePanel.className = 'coursepanelslcselected';
+       coursePanel.className = 'coursepanelslc';
        coursePanel.id = `coursets_${t}`;
+
+       let bgimg = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimg.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimg.className = 'coursebgimg';
+       coursePanel.appendChild(bgimg);
 
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
        courseimg.className = 'courseimgslc';
        courseimg.style.cursor = "default";
+       courseimg.style.color = "gold";
        //courseimg.style.zoom = "90%"
        /*courseimg.addEventListener('click', function() {
             selectCourse(t);
@@ -128,6 +135,18 @@ function rankedCourses(){
 
        let combTS2 = document.createElement('div');
        combTS2.className = 'combTS'
+
+       let bgimgCombTS = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS.className = 'coursebgimgCombTS';
+       combTS.appendChild(bgimgCombTS);
+
+       let bgimgCombTS2 = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS2.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS2.className = 'coursebgimgCombTS';
+       combTS2.appendChild(bgimgCombTS2);
 
        let topshelves = [];
        let topshelvestypes = [];
@@ -578,26 +597,26 @@ function rankedCourses(){
         case 1:
         switch (kartrarity[kartid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;
         case 2:
         switch (gliderrarity[gliderid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;

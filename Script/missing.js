@@ -22,6 +22,12 @@ function missingCourses(){
       }
        coursePanel.id = `coursemissing_${t}`;
 
+       let bgimg = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimg.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimg.className = 'coursebgimg';
+       coursePanel.appendChild(bgimg);
+
        let courseimg = document.createElement('img');
        courseimg.src = `./Images/Course Image/${t}.png`;
        courseimg.className = 'courseimgslc';
@@ -61,6 +67,18 @@ function missingCourses(){
 
        let combTS2 = document.createElement('div');
        combTS2.className = 'combTS'
+
+       let bgimgCombTS = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS.className = 'coursebgimgCombTS';
+       combTS.appendChild(bgimgCombTS);
+
+       let bgimgCombTS2 = document.createElement('img');
+       //let bgindex = courseimages.indexOf(t);
+       bgimgCombTS2.src = `./Images/Course Background/${courseimages[t]}.png`;
+       bgimgCombTS2.className = 'coursebgimgCombTS';
+       combTS2.appendChild(bgimgCombTS2);
 
        let topshelves = [];
        let topshelvestypes = [];
@@ -511,26 +529,26 @@ function missingCourses(){
         case 1:
         switch (kartrarity[kartid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;
         case 2:
         switch (gliderrarity[gliderid.indexOf(t)]) {
         case "1":
-            bottomimg.src = `./Images/UI/bgnormal.png`;
+            bottomimg.src = `./Images/UI/bgnormalkg.png`;
             break;
         case "2":
-            bottomimg.src = `./Images/UI/bgrare.png`;
+            bottomimg.src = `./Images/UI/bgrarekg.png`;
             break;
         case "3":
-            bottomimg.src = `./Images/UI/bghighend.png`;
+            bottomimg.src = `./Images/UI/bghighendkg.png`;
             break;
         }
         break;

@@ -11,7 +11,7 @@
       <link rel="preload" href="./Images/UI/Loading.png" as="image"> 
       <div> 
    </head>
-   <body class="main" style="height: 100%" id="bigbody">
+   <body class="main" style="height: 100%;overflow: overlay;" id="bigbody">
       <img id="loadingimg" src="./Images/UI/Loading.png" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 1000;">
       <div id="inventorymodal" class="inventorymodal">
   <!-- Modal content -->
@@ -147,7 +147,7 @@
             </div>
          </div>
          <div id="courses" style="height: auto;display:none;">
-         	<div class="stripedbg" style="padding-top:10px;/*padding-bottom: 15px;*/display:block;width: 100%;right: 0;left: 0;margin: 0px auto;position: sticky;top: 75px;z-index: 30;">
+         	<div id="coursesoptionpanel" class="stripedbg" style="padding-top:10px;/*padding-bottom: 15px;*/display:block;width: 100%;height: 110px;right: 0;left: 0;margin: 0px auto;position: sticky;top: 75px;z-index: 30;">
                <h3 class='whiteoutline' style="font-family: tour;font-size: 24px;width: 100px;display: inline-block;margin-left: 10px;margin-bottom: 30px;">Courses</h3>
                <div id="courseitembtnscourses" style="display: inline-block;position: relative;margin-top: -10px;margin-left: 200px;">
                   <div style="width: 75px;height: 120px;display: inline-block;position:absolute;margin-top: -60px;">
@@ -434,6 +434,9 @@
                          	case 2:
                          	coursenames = JSON.parse(allText);
                          	break;
+                           case 3:
+                           courseimages = JSON.parse(allText);
+                           break;
                          }
                      }
                  }
@@ -445,6 +448,7 @@
          //readTextFile("./Data/halloween_tour_courses_v2.6.0_update_hh.json", 1);
          readTextFile("./Data/Sunset_Tour_courses.json", 1);
          readTextFile("./Data/course_names.json", 2);
+         readTextFile("./Data/course_image.json", 3);
          convertToUsable();
          makeDataFields();
          if(localStorage.getItem("MKTVSaveData") != null){
