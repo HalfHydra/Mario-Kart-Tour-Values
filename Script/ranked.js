@@ -18,40 +18,51 @@ var season38week1courses = ["Classic_Gagb_SunsetWilds","Classic_G3ds_NeoBowserCi
 
 var season38week2cup = "Fire Bro";
 var season38week2cupname = "Fire Bro Cup";
-var season38week2endtime = 1605668400 + 3600;
+var season38week2endtime = 1605668400 + 3600 + 3600;
 var season38week2courses = ["Classic_Ggc_DinoDinoJungleX","Classic_Gn64_KalimariDesert2R","Classic_Gagb_SunsetWildsX"];
-//Current Season
-var currentseasonweek1cup = season38week1cup;
-var currentseasonweek1cupname = season38week1cupname;
-var currentseasonweek1courses = season38week1courses;
+//Season 39
+var season39week1cup = "Mario";
+var season39week1cupname = "Mario Cup";
+var season39week1endtime = season38week2endtime + 604800;
+var season39week1courses = ["Classic_Gsfc_MarioCircuit1RX","Classic_G3ds_MarioCircuitRX","Classic_Gagb_SunsetWildsRX"];
 
-var currentseasonweek2cup = season38week2cup;
-var currentseasonweek2cupname = season38week2cupname;
-var currentseasonweek2courses = season38week2courses;
+var season39week2cup = "Luigi";
+var season39week2cupname = "Luigi Cup";
+var season39week2endtime = season39week1endtime + 604800;
+var season39week2courses = ["Classic_Gds_LuigiMansionRX","Classic_Gagb_BowserCastle2RX","Remix_Grsfc_RainbowRoad1RX"];
+
+//Current Season
+var currentseasonweek1cup = season39week1cup;
+var currentseasonweek1cupname = season39week1cupname;
+var currentseasonweek1courses = season39week1courses;
+
+var currentseasonweek2cup = season39week2cup;
+var currentseasonweek2cupname = season39week2cupname;
+var currentseasonweek2courses = season39week2courses;
 
 var currentseasoncup = "";
 var currentseasoncupname = "";
 var currentseasoncourses = [];
 
-var currentweek = "Week1";
-var currentseason = "Season38";
+var currentweek = "Week2";
+var currentseason = "Season39";
 var currentendtime = 0;
 
 function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
-	if(epoch <= season38week1endtime){
+	if(epoch <= season39week1endtime){
 	currentweek = "Week1";
-	currentendtime = season38week1endtime;
+	currentendtime = season39week1endtime;
 	currentseasoncup = currentseasonweek1cup;
 	currentseasoncupname = currentseasonweek1cupname;
 	currentseasoncourses = currentseasonweek1courses;
-	} else if(epoch <= season38week2endtime){
+	} else if(epoch <= season39week2endtime){
 	currentweek = "Week2";
-	currentendtime = season38week2endtime;
+	currentendtime = season39week2endtime;
 	currentseasoncup = currentseasonweek2cup;
 	currentseasoncupname = currentseasonweek2cupname;
 	currentseasoncourses = currentseasonweek2courses;
-	} else if(epoch >= season38week2endtime){
+	} else if(epoch >= season39week2endtime){
 		//
 	}
 }
