@@ -69,6 +69,7 @@
 	"Classic_Gagb_SunsetWilds": "Sunset Wilds",
 	"Classic_Gagb_SunsetWildsX": "Sunset Wilds T",
 	"Classic_Gagb_SunsetWildsR": "Sunset WIlds R",
+	"Classic_Gagb_SunsetWildsRX": "Sunset WIlds R/T",
 
 	"Classic_Ggc_YoshiCircuit": "Yoshi Circuit",
 	"Classic_Ggc_YoshiCircuitX": "Yoshi Circuit T",
@@ -191,5 +192,6 @@
 	"Remix_Grsfc_ChocoIsland1R": "RMX Choco Island 1R",
 	"Remix_Grsfc_RainbowRoad1": "RMX Rainbow Road 1",
 	"Remix_Grsfc_RainbowRoad1X": "RMX Rainbow Road 1T",
-	"Remix_Grsfc_RainbowRoad1R": "RMX Rainbow Road 1R"
+	"Remix_Grsfc_RainbowRoad1R": "RMX Rainbow Road 1R",
+	"Remix_Grsfc_RainbowRoad1RX": "RMX Rainbow Road 1R/T"
 }

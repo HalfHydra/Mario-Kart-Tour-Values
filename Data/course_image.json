@@ -69,6 +69,7 @@
 	"Classic_Gagb_SunsetWilds": "Gagb_SunsetWilds_BG",
 	"Classic_Gagb_SunsetWildsX": "Gagb_SunsetWilds_BG",
 	"Classic_Gagb_SunsetWildsR": "Gagb_SunsetWilds_BG",
+	"Classic_Gagb_SunsetWildsRX": "Gagb_SunsetWilds_BG",
 
 	"Classic_Ggc_YoshiCircuit": "Ggc_YoshiCircuit_BG",
 	"Classic_Ggc_YoshiCircuitX": "Ggc_YoshiCircuit_BG",
@@ -191,5 +192,6 @@
 	"Remix_Grsfc_ChocoIsland1R": "Grsfc_ChocoIsland1_BG",
 	"Remix_Grsfc_RainbowRoad1": "Grsfc_RainbowRoad1_BG",
 	"Remix_Grsfc_RainbowRoad1X": "Grsfc_RainbowRoad1_BG",
-	"Remix_Grsfc_RainbowRoad1R": "Grsfc_RainbowRoad1_BG"
+	"Remix_Grsfc_RainbowRoad1R": "Grsfc_RainbowRoad1_BG",
+	"Remix_Grsfc_RainbowRoad1RX": "Grsfc_RainbowRoad1_BG"
 }
