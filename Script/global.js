@@ -748,14 +748,14 @@ function applyLocalSettings(){
     changeckg(settingsavedata.Settings.currentmode);
     changemissingckg(settingsavedata.Settings.missingmode);
     //disableData
-    if (settingsavedata.Settings.isDataEntered) {
+    /*if (settingsavedata.Settings.isDataEntered) {
         isDataEntered = true;
     } else {
         isDataEntered = false;
-        /*if(localStorage.getItem("MKTVSaveData") != null){
+        if(localStorage.getItem("MKTVSaveData") != null){
             document.getElementById('changeusedata').checked = true;
-        }*/
-    }
+        }
+    }*/
     //disableCityValue
     if (settingsavedata.Settings.disableCityValue) {
         disableCityValue = true;

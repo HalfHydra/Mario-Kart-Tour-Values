@@ -1,5 +1,4 @@
 //Global
-
 //Season 37
 var season37week1cup = "King Boo";
 var season37week1cupname = "King Boo Cup";
@@ -31,7 +30,21 @@ var season39week2cupname = "Luigi Cup";
 var season39week2endtime = season39week1endtime + 604800;
 var season39week2courses = ["Classic_Gds_LuigiMansionRX","Classic_Gagb_BowserCastle2RX","Remix_Grsfc_RainbowRoad1RX"];
 
+var season39cupbonusdriversw1 = ["82", "134"];
+var season39cupbonuskartsw1 = ["70188", "70202"];
+var season39cupbonusglidersw1 = ["30151", "30222"];
+var season39cupbonusdriversw2 = ["91", "89"];
+var season39cupbonuskartsw2 = ["70227", "70160"];
+var season39cupbonusglidersw2 = ["30063", "30019"];
 //Current Season
+var currentseason = "Season39";
+var currentweek = "Week2";
+var currentendtime = 0;
+
+var currentseasoncup = "";
+var currentseasoncupname = "";
+var currentseasoncourses = [];
+
 var currentseasonweek1cup = season39week1cup;
 var currentseasonweek1cupname = season39week1cupname;
 var currentseasonweek1courses = season39week1courses;
@@ -39,14 +52,6 @@ var currentseasonweek1courses = season39week1courses;
 var currentseasonweek2cup = season39week2cup;
 var currentseasonweek2cupname = season39week2cupname;
 var currentseasonweek2courses = season39week2courses;
-
-var currentseasoncup = "";
-var currentseasoncupname = "";
-var currentseasoncourses = [];
-
-var currentweek = "Week2";
-var currentseason = "Season39";
-var currentendtime = 0;
 
 function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
@@ -159,6 +164,101 @@ function rankedCourses(){
        bgimgCombTS2.className = 'coursebgimgCombTS';
        combTS2.appendChild(bgimgCombTS2);
 
+       let currentcourse = {
+      "moreGoodAt": {
+        "Drivers": [],
+        "Karts": [],
+        "Gliders": []
+      },
+      "goodAt": {
+        "Drivers": [],
+        "Karts": [],
+        "Gliders": []
+      },
+      "unlock3": {
+        "Drivers": [],
+        "Karts": [],
+        "Gliders": []
+      },
+      "unlock6": {
+        "Drivers": [],
+        "Karts": [],
+        "Gliders": []
+      }
+       };
+       coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
+        currentcourse.moreGoodAt.Drivers.push(t);
+       });
+       coursedata.Courses[t].moreGoodAt.Karts.forEach((t,i)=>{ 
+        currentcourse.moreGoodAt.Karts.push(t);
+       });
+       coursedata.Courses[t].moreGoodAt.Gliders.forEach((t,i)=>{ 
+        currentcourse.moreGoodAt.Gliders.push(t);
+       });
+       coursedata.Courses[t].goodAt.Drivers.forEach((t,i)=>{ 
+        currentcourse.goodAt.Drivers.push(t);
+       });
+       coursedata.Courses[t].goodAt.Karts.forEach((t,i)=>{ 
+        currentcourse.goodAt.Karts.push(t);
+       });
+       coursedata.Courses[t].goodAt.Gliders.forEach((t,i)=>{ 
+        currentcourse.goodAt.Gliders.push(t);
+       });
+       coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+        currentcourse.unlock3.Drivers.push(t);
+       });
+       coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+        currentcourse.unlock3.Karts.push(t);
+       });
+       coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+        currentcourse.unlock3.Gliders.push(t);
+       });
+       coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+        currentcourse.unlock3.Drivers.push(t);
+       });
+       coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+        currentcourse.unlock3.Karts.push(t);
+       });
+       coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+        currentcourse.unlock3.Gliders.push(t);
+       });
+       console.log("Current Course of [" + t + "]:")
+       console.log(currentcourse);
+       if(currentweek == "Week1"){
+
+       if(i == 1){
+       currentcourse.goodAt.Drivers.push("134");
+       currentcourse.moreGoodAt.Karts.push("70188");
+       currentcourse.goodAt.Gliders.push("30222");
+       currentcourse.goodAt.Gliders.push("30151");
+       }
+       if(i == 2){
+       currentcourse.goodAt.Drivers.push("91");
+       currentcourse.goodAt.Drivers.push("89");
+       currentcourse.goodAt.Karts.push("70160");
+       currentcourse.goodAt.Gliders.push("30063");
+       currentcourse.goodAt.Gliders.push("30019");
+       }
+
+       }
+       if(currentweek == "Week2"){
+
+       if(i == 1){
+       currentcourse.moreGoodAt.Drivers.push("82");
+       currentcourse.goodAt.Drivers.push("134");
+       currentcourse.goodAt.Karts.push("70188");
+       currentcourse.goodAt.Karts.push("70202");
+       currentcourse.moreGoodAt.Gliders.push("30222");
+       currentcourse.goodAt.Gliders.push("30151");
+       }
+       if(i == 2){
+       currentcourse.moreGoodAt.Drivers.push("91");
+       currentcourse.moreGoodAt.Drivers.push("89");
+       currentcourse.moreGoodAt.Karts.push("70227");
+       }
+
+       }
+
        let topshelves = [];
        let topshelvestypes = [];
 
@@ -172,23 +272,26 @@ function rankedCourses(){
 
        topshelves.splice(0,topshelves.length);
        topshelvestypes.splice(0,topshelvestypes.length);
+
+
+
        if(!isDataEntered){
        if(m == 0){
        switch(x){
               case 0:
-              coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Drivers.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
               break;
               case 1:
-              coursedata.Courses[t].moreGoodAt.Karts.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Karts.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
               break;
               case 2:
-              coursedata.Courses[t].moreGoodAt.Gliders.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Gliders.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
@@ -197,36 +300,36 @@ function rankedCourses(){
 
        switch(x){
               case 0:
-              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock3.Drivers.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock6.Drivers.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
               });
               break;
               case 1:
-              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock3.Karts.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock6.Karts.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
               });
               break;
               case 2:
-              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock3.Gliders.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock6.Gliders.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
@@ -237,17 +340,17 @@ function rankedCourses(){
        if(m == 1){
               switch(x){
               case 0:
-              coursedata.Courses[t].goodAt.Drivers.forEach((t,i)=>{ 
+              currentcourse.goodAt.Drivers.forEach((t,i)=>{ 
               topshelves.push(t)
               });
               break;
               case 1:
-              coursedata.Courses[t].goodAt.Karts.forEach((t,i)=>{ 
+              currentcourse.goodAt.Karts.forEach((t,i)=>{ 
               topshelves.push(t)
               });
               break;
               case 2:
-              coursedata.Courses[t].goodAt.Gliders.forEach((t,i)=>{ 
+              currentcourse.goodAt.Gliders.forEach((t,i)=>{ 
               topshelves.push(t)
               });
               break;
@@ -259,19 +362,19 @@ function rankedCourses(){
       if(m == 0){
         switch(x){
               case 0:
-              coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Drivers.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
               break;
               case 1:
-              coursedata.Courses[t].moreGoodAt.Karts.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Karts.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
               break;
               case 2:
-              coursedata.Courses[t].moreGoodAt.Gliders.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Gliders.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
@@ -280,36 +383,36 @@ function rankedCourses(){
 
        switch(x){
               case 0:
-              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock3.Drivers.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock6.Drivers.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
               });
               break;
               case 1:
-              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock3.Karts.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock6.Karts.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
               });
               break;
               case 2:
-              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock3.Gliders.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock6.Gliders.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
@@ -320,19 +423,19 @@ function rankedCourses(){
      if(m == 1){
               switch(x){
               case 0:
-              coursedata.Courses[t].goodAt.Drivers.forEach((t,i)=>{ 
+              currentcourse.goodAt.Drivers.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
               break;
               case 1:
-              coursedata.Courses[t].goodAt.Karts.forEach((t,i)=>{ 
+              currentcourse.goodAt.Karts.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
               break;
               case 2:
-              coursedata.Courses[t].goodAt.Gliders.forEach((t,i)=>{ 
+              currentcourse.goodAt.Gliders.forEach((t,i)=>{ 
               topshelves.push(t)
               topshelvestypes.push('0');
               });
@@ -341,36 +444,36 @@ function rankedCourses(){
 
        switch(x){
               case 0:
-              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock3.Drivers.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock6.Drivers.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
               });
               break;
               case 1:
-              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock3.Karts.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock6.Karts.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
               });
               break;
               case 2:
-              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock3.Gliders.forEach((t,i)=>{ 
               //unlock3topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock6.Gliders.forEach((t,i)=>{ 
               //unlock6topshelves.push(t)
               topshelves.push(t)
               topshelvestypes.push('2');
@@ -378,6 +481,7 @@ function rankedCourses(){
               break;
        }
        }
+
        let tempOwned = [];
        let tempNotOwned = [];
        let temp3Owned = [];
@@ -392,10 +496,11 @@ function rankedCourses(){
        //3 = Not Owned
        //4 = Not Owned Unlock 3
        //5 = Not Owned Unlock 6
+
        if(m == 0){
             switch(x){
               case 0:
-              coursedata.Courses[t].moreGoodAt.Drivers.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Drivers.forEach((t,i)=>{ 
                      if(savedata.Items.Drivers[t] != null){
                      tempOwned.push(t)
                      } else {
@@ -404,7 +509,7 @@ function rankedCourses(){
               });
               break;
               case 1:
-              coursedata.Courses[t].moreGoodAt.Karts.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Karts.forEach((t,i)=>{ 
                      if(savedata.Items.Karts[t] != null){
                      tempOwned.push(t)
                      } else {
@@ -413,7 +518,7 @@ function rankedCourses(){
               });
               break;
               case 2:
-              coursedata.Courses[t].moreGoodAt.Gliders.forEach((t,i)=>{ 
+              currentcourse.moreGoodAt.Gliders.forEach((t,i)=>{ 
                      if(savedata.Items.Gliders[t] != null){
                      tempOwned.push(t)
                      } else {
@@ -425,7 +530,7 @@ function rankedCourses(){
 
        switch(x){
               case 0:
-              coursedata.Courses[t].unlock3.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock3.Drivers.forEach((t,i)=>{ 
                 if(savedata.Items.Drivers[t] != null){
                      temp3Owned.push(t)
                 } else {
@@ -436,7 +541,7 @@ function rankedCourses(){
               //topshelves.push(t)
               //topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
+              currentcourse.unlock6.Drivers.forEach((t,i)=>{ 
                 if(savedata.Items.Drivers[t] != null){
                      temp6Owned.push(t)
                 } else {
@@ -448,7 +553,7 @@ function rankedCourses(){
               });
               break;
               case 1:
-              coursedata.Courses[t].unlock3.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock3.Karts.forEach((t,i)=>{ 
                 if(savedata.Items.Karts[t] != null){
                      temp3Owned.push(t)
                 } else {
@@ -458,7 +563,7 @@ function rankedCourses(){
               //topshelves.push(t)
               //topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
+              currentcourse.unlock6.Karts.forEach((t,i)=>{ 
                 if(savedata.Items.Karts[t] != null){
                      temp6Owned.push(t)
                 } else {
@@ -470,7 +575,7 @@ function rankedCourses(){
               });
               break;
               case 2:
-              coursedata.Courses[t].unlock3.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock3.Gliders.forEach((t,i)=>{ 
                 if(savedata.Items.Gliders[t] != null){
                      temp3Owned.push(t)
                 } else {
@@ -480,7 +585,7 @@ function rankedCourses(){
               //topshelves.push(t)
               //topshelvestypes.push('1');
               });
-              coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
+              currentcourse.unlock6.Gliders.forEach((t,i)=>{ 
                 if(savedata.Items.Gliders[t] != null){
                      temp6Owned.push(t)
                 } else {
@@ -498,7 +603,7 @@ function rankedCourses(){
               tempNotOwned.splice(0,tempNotOwned.length);
               switch(x){
               case 0:
-              coursedata.Courses[t].goodAt.Drivers.forEach((t,i)=>{ 
+              currentcourse.goodAt.Drivers.forEach((t,i)=>{ 
               if(savedata.Items.Drivers[t] != null){
                      tempOwned.push(t)
                      } else {
@@ -507,7 +612,7 @@ function rankedCourses(){
               });
               break;
               case 1:
-              coursedata.Courses[t].goodAt.Karts.forEach((t,i)=>{ 
+              currentcourse.goodAt.Karts.forEach((t,i)=>{ 
               if(savedata.Items.Karts[t] != null){
                      tempOwned.push(t)
                      } else {
@@ -516,7 +621,7 @@ function rankedCourses(){
               });
               break;
               case 2:
-              coursedata.Courses[t].goodAt.Gliders.forEach((t,i)=>{ 
+              currentcourse.goodAt.Gliders.forEach((t,i)=>{ 
               if(savedata.Items.Gliders[t] != null){
                      tempOwned.push(t)
                      } else {
@@ -532,7 +637,9 @@ function rankedCourses(){
 
        topshelves.splice(0,topshelves.length);
        topshelvestypes.splice(0,topshelvestypes.length);
+
        //topshelves = tempOwned.concat(tempNotOwned);
+       topshelves = topshelves.concat(tempOwned);
        topshelves = tempOwned.concat(temp3Owned);
        topshelves = topshelves.concat(temp6Owned);
        topshelves = topshelves.concat(tempNotOwned);
