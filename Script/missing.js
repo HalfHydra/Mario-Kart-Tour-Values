@@ -59,6 +59,9 @@ function missingCourses(){
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "15px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "15.5px";
+        break;
        }
        coursePanel.appendChild(coursetxt);
 

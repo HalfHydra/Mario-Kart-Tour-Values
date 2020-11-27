@@ -263,6 +263,9 @@ function makeCourseList() {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "15.5px";
+        break;
        }
        coursePanel.appendChild(coursetxt);
 
@@ -808,6 +811,9 @@ function specificchoicemade(t, type, rarity, item) {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "15px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "15.5px";
         break;
        }
        //coursetxt.style.zoom = "90%"
@@ -1710,6 +1716,9 @@ function makeTopShelfPreview() {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "13.5px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "15.5px";
+        break;
        }
 
        coursePanel.appendChild(coursetxt);
@@ -2353,6 +2362,9 @@ let unlock6topshelves = [];
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "15px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "15.5px";
         break;
        }
        //coursetxt.style.zoom = "90%"

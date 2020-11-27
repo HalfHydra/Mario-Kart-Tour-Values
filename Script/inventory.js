@@ -276,6 +276,9 @@ function invCharacter(selected, i) {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -320,6 +323,9 @@ function invCharacter(selected, i) {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -503,6 +509,9 @@ else {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -541,6 +550,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -588,6 +600,9 @@ else {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -628,6 +643,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -674,6 +692,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -725,6 +746,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -1020,6 +1044,9 @@ function invKart(selected, i) {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -1064,6 +1091,9 @@ function invKart(selected, i) {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -1235,6 +1265,9 @@ else {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -1273,6 +1306,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -1320,6 +1356,9 @@ else {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -1360,6 +1399,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -1406,6 +1448,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -1457,6 +1502,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -1748,6 +1796,9 @@ function invGlider(selected, i) {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -1792,6 +1843,9 @@ function invGlider(selected, i) {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -1964,6 +2018,9 @@ else {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -2002,6 +2059,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -2049,6 +2109,9 @@ else {
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
         break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
+        break;
        }
             coursePanel.appendChild(coursetxt);
 
@@ -2089,6 +2152,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -2135,6 +2201,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
@@ -2186,6 +2255,9 @@ else {
         break;
         case "Classic_G3ds_CheepCheepLagoonRX":
         coursetxt.style.fontSize = "9px";
+        break;
+        case "Remix_Grsfc_RainbowRoad1RX":
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
             coursePanel.appendChild(coursetxt);
