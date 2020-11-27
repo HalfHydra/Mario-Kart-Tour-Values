@@ -1,4 +1,12 @@
 //Global
+var seasondefaultweek1cup = "Default";
+var seasondefaultweek1cupname = "Unknown Cup";
+var seasondefaultweek1courses = ["undefined","undefined","undefined"];
+
+var seasondefaultweek2cup = "Default";
+var seasondefaultweek2cupname = "Unknown Cup";
+var seasondefaultweek2courses = [];
+
 //Season 37
 var season37week1cup = "King Boo";
 var season37week1cupname = "King Boo Cup";
@@ -57,18 +65,25 @@ function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
 	if(epoch <= season39week1endtime){
 	currentweek = "Week1";
+  currentseason = "Season39";
 	currentendtime = season39week1endtime;
 	currentseasoncup = currentseasonweek1cup;
 	currentseasoncupname = currentseasonweek1cupname;
 	currentseasoncourses = currentseasonweek1courses;
 	} else if(epoch <= season39week2endtime){
 	currentweek = "Week2";
+  currentseason = "Season39";
 	currentendtime = season39week2endtime;
 	currentseasoncup = currentseasonweek2cup;
 	currentseasoncupname = currentseasonweek2cupname;
 	currentseasoncourses = currentseasonweek2courses;
 	} else if(epoch >= season39week2endtime){
-		//
+	currentweek = "Default";
+  currentseason = "Default";
+  currentendtime = season39week2endtime;
+  currentseasoncup = seasondefaultweek2cup;
+  currentseasoncupname = seasondefaultweek2cupname;
+  currentseasoncourses = seasondefaultweek2courses;
 	}
 }
 
@@ -76,12 +91,16 @@ function updateRanked(){
 	switch(currentweek){
 		case "Week1":
 		document.getElementById('cupnamecurrent').innerHTML = currentseasonweek1cupname;
-    	document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasonweek1cup} Cup.png`;
+    document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasonweek1cup} Cup.png`;
 		break;
 		case "Week2":
 		document.getElementById('cupnamecurrent').innerHTML = currentseasonweek2cupname;
-    	document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasonweek2cup} Cup.png`;
+    document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasonweek2cup} Cup.png`;
 		break;
+    case "Default":
+    document.getElementById('cupnamecurrent').innerHTML = currentseasoncupname;
+    document.getElementById('rankcupimgranked').src = `./Images/Cups/${currentseasoncup} Cup.png`;
+    break;
 	}
     document.getElementById('rankcourseimg1').src = `./Images/Ranked Icon/${currentseason}/${currentweek}/${currentseasoncourses[0]}.png`;
     document.getElementById('rankcourseimg2').src = `./Images/Ranked Icon/${currentseason}/${currentweek}/${currentseasoncourses[1]}.png`;
@@ -89,6 +108,14 @@ function updateRanked(){
     document.getElementById('rankedcoursetxt1').innerHTML = coursenames[currentseasoncourses[0]];
     document.getElementById('rankedcoursetxt2').innerHTML = coursenames[currentseasoncourses[1]];
     document.getElementById('rankedcoursetxt3').innerHTML = coursenames[currentseasoncourses[2]];
+    if(currentseason == "Default"){
+    document.getElementById('rankcourseimg1').src = `./Images/Ranked Icon/Default/Default/Under Construction.png`;
+    document.getElementById('rankcourseimg2').src = `./Images/Ranked Icon/Default/Default/Under Construction.png`;
+    document.getElementById('rankcourseimg3').src = `./Images/Ranked Icon/Default/Default/Under Construction.png`;
+    document.getElementById('rankedcoursetxt1').innerHTML = "Under Construction";
+    document.getElementById('rankedcoursetxt2').innerHTML = "Under Construction";
+    document.getElementById('rankedcoursetxt3').innerHTML = "Under Construction";
+    }
     rankedCourses();
 }
 
