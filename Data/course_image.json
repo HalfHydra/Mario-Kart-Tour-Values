@@ -168,9 +168,6 @@
 	"New_Gmob_London2X": "Gmob_London2_BG",
 	"New_Gmob_London2R": "Gmob_London2_BG",
 	"New_Gmob_London2RX": "Gmob_London2_BG",
-	"Classic_Gn64_KalimariDesert2": "Gn64_KalimariDesert2_BG",
-	"Classic_Gn64_KalimariDesert2X": "Gn64_KalimariDesert2_BG",
-    "Classic_Gn64_KalimariDesert2R": "Gn64_KalimariDesert2_BG",
     "New_Gmob_Tokyo3": "Gmob_Tokyo3_BG",
 	"New_Gmob_Tokyo3X": "Gmob_Tokyo3_BG",
 	"New_Gmob_Tokyo3R": "Gmob_Tokyo3_BG",
@@ -182,6 +179,13 @@
 	"New_Gmob_NewYork3X": "Gmob_NewYork3_BG",
 	"New_Gmob_NewYork3R": "Gmob_NewYork3_BG",
 	"New_Gmob_NewYork3RX": "Gmob_NewYork3_BG",
+
+	"Classic_Gn64_KalimariDesert2": "Gn64_KalimariDesert2_BG",
+	"Classic_Gn64_KalimariDesert2X": "Gn64_KalimariDesert2_BG",
+    "Classic_Gn64_KalimariDesert2R": "Gn64_KalimariDesert2_BG",
+    "New_Gmob_HillClimb": "Gmob_HillClimb_BG",
+    "New_Gmob_HillClimbX": "Gmob_HillClimb_BG",
+    "New_Gmob_HillClimbR": "Gmob_HillClimb_BG",
 
 	"Remix_Grsfc_MarioCircuit1": "Grsfc_MarioCircuit1_BG",
 	"Remix_Grsfc_MarioCircuit1X": "Grsfc_MarioCircuit1_BG",

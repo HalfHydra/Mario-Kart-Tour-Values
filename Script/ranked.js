@@ -44,43 +44,60 @@ var season39cupbonusglidersw1 = ["30151", "30222"];
 var season39cupbonusdriversw2 = ["91", "89"];
 var season39cupbonuskartsw2 = ["70227", "70160"];
 var season39cupbonusglidersw2 = ["30063", "30019"];
+//Season 40
+var season40week1cup = "Bowser";
+var season40week1cupname = "Bowser Cup";
+var season40week1endtime = season39week2endtime + 604800;
+var season40week1courses = ["New_Gmob_HillClimb","Classic_G3ds_RainbowRoadR","Classic_G3ds_DaisyHillsR"];
+
+var season40week2cup = "Rosalina";
+var season40week2cupname = "Rosalina Cup";
+var season40week2endtime = season40week1endtime + 604800;
+var season40week2courses = ["Classic_Gn64_FrappeSnowland","New_Gmob_HillClimbX","Classic_Gsfc_RainbowRoadR"];
+
+var season40cupbonusdriversw1 = ["82", "134"];
+var season40cupbonuskartsw1 = ["70188", "70202"];
+var season40cupbonusglidersw1 = ["30151", "30222"];
+var season40cupbonusdriversw2 = ["91", "89"];
+var season40cupbonuskartsw2 = ["70227", "70160"];
+var season40cupbonusglidersw2 = ["30063", "30019"];
 //Current Season
-var currentseason = "Season39";
-var currentweek = "Week2";
+var currentseason = "Season40";
+var currentweek = "Week1";
 var currentendtime = 0;
 
 var currentseasoncup = "";
 var currentseasoncupname = "";
 var currentseasoncourses = [];
 
-var currentseasonweek1cup = season39week1cup;
-var currentseasonweek1cupname = season39week1cupname;
-var currentseasonweek1courses = season39week1courses;
+var currentseasonweek1cup = season40week1cup;
+var currentseasonweek1cupname = season40week1cupname;
+var currentseasonweek1courses = season40week1courses;
 
-var currentseasonweek2cup = season39week2cup;
-var currentseasonweek2cupname = season39week2cupname;
-var currentseasonweek2courses = season39week2courses;
+var currentseasonweek2cup = season40week2cup;
+var currentseasonweek2cupname = season40week2cupname;
+var currentseasonweek2courses = season40week2courses;
 
 function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
-	if(epoch <= season39week1endtime){
+	if(epoch <= season40week1endtime){
 	currentweek = "Week1";
-  currentseason = "Season39";
-	currentendtime = season39week1endtime;
+  currentseason = "Season40";
+	currentendtime = season40week1endtime;
 	currentseasoncup = currentseasonweek1cup;
 	currentseasoncupname = currentseasonweek1cupname;
 	currentseasoncourses = currentseasonweek1courses;
-	} else if(epoch <= season39week2endtime){
+	} else if(epoch <= season40week2endtime){
 	currentweek = "Week2";
-  currentseason = "Season39";
-	currentendtime = season39week2endtime;
+  currentseason = "Season40";
+	currentendtime = season40week2endtime;
 	currentseasoncup = currentseasonweek2cup;
 	currentseasoncupname = currentseasonweek2cupname;
 	currentseasoncourses = currentseasonweek2courses;
-	} else if(epoch >= season39week2endtime){
+	} else if(epoch >= season40week2endtime){
 	currentweek = "Default";
   currentseason = "Default";
-  currentendtime = season39week2endtime;
+  currentendtime = season40week2endtime;
   currentseasoncup = seasondefaultweek2cup;
   currentseasoncupname = seasondefaultweek2cupname;
   currentseasoncourses = seasondefaultweek2courses;

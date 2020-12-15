@@ -168,9 +168,6 @@
 	"New_Gmob_London2X": "London Loop 2T",
 	"New_Gmob_London2R": "London Loop 2R",
 	"New_Gmob_London2RX": "London Loop 2 R/T",
-	"Classic_Gn64_KalimariDesert2": "Kalimari Desert 2",
-	"Classic_Gn64_KalimariDesert2X": "Kalimari Desert 2T",
-    "Classic_Gn64_KalimariDesert2R": "Kalimari Desert 2R",
     "New_Gmob_Tokyo3": "Tokyo Blur 3",
 	"New_Gmob_Tokyo3X": "Tokyo Blur 3T",
 	"New_Gmob_Tokyo3R": "Tokyo Blur 3R",
@@ -182,6 +179,13 @@
 	"New_Gmob_NewYork3X": "New York Minute 3T",
 	"New_Gmob_NewYork3R": "New York Minute 3R",
 	"New_Gmob_NewYork3RX": "New York Minute 3R/T",
+
+	"Classic_Gn64_KalimariDesert2": "Kalimari Desert 2",
+	"Classic_Gn64_KalimariDesert2X": "Kalimari Desert 2T",
+    "Classic_Gn64_KalimariDesert2R": "Kalimari Desert 2R",
+    "New_Gmob_HillClimb": "Merry Mountain",
+    "New_Gmob_HillClimbX": "Merry Mountain T",
+    "New_Gmob_HillClimbR": "Merry Mountain R",
 
 	"Remix_Grsfc_MarioCircuit1": "RMX Mario Circuit 1",
 	"Remix_Grsfc_MarioCircuit1X": "RMX Mario Circuit 1T",
