@@ -264,7 +264,7 @@ function makeCourseList() {
         coursetxt.style.fontSize = "9px";
         break;
         case "Remix_Grsfc_RainbowRoad1RX":
-        coursetxt.style.fontSize = "15.5px";
+        coursetxt.style.fontSize = "9.5px";
         break;
        }
        coursePanel.appendChild(coursetxt);
