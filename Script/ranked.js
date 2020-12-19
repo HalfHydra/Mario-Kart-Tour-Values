@@ -54,13 +54,23 @@ var season40week2cup = "Rosalina";
 var season40week2cupname = "Rosalina Cup";
 var season40week2endtime = season40week1endtime + 604800;
 var season40week2courses = ["Classic_Gn64_FrappeSnowland","New_Gmob_HillClimbX","Classic_Gsfc_RainbowRoadR"];
+//Season 41
+var season41week1cup = "Rosalina";
+var season41week1cupname = "Rosalina Cup";
+var season41week1endtime = season40week2endtime + 604800;
+var season41week1courses = ["Classic_G3ds_RosettaPlanet","Classic_Gn64_PeachCircuit","Classic_Gsfc_RainbowRoad"];
 
-var season40cupbonusdriversw1 = ["82", "134"];
-var season40cupbonuskartsw1 = ["70188", "70202"];
-var season40cupbonusglidersw1 = ["30151", "30222"];
-var season40cupbonusdriversw2 = ["91", "89"];
-var season40cupbonuskartsw2 = ["70227", "70160"];
-var season40cupbonusglidersw2 = ["30063", "30019"];
+var season41week2cup = "Hammer Bro";
+var season41week2cupname = "Hammer Bro Cup";
+var season41week2endtime = season41week1endtime + 604800;
+var season41week2courses = ["Classic_Gn64_FrappeSnowland","New_Gmob_HillClimbX","Classic_Gsfc_RainbowRoadR"];
+
+var season41cupbonusdriversw1 = [];
+var season41cupbonuskartsw1 = ["70188", "70202"];
+var season41cupbonusglidersw1 = ["30151", "30222"];
+var season41cupbonusdriversw2 = ["91", "89"];
+var season41cupbonuskartsw2 = ["70227", "70160"];
+var season41cupbonusglidersw2 = ["30063", "30019"];
 //Current Season
 var currentseason = "Season40";
 var currentweek = "Week1";
@@ -70,34 +80,34 @@ var currentseasoncup = "";
 var currentseasoncupname = "";
 var currentseasoncourses = [];
 
-var currentseasonweek1cup = season40week1cup;
-var currentseasonweek1cupname = season40week1cupname;
-var currentseasonweek1courses = season40week1courses;
+var currentseasonweek1cup = season41week1cup;
+var currentseasonweek1cupname = season41week1cupname;
+var currentseasonweek1courses = season41week1courses;
 
-var currentseasonweek2cup = season40week2cup;
-var currentseasonweek2cupname = season40week2cupname;
-var currentseasonweek2courses = season40week2courses;
+var currentseasonweek2cup = season41week2cup;
+var currentseasonweek2cupname = season41week2cupname;
+var currentseasonweek2courses = season41week2courses;
 
 function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
-	if(epoch <= season40week1endtime){
+	if(epoch <= season41week1endtime){
 	currentweek = "Week1";
-  currentseason = "Season40";
-	currentendtime = season40week1endtime;
+  currentseason = "Season41";
+	currentendtime = season41week1endtime;
 	currentseasoncup = currentseasonweek1cup;
 	currentseasoncupname = currentseasonweek1cupname;
 	currentseasoncourses = currentseasonweek1courses;
-	} else if(epoch <= season40week2endtime){
+	} else if(epoch <= season41week2endtime){
 	currentweek = "Week2";
-  currentseason = "Season40";
-	currentendtime = season40week2endtime;
+  currentseason = "Season41";
+	currentendtime = season41week2endtime;
 	currentseasoncup = currentseasonweek2cup;
 	currentseasoncupname = currentseasonweek2cupname;
 	currentseasoncourses = currentseasonweek2courses;
-	} else if(epoch >= season40week2endtime){
+	} else if(epoch >= season41week2endtime){
 	currentweek = "Default";
   currentseason = "Default";
-  currentendtime = season40week2endtime;
+  currentendtime = season41week2endtime;
   currentseasoncup = seasondefaultweek2cup;
   currentseasoncupname = seasondefaultweek2cupname;
   currentseasoncourses = seasondefaultweek2courses;
@@ -269,43 +279,47 @@ function rankedCourses(){
        coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
         currentcourse.unlock3.Gliders.push(t);
        });
-       console.log("Current Course of [" + t + "]:")
-       console.log(currentcourse);
+       console.log("Current Course of [" + t + "]:");
+       //KEEP IN MIND THESE ARE n-1
        if(currentweek == "Week1"){
 
        if(i == 1){
-       currentcourse.goodAt.Drivers.push("134");
-       currentcourse.moreGoodAt.Karts.push("70188");
-       currentcourse.goodAt.Gliders.push("30222");
-       currentcourse.goodAt.Gliders.push("30151");
+       currentcourse.goodAt.Drivers.push("54");
+       currentcourse.goodAt.Karts.push("70171");
+       currentcourse.goodAt.Gliders.push("30161");
        }
        if(i == 2){
-       currentcourse.goodAt.Drivers.push("91");
-       currentcourse.goodAt.Drivers.push("89");
-       currentcourse.goodAt.Karts.push("70160");
-       currentcourse.goodAt.Gliders.push("30063");
-       currentcourse.goodAt.Gliders.push("30019");
+       currentcourse.moreGoodAt.Drivers.push("155");
+       currentcourse.goodAt.Drivers.push("140");
+       currentcourse.goodAt.Karts.push("70189");
+       currentcourse.goodAt.Karts.push("70230");
+       currentcourse.goodAt.Gliders.push("30201");
+       currentcourse.goodAt.Gliders.push("30141");
        }
 
        }
        if(currentweek == "Week2"){
-
+       if(i == 0){
+        currentcourse.moreGoodAt.Drivers.push("51");
+       }
        if(i == 1){
-       currentcourse.moreGoodAt.Drivers.push("82");
-       currentcourse.goodAt.Drivers.push("134");
-       currentcourse.goodAt.Karts.push("70188");
-       currentcourse.goodAt.Karts.push("70202");
-       currentcourse.moreGoodAt.Gliders.push("30222");
-       currentcourse.goodAt.Gliders.push("30151");
+       currentcourse.goodAt.Drivers.push("54");
+       currentcourse.goodAt.Drivers.push("51");
+       currentcourse.goodAt.Karts.push("70171");
+       currentcourse.goodAt.Gliders.push("30161");
        }
        if(i == 2){
-       currentcourse.moreGoodAt.Drivers.push("91");
+       currentcourse.goodAt.Drivers.push("51");
        currentcourse.moreGoodAt.Drivers.push("89");
        currentcourse.moreGoodAt.Karts.push("70227");
+       currentcourse.goodAt.Karts.push("70189");
+       currentcourse.goodAt.Karts.push("70230");
+       currentcourse.goodAt.Gliders.push("30201");
+       currentcourse.goodAt.Gliders.push("30141");
        }
 
        }
-
+       console.log(currentcourse);
        let topshelves = [];
        let topshelvestypes = [];
 

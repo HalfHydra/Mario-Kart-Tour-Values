@@ -1,0 +1,956 @@
+{
+	"Classic_Gsfc_MarioCircuit1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_DonutsPlain1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_DonutsPlain1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_DonutsPlain1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_DonutsPlain1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_GhostValley1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_GhostValley1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_GhostValley1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_GhostValley1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit2RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_ChocoIsland1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_ChocoIsland1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_ChocoIsland1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit3": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit3X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit3R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_MarioCircuit3RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_ChocoIsland2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_ChocoIsland2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_ChocoIsland2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_ChocoIsland2RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_VanillaLake1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_VanillaLake1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_VanillaLake1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_VanillaLake1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_KoopaTroopaBeach2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_KoopaTroopaBeach2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gsfc_KoopaTroopaBeach2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_RainbowRoad": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_RainbowRoadX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_RainbowRoadR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gsfc_RainbowRoadRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+	"Classic_Gn64_KoopaTroopaBeach": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gn64_KoopaTroopaBeachX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gn64_KoopaTroopaBeachR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gn64_KoopaTroopaBeachRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gn64_KalimariDesert": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gn64_KalimariDesertX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_KalimariDesertR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_KalimariDesertRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_FrappeSnowland": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_FrappeSnowlandX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_FrappeSnowlandR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_FrappeSnowlandRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_ChocoMountain": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_ChocoMountainX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_ChocoMountainR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_PeachCircuit": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_PeachCircuitX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_PeachCircuitR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+    "Classic_Gagb_BowserCastle1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gagb_BowserCastle1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_BowserCastle1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_BowserCastle1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_BowserCastle2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gagb_BowserCastle2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_BowserCastle2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_BowserCastle2RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	
+	"Classic_Gagb_SunsetWilds": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_SunsetWildsX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_SunsetWildsR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gagb_SunsetWildsRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+	"Classic_Ggc_YoshiCircuit": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Ggc_YoshiCircuitX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Ggc_YoshiCircuitR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Ggc_YoshiCircuitRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Ggc_DinoDinoJungle": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Ggc_DinoDinoJungleX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Ggc_DinoDinoJungleR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Ggc_DinoDinoJungleRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+	"Classic_Gds_LuigiMansion": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_LuigiMansionX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_LuigiMansionR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_LuigiMansionRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_WaluigiPinball": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_WaluigiPinballX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_WaluigiPinballR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_WaluigiPinballRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_DKPass": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_DKPassX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_DKPassR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_DKPassRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_KillerShip": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_KillerShipX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gds_KillerShipR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+	"Classic_Gwii_MapleTreeway": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gwii_MapleTreewayX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gwii_MapleTreewayR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+	"Classic_G3ds_ToadCircuit": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_ToadCircuitX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_ToadCircuitR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_ToadCircuitRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_DaisyHills": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_DaisyHillsX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_DaisyHillsR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_DaisyHillsRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_CheepCheepLagoon": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_CheepCheepLagoonX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_CheepCheepLagoonR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_CheepCheepLagoonRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_ShyGuyBazaar": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_ShyGuyBazaarX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_ShyGuyBazaarR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_ShyGuyBazaarRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_MarioCircuit": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_G3ds_MarioCircuitX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_G3ds_MarioCircuitR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_G3ds_MarioCircuitRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RockRockMountain": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RockRockMountainX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RockRockMountainR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_NeoBowserCity": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_NeoBowserCityX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_NeoBowserCityR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_NeoBowserCityRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RosettaPlanet": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RosettaPlanetX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RosettaPlanetR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RainbowRoad": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RainbowRoadX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RainbowRoadR": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_G3ds_RainbowRoadRX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+	"New_Gmob_NewYork1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork2RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo2RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Paris2RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Vancouver1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Vancouver1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Vancouver1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Vancouver1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_London2RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gn64_KalimariDesert2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Classic_Gn64_KalimariDesert2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "Classic_Gn64_KalimariDesert2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+    "New_Gmob_Tokyo3": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo3X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_Tokyo3R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_LosAngeles1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_LosAngeles1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_LosAngeles1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_LosAngeles1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork3": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork3X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork3R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"New_Gmob_NewYork3RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+
+	"Remix_Grsfc_MarioCircuit1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_MarioCircuit1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_MarioCircuit1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_MarioCircuit1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_ChocoIsland1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_ChocoIsland1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_ChocoIsland1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_RainbowRoad1": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_RainbowRoad1X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_RainbowRoad1R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_RainbowRoad1RX": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	}
+}

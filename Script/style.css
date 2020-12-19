@@ -1312,3 +1312,184 @@ h4 {
     width: 1070px;
     display: block;
 }
+
+
+
+
+
+
+.gwd-page-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .gwd-page-content {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+      position: absolute;
+    }
+    .gwd-page-wrapper {
+      background-color: rgb(255, 255, 255);
+      position: absolute;
+      transform: translateZ(0px);
+    }
+    .gwd-page-size {
+      width: 1200px;
+      height: 5000px;
+    }
+    .gwd-image-gm7r {
+      position: absolute;
+      width: 236px;
+      height: 93px;
+      left: 260px;
+      top: 1382px;
+    }
+    .gwd-image-qfxq {
+      position: absolute;
+      width: 237px;
+      height: 94px;
+      left: 690px;
+      top: 1385px;
+    }
+    .gwd-image-muj8 {
+      position: absolute;
+      width: 380px;
+      height: 171px;
+      left: 141px;
+      top: 1645px;
+    }
+    .gwd-image-1xmu {
+      position: absolute;
+      width: 376px;
+      height: 171px;
+      left: 625px;
+      top: 1645px;
+    }
+    .gwd-image-1n1k {
+      position: absolute;
+      width: 240px;
+      height: 73px;
+      left: 331px;
+      top: 2005px;
+    }
+    .gwd-p-168q {
+      position: absolute;
+      transform-origin: 50% 50% 0px;
+      height: 36px;
+      font-size: 28px;
+      font-family: Tahoma;
+      width: 159px;
+      left: 521px;
+      top: 54px;
+    }
+    .gwd-p-1oe5 {
+      position: absolute;
+      text-align: center;
+      transform-origin: 50% 50% 0px;
+      width: 915px;
+      left: 141px;
+      top: 136px;
+      height: 783px;
+    }
+    .gwd-span-5qrc {
+      position: absolute;
+      text-align: center;
+      left: 401px;
+      top: 1158px;
+    }
+    .gwd-span-jjtc {
+      position: absolute;
+      text-align: center;
+      font-size: 28px;
+      left: 564px;
+      top: 1222px;
+      font-family: Tahoma;
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+    }
+    .gwd-span-1b75 {
+      position: absolute;
+      text-align: center;
+      top: 1300px;
+      left: 130px;
+    }
+    .gwd-span-1bqy {
+      position: absolute;
+      text-align: center;
+      left: 130px;
+      top: 1500px;
+      font-family: Tahoma;
+      font-size: 20px;
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    .gwd-image-1tbk {
+      position: absolute;
+      left: 525px;
+      top: 1413px;
+      transform-origin: 50% 50% 0px;
+      transform-style: preserve-3d;
+      width: 64.1752px;
+      height: 78.1301px;
+      transform: translate3d(-49px, -20px, 0px) rotateZ(-40.9308deg);
+    }
+    .gwd-div-135q {
+      position: absolute;
+      left: 693px;
+      top: 1504px;
+      width: 1px;
+      height: 1px;
+    }
+    .gwd-image-38su {
+      position: absolute;
+      width: 34px;
+      height: 100px;
+      left: 580px;
+      top: 1404px;
+      transform-style: preserve-3d;
+      transform: translate3d(4px, -22px, 0px) rotateZ(89.5281deg);
+    }
+    .gwd-span-48pt {
+      font-family: Tahoma;
+      font-size: 20px;
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    .gwd-div-1jw5 {
+      font-family: Tahoma;
+      font-size: 20px;
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    .gwd-div-11gb {
+      font-family: Tahoma;
+    }
+    .gwd-div-12ws {
+      font-family: Tahoma;
+    }
+    .gwd-div-1pwz {
+      font-family: Tahoma;
+    }
+    .gwd-div-1kq4 {
+      font-family: Tahoma;
+    }
+    .gwd-div-1xt5 {
+      font-family: Tahoma;
+    }
+    .gwd-div-1xpk {
+      font-family: Tahoma;
+    }
+    .gwd-div-1243 {
+      font-family: Tahoma;
+    }
+    .gwd-div-ciid {
+      font-family: Tahoma;
+    }
+    .gwd-span-1jkm {
+      font-family: Tahoma;
+      font-size: 20px;
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
