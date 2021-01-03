@@ -71,8 +71,18 @@ var season41cupbonusglidersw1 = ["30151", "30222"];
 var season41cupbonusdriversw2 = ["91", "89"];
 var season41cupbonuskartsw2 = ["70227", "70160"];
 var season41cupbonusglidersw2 = ["30063", "30019"];
+//Season 42
+var season42week1cup = "Bowser Jr.";
+var season42week1cupname = "Bowser Jr. Cup";
+var season42week1endtime = season41week2endtime + 604800;
+var season42week1courses = ["Remix_Grsfc_RainbowRoad2","Classic_Gsfc_VanillaLake1X","Classic_Gds_WaluigiPinball"];
+
+var season42week2cup = "Dry Bowser";
+var season42week2cupname = "Dry Bowser Cup";
+var season42week2endtime = season42week1endtime + 604800;
+var season42week2courses = ["Classic_Gn64_KalimariDesert","Remix_Grsfc_RainbowRoad2X","Classic_Gsfc_MarioCircuit2"];
 //Current Season
-var currentseason = "Season40";
+var currentseason = "Season42";
 var currentweek = "Week1";
 var currentendtime = 0;
 
@@ -80,34 +90,34 @@ var currentseasoncup = "";
 var currentseasoncupname = "";
 var currentseasoncourses = [];
 
-var currentseasonweek1cup = season41week1cup;
-var currentseasonweek1cupname = season41week1cupname;
-var currentseasonweek1courses = season41week1courses;
+var currentseasonweek1cup = season42week1cup;
+var currentseasonweek1cupname = season42week1cupname;
+var currentseasonweek1courses = season42week1courses;
 
-var currentseasonweek2cup = season41week2cup;
-var currentseasonweek2cupname = season41week2cupname;
-var currentseasonweek2courses = season41week2courses;
+var currentseasonweek2cup = season42week2cup;
+var currentseasonweek2cupname = season42week2cupname;
+var currentseasonweek2courses = season42week2courses;
 
 function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
-	if(epoch <= season41week1endtime){
+	if(epoch <= season42week1endtime){
 	currentweek = "Week1";
-  currentseason = "Season41";
-	currentendtime = season41week1endtime;
+  currentseason = "Season42";
+	currentendtime = season42week1endtime;
 	currentseasoncup = currentseasonweek1cup;
 	currentseasoncupname = currentseasonweek1cupname;
 	currentseasoncourses = currentseasonweek1courses;
-	} else if(epoch <= season41week2endtime){
+	} else if(epoch <= season42week2endtime){
 	currentweek = "Week2";
-  currentseason = "Season41";
-	currentendtime = season41week2endtime;
+  currentseason = "Season42";
+	currentendtime = season42week2endtime;
 	currentseasoncup = currentseasonweek2cup;
 	currentseasoncupname = currentseasonweek2cupname;
 	currentseasoncourses = currentseasonweek2courses;
-	} else if(epoch >= season41week2endtime){
+	} else if(epoch >= season42week2endtime){
 	currentweek = "Default";
   currentseason = "Default";
-  currentendtime = season41week2endtime;
+  currentendtime = season42week2endtime;
   currentseasoncup = seasondefaultweek2cup;
   currentseasoncupname = seasondefaultweek2cupname;
   currentseasoncourses = seasondefaultweek2courses;
@@ -271,30 +281,32 @@ function rankedCourses(){
         currentcourse.unlock3.Gliders.push(t);
        });
        coursedata.Courses[t].unlock6.Drivers.forEach((t,i)=>{ 
-        currentcourse.unlock3.Drivers.push(t);
+        currentcourse.unlock6.Drivers.push(t);
        });
        coursedata.Courses[t].unlock6.Karts.forEach((t,i)=>{ 
-        currentcourse.unlock3.Karts.push(t);
+        currentcourse.unlock6.Karts.push(t);
        });
        coursedata.Courses[t].unlock6.Gliders.forEach((t,i)=>{ 
-        currentcourse.unlock3.Gliders.push(t);
+        currentcourse.unlock6.Gliders.push(t);
        });
        console.log("Current Course of [" + t + "]:");
        //KEEP IN MIND THESE ARE n-1
        if(currentweek == "Week1"){
-
+       if(i == 0){
+        currentcourse.goodAt.Drivers.push("17");
+       }
        if(i == 1){
-       currentcourse.goodAt.Drivers.push("54");
+       /*currentcourse.goodAt.Drivers.push("54");
        currentcourse.goodAt.Karts.push("70171");
-       currentcourse.goodAt.Gliders.push("30161");
+       currentcourse.goodAt.Gliders.push("30161");*/
        }
        if(i == 2){
-       currentcourse.moreGoodAt.Drivers.push("155");
+       /*currentcourse.moreGoodAt.Drivers.push("155");
        currentcourse.goodAt.Drivers.push("140");
        currentcourse.goodAt.Karts.push("70189");
        currentcourse.goodAt.Karts.push("70230");
        currentcourse.goodAt.Gliders.push("30201");
-       currentcourse.goodAt.Gliders.push("30141");
+       currentcourse.goodAt.Gliders.push("30141");*/
        }
 
        }
@@ -731,6 +743,12 @@ function rankedCourses(){
        temp6NotOwned.forEach((t,i)=>{ 
           topshelvestypes.push('5');
        });
+       console.log("tempNotOwned");
+       console.log(tempNotOwned);
+       console.log("temp3NotOwned");
+       console.log(temp3NotOwned);
+       console.log("temp6NotOwned");
+       console.log(temp6NotOwned);
      }//isdataentered
 
 

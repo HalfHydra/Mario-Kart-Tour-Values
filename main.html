@@ -67,11 +67,12 @@
             </div>-->
             <p class="landingpagetxt" style="text-align: center;margin-bottom: 100px">This section is a WIP and will be a new, and more visual, introduction + guide.</p>
 <div class="gwd-page-content gwd-page-size" style="display: inline-block;position:relative">
+        <!--
             <image id="Data_1" src="./Images/Usage Guide/Data_1.png" scaling="stretch" class="gwd-image-gm7r"></image>
           <image id="Data_2" src="./Images/Usage Guide/Data_2.png" scaling="stretch" class="gwd-image-qfxq"></image>
           <image id="Data_3" src="./Images/Usage Guide/Data_3.png" scaling="stretch" class="gwd-image-muj8"></image>
           <image id="Data_4" src="./Images/Usage Guide/Data_4.png" scaling="stretch" class="gwd-image-1xmu"></image>
-          <image id="Data_5" src="./Images/Usage Guide/Data_5.png" scaling="stretch" class="gwd-image-1n1k"></image>
+          <image id="Data_5" src="./Images/Usage Guide/Data_5.png" scaling="stretch" class="gwd-image-1n1k"></image>-->
           <p class="gwd-p-168q">Usage Guide</p>
           <p class="gwd-p-1oe5"><span class="gwd-span-48pt">Table of Contents:<br><br>1. Usage Guide<br>You're here! This is the introductory guide which will help you figure out how to use the tool, and what the meaning behind each of them is.<br><br>2. Enter Data<br>Entering your levels from your game will help you get a better representation of what’s going to be better for you, as well as help you figure out what courses you are missing top shelves on.&nbsp;<br><br>3. Inventory<br>Here you can click on the drivers, karts, and gliders to check values similarly to how you would in game.<br><br>4. Courses<br>This section allows you to view the top shelves of courses, even if they aren't in the tour, allowing you to compare the characters you own and their levels. You can also specify an item to reveal all of the courses for, as well as see all of your missing courses.<br><br>5. Calculator<br>Calculating the bonus points manually takes a lot of time, with this section you can have a more visual approach to it, as well as have multiple drivers/karts/gliders to compare at once.<br><br>6. Ranked<br>This option is specifically made for ranked, and will show the newest ranked cup, as well as a countdown timer depending on when the tool is updated to reflect the new tour.<br><br>7. Settings<br>Options such as disabling city tracks in the value count, or showing only items that you own in various parts of the tool.<br><br>Notes:<br>-You can click on a charcater card from anywhere in the tool and it will pull up it's inventory panel.<br>-Entering Data is optional, but the tool is very centered around the usage of it. If you no longer wish to use your data in looking at the courses, simply delete the save data from settings. Be sure to save a backup if you want to restore it using the download save data button.<br>-Entering your data will save upon page reload, and so will your place in the tool, as well as your current settings.<br>-I advise you to save a copy of your data if you do not want to lose it, but the practical use is if you plan to switch browsers or clear your browsing data.<br>-I do my best to update the tool, but there are no guarantees.</span></p>
           <div>
@@ -90,12 +91,13 @@
           <div>
           </div>
           <div>
-          </div><span class="gwd-span-5qrc">INSERT BUTTONS TO QUICKLY NAVIGATE TO A SECTION<br></span><span class="gwd-span-jjtc">DATA</span><span class="gwd-span-1b75"><span class="gwd-span-1jkm">As soon as you open this tab, you will notice that it is in a layout that is similar to the game.<br>This is done on purpose to assist in entering these numbers more efficiently, it will take a little bit of time.</span><br>
+          </div><!--<span class="gwd-span-5qrc">INSERT BUTTONS TO QUICKLY NAVIGATE TO A SECTION<br></span><span class="gwd-span-jjtc">DATA</span><span class="gwd-span-1b75"><span class="gwd-span-1jkm">As soon as you open this tab, you will notice that it is in a layout that is similar to the game.<br>This is done on purpose to assist in entering these numbers more efficiently, it will take a little bit of time.</span><br>
           
           </span><span class="gwd-span-1bqy">Due to this, I have done my best to make the process of entering the data take a little clicks as necessary.<br> You can click any of the numbers to instantly enable and set the item's level.</span>
           <image id="TutorialHand00" src="./Images/Usage Guide/TutorialHand00.png" class="gwd-image-1tbk"></image>
           <div class="gwd-div-135q"></div>
           <image id="Arrow3" src="./Images/Usage Guide/Arrow3.png" class="gwd-image-38su"></image>
+        -->
        </div>
 
             <!--<p class="landingpagetxt" style="text-align: center;">Welcome!</p>
@@ -446,6 +448,12 @@
       <script type="text/javascript" src="./Script/missing.js"></script>
       <script type="text/javascript" src="./Script/calculator.js"></script>
       <script type="text/javascript" src="./Script/ranked.js"></script>
+      <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+      </script>
+      <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+      </script>
       <script>
          function readTextFile(file, unit)
          {
@@ -477,7 +485,7 @@
          //readTextFile("./Data/1st_anniversary_tour_preferred_courses.json", 1);
          //readTextFile("./Data/1st_anniversary_tour_courses_v2.6.0_update.json", 1);
          //readTextFile("./Data/halloween_tour_courses_v2.6.0_update_hh.json", 1);
-         readTextFile("./Data/Rosalina_Tour_Courses.json", 1);
+         readTextFile("./Data/New_Years_2021_Tour_Courses.json", 1);
          readTextFile("./Data/course_names.json", 2);
          readTextFile("./Data/course_image.json", 3);
          convertToUsable();
@@ -557,6 +565,23 @@
     document.getElementById("timertxt").innerHTML = "Finished";
   }
 }, 1000);
+
+$(document).ready(function() {
+
+/*$(document).on('click', '.topimg', function () {
+    $(".target").effect( "highlight", {color:"#669966"}, 1000 );
+    console.log('targetted');
+});
+});*/
+$(".topimg").click(function(){
+   $(".ckgpanel").effect( "highlight", {color:"#669966"}, 1000 );
+   console.log('targetted');
+});
+$(document).click(function(){
+  var helement = document.elementFromPoint(event.clientX, event.clientY).target;
+  helement.effect( "highlight", {color:"#669966"}, 1000 );
+})
+});
       </script>
    </body>
 </html>

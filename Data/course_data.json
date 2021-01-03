@@ -952,5 +952,20 @@
 		"ItemBoxes": "N/A",
 		"DashPanels": "N/A",
 		"JumpBoosts": "N/A"
-	}
+	},
+	"Remix_Grsfc_RainbowRoad2": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_RainbowRoad2X": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
+	"Remix_Grsfc_RainbowRoad2R": {
+		"ItemBoxes": "N/A",
+		"DashPanels": "N/A",
+		"JumpBoosts": "N/A"
+	},
 }
