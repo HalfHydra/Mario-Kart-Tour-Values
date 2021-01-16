@@ -62,6 +62,15 @@ var cityCourses = ["New_Gmob_NewYork1", "New_Gmob_NewYork1X", "New_Gmob_NewYork1
 
 var disableDataUsage = false;
 
+var upToDateSections = [];
+//List of Values
+//inv
+//tsp
+//slc
+//mis
+//bpc
+//rnk
+
 let savedata = {
     Items: {
         Drivers: {},
@@ -125,6 +134,9 @@ function changemode(mode) {
         break;
     case 2:
         hideAllBesidesOne('inventory');
+        if(!upToDateSections.includes("inv")){
+            
+        }
         break;
     case 3:
         hideAllBesidesOne('courses');
@@ -138,9 +150,12 @@ function changemode(mode) {
         break;
     case 4:
         hideAllBesidesOne('bonuspoints');
+        if(!upToDateSections.includes("bpc")){
         makeCalcCharacters();
         makeCalcKarts();
         makeCalcGliders();
+        upToDateSections.push("bpc");
+        }
         break;
     case 5:
         hideAllBesidesOne('settings');
@@ -148,7 +163,11 @@ function changemode(mode) {
     case 6:
         hideAllBesidesOne('ranked');
         getCurrentRanked();
-        updateRanked();
+        if(!upToDateSections.includes("rnk")){
+           updateRanked(); 
+           upToDateSections.push("rnk");
+        }
+        
         //alert('Ranked Review and Bonus Points Calculator - Coming Soon!');
         break;
     }
@@ -199,7 +218,10 @@ function changecoursemode(mode) {
         topShelfPreviewMade = true;
         document.getElementById('coursedriversbtn').src = "./Images/UI/invcharbtnselected.png";
         }*/
-        makeTopShelfPreview();
+        if(!upToDateSections.includes("tsp")){
+            makeTopShelfPreview();
+            upToDateSections.push("tsp");
+        }
         document.getElementById('selectcourses').style.display = "none";
         document.getElementById('topshelfpreview').style.display = "block";
         document.getElementById('selectedcourses').style.display = "none";
@@ -237,7 +259,11 @@ function changecoursemode(mode) {
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "none";
         document.getElementById('coursesoptionpanel').style.height = "140px";
-        selectedCourses();
+        if(!upToDateSections.includes("slc")){
+         selectedCourses();
+         upToDateSections.push("slc")   
+        }
+        
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
@@ -293,8 +319,11 @@ function changecoursemode(mode) {
         }*/
         //changemissingckg(missingmode);
         if(isDataEntered && localStorage.getItem("MKTVSaveData") != null){
-        calcMissingValues();
-        missingCourses();
+            if(!upToDateSections.includes("mis")){
+            calcMissingValues();
+            missingCourses();
+            upToDateSections.push("mis");
+            }
         }
         if(!isDataEntered && !document.getElementById('changeusedata').checked){
             alert('You need to enter your data first before this tab works! Be sure that the disable data usage is unchecked in the settings if you have entered your data.');

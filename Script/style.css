@@ -1493,3 +1493,27 @@ h4 {
       color: white;
       text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
+
+    /* Flashing */
+.hover13 {
+    opacity: 1;
+    /*background-color:rgba(255, 0, 0, 1);*/
+    -webkit-animation: flash 1.0s;
+    animation: flash 1.0s;
+}
+@-webkit-keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}

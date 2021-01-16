@@ -382,6 +382,7 @@ function enableItem(item, type) {
         }
         break;
     }
+    upToDateSections = [];
     updateLocalSaveData();
 }
 
@@ -523,6 +524,7 @@ function changeLevel(item, level, type) {
         }
         break;
     }
+    upToDateSections = [];
     updateLocalSaveData();
 }
 
