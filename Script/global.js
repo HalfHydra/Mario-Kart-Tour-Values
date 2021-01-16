@@ -14,10 +14,10 @@ var resettingCourses = false;
 
 var isMissingCalculated = false;
 var startToggle = true;
-var currentspecificitem = 0;
+var currentspecificitem = 25;
 var currentitemtype = 0;
 var currentitemrarity = 0;
-var currentitemitem = 0;
+var currentitemitem = 22;
 
 var topshelfmode = 0;
 var missingmode = 0;
@@ -137,7 +137,8 @@ function changemode(mode) {
     case 2:
         hideAllBesidesOne('inventory');
         if(!upToDateSections.includes("inv")){
-            
+            changeckg(settingsavedata.Settings.currentmode);
+            upToDateSections.push("inv");
         }
         break;
     case 3:
@@ -284,7 +285,9 @@ function changecoursemode(mode) {
         break;
     case 3:
         selectspecificitem();
+        if(settingsavedata.Settings.currentspecificitem != 0){
         document.getElementById('countertxt').innerHTML = Object.keys(values[settingsavedata.Settings.currentspecificitem].moreGoodAt).length + Object.keys(values[settingsavedata.Settings.currentspecificitem].unlock3).length + Object.keys(values[settingsavedata.Settings.currentspecificitem].unlock6).length;
+        }
         document.getElementById('selectcourses').style.display = "none";
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "none";
@@ -304,6 +307,12 @@ function changecoursemode(mode) {
         document.getElementById('coursecounter').style.display = "inline-block";
         document.getElementById('coursecounter').style.marginTop = "";
         document.getElementById('coursecounter').style.marginLeft = "";
+        if(settingsavedata.Settings.currentspecificitem != 0){
+            if(!upToDateSections.includes("sic")){
+             specificchoicemade(settingsavedata.Settings.currentspecificitem,settingsavedata.Settings.currentitemtype,settingsavedata.Settings.currentitemrarity,settingsavedata.Settings.currentitemitem);
+            upToDateSections.push("sic");
+            }
+        }
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
@@ -330,22 +339,7 @@ function changecoursemode(mode) {
         document.getElementById('coursecounter').style.display = "inline-block";
         document.getElementById('coursecounter').style.marginTop = "";
         document.getElementById('coursecounter').style.marginLeft = "";
-        let missingcount = 0;
-        switch(missingmode){
-            case 0:
-            missingcount = missingcoursesd.length;
-            break;
-            case 1:
-            missingcount = missingcoursesk.length;
-            break;
-            case 2:
-            missingcount = missingcoursesg.length;
-            break;
-        }
-        document.getElementById('countertxt').innerHTML = missingcount;
-        if(settingsavedata.Settings.missingIncludesCityCourses == false){
-        document.getElementById('countertxt').innerHTML = missingcoursescitycount;
-        }
+        updateMissingCourseCount();
         /*if(!courseListMade){
                 makeCourseList();
                 courseListMade = true;
@@ -665,6 +659,11 @@ function changemissingckg(mode) {
             missingCourses();
         break;
     }
+    updateMissingCourseCount();
+    updateLocalSettingData();
+}
+
+function updateMissingCourseCount(){
     let missingcount = 0;
         switch(missingmode){
             case 0:
@@ -681,7 +680,6 @@ function changemissingckg(mode) {
         if(settingsavedata.Settings.missingIncludesCityCourses == false){
         document.getElementById('countertxt').innerHTML = missingcoursescitycount;
         }
-    updateLocalSettingData();
 }
 
 function updatesavedata() {
@@ -807,6 +805,9 @@ function removeselected(){
     delete settingsavedata.Settings.selectedcourses; 
     settingsavedata.Settings.selectedcourses = [];
     selectedcourses = settingsavedata.Settings.selectedcourses;
+    if(settingsavedata.Settings.coursesmode == 2){
+    document.getElementById('countertxt').innerHTML = 0;
+    }
     updateLocalSettingData();
     makeCourseList();
     selectedCourses();
@@ -818,6 +819,12 @@ function updateLocalSaveData(){
 
 function updateLocalSettingData(){
     localStorage.setItem("MKTVSettingData",JSON.stringify(settingsavedata, null, 2));
+}
+
+function deleteLocalSaveData(){
+    localStorage.removeItem("MKTVSaveData");
+    localStorage.removeItem("MKTVSettingData");
+    alert('Deleted Save File. This option is VERY unstable and may require you to clear your browser cache or restart your browser to function properly.')
 }
 
 function applyLocalSettings(){

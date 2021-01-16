@@ -591,6 +591,7 @@ document.getElementById('inputsavedata').addEventListener('change', function() {
         );
 
         resettingCourses = true;
+        upToDateSections = [];
         updateLocalSaveData();
         
 

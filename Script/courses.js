@@ -301,6 +301,7 @@ function selectCourse(course) {
               document.getElementById(`coursemissing_${course}`).className = `coursepanelslc`;
               }
        }
+       document.getElementById('countertxt').innerHTML = settingsavedata.Settings.selectedcourses.length;
        if(coursesmode == 2){
        selectedCourses();
        } else {
