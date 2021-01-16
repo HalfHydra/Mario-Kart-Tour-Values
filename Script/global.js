@@ -208,6 +208,7 @@ function changecoursemode(mode) {
         document.getElementById('courseitembtnsmissing').style.display = "none";
         document.getElementById('coursesoptionpanel').style.height = "110px";
         document.getElementById('countertxt').innerHTML = settingsavedata.Settings.selectedcourses.length;
+        console.log(settingsavedata.Settings.selectedcourses.length);
         document.getElementById('coursecounter').style.display = "inline-block";
         document.getElementById('coursecounter').style.marginTop = "55px";
         document.getElementById('coursecounter').style.marginLeft = "-425px";
@@ -676,10 +677,12 @@ function updateMissingCourseCount(){
             missingcount = missingcoursesg.length;
             break;
         }
+        if(coursesmode == 4){
         document.getElementById('countertxt').innerHTML = missingcount;
         if(settingsavedata.Settings.missingIncludesCityCourses == false){
         document.getElementById('countertxt').innerHTML = missingcoursescitycount;
         }
+    }
 }
 
 function updatesavedata() {
