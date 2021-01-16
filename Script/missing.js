@@ -1,6 +1,7 @@
 function missingCourses(){
       document.getElementById('missingcourses').innerHTML = "";
       let output = document.getElementById('missingcourses');
+      missingcoursescitycount = 0;
       missingcourses = [];
       switch(missingmode) {
         case 0:
@@ -922,6 +923,7 @@ function missingCourses(){
         //intentionally left blank
        } else {
        output.appendChild(coursePanel);
+       missingcoursescitycount++;
        }
 
        });

@@ -1517,3 +1517,9 @@ h4 {
         opacity: 1;
     }
 }
+
+.coursecounter {
+    position: absolute;
+    margin-top: -37px;
+    margin-left: -725px;
+}

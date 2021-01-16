@@ -31,6 +31,8 @@ var missingcoursesg = [];
 
 var missingcourses = [];
 
+var missingcoursescitycount = 0;
+
 var viewshelvechar = [];
 
 var openedCalcPanels = [];
@@ -204,6 +206,10 @@ function changecoursemode(mode) {
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "none";
         document.getElementById('coursesoptionpanel').style.height = "110px";
+        document.getElementById('countertxt').innerHTML = settingsavedata.Settings.selectedcourses.length;
+        document.getElementById('coursecounter').style.display = "inline-block";
+        document.getElementById('coursecounter').style.marginTop = "55px";
+        document.getElementById('coursecounter').style.marginLeft = "-425px";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtnselected.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
@@ -236,6 +242,7 @@ function changecoursemode(mode) {
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "none";
         document.getElementById('coursesoptionpanel').style.height = "110px";
+        document.getElementById('coursecounter').style.display = "none";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtnselected.png';
@@ -259,11 +266,14 @@ function changecoursemode(mode) {
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "none";
         document.getElementById('coursesoptionpanel').style.height = "140px";
+        document.getElementById('coursecounter').style.display = "inline-block";
+        document.getElementById('coursecounter').style.marginTop = "";
+        document.getElementById('coursecounter').style.marginLeft = "";
         if(!upToDateSections.includes("slc")){
          selectedCourses();
          upToDateSections.push("slc")   
         }
-        
+        document.getElementById('countertxt').innerHTML = settingsavedata.Settings.selectedcourses.length;
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
@@ -274,6 +284,7 @@ function changecoursemode(mode) {
         break;
     case 3:
         selectspecificitem();
+        document.getElementById('countertxt').innerHTML = Object.keys(values[settingsavedata.Settings.currentspecificitem].moreGoodAt).length + Object.keys(values[settingsavedata.Settings.currentspecificitem].unlock3).length + Object.keys(values[settingsavedata.Settings.currentspecificitem].unlock6).length;
         document.getElementById('selectcourses').style.display = "none";
         document.getElementById('topshelfpreview').style.display = "none";
         document.getElementById('selectedcourses').style.display = "none";
@@ -290,6 +301,9 @@ function changecoursemode(mode) {
         }
         document.getElementById('courseitembtnsmissing').style.display = "none";
         document.getElementById('coursesoptionpanel').style.height = "140px";
+        document.getElementById('coursecounter').style.display = "inline-block";
+        document.getElementById('coursecounter').style.marginTop = "";
+        document.getElementById('coursecounter').style.marginLeft = "";
 
         document.getElementById('courseselectbtn').src = './Images/UI/courseselectbtn.png';
         document.getElementById('coursetopshelfbtn').src = './Images/UI/coursetopshelfbtn.png';
@@ -313,6 +327,25 @@ function changecoursemode(mode) {
         document.getElementById('courseitemspecificbtnscourses').style.display = "none";
         document.getElementById('courseitembtnsmissing').style.display = "inline-block";
         document.getElementById('coursesoptionpanel').style.height = "140px";
+        document.getElementById('coursecounter').style.display = "inline-block";
+        document.getElementById('coursecounter').style.marginTop = "";
+        document.getElementById('coursecounter').style.marginLeft = "";
+        let missingcount = 0;
+        switch(missingmode){
+            case 0:
+            missingcount = missingcoursesd.length;
+            break;
+            case 1:
+            missingcount = missingcoursesk.length;
+            break;
+            case 2:
+            missingcount = missingcoursesg.length;
+            break;
+        }
+        document.getElementById('countertxt').innerHTML = missingcount;
+        if(settingsavedata.Settings.missingIncludesCityCourses == false){
+        document.getElementById('countertxt').innerHTML = missingcoursescitycount;
+        }
         /*if(!courseListMade){
                 makeCourseList();
                 courseListMade = true;
@@ -632,6 +665,22 @@ function changemissingckg(mode) {
             missingCourses();
         break;
     }
+    let missingcount = 0;
+        switch(missingmode){
+            case 0:
+            missingcount = missingcoursesd.length;
+            break;
+            case 1:
+            missingcount = missingcoursesk.length;
+            break;
+            case 2:
+            missingcount = missingcoursesg.length;
+            break;
+        }
+        document.getElementById('countertxt').innerHTML = missingcount;
+        if(settingsavedata.Settings.missingIncludesCityCourses == false){
+        document.getElementById('countertxt').innerHTML = missingcoursescitycount;
+        }
     updateLocalSettingData();
 }
 
@@ -737,6 +786,9 @@ function changecitymissing(){
     } else {
         missingIncludesCityCourses = true;
         settingsavedata.Settings.missingIncludesCityCourses = true;
+    }
+    if(upToDateSections.includes("mis")){
+    upToDateSections.splice(upToDateSections.indexOf("mis", 3));
     }
     updateLocalSettingData();
 }
