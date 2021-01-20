@@ -90,7 +90,7 @@ var season43week1courses = ["New_Gmob_Berlin2","Classic_Gn64_KalimariDesert2R","
 var season43week2cup = "King Boo";
 var season43week2cupname = "King Boo Cup";
 var season43week2endtime = season43week1endtime + 604800;
-var season43week2courses = ["Classic_Gds_KillerShip","New_Gmob_Berlin2T","Classic_Gsfc_KoopaTroopaBeach2X"];
+var season43week2courses = ["Classic_Gds_KillerShip","New_Gmob_Berlin2X","Classic_Gsfc_KoopaTroopaBeach2X"];
 //Current Season
 var currentseason = "Season43";
 var currentweek = "Week1";
