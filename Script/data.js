@@ -10,7 +10,10 @@ let makeDataFields = ()=>{
         var panel = document.createElement('div');
         panel.className = 'datackgpanel';
         panel.id = `invcharpanel${t}`;
-
+          panel.addEventListener('click', function() {
+            invCharacter(t);
+          });
+        
         let bottomimg = document.createElement('img');
         switch (charrarity[i]) {
         case "1":
@@ -25,6 +28,7 @@ let makeDataFields = ()=>{
         }
         bottomimg.className = 'bottomimg';
         panel.appendChild(bottomimg);
+
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newCharacter';
@@ -115,6 +119,9 @@ let makeDataFields = ()=>{
         var panel = document.createElement('div');
         panel.className = 'datackgpanel';
         panel.id = `invkartpanel${t}`;
+          panel.addEventListener('click', function() {
+            invKart(t);
+          });
 
         let bottomimg = document.createElement('img');
         switch (kartrarity[i]) {
@@ -220,6 +227,9 @@ let makeDataFields = ()=>{
         var panel = document.createElement('div');
         panel.className = 'datackgpanel';
         panel.id = `invgliderpanel${t}`;
+          panel.addEventListener('click', function() {
+            invGlider(t);
+          });
 
         let bottomimg = document.createElement('img');
         switch (gliderrarity[i]) {

@@ -90,9 +90,27 @@ var season43week1courses = ["New_Gmob_Berlin2","Classic_Gn64_KalimariDesert2R","
 var season43week2cup = "King Boo";
 var season43week2cupname = "King Boo Cup";
 var season43week2endtime = season43week1endtime + 604800;
+<<<<<<< Updated upstream
 var season43week2courses = ["Classic_Gds_KillerShip","New_Gmob_Berlin2X","Classic_Gsfc_KoopaTroopaBeach2X"];
+=======
+var season43week2courses = ["Classic_Gds_KillerShip","New_Gmob_Berlin2T","Classic_Gsfc_KoopaTroopaBeach2X"];
+//Season 44
+var season44week1endtime = season43week2endtime + 604800;
+var season44week2endtime = season44week1endtime + 604800;
+//Season 45
+var season45week1cup = "Peach";
+var season45week1cupname = "Peach Cup";
+var season45week1endtime = season44week2endtime + 604800;
+var season45week1courses = ["Remix_Grsfc_ChocoIsland2","Classic_Ggc_YoshiCircuitR","Classic_Gagb_BowserCastle2X"];
+
+var season45week2cup = "Daisy";
+var season45week2cupname = "Daisy Cup";
+var season45week2endtime = season45week1endtime + 604800;
+var season45week2courses = ["Remix_Grsfc_ChocoIsland2X","Classic_G3ds_DaisyHillsX","Classic_Gsfc_ChocoIsland1R"];
+
+>>>>>>> Stashed changes
 //Current Season
-var currentseason = "Season43";
+var currentseason = "Season45";
 var currentweek = "Week1";
 var currentendtime = 0;
 
@@ -100,34 +118,34 @@ var currentseasoncup = "";
 var currentseasoncupname = "";
 var currentseasoncourses = [];
 
-var currentseasonweek1cup = season43week1cup;
-var currentseasonweek1cupname = season43week1cupname;
-var currentseasonweek1courses = season43week1courses;
+var currentseasonweek1cup = season45week1cup;
+var currentseasonweek1cupname = season45week1cupname;
+var currentseasonweek1courses = season45week1courses;
 
-var currentseasonweek2cup = season43week2cup;
-var currentseasonweek2cupname = season43week2cupname;
-var currentseasonweek2courses = season43week2courses;
+var currentseasonweek2cup = season45week2cup;
+var currentseasonweek2cupname = season45week2cupname;
+var currentseasonweek2courses = season45week2courses;
 
 function getCurrentRanked(){
 	var epoch = Math.round((new Date()).getTime() / 1000);
-	if(epoch <= season43week1endtime){
+	if(epoch <= season45week1endtime){
 	currentweek = "Week1";
-  currentseason = "Season43";
-	currentendtime = season43week1endtime;
+  currentseason = "Season45";
+	currentendtime = season45week1endtime;
 	currentseasoncup = currentseasonweek1cup;
 	currentseasoncupname = currentseasonweek1cupname;
 	currentseasoncourses = currentseasonweek1courses;
-	} else if(epoch <= season43week2endtime){
+	} else if(epoch <= season45week2endtime){
 	currentweek = "Week2";
-  currentseason = "Season43";
-	currentendtime = season43week2endtime;
+  currentseason = "Season45";
+	currentendtime = season45week2endtime;
 	currentseasoncup = currentseasonweek2cup;
 	currentseasoncupname = currentseasonweek2cupname;
 	currentseasoncourses = currentseasonweek2courses;
 	} else if(epoch >= season43week2endtime){
 	currentweek = "Default";
   currentseason = "Default";
-  currentendtime = season43week2endtime;
+  currentendtime = season45week2endtime;
   currentseasoncup = seasondefaultweek2cup;
   currentseasoncupname = seasondefaultweek2cupname;
   currentseasoncourses = seasondefaultweek2courses;
@@ -302,25 +320,25 @@ function rankedCourses(){
        //KEEP IN MIND THESE ARE n-1
        if(currentweek == "Week1"){
        if(i == 0){
-
+        
        }
        if(i == 1){
 
        }
        if(i == 2){
-       currentcourse.moreGoodAt.Drivers.push("4");
+
        }
 
        }
        if(currentweek == "Week2"){
        if(i == 0){
-        currentcourse.moreGoodAt.Drivers.push("15");
-       }
-       if(i == 1){
 
        }
+       if(i == 1){
+        currentcourse.moreGoodAt.Drivers.push("159");
+       }
        if(i == 2){
-       currentcourse.moreGoodAt.Drivers.push("153");
+
        }
 
        }

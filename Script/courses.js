@@ -1576,6 +1576,7 @@ function specificchoicemade(t, type, rarity, item) {
             lvicon3.style.filter = "grayscale(0%)";
             panel.appendChild(lvicon3);
                 break;
+                case "5":
             let lockimg4 = document.createElement('img');
             lockimg4.src = `./Images/UI/lock.png`;
             lockimg4.className = 'courselockimgts';

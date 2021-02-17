@@ -35,6 +35,7 @@
     height: 87.5px;
     display: inline-block;
     -webkit-filter: grayscale(0%);
+    cursor: pointer;
 }
 
 .levelbtn {
