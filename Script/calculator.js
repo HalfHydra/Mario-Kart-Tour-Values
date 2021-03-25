@@ -196,7 +196,7 @@
             lviconinput.type = "number";
             lviconinput.value = "1";
             lviconinput.min = "1";
-            lviconinput.max = "6";
+            lviconinput.max = "7";
             lviconinput.addEventListener("change", function() { changelevel(calcpaneldateid)});
             panel.appendChild(lviconinput);
 

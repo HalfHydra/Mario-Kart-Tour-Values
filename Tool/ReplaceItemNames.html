@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<body background="./InfoPattern.png">
+</style>
+<div>
+    <div style="margin-top: 15px">
+        <p id="p1" class="paragraph1"></p><p id="p2" class="paragraph1">
+    </p></div>
+    <style type="text/css">
+textarea {
+ width: 410px; height: 250px; font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+p {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 20px; font-weight: bold;
+}
+    </style>
+  </select>
+
+    <p> Input Raw Course Data: </p>
+    <input type="file" id="inputrawjson" style="height: 30px;">
+    <p> </p>
+    <button onclick="replaceItemNames()">Replace Item Names</button>
+    <div id="nameInputs">
+
+    </div>
+    <p> </p>
+    <!--<textarea id="output" rows="20" cols="50"></textarea> -->
+    <script src="./FileSaver.js"></script>
+    <script src="./jszip.js"></script>
+    <script>
+        var itemNames = {};
+        var new_values = {};
+
+        var coursenames = {};
+        var courseimage = {};
+        var coursedata = {};
+
+        var missingItemNames = [];
+    function readTextFile(file, unit)
+         {
+             var rawFile = new XMLHttpRequest();
+             rawFile.open("GET", file, false);
+             rawFile.onreadystatechange = function ()
+             {
+                 if(rawFile.readyState === 4)
+                 {
+                     if(rawFile.status === 200 || rawFile.status == 0)
+                     {
+                         var allText = rawFile.responseText;
+                         switch(unit){
+                            case 1:
+                            new_values = JSON.parse(allText);
+                            break;
+                            case 2:
+                            itemNames = JSON.parse(allText);
+                            break;
+                            case 3:
+                            coursedata = JSON.parse(allText);
+                            break;
+                         }
+                     }
+                 }
+             }
+             rawFile.send(null);
+         }
+
+    function initItemNames(){
+        Object.keys(new_values).forEach(id => {
+            if(!new_values[id].nameEng.includes("item")){
+            let English = new_values[id].nameEng
+                itemNames[id] = English;
+            }
+            else{
+                itemNames[id] = "TEMP";
+            }
+        });
+    }
+
+    function replaceItemNames(){
+        let output = document.getElementById('nameInputs');
+
+        Object.keys(new_values).forEach(id => {
+            let name = new_values[id].itemTypeId;
+            name = name.substring(11);
+            console.log(name);
+            new_values[id].itemTypeId = name;
+
+            if(itemNames[id] != null){
+            new_values[id].nameEng = itemNames[id];
+            } else {
+            missingItemNames.push(id);
+
+            itemNames[id] = "TEMP";
+
+            let labelId = document.createElement('p');
+            labelId.innerHTML = id + ": ";
+            output.appendChild(labelId);
+
+            let inputName = document.createElement('input');
+            inputName.id = `nameInput${id}`;
+            //inputName
+            output.appendChild(inputName);
+
+            let breaker = document.createElement('p');
+            output.appendChild(breaker);
+            }
+        });
+            console.log(new_values);
+
+            let breaker = document.createElement('p');
+            output.appendChild(breaker);
+
+            let btn = document.createElement("button");
+            btn.innerHTML = "Add New Item Names";
+            btn.addEventListener('click', function() {
+            addMissingItemNames();
+            });
+            output.appendChild(btn);
+    }
+
+    function addMissingItemNames(){
+        missingItemNames.forEach((id,i)=>{
+            new_values[id].nameEng = document.getElementById(`nameInput${id}`).value;
+        });
+    }
+
+    function addCourseData(){
+        let courseinternalname = document.getElementById('xml').value;
+        let courseEngName = document.getElementById('english').value;
+
+        if(document.getElementById('type1').checked == true){
+            coursenames[courseinternalname] = courseEngName;
+
+            courseimage[courseinternalname] = courseinternalname.substring(courseinternalname.indexOf('G')) + "_BG"
+
+            coursedata[courseinternalname] = {};
+            coursedata[courseinternalname].ItemBoxes = "N/A";
+            coursedata[courseinternalname].DashPanels = "N/A";
+            coursedata[courseinternalname].JumpBoosts = "N/A";
+        }
+        if(document.getElementById('type2').checked == true){
+            console.log('2');
+            let modcourseinternalname = courseinternalname + "X";
+            coursenames[modcourseinternalname] = courseEngName;
+            let lastchar = parseInt(courseEngName.charAt(courseEngName.length-1));
+            coursenames[modcourseinternalname] += isNaN(lastchar) ? " T" : "T";
+
+            courseimage[modcourseinternalname] = courseinternalname.substring(courseinternalname.indexOf('G')) + "_BG"
+
+            coursedata[modcourseinternalname] = {};
+            coursedata[modcourseinternalname].ItemBoxes = "N/A";
+            coursedata[modcourseinternalname].DashPanels = "N/A";
+            coursedata[modcourseinternalname].JumpBoosts = "N/A";
+        }
+        if(document.getElementById('type3').checked == true){
+            console.log('3');
+            let modcourseinternalname = courseinternalname + "R";
+            coursenames[modcourseinternalname] = courseEngName;
+            let lastchar = parseInt(courseEngName.charAt(courseEngName.length-1));
+            coursenames[modcourseinternalname] += isNaN(lastchar) ? " R" : "R";
+
+            courseimage[modcourseinternalname] = courseinternalname.substring(courseinternalname.indexOf('G')) + "_BG"
+
+            coursedata[modcourseinternalname] = {};
+            coursedata[modcourseinternalname].ItemBoxes = "N/A";
+            coursedata[modcourseinternalname].DashPanels = "N/A";
+            coursedata[modcourseinternalname].JumpBoosts = "N/A";
+        }
+        if(document.getElementById('type4').checked == true){
+            console.log('4');
+            let modcourseinternalname = courseinternalname + "RX";
+            coursenames[modcourseinternalname] = courseEngName;
+            let lastchar = parseInt(courseEngName.charAt(courseEngName.length-1));
+            coursenames[modcourseinternalname] += isNaN(lastchar) ? " R/T" : "R/T";
+
+            courseimage[modcourseinternalname] = courseinternalname.substring(courseinternalname.indexOf('G')) + "_BG"
+
+            coursedata[modcourseinternalname] = {};
+            coursedata[modcourseinternalname].ItemBoxes = "N/A";
+            coursedata[modcourseinternalname].DashPanels = "N/A";
+            coursedata[modcourseinternalname].JumpBoosts = "N/A";
+        }
+
+        var zip = new JSZip();
+        var folder_season = zip.folder(`Mario-Kart-Tour-Values`);
+        var folder_data = folder_season.folder(`Data`);
+        var folder_image = folder_data.folder(`Images`);
+        var folder_courseimg = folder_image.folder(`Course Image`);
+
+        let coursenamesjson = JSON.stringify(coursenames, null, 2);
+        let courseimagejson = JSON.stringify(courseimage, null, 2);
+        let coursedatajson = JSON.stringify(coursedata, null, 2);
+
+        folder_data.file(`course_names.json`, coursenamesjson);
+        folder_data.file(`course_image.json`, courseimagejson);
+        folder_data.file(`course_data.json`, coursedatajson);
+
+        if(document.getElementById('type1').checked == true){
+        let course1name = courseinternalname;
+        let course1file = document.getElementById('course1').files[0];
+        folder_courseimg.file(`${course1name}.png`, course1file);
+        }
+
+        if(document.getElementById('type2').checked == true){
+        let course2name = courseinternalname + "X";
+        let course2file = document.getElementById('course2').files[0];
+        folder_courseimg.file(`${course2name}.png`, course2file);
+        }
+
+        if(document.getElementById('type3').checked == true){
+        let course3name = courseinternalname + "R";
+        let course3file = document.getElementById('course3').files[0];
+        folder_courseimg.file(`${course3name}.png`, course3file);
+        }
+
+        if(document.getElementById('type4').checked == true){
+        let course4name = courseinternalname + "RX";
+        let course4file = document.getElementById('course4').files[0];
+        folder_courseimg.file(`${course4name}.png`, course4file);
+        }
+
+        zip.generateAsync({type:"blob"})
+        .then(function(content) {
+            // Force down of the Zip file
+            saveAs(content, "UpdatedCourseData.zip");
+        });
+    }
+
+    function AddSwordSkill(){
+        var text = document.getElementById("xml").value + ",";
+        var arrayOfValues = text.split(",");
+        console.log(arrayOfValues);
+        /*for(var i =0;i<arrayOfLines.length;i++){
+            levelmodules.push(arrayOfLines[i]);
+        }*/
+
+    }
+
+    function AddSwordSkill2(){
+        var text = document.getElementById("xml").value + ",";
+        var arrayOfLines = text.split("\n");
+        console.log(arrayOfLines);
+        var name = [];
+        var coursename = [];
+        var courseinternal = [];
+        var type = [];
+        var promotionLevel = [];
+        for(var i =0;i<arrayOfLines.length;i++){
+            var splitValues = arrayOfLines[i].split(",");
+            name.push(splitValues[0]);
+            coursename.push(splitValues[1]);
+            courseinternal.push(splitValues[2]);
+            type.push(splitValues[4]);
+            promotionLevel.push(splitValues[5]);
+        }
+        var currentname = "";
+        var currenttype = "";
+        console.log(values);
+        for(var i =0;i<arrayOfLines.length;i++){
+            if(name[i] != currentname){
+                currentname = name[i];
+                document.getElementById("output").value += "[" + currentname + "]\n";
+            }
+            if(type[i] != currenttype){
+                currenttype = type[i];
+                document.getElementById("output").value += "[" + currenttype + "]\n";
+            }
+            document.getElementById("output").value += "      {\n        \"name\": \"" + courseinternal[i] + "\",\n        \"promotionLevel\": " + promotionLevel[i] + "\n      },\n";
+            Object.keys(values).forEach((t)=>{
+                if(values[t].nameEng == currentname){
+                    var next = values[t];
+                    console.log(next[currenttype]);
+                    var addedObj = JSON.parse(`{ "name":"${courseinternal[i]}" , "promotionLevel":${promotionLevel[i]} }`);
+                    next[currenttype].push(addedObj);
+                    //values[t].currenttype[values[t].currenttype.push(currentname);
+                    // values[t].currenttype[values[t].currenttype.push(promotionLevel[i]);
+                }
+            });
+        }
+        console.log(values);
+        downloadsavedata();
+
+    }
+
+    function downloadsavedata() {
+    var data = JSON.stringify(values, null, 2);
+    var filename = "MKTVUpdatedTour.json";
+    var type = "text";
+    var a = document.createElement("a")
+      , file = new Blob([data],{
+        type: type
+    });
+    if (window.navigator.msSaveOrOpenBlob)
+        // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else {
+        // Others
+        var url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
+}
+
+document.getElementById('inputrawjson').addEventListener('change', function() {
+    var filename = this.files[0].name;
+    readTextFile(`../Data/${filename}`, 1);
+    console.log(filename);
+});
+
+         //readTextFile("./MarioTourCourses.json", 1);
+         readTextFile("./itemNames.json", 2);
+         //readTextFile("./course_data.json", 3);
+
+    </script>
+    <style>
+        p {
+            color: Blue;
+        }
+        .paragraph1 {
+            font-size: 12px;
+             font-family: Verdana, Arial, Helvetica, sans-serif;
+            line-height: 2px;
+        }
+        .paragraph2 {
+            font-size: 13px;
+             font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+    </style>
+</body></html>

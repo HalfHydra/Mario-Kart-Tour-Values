@@ -436,6 +436,9 @@
             <h4 style="display:inline-block;margin-bottom: 0px;">Download Values Data [Reformatted]</h4>
             <button onclick="downloadcoursejson(2)" style="vertical-align:middle;margin-left: 10px;margin-top: -3px;width: auto;height: 30px;">Download</button>
          </div>
+         <div style="text-align: center">
+          <img id='tdl' src="./Images/Usage Guide/ToDoList.png" style="">
+         </div>
          <h3 style="font-family: tour;font-size: 20px;text-align: center;margin-left: 10px;margin-bottom: 0px;">Credits</h3>
          <div style="text-align: center;width: 600px;margin: 0 auto;">
          <h4 style="display:inline-block;text-align:center;margin-bottom: 30px;font-size: 20px;">Special Thanks to tryso and spotlight for assisting in providing the jsons initially. Additional thanks to demogorgon, hack_nug, and Ampere for some suggestions. And lastly, HUGE THANKS to everyone who helped me test this out and provide feedback, as well as how to make the design more accurate to the game.</h4>
@@ -493,7 +496,8 @@
          //readTextFile("./Data/1st_anniversary_tour_preferred_courses.json", 1);
          //readTextFile("./Data/1st_anniversary_tour_courses_v2.6.0_update.json", 1);
          //readTextFile("./Data/halloween_tour_courses_v2.6.0_update_hh.json", 1);
-         readTextFile("./Data/Peach_vs_Daisy_Tour_Courses.json", 1);
+         readTextFile("./Data/Yoshi_Tour_2021_Courses_New_Format.json", 1);
+         generateArrays();
          readTextFile("./Data/course_names.json", 2);
          readTextFile("./Data/course_image.json", 3);
          convertToUsable();

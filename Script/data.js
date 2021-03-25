@@ -81,7 +81,7 @@ let makeDataFields = ()=>{
         });
         field.appendChild(itemenabledbox);
 
-        for (let k = 0; k < 6; ++k) {
+        for (let k = 0; k < 7; ++k) {
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
@@ -189,7 +189,7 @@ let makeDataFields = ()=>{
         });
         field.appendChild(itemenabledbox);
 
-        for (let k = 0; k < 6; ++k) {
+        for (let k = 0; k < 7; ++k) {
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
@@ -297,7 +297,7 @@ let makeDataFields = ()=>{
         });
         field.appendChild(itemenabledbox);
 
-        for (let k = 0; k < 6; ++k) {
+        for (let k = 0; k < 7; ++k) {
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
@@ -421,6 +421,7 @@ function changeLevel(item, level, type) {
         document.getElementById(`datafield${item}num4`).className = 'numberbtn';
         document.getElementById(`datafield${item}num5`).className = 'numberbtn';
         document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
         switch (type) {
         case 1:
             savedata.Items.Drivers[item] = '1';
@@ -441,6 +442,7 @@ function changeLevel(item, level, type) {
         document.getElementById(`datafield${item}num4`).className = 'numberbtn';
         document.getElementById(`datafield${item}num5`).className = 'numberbtn';
         document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
         switch (type) {
         case 1:
             savedata.Items.Drivers[item] = '2';
@@ -461,6 +463,7 @@ function changeLevel(item, level, type) {
         document.getElementById(`datafield${item}num4`).className = 'numberbtn';
         document.getElementById(`datafield${item}num5`).className = 'numberbtn';
         document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
         switch (type) {
         case 1:
             savedata.Items.Drivers[item] = '3';
@@ -481,6 +484,7 @@ function changeLevel(item, level, type) {
         document.getElementById(`datafield${item}num4`).className = 'numberbtnselected';
         document.getElementById(`datafield${item}num5`).className = 'numberbtn';
         document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
         switch (type) {
         case 1:
             savedata.Items.Drivers[item] = '4';
@@ -501,6 +505,7 @@ function changeLevel(item, level, type) {
         document.getElementById(`datafield${item}num4`).className = 'numberbtn';
         document.getElementById(`datafield${item}num5`).className = 'numberbtnselected';
         document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
         switch (type) {
         case 1:
             savedata.Items.Drivers[item] = '5';
@@ -521,6 +526,7 @@ function changeLevel(item, level, type) {
         document.getElementById(`datafield${item}num4`).className = 'numberbtn';
         document.getElementById(`datafield${item}num5`).className = 'numberbtn';
         document.getElementById(`datafield${item}num6`).className = 'numberbtnselected';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
         switch (type) {
         case 1:
             savedata.Items.Drivers[item] = '6';
@@ -530,6 +536,27 @@ function changeLevel(item, level, type) {
             break;
         case 3:
             savedata.Items.Gliders[item] = '6';
+            break;
+        }
+        break;
+    case 7:
+        document.getElementById(`data_levelnumber${item}`).src = "./Images/UI/7.png";
+        document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtnselected';
+        switch (type) {
+        case 1:
+            savedata.Items.Drivers[item] = '7';
+            break;
+        case 2:
+            savedata.Items.Karts[item] = '7';
+            break;
+        case 3:
+            savedata.Items.Gliders[item] = '7';
             break;
         }
         break;

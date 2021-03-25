@@ -90,10 +90,7 @@ var season43week1courses = ["New_Gmob_Berlin2","Classic_Gn64_KalimariDesert2R","
 var season43week2cup = "King Boo";
 var season43week2cupname = "King Boo Cup";
 var season43week2endtime = season43week1endtime + 604800;
-<<<<<<< Updated upstream
 var season43week2courses = ["Classic_Gds_KillerShip","New_Gmob_Berlin2X","Classic_Gsfc_KoopaTroopaBeach2X"];
-=======
-var season43week2courses = ["Classic_Gds_KillerShip","New_Gmob_Berlin2T","Classic_Gsfc_KoopaTroopaBeach2X"];
 //Season 44
 var season44week1endtime = season43week2endtime + 604800;
 var season44week2endtime = season44week1endtime + 604800;
@@ -107,8 +104,6 @@ var season45week2cup = "Daisy";
 var season45week2cupname = "Daisy Cup";
 var season45week2endtime = season45week1endtime + 604800;
 var season45week2courses = ["Remix_Grsfc_ChocoIsland2X","Classic_G3ds_DaisyHillsX","Classic_Gsfc_ChocoIsland1R"];
-
->>>>>>> Stashed changes
 //Current Season
 var currentseason = "Season45";
 var currentweek = "Week1";

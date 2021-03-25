@@ -1008,5 +1008,50 @@
     "ItemBoxes": "N/A",
     "DashPanels": "N/A",
     "JumpBoosts": "N/A"
+  },
+  "New_Gmob_Tokyo4": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "New_Gmob_Tokyo4X": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "New_Gmob_Tokyo4R": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "New_Gmob_Tokyo4RX": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "Classic_Gn64_PeachCircuitRX": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "Classic_Gsfc_DonutsPlain2RX": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "Classic_Gwii_DKSummit": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "Classic_Gwii_DKSummitX": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
+  },
+  "Classic_Gwii_DKSummitR": {
+    "ItemBoxes": "N/A",
+    "DashPanels": "N/A",
+    "JumpBoosts": "N/A"
   }
 }

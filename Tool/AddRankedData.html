@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<body background="./InfoPattern.png">
+</style>
+<div>
+    <div style="margin-top: 15px">
+        <p id="p1" class="paragraph1"></p><p id="p2" class="paragraph1">
+    </p></div>
+    <style type="text/css">
+textarea {
+ width: 410px; height: 250px; font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+p {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 20px; font-weight: bold;
+}
+	</style>
+  </select>
+
+    <p> Input Ranked Data: </p>
+    <!--<textarea id="xml" rows="20" cols="50"></textarea>--> 
+    <p> </p>
+    <label for="seasonnum">Season number:</label>
+    <textarea id="seasonnum" style="width: 50px; height: 15px;"></textarea> 
+     <p> Week 1 </p>
+    <!--<button onclick="AddSwordSkill()">Add Sword Skill</button>-->
+    <label for="course1">Select course 1:</label>
+<input type="file" id="course1" name="course1">
+<label for="course2">Select course 2:</label>
+<input type="file" id="course2" name="course2">
+<label for="course3">Select course 3:</label>
+<input type="file" id="course3" name="course3">
+<p> </p>
+<textarea id="course1name" style="width: 350px; height: 25px;"></textarea> 
+<textarea id="course2name" style="width: 350px; height: 25px;"></textarea> 
+<textarea id="course3name" style="width: 350px; height: 25px;"></textarea> 
+<p> </p>
+<p> Week 2 </p>
+    <!--<button onclick="AddSwordSkill()">Add Sword Skill</button>-->
+    <label for="course1w2">Select course 1:</label>
+<input type="file" id="course1w2" name="course1">
+<label for="course2w2">Select course 2:</label>
+<input type="file" id="course2w2" name="course2w2">
+<label for="course3w2">Select course 3:</label>
+<input type="file" id="course3w2" name="course3w2">
+<p> </p>
+<textarea id="course1namew2" style="width: 350px; height: 25px;"></textarea> 
+<textarea id="course2namew2" style="width: 350px; height: 25px;"></textarea> 
+<textarea id="course3namew2" style="width: 350px; height: 25px;"></textarea> 
+<p> </p>
+    <button onclick="generateZip()">Add Ranked Data</button>
+    <p> </p>
+    <!--<textarea id="output" rows="20" cols="50"></textarea> -->
+    <script src="./FileSaver.js"></script>
+    <script src="./jszip.js"></script>
+    <script>
+    function generateZip(){
+        var zip = new JSZip();
+        var seasonnum = document.getElementById('seasonnum').value;
+        var folder_season = zip.folder(`Season${seasonnum}`);
+        var folder_week1 = folder_season.folder(`Week1`);
+        var folder_week2 = folder_season.folder(`Week2`);
+
+        let course1name = document.getElementById('course1name').value;
+        let course1file = document.getElementById('course1').files[0];
+        folder_week1.file(`${course1name}.png`, course1file);
+        //folder_week1.file(`${course1name}.png`, imgData, {base64: true});
+
+        let course2name = document.getElementById('course2name').value;
+        let course2file = document.getElementById('course2').files[0];
+        folder_week1.file(`${course2name}.png`, course2file);
+
+        let course3name = document.getElementById('course3name').value;
+        let course3file = document.getElementById('course3').files[0];
+        folder_week1.file(`${course3name}.png`, course3file);
+
+        let course1namew2 = document.getElementById('course1namew2').value;
+        let course1filew2 = document.getElementById('course1w2').files[0];
+        folder_week2.file(`${course1namew2}.png`, course1filew2);
+        //folder_week1.file(`${course1name}.png`, imgData, {base64: true});
+
+        let course2namew2 = document.getElementById('course2namew2').value;
+        let course2filew2 = document.getElementById('course2w2').files[0];
+        folder_week2.file(`${course2namew2}.png`, course2filew2);
+
+        let course3namew2 = document.getElementById('course3namew2').value;
+        let course3filew2 = document.getElementById('course3w2').files[0];
+        folder_week2.file(`${course3namew2}.png`, course3filew2);
+
+        zip.generateAsync({type:"blob"})
+        .then(function(content) {
+            // Force down of the Zip file
+            saveAs(content, "archive.zip");
+        });
+    }
+
+    </script>
+    <style>
+        p {
+            color: Blue;
+        }
+        .paragraph1 {
+            font-size: 12px;
+             font-family: Verdana, Arial, Helvetica, sans-serif;
+            line-height: 2px;
+        }
+        .paragraph2 {
+            font-size: 13px;
+             font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+    </style>
+</body></html>

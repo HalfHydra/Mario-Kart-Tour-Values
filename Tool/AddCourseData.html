@@ -13,7 +13,7 @@ textarea {
 p {
     font-family: Helvetica Neue,Helvetica,Arial,sans-serif; font-size: 20px; font-weight: bold;
 }
-	</style>
+    </style>
   </select>
 
     <p> Input New Course: </p>
@@ -142,7 +142,7 @@ p {
         var folder_season = zip.folder(`Mario-Kart-Tour-Values`);
         var folder_data = folder_season.folder(`Data`);
         var folder_image = folder_data.folder(`Images`);
-        var folder_courseimage = folder_image.folder(`Course Image`);
+        var folder_courseimg = folder_image.folder(`Course Image`);
 
         let coursenamesjson = JSON.stringify(coursenames, null, 2);
         let courseimagejson = JSON.stringify(courseimage, null, 2);
@@ -152,22 +152,29 @@ p {
         folder_data.file(`course_image.json`, courseimagejson);
         folder_data.file(`course_data.json`, coursedatajson);
 
+        if(document.getElementById('type1').checked == true){
         let course1name = courseinternalname;
         let course1file = document.getElementById('course1').files[0];
         folder_courseimg.file(`${course1name}.png`, course1file);
-        //folder_week1.file(`${course1name}.png`, imgData, {base64: true});
+        }
 
+        if(document.getElementById('type2').checked == true){
         let course2name = courseinternalname + "X";
         let course2file = document.getElementById('course2').files[0];
         folder_courseimg.file(`${course2name}.png`, course2file);
+        }
 
+        if(document.getElementById('type3').checked == true){
         let course3name = courseinternalname + "R";
         let course3file = document.getElementById('course3').files[0];
         folder_courseimg.file(`${course3name}.png`, course3file);
+        }
 
+        if(document.getElementById('type4').checked == true){
         let course4name = courseinternalname + "RX";
         let course4file = document.getElementById('course4').files[0];
         folder_courseimg.file(`${course4name}.png`, course4file);
+        }
 
         zip.generateAsync({type:"blob"})
         .then(function(content) {
@@ -257,9 +264,9 @@ p {
     }
 }
 
-         readTextFile("./course_names.json", 1);
-         readTextFile("./course_image.json", 2);
-         readTextFile("./course_data.json", 3);
+         readTextFile("../Data/course_names.json", 1);
+         readTextFile("../Data/course_image.json", 2);
+         readTextFile("../Data/course_data.json", 3);
 
     </script>
     <style>
