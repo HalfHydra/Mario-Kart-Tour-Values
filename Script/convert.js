@@ -5,6 +5,9 @@ function convertToUsable() {
 	Object.keys(values).forEach((t,i)=>{
 		convertedData[t] = {};
 		convertedData[t].nameEng = values[t].nameEng;
+		convertedData[t].rarityId = values[t].rarityId;
+		convertedData[t].itemTypeId = values[t].itemTypeId;
+		convertedData[t].sortId = values[t].sortId;
 		convertedData[t].moreGoodAt = [];
 		convertedData[t].goodAt = [];
 		convertedData[t].unlock3 = [];

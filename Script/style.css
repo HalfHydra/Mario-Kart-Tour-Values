@@ -1524,3 +1524,456 @@ h4 {
     margin-top: -37px;
     margin-left: -725px;
 }
+
+.fadeinpipe {
+  animation: fadeinpipe 2.5s;
+      -webkit-animation: fadeinpipe 2.5s;
+      width:100%; height:100%;
+}
+@keyframes fadeinpipe {
+     0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.layeronepipe {
+  animation: layeronepipe 0.5s;
+  -webkit-animation: layeronepipe 0.5s;
+  /*width:100%; height:100%;*/
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  margin-left: -800px;
+  display:block
+  opacity:0.9;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes layeronepipe {
+     0% {
+      transform: scale(0.1, 0.1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+}
+
+.highlightpipeSUPER {
+  animation: highlightpipe 0.5s;
+  -webkit-animation: highlightpipe 0.5s;
+  /*width:100%; height:100%;*/
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  margin-top: 250px;
+  margin-left: -550px;
+  display:block;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes highlightpipe {
+     0% {
+      transform: scale(0.1, 0.1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+}
+
+.highlightpipeHIGHEND {
+  animation: highlightpipe 0.1s;
+  -webkit-animation: highlightpipe 0.1s;
+  /*width:100%; height:100%;*/
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  margin-top: -750px;
+  margin-left: 150px;
+  display:block;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes highlightpipe {
+     0% {
+      transform: scale(0.5, 0.5);
+    }
+    100% {
+      transform: scale(2.5, 2.5);
+    }
+}
+
+.highlightpipespinHIGHEND {
+  animation: highlightspin 2.0s;
+  -webkit-animation: highlightspin 2.0s;
+  /*width:100%; height:100%;*/
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  margin-top: -700px;
+  margin-left: 150px;
+  display:block;
+  opacity: 0.95;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes highlightspin {
+     0% {
+      transform: scale(2.0, 2.0);
+    }
+    50% {
+      transform: scale(2.3, 2.3);
+    }
+    100% {
+      transform: scale(2.0, 2.0);
+    }
+}
+
+.itemPipe {
+  animation: itemPipe 0.3s;
+  -webkit-animation: itemPipe 0.3s;
+  position: absolute;
+  object-fit: contain;
+      width: 400px;
+    height: 400px;
+    margin-top: -750px;
+  margin-left: 110px;
+  display:block;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes itemPipe {
+    0% {
+      opacity: 0;
+      transform: scale(0.8, 0.8);
+    }
+    50%{
+        opacity: 1;
+    }
+    80% {
+      transform: scale(1.1, 1.1);
+    }
+    90% {
+      transform: scale(0.9, 0.9);
+    }
+    100%{
+        transform: scale(1.0, 1.0);
+    }
+}
+
+.gotIt {
+  display:block;
+  animation: gotIt 0.3s;
+  -webkit-animation: gotIt 0.3s;
+  position: absolute;
+  margin-left: 100px;
+  top: 150px;
+  width: 400px;
+  height: auto;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes gotIt {
+    0% {
+      opacity: 0;
+      transform: scale(0.7, 0.7);
+    }
+    70%{
+        opacity: 1;
+        transform: scale(1.2, 1.2);
+    }
+    85% {
+      transform: scale(1.3, 1.3);
+    }
+    100%{
+        transform: scale(1.0, 1.0);
+    }
+}
+.gotItLoop {
+  display:block;
+  animation: gotItLoop 0.7s;
+  -webkit-animation: gotItLoop 0.7s;
+  position: absolute;
+  margin-left: 100px;
+  top: 150px;
+  width: 400px;
+  height: auto;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes gotItLoop {
+    0% {
+      transform: scale(1.0, 1.0);
+    }
+    50%{
+        transform: scale(0.95, 0.95);
+    }
+    100%{
+        transform: scale(1.0, 1.0);
+    }
+}
+
+.messageBox {
+  display:block;
+  width: 563px;
+  height: 250px;
+  animation: messageBox 0.3s;
+  -webkit-animation: messageBox 0.3s;
+  position: relative;
+  margin-left: 11px;
+  bottom: 150px;
+  opacity: 1;
+  pointer-events: none;
+}
+@keyframes messageBox {
+    0% {
+      opacity: 0;
+      transform: scale(1.2, 1.2);
+    }
+    40%{
+        opacity: 0.7;
+    }
+    70% {
+      transform: scale(0.9, 0.9);
+    }
+    100%{
+        transform: scale(1.0, 1.0);
+    }
+}
+
+.gotItEffect0 {
+    display:block;
+    position: absolute;
+    top:400px;
+    left: 175px;
+    animation: gotItEffect 0.7s;
+    -webkit-animation: gotItEffect 0.7s;
+    animation-fill-mode: forwards; 
+    pointer-events: none;
+}
+@keyframes gotItEffect {
+    0% {
+    opacity: 0;
+    transform: scale(0.01, 0.01);
+    }
+    1% {
+        opacity: 0.5;
+        transform: scale(0.5, 0.5);
+    }
+    100%{
+        transform: scale(3.0, 3.0);
+        opacity: 0;
+    }
+}
+.messageBoxBG {
+  display:block;
+  position: absolute;
+  width: 563px;
+  height: 250px;
+  margin-left: 12px;
+  margin-top: -150px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+.messageBoxBar {
+  display:block;
+  position: absolute;
+  width: 563px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: -154px;
+  pointer-events: none;
+  opacity: 1;
+}
+.messageBoxItem {
+  display:block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: -20px;
+  pointer-events: none;
+  opacity: 1;
+}
+.messageBoxNameLabel {
+  display:block;
+  position: absolute;
+  width: 525px;
+  height: 50px;
+  margin-left: 30px;
+  margin-top: -135px;
+  text-align: center;
+  font-size: 36px;
+  font-family: headername;
+  color: white;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.messageBoxItemNameLabel {
+  display:block;
+  position: absolute;
+  width: 375px;
+  height: 50px;
+  margin-left: 170px;
+  margin-top: -40px;
+  text-align: left;
+  font-size: 20px;
+  font-family: headername;
+  color: white;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.messageBoxItemDescLabel {
+  display:block;
+  position: absolute;
+  width: 375px;
+  height: 50px;
+  margin-left: 170px;
+  margin-top: 5px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 29px;
+  font-family: headername2;
+  color: white;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.spinslow {
+  animation: spinslow 25.5s;
+  -webkit-animation: spinslow 25.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes spinslow {
+     0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+.spinslowback {
+  animation: spinslowback 25.5s;
+  -webkit-animation: spinslowback 25.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; 
+  pointer-events: none;
+}
+@keyframes spinslowback {
+     0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+}
+
+.PipeGradient {
+    pointer-events: none;
+    opacity: 0.95;
+    width: 608px;
+    height: 1080px;
+    user-select: none;
+}
+
+.resultBG {
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    width: 608px;
+    height: 1080px;
+    margin-top: -1330px;
+    user-select: none;
+    animation: resultBG 0.2s;
+    -webkit-animation: resultBG 0.2s;
+    animation-fill-mode: forwards; 
+    opacity: 1;
+}
+@keyframes resultBG {
+    0% {
+    opacity: 0;
+    }
+    100%{
+    opacity: 1;
+    }
+}
+
+
+.itemList {
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    width: 608px;
+    height: 1080px;
+    margin-top: -1330px;
+    user-select: none;
+    animation: itemList 1.5s;
+    -webkit-animation: itemList 1.5s;
+    animation-fill-mode: forwards; 
+    opacity: 1;
+}
+@keyframes itemList {
+    0%{
+    opacity: 0;
+    }
+    50% {
+    opacity: 0;
+    }
+    100%{
+    opacity: 1;
+    }
+}
+
+.itemListPanel {
+    display: inline-block;
+    position: absolute;
+    pointer-events: none;
+    width: 608px;
+    height: 608px;
+    margin-top: -1150px;
+    margin-left: 80px;
+    animation: itemList 1.5s;
+    -webkit-animation: itemList 1.5s;
+    animation-fill-mode: forwards; 
+    opacity: 1;
+}
+
+.panelNewIcon {
+    width: 23px;
+    height: auto;
+    margin-top: -2px;
+    margin-left: -2px;
+    position: absolute;
+    z-index: 11;
+}
+.ckgpanelpipe {
+    width: 135px;
+    height: 175px;
+    margin-left: 6px;
+    display: inline-block;
+    cursor: pointer;
+    transform: scale(1.85);
+}
+
+.panelAmount {
+    width: 18px;
+    height: 20px;
+    position: absolute;
+    margin-top: 66px;
+    margin-left: 49px;
+    z-index: 15;
+}
