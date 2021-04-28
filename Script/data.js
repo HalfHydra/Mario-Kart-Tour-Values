@@ -193,7 +193,7 @@ let makeDataFields = ()=>{
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
-                changeLevel(t, k + 1, 1);
+                changeLevel(t, k + 1, 2);
             });
 
             let numberbtn = document.createElement('img');
@@ -301,7 +301,7 @@ let makeDataFields = ()=>{
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
-                changeLevel(t, k + 1, 1);
+                changeLevel(t, k + 1, 3);
             });
 
             let numberbtn = document.createElement('img');
