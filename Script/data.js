@@ -72,16 +72,16 @@ let makeDataFields = ()=>{
         let numbers = document.createElement('div');
         numbers.className = 'numberpanel';
 
-        let itemenabledbox = document.createElement(`input`);
+        /*let itemenabledbox = document.createElement(`input`);
         itemenabledbox.type = "checkbox";
         itemenabledbox.id = `itemenabledbox${t}`;
         itemenabledbox.className = 'itemenabledbox';
         itemenabledbox.addEventListener('click', function() {
             enableItem(t, 1);
         });
-        field.appendChild(itemenabledbox);
+        field.appendChild(itemenabledbox);*/
 
-        for (let k = 0; k < 7; ++k) {
+        for (let k = -1; k < 7; ++k) {
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
@@ -180,20 +180,20 @@ let makeDataFields = ()=>{
         let numbers = document.createElement('div');
         numbers.className = 'numberpanel';
 
-        let itemenabledbox = document.createElement(`input`);
+        /*let itemenabledbox = document.createElement(`input`);
         itemenabledbox.type = "checkbox";
         itemenabledbox.id = `itemenabledbox${t}`;
         itemenabledbox.className = 'itemenabledbox';
         itemenabledbox.addEventListener('click', function() {
             enableItem(t, 2);
         });
-        field.appendChild(itemenabledbox);
+        field.appendChild(itemenabledbox);*/
 
-        for (let k = 0; k < 7; ++k) {
+        for (let k = -1; k < 7; ++k) {
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
-                changeLevel(t, k + 1, 2);
+                changeLevel(t, k + 1, 1);
             });
 
             let numberbtn = document.createElement('img');
@@ -288,20 +288,20 @@ let makeDataFields = ()=>{
         let numbers = document.createElement('div');
         numbers.className = 'numberpanel';
 
-        let itemenabledbox = document.createElement(`input`);
+        /*let itemenabledbox = document.createElement(`input`);
         itemenabledbox.type = "checkbox";
         itemenabledbox.id = `itemenabledbox${t}`;
         itemenabledbox.className = 'itemenabledbox';
         itemenabledbox.addEventListener('click', function() {
             enableItem(t, 3);
         });
-        field.appendChild(itemenabledbox);
+        field.appendChild(itemenabledbox);*/
 
-        for (let k = 0; k < 7; ++k) {
+        for (let k = -1; k < 7; ++k) {
             let levelbtn = document.createElement('div');
             levelbtn.className = "levelbtn";
             levelbtn.addEventListener('click', function() {
-                changeLevel(t, k + 1, 3);
+                changeLevel(t, k + 1, 1);
             });
 
             let numberbtn = document.createElement('img');
@@ -400,6 +400,7 @@ function changeLevel(item, level, type) {
     if(!isDataEntered){
         isDataEntered = true;
     }
+
     switch (type) {
     case 1:
         document.getElementById(`invcharpanel${item}`).className = "datackgpanelenabled"
@@ -411,8 +412,67 @@ function changeLevel(item, level, type) {
         document.getElementById(`invgliderpanel${item}`).className = "datackgpanelenabled"
         break;
     }
-    document.getElementById(`itemenabledbox${item}`).checked = true;
+
+    if(level == 0){
+        switch (type) {
+    case 1:
+        document.getElementById(`invcharpanel${item}`).className = "datackgpanel";
+        document.getElementById(`invcharpanel${item}`).className = "datackgpanel"
+            document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+            document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+            document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+            document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+            document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+            document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+            document.getElementById(`data_levelnumber${item}`).src = "./Images/UI/0.png";
+        break
+    case 2:
+        document.getElementById(`invkartpanel${item}`).className = "datackgpanel";
+        break;
+    case 3:
+        document.getElementById(`invgliderpanel${item}`).className = "datackgpanel";
+        break;
+    }
+    }
+    //document.getElementById(`itemenabledbox${item}`).checked = true;
     switch (level) {
+    case 0:
+        switch (type) {
+        case 1:
+            delete savedata.Items.Drivers[item];
+        document.getElementById(`datafield${item}num0`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
+            break;
+        case 2:
+            delete savedata.Items.Karts[item];
+        document.getElementById(`datafield${item}num0`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
+            break;
+        case 3:
+            delete savedata.Items.Gliders[item];
+        document.getElementById(`datafield${item}num0`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num1`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num2`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num3`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num4`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num5`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num6`).className = 'numberbtn';
+        document.getElementById(`datafield${item}num7`).className = 'numberbtn';
+            break;
+        }
+    break;
     case 1:
         document.getElementById(`data_levelnumber${item}`).src = "./Images/UI/1.png";
         document.getElementById(`datafield${item}num1`).className = 'numberbtnselected';
