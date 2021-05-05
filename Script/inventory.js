@@ -401,7 +401,7 @@ else {
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newCharacterModal';
-        newCharacter.src = `./Images/Full Icon/Character/` + item + `.png`;
+        newCharacter.src = `./Images/ItemIcon/` + item + `.png`;
         characterpanel.appendChild(newCharacter);
 
         let charaitem = document.createElement('img');
@@ -795,7 +795,7 @@ let makeKarts = ()=>{
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newKart';
-        newCharacter.src = `./Images/Kart Icon/${t}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
@@ -938,7 +938,7 @@ function invKart(selected, i) {
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newKart';
-        newCharacter.src = `./Images/Kart Icon/${item}.png`;
+        newCharacter.src = `./Images/ItemIcon/${item}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
@@ -1169,7 +1169,7 @@ else {
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newKartModal';
-        newCharacter.src = `./Images/Kart Icon/` + item + `.png`;
+        newCharacter.src = `./Images/ItemIcon/` + item + `.png`;
         characterpanel.appendChild(newCharacter);
 
         let charaitem = document.createElement('img');
@@ -1551,7 +1551,7 @@ let makeGliders = ()=>{
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGlider';
-        newCharacter.src = `./Images/Glider Icon/${t}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
@@ -1690,7 +1690,7 @@ function invGlider(selected, i) {
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGlider';
-        newCharacter.src = `./Images/Full Icon/Glider/${item}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
@@ -1922,7 +1922,7 @@ else {
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGliderModal';
-        newCharacter.src = `./Images/Full Icon/Glider/` + item + `.png`;
+        newCharacter.src = `./Images/ItemIcon/${item}.png`;
         characterpanel.appendChild(newCharacter);
 
         let charaitem = document.createElement('img');

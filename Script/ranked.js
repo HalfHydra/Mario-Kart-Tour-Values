@@ -839,7 +839,7 @@ function rankedCourses(){
               break;
               case 2:
               newItem.className = 'newGlider';
-              newItem.src = `./Images/Glider Icon/${t}.png`;
+              newItem.src = `./Images/ItemIcon/${t}.png`;
               break;
        }
         panel.appendChild(newItem);

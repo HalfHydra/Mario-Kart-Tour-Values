@@ -1,14 +1,283 @@
+//actualPipeSimulator
+
+let pipeData = {};
+
+function generatePipes(){
+    document.getElementById('pickingStage').innerHTML = "";
+    Object.keys(pipeData.Pipes).forEach((t,i)=>{
+
+        let bannerdiv = document.createElement('div');
+            bannerdiv.id = `banner_${t}`;
+            bannerdiv.className = `pipebanner-content`;
+
+        var namepanel = document.createElement('div');
+        namepanel.className = 'namepanelpipe';
+        bannerdiv.appendChild(namepanel);
+
+        let toptext = document.createElement('p');
+        toptext.innerHTML = pipeData.Pipes[t].Name;
+        toptext.className = 'toptextpipe';
+        bannerdiv.appendChild(toptext);
+
+        var banner = document.createElement('img');
+        banner.src = pipeData.Pipes[t].Icon;
+        banner.className = 'bannerpipe';
+        bannerdiv.appendChild(banner);
+
+        var fire1 = document.createElement('img');
+        fire1.src = "./Images/Pipe/Banner/Fire1.png";
+        fire1.className = 'fire1pipe';
+        fire1.addEventListener('click', function() {
+            generatePull(t, 1);
+        });
+        bannerdiv.appendChild(fire1);
+
+        var fire10 = document.createElement('img');
+        fire10.src = "./Images/Pipe/Banner/Fire10.png";
+        fire10.className = 'fire1pipe';
+        fire10.addEventListener('click', function() {
+            generatePull(t, 10);
+        });
+        bannerdiv.appendChild(fire10);
+
+        var pipetxt = document.createElement('p');
+        pipetxt.id = `remaining_${t}`
+        pipetxt.className = 'pipetxt';
+        pipetxt.innerHTML = `Remaining: ${pipeData.Pipes[t].InitialAmount} / ${pipeData.Pipes[t].InitialAmount}`;
+        bannerdiv.appendChild(pipetxt);
+
+
+        document.getElementById('pickingStage').appendChild(bannerdiv);
+
+        }
+        );
+
+}
+
+function generatePull(pipeId, pullTimes){
+if(savedata.Pipes == null){
+    savedata.Pipes = {};
+}
+if(savedata.Pipes[pipeId] == null){
+    savedata.Pipes[pipeId] = {};
+    savedata.Pipes[pipeId].itemCount = pipeData.Pipes[pipeId].InitialAmount;
+    savedata.Pipes[pipeId].Spotlights = pipeData.Pipes[pipeId].Spotlights;
+    savedata.Pipes[pipeId].Items = pipeData.Pipes[pipeId].Items;
+}
+
+resultsPipeIds = [];
+currentMultiPipeIds.splice(0, currentMultiPipeIds.length);
+
+//0 = S HE D
+//1 = S HE K
+//2 = S HE G
+//3 = HE D
+//4 = HE K
+//5 = HE G
+//6 = S S D
+//7 = S S K
+//8 = S S G
+//9 = S D
+//10 = S K
+//11 = S G
+//12 = S N D
+//13 = S N K
+//14 = S N G
+//15 = N D
+//16 = N K
+//17 = N G
+
+for(let i = 0; i<pullTimes;i++){
+    console.log(`BEGIN AT [${i}]`)
+    let currentPipe = [];
+    let itemAmountsCurrent = savedata.Pipes[pipeId].Items;
+    itemAmountsCurrent.forEach((t, i) => {
+        for(let x = 0; x<t; x++){
+            currentPipe.push(i);
+        }
+    });
+    console.log(savedata);
+
+    let pulledItem = currentPipe[Math.floor(Math.random() * currentPipe.length)];
+    console.log("[PulledItem] = " + pulledItem);
+    let notValid;
+    let pool;
+    let randomItem;
+    let spotlightItem;
+    let currentSpotlightPool = [];
+
+    savedata.Pipes[pipeId].itemCount -= 1;
+    console.log(savedata);
+    switch(pulledItem){
+        case 0: // S HE D
+            savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+            currentSpotlightPool = [];
+            savedata.Pipes[pipeId].Spotlights.forEach((randomSpotlight, i) =>{
+                if(values[randomSpotlight].rarityId == 2 && randomSpotlight.toString().length < 5){
+                    currentSpotlightPool.push(randomSpotlight);
+                }
+            });
+
+            spotlightItem = currentSpotlightPool[Math.floor(Math.random() * currentSpotlightPool.length)];
+
+            currentMultiPipeIds.push(spotlightItem);
+            savedata.Pipes[pipeId].Spotlights.splice(savedata.Pipes[pipeId].Spotlights.indexOf(parseInt(spotlightItem)), 1);
+        break;
+        case 1:
+            savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+            currentSpotlightPool = [];
+            savedata.Pipes[pipeId].Spotlights.forEach((randomSpotlight, i) =>{
+                if(values[randomSpotlight].rarityId == 2 && randomSpotlight.toString().length == 5 && Math.round(randomSpotlight / 1000) == 70){
+                    currentSpotlightPool.push(randomSpotlight);
+                }
+            });
+
+            spotlightItem = currentSpotlightPool[Math.floor(Math.random() * currentSpotlightPool.length)];
+
+            currentMultiPipeIds.push(spotlightItem);
+            savedata.Pipes[pipeId].Spotlights.splice(savedata.Pipes[pipeId].Spotlights.indexOf(parseInt(spotlightItem)), 1);
+        break;
+        case 2:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        currentSpotlightPool = [];
+        savedata.Pipes[pipeId].Spotlights.forEach((randomSpotlight, i) =>{
+                if(values[randomSpotlight].rarityId == 2 && randomSpotlight.toString().length == 5 && Math.round(randomSpotlight / 1000) == 30){
+                    currentSpotlightPool.push(randomSpotlight);
+                }
+            });
+
+            spotlightItem = currentSpotlightPool[Math.floor(Math.random() * currentSpotlightPool.length)];
+
+            currentMultiPipeIds.push(spotlightItem);
+            savedata.Pipes[pipeId].Spotlights.splice(savedata.Pipes[pipeId].Spotlights.indexOf(parseInt(spotlightItem)), 1);
+        break;
+        case 3:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        pool = pipeData.Normals.HighEnd.Drivers;
+        pipeData.Pipes[pipeId].ExtraHE.Drivers.forEach((t, i) => {
+            pool.push(t);
+        });
+        randomItem = pool[Math.floor(Math.random()* pool.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 4:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        pool = pipeData.Normals.HighEnd.Karts;
+        pipeData.Pipes[pipeId].ExtraHE.Karts.forEach((t, i) => {
+            pool.push(t);
+        });
+        randomItem = pool[Math.floor(Math.random()* pool.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 5:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        pool = pipeData.Normals.HighEnd.Gliders;
+        pipeData.Pipes[pipeId].ExtraHE.Gliders.forEach((t, i) => {
+            pool.push(t);
+        });
+        randomItem = pool[Math.floor(Math.random()* pool.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 6:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        break;
+        case 7:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        break;
+        case 8:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        break;
+        case 9:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        randomItem = pipeData.Normals.Super.Drivers[Math.floor(Math.random()* pipeData.Normals.Super.Drivers.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 10:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        randomItem = pipeData.Normals.Super.Karts[Math.floor(Math.random()* pipeData.Normals.Super.Karts.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 11:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        randomItem = pipeData.Normals.Super.Gliders[Math.floor(Math.random()* pipeData.Normals.Super.Gliders.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 12:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        break;
+        case 13:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        break;
+        case 14:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        break;
+        case 15:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        randomItem = pipeData.Normals.Normal.Drivers[Math.floor(Math.random()* pipeData.Normals.Normal.Drivers.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 16:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        randomItem = pipeData.Normals.Normal.Karts[Math.floor(Math.random()* pipeData.Normals.Normal.Karts.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 17:
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+        randomItem = pipeData.Normals.Normal.Gliders[Math.floor(Math.random()* pipeData.Normals.Normal.Gliders.length)];
+        currentMultiPipeIds.push(randomItem);
+        break;
+        case 18: //only spotlights
+        savedata.Pipes[pipeId].Items[pulledItem] -= 1;
+            currentSpotlightPool = [];
+            savedata.Pipes[pipeId].Spotlights.forEach((randomSpotlight, i) =>{
+                    currentSpotlightPool.push(randomSpotlight);
+            });
+
+            spotlightItem = currentSpotlightPool[Math.floor(Math.random() * currentSpotlightPool.length)];
+
+            currentMultiPipeIds.push(spotlightItem);
+            savedata.Pipes[pipeId].Spotlights.splice(savedata.Pipes[pipeId].Spotlights.indexOf(parseInt(spotlightItem)), 1);
+        break;
+    }
+    console.log("[ActualItem] = " + currentMultiPipeIds[i]);
+    console.log(savedata);
+
+}
+
+document.getElementById(`remaining_${pipeId}`).innerHTML = `Remaining: ${savedata.Pipes[pipeId].itemCount} / ${pipeData.Pipes[pipeId].InitialAmount}`
+createPullyPipe();
+
+}
+
+function resetPipe(id){
+    delete savedata.Pipes[id];
+}
+
+//Pretty stuff
 document.addEventListener("mousemove",actualMouseMoveFunction);
 var mousePosY = 0;
 var pipeDrag = 205;
 var pulling = false;
 function actualMouseMoveFunction(e){
+
 if(pulling){
+if(document.getElementById('pullypipe') != null && document.getElementById('pipeSceneBottom') != null){
+document.getElementById('pipeSceneBG').src = "./Images/Pipe/Background/PipeBG3.png";
+document.getElementById('toad_YellowBack').className = "toad_YellowBackFast";
+document.getElementById('toad_YellowBack').src = "./Images/Pipe/Toad/KinopioBackY01.png";
+if(pipeTypeIndex == 0){
+        document.getElementById('pullypipe').src = "./Images/Pipe/Pipe/Pipe01.png";
+        document.getElementById('pipeSceneBottom').src = "./Images/Pipe/PipeBottom/Pipe01.png";
+    } else if(pipeTypeIndex == 1){
+        document.getElementById('pullypipe').src = "./Images/Pipe/Pipe/PipeUltra01.png";
+        document.getElementById('pipeSceneBottom').src = "./Images/Pipe/PipeBottom/PipeUltra01.png";
+    }
+}
   if(mousePosY > e.clientY){
-    pipeDrag += 2
+    pipeDrag += 3
   }
   if(mousePosY < e.clientY){
-    pipeDrag -= 2;
+    pipeDrag -= 3;
   }
   if(pulling){
     if(pipeDrag > 205){ pipeDrag = 205 }
@@ -18,13 +287,26 @@ if(pulling){
   mousePosY = e.clientY;
 }
 
+if(!pulling){
+    if(document.getElementById('pullypipe') != null && document.getElementById('pipeSceneBottom') != null){
+    document.getElementById('pipeSceneBG').src = "./Images/Pipe/Background/animated.png";
+    document.getElementById('toad_YellowBack').className = "toad_YellowBack";
+    document.getElementById('toad_YellowBack').src = "./Images/Pipe/Toad/KinopioBackY00.png";
+    if(pipeTypeIndex == 0){
+        document.getElementById('pullypipe').src = "./Images/Pipe/Pipe/Pipe00.png";
+        document.getElementById('pipeSceneBottom').src = "./Images/Pipe/PipeBottom/Pipe00.png";
+    } else if(pipeTypeIndex == 1){
+        document.getElementById('pullypipe').src = "./Images/Pipe/Pipe/PipeUltra00.png";
+        document.getElementById('pipeSceneBottom').src = "./Images/Pipe/PipeBottom/PipeUltra00.png";
+    }
+    }
 }
 
-document.getElementById('pullypipe').addEventListener("mousedown",mouseMoveFunction);
+}
+
 var HoldPipe = document.getElementById("HoldPipe");
 document.getElementById('HoldPipe').volume = 0.75;
 var PipeAmbience = document.getElementById("PipeAmbience");
-PipeAmbience.play();
 var GetHighEnd = document.getElementById("GetHighEnd");
 GetHighEnd.volume = 0.75;
 var GetSuper = document.getElementById("GetSuper");
@@ -35,6 +317,11 @@ var PipeFire = document.getElementById("PipeFire");
 var PipeFireStar = document.getElementById("PipeFireStar");
 var pipeGo = document.getElementById("PipeGo");
 var pipeGoGold = document.getElementById("PipeGoGold");
+
+var PipeGoSingle = document.getElementById("PipeGoSingle");
+var PipeGoSingleStar = document.getElementById("PipeGoSingleStar");
+var PipeGoMulti = document.getElementById("PipeGoMulti");
+var PipeGoMultiStar = document.getElementById("PipeGoMultiStar");
 //PIPE
 function mouseMoveFunction(e){
           //if(mouseDown){
@@ -52,73 +339,100 @@ var defaultPipe = [2,2,1,1,1,2,9,7,4,31,25,15];
 
 var currentMultiPipeIds = [57,93,67,2,18,34,32,15,25,6];
 
-var currentAllClearPipe = [
-    12,
-    18,
-    19,
-    28,
-    41,
-    52,
-    57,
-    62,
-    92,
-    128,
-    161,
-    70011,
-    70013,
-    70017,
-    70054,
-    70061,
-    70062,
-    70097,
-    70098,
-    70106,
-    70109,
-    70155,
-    70159,
-    70178,
-    70192,
-    70193,
-    70202,
-    70207,
-    70210,
-    70219,
-    70224,
-    70228,
-    70230,
-    70240,
-    70241,
-    70244,
-    70259,
-    70263,
-    70278,
-    30010,
-    30019,
-    30029,
-    30054,
-    30097,
-    30109,
-    30145,
-    30152,
-    30156,
-    30159,
-    30164,
-    30171,
-    30190,
-    30192,
-    30196,
-    30201,
-    30216,
-    30239,
-    30241,
-    30257,
-    30284
-];
-
 let resultsPipeIds = [];
 
 var currentPipeId = 41;
 var pullToggle = 1; //0 - Pulling Initial, 1 - 
+
+function getPipeTypeIndex(){
+    let type = 0;
+
+    currentMultiPipeIds.forEach((t,i)=>{
+        console.log(`[T] = ${t}`);
+        console.log(values[t]);
+        if(values[t].rarityId == 2){
+            type = 1;
+        }
+    });
+
+    if((Math.random()*100) < 10){
+        type = 0;
+    }
+
+    return type;
+}
+
+let pipeTypeIndex;
+
+function createPullyPipe(){
+    let output = document.getElementById('pipe');
+    output.innerHTML = "";
+
+    /*let pipediv = document.createElement('div');
+    pipediv.className = 'pipediv';*/
+
+    pipeTypeIndex = getPipeTypeIndex();
+
+    let animatedBG = document.createElement('img');
+    animatedBG.id = "pipeSceneBG";
+    animatedBG.src = "./Images/Pipe/Background/animated.png";
+    animatedBG.className = "animatedBG";
+    output.appendChild(animatedBG);
+
+    let pipebottom = document.createElement('img');
+    pipebottom.id = "pipeSceneBottom";
+    pipebottom.className = "pipebottom";
+    output.appendChild(pipebottom);
+
+    let pullypipe = document.createElement('img');
+    pullypipe.id = "pullypipe";
+    pullypipe.className = "pullypipe";
+    output.appendChild(pullypipe);
+
+    switch(pipeTypeIndex){
+        case 0:
+        pipebottom.src = "./Images/Pipe/PipeBottom/Pipe00.png";
+        pullypipe.src = "./Images/Pipe/Pipe/Pipe00.png";
+        break;
+        case 1:
+        pipebottom.src = "./Images/Pipe/PipeBottom/PipeUltra00.png";
+        pullypipe.src = "./Images/Pipe/Pipe/PipeUltra00.png";
+        break;
+    }
+
+    let yellowBack = document.createElement('img');
+    yellowBack.id = "toad_YellowBack";
+    yellowBack.className = "toad_YellowBack";
+    yellowBack.src = "./Images/Pipe/Toad/KinopioBackY00.png";
+    output.appendChild(yellowBack);
+
+    //output.appendChild(pipediv);
+
+    output.style.display = "block";
+    document.getElementById('pullypipe').addEventListener("mousedown",mouseMoveFunction);
+    document.addEventListener("mouseup",mouseUpFunction);
+
+    pullToggle = 1;
+
+    document.getElementById('pickingStage').style.display = "none";
+    document.getElementById('pullingStage').style.display = "block";
+    document.getElementById('pullingStage').className = "fadeInPipe";
+
+    PipeAmbience.play();
+}
+
+function mouseUpFunction(e){
+  let height = document.getElementById("pullypipe").style.height;
+  if(height == '150px'){
+    Pulling();
+    pulling = false;
+    return;
+  }
+    HoldPipe.pause();
+    HoldPipe.currentTime = 0;
+    document.getElementById("pullypipe").style.height = '205px';
+    pulling = false;
+}
 
 function randomPull(maxTimes){
     currentMultiPipeIds.splice(0, currentMultiPipeIds.length);
@@ -138,6 +452,7 @@ function randomPull(maxTimes){
     }
     currentMultiPipeIds.push(pullItemId);
     }
+    createPullyPipe();
 }
 
 function ACR(){
@@ -150,6 +465,9 @@ PullPipeImage.src = "./Images/Pipe/Animation/GreenSingle.png";
 
 var PullPipeGoldImage = new Image();
 PullPipeGoldImage.src = "./Images/Pipe/Animation/GoldSingle.png";
+
+var PullPipeMultiImage = new Image();
+PullPipeMultiImage.src = "./Images/Pipe/Animation/PullPipeGreenMultiImage.png";
 
 var PullPipeGoldMultiImage = new Image();
 PullPipeGoldMultiImage.src = "./Images/Pipe/Animation/PullPipeGoldMultiImage.png";
@@ -165,7 +483,6 @@ function Pulling(){
     document.removeEventListener("mouseup",mouseUpFunction);    
 
     document.getElementById('pipe').addEventListener("click",Result);
-
     currentPipeId = currentMultiPipeIds.pop();
     resultsPipeIds.push(currentPipeId);
 
@@ -175,25 +492,134 @@ function Pulling(){
 
     let goldOffset = 0;
     var animation = document.createElement('img');
-    animation.src = PullPipeGoldMultiImage.src;
+    animation.src = "";
+    animation.className = "noSelect";
+    let time = new Date().getTime();
+
+   let rarity = values[currentPipeId].rarityId;
+   let itemType = currentPipeId.toString();
+      if(itemType.length < 5){
+        itemType = 0;
+        //t = 
+      }
+      if(itemType.length == 5 && Math.round(itemType / 1000) == 30){
+        itemType = 2;
+      }
+      if(itemType.length == 5 && Math.round(itemType / 1000) == 70){
+        itemType = 1;
+      }
+
+
+    if(currentMultiPipeIds.length > 3){
+    if(rarity < 2 || rarity == 2 && itemType != 0){
+        switch(pipeTypeIndex){
+    case 0:
+    animation.src = `./Images/Pipe/Animation/PullPipeGreenMultiImage.png?${time}`;
+    PipeGoMulti.play();
+    break;
+    case 1:
+    animation.src = `./Images/Pipe/Animation/PullPipeGoldMultiImage.png?${time}`;
+    PipeGoMulti.play();
+    break;
+    }
+    } else {
+         switch(pipeTypeIndex){
+    case 0:
+    animation.src = `./Images/Pipe/Animation/PullPipeGreenMultiImageStar.png?${time}`;
+    PipeGoMultiStar.play();
+    break;
+    case 1:
+    animation.src = `./Images/Pipe/Animation/PullPipeGoldMultiImageStar.png?${time}`;
+    PipeGoMultiStar.play();
+    break;
+    }
+    }
+
+} else {
+
+    if(rarity < 2 || rarity == 2 && itemType != 0){
+        switch(pipeTypeIndex){
+    case 0:
+    animation.src = `./Images/Pipe/Animation/GreenSingle.png?${time}`;
+    PipeGoSingle.play();
+    break;
+    case 1:
+    animation.src = `./Images/Pipe/Animation/GoldSingle.png?${time}`;
+    PipeGoSingle.play();
+    break;
+    }
+    } else {
+         switch(pipeTypeIndex){
+    case 0:
+    animation.src = `./Images/Pipe/Animation/GreenSingleStar.png?${time}`;
+    animation.style.width = "608px";
+    animation.style.height = "1080px";
+    PipeGoSingleStar.play();
+    break;
+    case 1:
+    animation.src = `./Images/Pipe/Animation/GoldSingleStar.png?${time}`;
+    animation.style.width = "608px";
+    animation.style.height = "1080px";
+    PipeGoSingleStar.play();
+    break;
+    }
+
+
+}
+}
+
+    animation.offsetHeight;
     goldOffset = 1900;
-    pipeGoGold.play();
     document.getElementById('pipe').appendChild(animation);
-    let pipeWindow = document.getElementById('pipe');
-    //pipeWindow.style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)"
-    pipeWindow.style.backgroundSize = "2000px";
     //Result
+    Skippable = false;
+
+if(rarity == 2 && itemType == 0){
+    goldOffset += 3800;
+} else if(currentMultiPipeIds.length < 3){
+    goldOffset -= 600;
+}
+
+if(currentMultiPipeIds.length > 3){
     setTimeout(function(){
-    document.getElementById('pipe').style.backgroundImage = "linear-gradient(rgb(0, 1, 4,0.9), rgb(16, 31, 244,0.9)), url(./Images/Pipe/GotIt/infBack.gif)"
+    //document.getElementById('pipe').style.backgroundImage = "linear-gradient(rgb(0, 1, 4,0.9), rgb(16, 31, 244,0.9)), url(./Images/Pipe/GotIt/infBack.gif)"
+    let pipeWindow = document.getElementById('pipe');
+    pipeWindow.style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)"
+    pipeWindow.style.backgroundSize = "2000px";
   }, 3500 + goldOffset);
     
     setTimeout(function(){
+    Skippable = true;
     Result();
-  }, 3900 + goldOffset);
+  }, 3500 + goldOffset);
+} else {
+    setTimeout(function(){
+    //document.getElementById('pipe').style.backgroundImage = "linear-gradient(rgb(0, 1, 4,0.9), rgb(16, 31, 244,0.9)), url(./Images/Pipe/GotIt/infBack.gif)"
+    let pipeWindow = document.getElementById('pipe');
+    pipeWindow.style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)"
+    pipeWindow.style.backgroundSize = "2000px";
+  }, 2500 + goldOffset);
+    
+    setTimeout(function(){
+    Skippable = true;
+    Result();
+  }, 2500 + goldOffset);
+}
 
 }
 
+let currentPullIndex = 0;
+
+let currentTimeout;
+
+let Skippable = true;
+
 function Result(){
+
+  if(!Skippable){
+        console.log("yay")
+        return;
+  }
 
   if(currentPipeId != null){
   let rarity = values[currentPipeId].rarityId;
@@ -209,8 +635,6 @@ function Result(){
         itemType = 1;
       }
 
-      console.log(itemType);
-
   GetNormal.pause();
     GetSuper.pause();
     GetHighEnd.pause();
@@ -223,34 +647,39 @@ function Result(){
 
     var animation = document.createElement('img');
     animation.id = "animationPull";
+    animation.className = "noSelect"
     document.getElementById('pipe').appendChild(animation);
 
     animation.offsetHeight; //redraw hack
     if(rarity < 2 || rarity == 2 && itemType != 0){
     document.getElementById('animationPull').setAttribute('src', PullImage.src);
+    Skippable = true;
     PipeFire.currentTime = 0;
     PipeFire.play();
-    setTimeout(function(){
+    currentTimeout = setTimeout(function(){
       if(pullToggle == 1){
+    Skippable = true;
     Result();
     }
-      }, 2200);
+      }, 2300);
 
     } else {
     document.getElementById('animationPull').setAttribute('src', PullImageStar.src);
-
+    Skippable = false;
     PipeFireStar.currentTime = 0;
     PipeFireStar.play();
-    setTimeout(function(){
+    currentTimeout = setTimeout(function(){
       if(pullToggle == 1){
+    Skippable = true;
     Result();
     }
-  }, 6300);
+  }, 6400);
 
     }
     pullToggle = 1;
   } else if(pullToggle == 1){
   document.getElementById('pipe').innerHTML = "";
+//document.getElementById('pipe').style.backgroundImage = "linear-gradient(rgb(0, 1, 4,0.9), rgb(16, 31, 244,0.9)), url(./Images/Pipe/GotIt/infBack.gif)"
     var gradient = document.createElement('img');
     gradient.id = "gradientPipe";
     gradient.src = "./Images/Pipe/GotIt/Gradient.png"
@@ -258,13 +687,14 @@ function Result(){
     document.getElementById('pipe').appendChild(gradient);
 
 
+    if(currentTimeout != null){
+        clearTimeout(currentTimeout);
+    }
 
     //Maybe add some in between animation 
 
     switch(rarity){
     case 0:
-    document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)";
-    gradient.src = "./Images/Pipe/GotIt/Normal.png";
 
     var highlight = document.createElement('img');
     highlight.id = "highlightPipe";
@@ -325,7 +755,7 @@ function Result(){
     messageBoxItemNameLabel.id = "messageBoxItemNameLabel";
     messageBoxItemNameLabel.className = "messageBoxItemNameLabel";
     //let itemName = values[currentPipeId].nameEng;
-    let itemNameNormal2 = 'Dash Ring';
+    let itemNameNormal2 = itemData[values[currentPipeId].itemTypeId].Name;
     messageBoxItemNameLabel.innerHTML = `${itemNameNormal2}`;
     informationBox.appendChild(messageBoxItemNameLabel);
 
@@ -333,7 +763,7 @@ function Result(){
     messageBoxItemDescLabel.id = "messageBoxItemDescLabel";
     messageBoxItemDescLabel.className = "messageBoxItemDescLabel";
     //let itemName = values[currentPipeId].nameEng;
-    let itemDescNormal = 'Pass thourgh this for a burst of speed. Your oponnents can use it, too, so make it count!';
+    let itemDescNormal = itemData[values[currentPipeId].itemTypeId].Normal;
     messageBoxItemDescLabel.innerHTML = `${itemDescNormal}`;
     informationBox.appendChild(messageBoxItemDescLabel);
 
@@ -364,8 +794,7 @@ function Result(){
     GetNormal.play();
     break;
     case 1:
-    document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)";
-    gradient.src = "./Images/Pipe/GotIt/Super.png";
+    
     //document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)" 
 
     var highlight = document.createElement('img');
@@ -427,7 +856,7 @@ function Result(){
     messageBoxItemNameLabel.id = "messageBoxItemNameLabel";
     messageBoxItemNameLabel.className = "messageBoxItemNameLabel";
     //let itemName = values[currentPipeId].nameEng;
-    let itemNameSuper2 = 'Dash Ring';
+    let itemNameSuper2 = itemData[values[currentPipeId].itemTypeId].Name;
     messageBoxItemNameLabel.innerHTML = `${itemNameSuper2}`;
     informationBox.appendChild(messageBoxItemNameLabel);
 
@@ -435,7 +864,7 @@ function Result(){
     messageBoxItemDescLabel.id = "messageBoxItemDescLabel";
     messageBoxItemDescLabel.className = "messageBoxItemDescLabel";
     //let itemName = values[currentPipeId].nameEng;
-    let itemDescSuper = 'Pass thourgh this for a burst of speed. Your oponnents can use it, too, so make it count!';
+    let itemDescSuper = itemData[values[currentPipeId].itemTypeId].Super;
     messageBoxItemDescLabel.innerHTML = `${itemDescSuper}`;
     informationBox.appendChild(messageBoxItemDescLabel);
 
@@ -466,8 +895,7 @@ function Result(){
     GetSuper.play();
     break;
     case 2:
-    document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)"
-    gradient.src = "./Images/Pipe/GotIt/HighEndGradient.gif";
+    
     //document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)" 
 
     var highlight = document.createElement('img');
@@ -528,7 +956,7 @@ function Result(){
     messageBoxItemNameLabel.id = "messageBoxItemNameLabel";
     messageBoxItemNameLabel.className = "messageBoxItemNameLabel";
     //let itemName = values[currentPipeId].nameEng;
-    let itemName2 = 'Dash Ring';
+    let itemName2 = itemData[values[currentPipeId].itemTypeId].Name;
     messageBoxItemNameLabel.innerHTML = `${itemName2}`;
     informationBox.appendChild(messageBoxItemNameLabel);
 
@@ -536,7 +964,7 @@ function Result(){
     messageBoxItemDescLabel.id = "messageBoxItemDescLabel";
     messageBoxItemDescLabel.className = "messageBoxItemDescLabel";
     //let itemName = values[currentPipeId].nameEng;
-    let itemDesc = 'Pass thourgh this for a burst of speed. Your oponnents can use it, too, so make it count!';
+    let itemDesc = itemData[values[currentPipeId].itemTypeId].HighEnd;
     messageBoxItemDescLabel.innerHTML = `${itemDesc}`;
     informationBox.appendChild(messageBoxItemDescLabel);
 
@@ -570,6 +998,21 @@ function Result(){
     pullToggle = 0;
     currentPipeId = currentMultiPipeIds.pop();
     resultsPipeIds.push(currentPipeId);
+
+    switch(rarity){
+    case 0:
+    //document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)";
+    gradient.src = "./Images/Pipe/GotIt/Normal.png";
+    break;
+    case 1:
+    //document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)";
+    gradient.src = "./Images/Pipe/GotIt/Super.png";
+    break;
+    case 2:
+    //document.getElementById('pipe').style.backgroundImage = "url(./Images/Pipe/GotIt/infBack.gif)"
+    gradient.src = "./Images/Pipe/GotIt/HighEndGradient.gif";
+    break;
+    }
   }//pulltoggle = 1
   }//if array is not empty
   else{
@@ -587,7 +1030,10 @@ function deleteOld() {
 }
 
 function finalResults(){
-    console.log("Final")
+    console.log("Final");
+
+    document.getElementById('pipe').style.backgroundImage = "";
+
     var resultBG = document.createElement('img');
     resultBG.id = "resultBG";
     resultBG.src = "./Images/Pipe/GotIt/Result.png"
@@ -607,7 +1053,10 @@ function finalResults(){
     document.getElementById('pipe').appendChild(itemListPanel);
 
     resultsPipeIds.forEach((t, i) => {
-      let itemType = t;
+      if(t == null){
+        return;
+      }
+      let itemType = t.toString();
       let itemRarity = (parseInt(values[t].rarityId) + 1).toString();
       if(itemType.length < 5){
         itemType = 0;
@@ -620,7 +1069,7 @@ function finalResults(){
         itemType = 1;
       }
 
-      console.log("[" + t + "] [" + itemType + "] [" + i + "]");
+      //console.log("[" + t + "] [" + itemType + "] [" + i + "]");
 
       let output = document.getElementById('itemListPanel');
 
@@ -671,10 +1120,12 @@ function finalResults(){
         topimg.id = `invtopimgselected${t}`;
         panel.appendChild(topimg);
 
+        if(savedata.Items.Drivers[t] == null){
         let panelNewIcon = document.createElement('img');
         panelNewIcon.src = `./Images/Pipe/GotIt/New.png`;
         panelNewIcon.className = 'panelNewIcon';
         panel.appendChild(panelNewIcon);
+        }
 
         let panelAmount = document.createElement('img');
             panelAmount.src = `./Images/Pipe/GotIt/Amount.png`;
@@ -735,10 +1186,12 @@ function finalResults(){
         topimg.id = `invtopimgselected${t}`;
         panel.appendChild(topimg);
 
+        if(savedata.Items.Karts[t] == null){
         let panelNewIcon = document.createElement('img');
         panelNewIcon.src = `./Images/Pipe/GotIt/New.png`;
         panelNewIcon.className = 'panelNewIcon';
         panel.appendChild(panelNewIcon);
+        }
 
         let panelAmount = document.createElement('img');
             panelAmount.src = `./Images/Pipe/GotIt/Amount.png`;
@@ -799,10 +1252,12 @@ function finalResults(){
         topimg.id = `invtopimgselected${t}`;
         panel.appendChild(topimg);
 
+        if(savedata.Items.Gliders[t] == null){
         let panelNewIcon = document.createElement('img');
         panelNewIcon.src = `./Images/Pipe/GotIt/New.png`;
         panelNewIcon.className = 'panelNewIcon';
         panel.appendChild(panelNewIcon);
+        }
 
         let panelAmount = document.createElement('img');
             panelAmount.src = `./Images/Pipe/GotIt/Amount.png`;
@@ -819,22 +1274,21 @@ function finalResults(){
 
     });
 
+setTimeout(function(){
+let xbtn = document.createElement('img');
+        xbtn.src = "./Images/UI/xbtn.png";
+        xbtn.className = 'xbtnpipe';
+        xbtn.addEventListener('click', function() {
+        document.getElementById('pickingStage').style.display = "block";
+        document.getElementById('pullingStage').style.display = "none";
+        document.getElementById('pipe').innerHTML = "";
+        });
+        document.getElementById('pipe').appendChild(xbtn);
+
+}, 1000);
 }
+
 
 function changeToLoop(){
    document.getElementById('gotIt').className = "gotItLoop";
-}
-
-document.addEventListener("mouseup",mouseUpFunction);
-function mouseUpFunction(e){
-  let height = document.getElementById("pullypipe").style.height;
-  if(height == '150px'){
-    Pulling();
-    pulling = false;
-    return;
-  }
-    HoldPipe.pause();
-    HoldPipe.currentTime = 0;
-    document.getElementById("pullypipe").style.height = '205px';
-    pulling = false;
 }

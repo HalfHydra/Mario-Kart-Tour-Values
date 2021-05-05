@@ -140,7 +140,7 @@ let makeDataFields = ()=>{
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newKart';
-        newCharacter.src = `./Images/Kart Icon/${t}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
@@ -248,7 +248,7 @@ let makeDataFields = ()=>{
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGlider';
-        newCharacter.src = `./Images/Glider Icon/${t}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');

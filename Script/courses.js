@@ -406,7 +406,7 @@ function selectspecificitem(){
               break;
               case 2:
               newItem.className = 'newGlider';
-              newItem.src = `./Images/Glider Icon/${currentspecificitem}.png`;
+              newItem.src = `./Images/ItemIcon/${currentspecificitem}.png`;
               break;
        }
         panel.appendChild(newItem);
@@ -692,7 +692,7 @@ function specificitemcourses(){
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGlider';
-        newCharacter.src = `./Images/Glider Icon/${t}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
@@ -1334,7 +1334,7 @@ function specificchoicemade(t, type, rarity, item) {
               break;
               case 2:
               newItem.className = 'newGlider';
-              newItem.src = `./Images/Glider Icon/${t}.png`;
+              newItem.src = `./Images/ItemIcon/${t}.png`;
               break;
        }
         panel.appendChild(newItem);
@@ -2049,7 +2049,7 @@ let unlock6topshelves = [];
               break;
               case 2:
               newItem.className = 'newGlider';
-              newItem.src = `./Images/Glider Icon/${t}.png`;
+              newItem.src = `./Images/ItemIcon/${t}.png`;
               break;
        }
         panel.appendChild(newItem);
@@ -2884,7 +2884,7 @@ let unlock6topshelves = [];
               break;
               case 2:
               newItem.className = 'newGlider';
-              newItem.src = `./Images/Glider Icon/${t}.png`;
+              newItem.src = `./Images/ItemIcon/${t}.png`;
               break;
        }
         panel.appendChild(newItem);

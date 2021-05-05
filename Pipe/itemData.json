@@ -1,0 +1,230 @@
+{
+	"Item0001": {
+		"Name": "Banana Plus",
+		"HighEnd": "Greatly increases your chances of getting a Banana. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Banana. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Banana. Using one will get you more points."
+	},
+	"Item0002": {
+		"Name": "Green Shell Plus",
+		"HighEnd": "Greatly increases your chances of getting a Green Shell. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Green Shell. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Green Shell. Using one will get you more points."
+	},
+	"Item0003": {
+		"Name": "Red Shell Plus",
+		"HighEnd": "Greatly increases your chances of getting a Red Shell. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Red Shell. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Red Shell. Using one will get you more points."
+	},
+	"Item0004": {
+		"Name": "Mushroom Plus",
+		"HighEnd": "Greatly increases your chances of getting a Mushroom. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Mushroom. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Mushroom. Using one will get you more points."
+	},
+	"Item0005": {
+		"Name": "Bob-omb Plus",
+		"HighEnd": "Greatly increases your chances of getting a Bob-omb. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Bob-omb. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Bob-omb. Using one will get you more points."
+	},
+	"Item0006": {
+		"Name": "Blooper Plus",
+		"HighEnd": "Greatly increases your chances of getting a Blooper. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Blooper. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Blooper. Using one will get you more points."
+	},
+	"Item0010": {
+		"Name": "Bullet Bill Plus",
+		"HighEnd": "Greatly increases your chances of getting a Bullet Bill. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Bullet Bill. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Bullet Bill. Using one will get you more points."
+	},
+	"Item0011": {
+		"Name": "Lightning Plus",
+		"HighEnd": "Greatly increases your chances of getting Lighting. Using one will get you more points.",
+		"Super": "Further increases your chances of getting Lighting. Using one will get you more points.",
+		"Normal": "Increases your chances of getting Lighting. Using one will get you more points."
+	},
+	"Item0012": {
+		"Name": "Super Bell",
+		"HighEnd": "Ring the bell to strike your surroundings. The sound wave will protect you while it's ringing!",
+		"Super": "Ring the bell to strike your surroundings. The sound wave will protect you while it's ringing!",
+		"Normal": "Ring the bell to strike your surroundings. The sound wave will protect you while it's ringing!"
+	},
+	"Item0013": {
+		"Name": "Fire Flower",
+		"HighEnd": "Lets you throw three fireballs. Spin out your opponents while you burn up the track!",
+		"Super": "Lets you throw three fireballs. Spin out your opponents while you burn up the track!",
+		"Normal": "Lets you throw three fireballs. Spin out your opponents while you burn up the track!"
+	},
+	"Item0014": {
+		"Name": "Coin Plus",
+		"HighEnd": "Greatly increases your chances of getting a Coin. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Coin. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Coin. Using one will get you more points."
+	},
+	"Item0015": {
+		"Name": "Ice Flower",
+		"HighEnd": "Lets you throw three ice balls. Freeze your opponents solid!",
+		"Super": "Lets you throw three ice balls. Freeze your opponents solid!",
+		"Normal": "Lets you throw three ice balls. Freeze your opponents solid!"
+	},
+	"Item0016": {
+		"Name": "Dash Ring",
+		"HighEnd": "Pass through this for a burst of speed. Your opponents can use it, too, so make it count!",
+		"Super": "Pass through this for a burst of speed. Your opponents can use it, too, so make it count!",
+		"Normal": "Pass through this for a burst of speed. Your opponents can use it, too, so make it count!"
+	},
+	"Item0017": {
+		"Name": "Bubble",
+		"HighEnd": "Kick back and relax as this bubble floats you around. But beware the sudden pop!",
+		"Super": "Kick back and relax as this bubble floats you around. But beware the sudden pop!",
+		"Normal": "Kick back and relax as this bubble floats you around. But beware the sudden pop!"
+	},
+	"Item0022": {
+		"Name": "Lucky Seven",
+		"HighEnd": "Surround your kart with seven items. Tap once to use them all!",
+		"Super": "Surround your kart with seven items. Tap once to use them all!",
+		"Normal": "Surround your kart with seven items. Tap once to use them all!"
+	},
+	"Item0023": {
+		"Name": "Bowser's Shell",
+		"HighEnd": "Hurl this sharp shell in front of your kart to scatter opponents.",
+		"Super": "Hurl this sharp shell in front of your kart to scatter opponents.",
+		"Normal": "Hurl this sharp shell in front of your kart to scatter opponents."
+	},
+	"Item0024": {
+		"Name": "Giant Banana",
+		"HighEnd": "This particularly stern-looking Giant Banana splits into three Bananas when hit.",
+		"Super": "This particularly stern-looking Giant Banana splits into three Bananas when hit.",
+		"Normal": "This particularly stern-looking Giant Banana splits into three Bananas when hit."
+	},
+	"Item0026": {
+		"Name": "Yoshi's Egg",
+		"HighEnd": "Chases down opponents. But what's inside?! You'll find out when it breaks!",
+		"Super": "Chases down opponents. But what's inside?! You'll find out when it breaks!",
+		"Normal": "Chases down opponents. But what's inside?! You'll find out when it breaks!"
+	},
+	"Item0027": {
+		"Name": "Birdo's Egg",
+		"HighEnd": "Chases down opponents. But what's inside?! You'll find out when it breaks!",
+		"Super": "Chases down opponents. But what's inside?! You'll find out when it breaks!",
+		"Normal": "Chases down opponents. But what's inside?! You'll find out when it breaks!"
+	},
+	"Item0031": {
+		"Name": "Boomerang Flower",
+		"HighEnd": "Whirls around and around your kart to strike nearby opponents.",
+		"Super": "Whirls around and around your kart to strike nearby opponents.",
+		"Normal": "Whirls around and around your kart to strike nearby opponents."
+	},
+	"Item0032": {
+		"Name": "Giga Bob-omb",
+		"HighEnd": "This giant Bob-omb's blast radius is second to none. Kick things off with a bang!",
+		"Super": "This giant Bob-omb's blast radius is second to none. Kick things off with a bang!",
+		"Normal": "This giant Bob-omb's blast radius is second to none. Kick things off with a bang!"
+	},
+	"Item0033": {
+		"Name": "Super Horn Plus",
+		"HighEnd": "Greatly increases your chances of getting a Super Horn. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Super Horn. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Super Horn. Using one will get you more points."
+	},
+	"Item0044": {
+		"Name": "Triple Mushrooms",
+		"HighEnd": "Gives you three Mushrooms to use in one go for a long-lasting boost.",
+		"Super": "Gives you three Mushrooms to use in one go for a long-lasting boost.",
+		"Normal": "Gives you three Mushrooms to use in one go for a long-lasting boost."
+	},
+	"Item0045": {
+		"Name": "Heart",
+		"HighEnd": "This Heart is overflowing with kindness! It will protect you from opponents' attacks.",
+		"Super": "This Heart is overflowing with kindness! It will protect you from opponents' attacks.",
+		"Normal": "This Heart is overflowing with kindness! It will protect you from opponents' attacks."
+	},
+	"Item0047": {
+		"Name": "Hammer",
+		"HighEnd": "Throws multiple Hammers in an arc aimed at karts in front of yours.",
+		"Super": "Throws multiple Hammers in an arc aimed at karts in front of yours.",
+		"Normal": "Throws multiple Hammers in an arc aimed at karts in front of yours."
+	},
+	"Item0048": {
+		"Name": "Triple Bananas",
+		"HighEnd": "Three Bananas provide a worthy shield... Or ammo to lob at opponents!",
+		"Super": "Three Bananas provide a worthy shield... Or ammo to lob at opponents!",
+		"Normal": "Three Bananas provide a worthy shield... Or ammo to lob at opponents!"
+	},
+	"Item0049": {
+		"Name": "Triple Green Shells",
+		"HighEnd": "Three Green Shells surround your kart. They'll fire off rapidly all at once!",
+		"Super": "Three Green Shells surround your kart. They'll fire off rapidly all at once!",
+		"Normal": "Three Green Shells surround your kart. They'll fire off rapidly all at once!"
+	},
+	"Item0050": {
+		"Name": "Double Bob-ombs",
+		"HighEnd": "Gives you two Bob-ombs you can hurl at once. Engulf your opponents in a mighty blast!",
+		"Super": "Gives you two Bob-ombs you can hurl at once. Engulf your opponents in a mighty blast!",
+		"Normal": "Gives you two Bob-ombs you can hurl at once. Engulf your opponents in a mighty blast!"
+	},
+	"Item0051": {
+		"Name": "Bob-omb Cannon",
+		"HighEnd": "This blaster automatically launches a volley of Bob-ombs. Handle with care!",
+		"Super": "This blaster automatically launches a volley of Bob-ombs. Handle with care!",
+		"Normal": "This blaster automatically launches a volley of Bob-ombs. Handle with care!"
+	},
+	"Item0052": {
+		"Name": "Banana Barrels",
+		"HighEnd": "These barrels automatically launch Bananas. Turn the course into a sea of Bananas!",
+		"Super": "These barrels automatically launch Bananas. Turn the course into a sea of Bananas!",
+		"Normal": "These barrels automatically launch Bananas. Turn the course into a sea of Bananas!"
+	},
+	"Item0055": {
+		"Name": "Mega Mushroom Plus",
+		"HighEnd": "Greatly increases your chances of getting a Mega Mushroom. Using one will get you more points.",
+		"Super": "Further increases your chances of getting a Mega Mushroom. Using one will get you more points.",
+		"Normal": "Increases your chances of getting a Mega Mushroom. Using one will get you more points."
+	},
+	"Item0057": {
+		"Name": "Mushroom Cannon",
+		"HighEnd": "Rapidly fires Mushrooms onto the course. Grab as many as you can to dash ahead!",
+		"Super": "Rapidly fires Mushrooms onto the course. Grab as many as you can to dash ahead!",
+		"Normal": "Rapidly fires Mushrooms onto the course. Grab as many as you can to dash ahead!"
+	},
+	"Item0058": {
+		"Name": "Coin Box",
+		"HighEnd": "Spits out coins with reckless abandon. It's a very generous item!",
+		"Super": "Spits out coins with reckless abandon. It's a very generous item!",
+		"Normal": "Spits out coins with reckless abandon. It's a very generous item!"
+	},
+	"RocketStart": {
+		"Name": "Rocket Start Plus",
+		"HighEnd": "Increases Rocket Start boost time and points earned for performing one.",
+		"Super": "Further increases Rocket Start boost time and points earned for performing one.",
+		"Normal": "Greatly increases Rocket Start boost time and points earned for performing one."
+	},
+	"SlipStream": {
+		"Name": "Slipstream Plus",
+		"HighEnd": "Greatly increases Slipstream boost time and points earned for performing one.",
+		"Super": "Further increases Slipstream boost time and points earned for performing one.",
+		"Normal": "Increases Slipstream boost time and points earned for performing one."
+	},
+	"DashPanel": {
+		"Name": "Dash Panel Plus",
+		"HighEnd": "Greatly increases Dash Panel boost time and points earned for using one.",
+		"Super": "Further increases Dash Panel boost time and points earned for using one.",
+		"Normal": "Increases Dash Panel boost time and points earned for using one."
+	},
+	"JumpAction": {
+		"Name": "Jump Boost Plus",
+		"HighEnd": "Greatly increases Jump Boost boost time and points earned for performing one.",
+		"Super": "Further increases Jump Boost boost time and points earned for performing one.",
+		"Normal": "Increases Jump Boost boost time and points earned for performing one."
+	},
+	"MiniTurbo": {
+		"Name": "Mini-Turbo Plus",
+		"HighEnd": "Greatly increases Mini-Turbo boost time and points earned for performing one.",
+		"Super": "Further increases Mini-Turbo boost time and points earned for performing one.",
+		"Normal": "Increases Mini-Turbo boost time and points earned for performing one."
+	}
+}

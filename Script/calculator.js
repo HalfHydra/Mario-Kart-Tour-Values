@@ -130,11 +130,11 @@
               break;
               case 1:
               newItem.className = 'newKart';
-              newItem.src = `./Images/Kart Icon/${itemid}.png`;
+              newItem.src = `./Images/ItemIcon/${itemid}.png`;
               break;
               case 2:
               newItem.className = 'newGlider';
-              newItem.src = `./Images/Glider Icon/${itemid}.png`;
+              newItem.src = `./Images/ItemIcon/${itemid}.png`;
               break;
        }
         panel.appendChild(newItem);
@@ -552,7 +552,7 @@ let makeCalcKarts = ()=>{
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newKart';
-        newCharacter.src = `./Images/Kart Icon/${t}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');
@@ -634,7 +634,7 @@ let makeCalcGliders = ()=>{
 
         let newCharacter = document.createElement('img');
         newCharacter.className = 'newGlider';
-        newCharacter.src = `./Images/Glider Icon/${t}.png`;
+        newCharacter.src = `./Images/ItemIcon/${t}.png`;
         panel.appendChild(newCharacter);
 
         let topimg = document.createElement('img');

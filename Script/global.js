@@ -6,6 +6,7 @@ var currentTourFileName = currentTourName.replace(/ /g, "");
 var currentCup = 0;
 var isDataEntered = false;
 var values;
+var itemData;
 var coursenames;
 var courseimages;
 var disableCityValue = false;
@@ -59,7 +60,7 @@ var removefrom2ndshelf = [];
 
 var missingIncludesCityCourses = true;
 
-var cityCourses = ["New_Gmob_NewYork1", "New_Gmob_NewYork1X", "New_Gmob_NewYork1R", "New_Gmob_NewYork1RX", "New_Gmob_Tokyo1", "New_Gmob_Tokyo1X", "New_Gmob_Tokyo1R", "New_Gmob_Tokyo1RX", "New_Gmob_Paris1", "New_Gmob_Paris1X", "New_Gmob_Paris1R", "New_Gmob_Paris1RX", "New_Gmob_London1", "New_Gmob_London1X", "New_Gmob_London1R", "New_Gmob_London1RX", "New_Gmob_NewYork2", "New_Gmob_NewYork2X", "New_Gmob_NewYork2R", "New_Gmob_NewYork2RX", "New_Gmob_Tokyo2", "New_Gmob_Tokyo2X", "New_Gmob_Tokyo2R", "New_Gmob_Tokyo2RX", "New_Gmob_Paris2", "New_Gmob_Paris2X", "New_Gmob_Paris2R", "New_Gmob_Paris2RX", "New_Gmob_Vancouver1", "New_Gmob_Vancouver1X", "New_Gmob_Vancouver1R", "New_Gmob_Vancouver1RX", "New_Gmob_London2", "New_Gmob_London2X", "New_Gmob_London2R", "New_Gmob_London2RX", "New_Gmob_Tokyo3", "New_Gmob_Tokyo3X", "New_Gmob_Tokyo3R", "New_Gmob_LosAngeles1", "New_Gmob_LosAngeles1X", "New_Gmob_LosAngeles1R", "New_Gmob_LosAngeles1RX", "New_Gmob_NewYork3", "New_Gmob_NewYork3X", "New_Gmob_NewYork3R", "New_Gmob_NewYork3RX", "New_Gmob_Berlin2", "New_Gmob_Berlin2X", "New_Gmob_Berlin2R", "New_Gmob_Berlin2RX"
+var cityCourses = ["New_Gmob_NewYork1", "New_Gmob_NewYork1X", "New_Gmob_NewYork1R", "New_Gmob_NewYork1RX", "New_Gmob_Tokyo1", "New_Gmob_Tokyo1X", "New_Gmob_Tokyo1R", "New_Gmob_Tokyo1RX", "New_Gmob_Paris1", "New_Gmob_Paris1X", "New_Gmob_Paris1R", "New_Gmob_Paris1RX", "New_Gmob_London1", "New_Gmob_London1X", "New_Gmob_London1R", "New_Gmob_London1RX", "New_Gmob_NewYork2", "New_Gmob_NewYork2X", "New_Gmob_NewYork2R", "New_Gmob_NewYork2RX", "New_Gmob_Tokyo2", "New_Gmob_Tokyo2X", "New_Gmob_Tokyo2R", "New_Gmob_Tokyo2RX", "New_Gmob_Paris2", "New_Gmob_Paris2X", "New_Gmob_Paris2R", "New_Gmob_Paris2RX", "New_Gmob_Vancouver1", "New_Gmob_Vancouver1X", "New_Gmob_Vancouver1R", "New_Gmob_Vancouver1RX", "New_Gmob_London2", "New_Gmob_London2X", "New_Gmob_London2R", "New_Gmob_London2RX", "New_Gmob_Tokyo3", "New_Gmob_Tokyo3X", "New_Gmob_Tokyo3R", "New_Gmob_LosAngeles1", "New_Gmob_LosAngeles1X", "New_Gmob_LosAngeles1R", "New_Gmob_LosAngeles1RX", "New_Gmob_NewYork3", "New_Gmob_NewYork3X", "New_Gmob_NewYork3R", "New_Gmob_NewYork3RX", "New_Gmob_Tokyo4", "New_Gmob_Tokyo4X", "New_Gmob_Tokyo4R", "New_Gmob_Berlin2", "New_Gmob_Berlin2X", "New_Gmob_Berlin2R", "New_Gmob_Berlin2RX", "New_Gmob_Sydney1", "New_Gmob_Sydney1X", "New_Gmob_Sydney1R", "New_Gmob_Sydney1RX", 
 ];
 
 var disableDataUsage = false;
@@ -255,7 +256,7 @@ function changemode(mode) {
         hideAllBesidesOne('settings');
         break;
     case 6:
-    alert('This section will begin being updated again in the near future.');
+    alert('This section will be updated into an entire tour section where you can keep track of all your scores and their frenzies. Soon.');
         hideAllBesidesOne('ranked');
         getCurrentRanked();
         if(!upToDateSections.includes("rnk")){
