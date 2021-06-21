@@ -24,37 +24,41 @@
       </div>
       <div style="width:100%;background-image: url('./Images/UI/Background/BlackPattern.png');background-size: 194px auto;padding:10px;margin-top: -8px;margin-left: -12px;position: sticky;
     top: 0;z-index:9999">
-      <div style="margin: 0px auto;width: 1195px;right: 0;left: 0;">
+      <div style="margin: 0px auto;width: 1400px;right: 0;left: 0;">
          <div class="cupbtn" style="width: 200px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(0)">
             <img src="./Images/UI/Icon/Guide.png" style="width: 55px;height: 52px;">
-            <p class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Usage Guide </p>
+            <p id="text_mode0" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Usage Guide </p>
          </div>
          <div class="cupbtn" style="width: 170px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(1)">
             <img src="./Images/UI/Icon/Manual.png" style="width: 40px;height: 52px;">
-            <p class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Enter Data </p>
+            <p id="text_mode1" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Enter Data </p>
          </div>
          <div class="cupbtn" style="width: 160px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(2)">
             <img src="./Images/UI/Icon/Inventory.png" style="width: 46px;height: 50px;">
-            <p class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Inventory </p>
+            <p id="text_mode2" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Inventory </p>
          </div>
          <div class="cupbtn" style="width: 165px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(3)">
             <img src="./Images/UI/Icon/Course.png" style="width: 62px;height: 52px;">
-            <p class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Courses </p>
+            <p id="text_mode3" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Courses </p>
          </div>
          <div class="cupbtn" style="width: 170px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(4)">
             <img src="./Images/UI/Icon/BonusPoints.png" style="width: 52px;height: 52px;">
-            <p class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Calculator </p>
+            <p id="text_mode4" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Calculator </p>
          </div>
          <div class="cupbtn" style="width: 160px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(6)">
          <div style="width:50px;height:50px;display:inline-block;transform: scale(1.2);">
             <img src="./Images/UI/cupranked.png" style="width: 50px;height: 50px;/*filter: brightness(30%);*/">
             <img id="rankcupimg" style="width: 30px;height: 30px;position: absolute;margin-left: -40px;margin-top: 10px;display:none;" onclick="changemode(6)">
          </div>
-            <p class='whiteoutline' style="margin-top: -30px;margin-left: 10px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Ranked </p>
+            <p id="text_mode6" class='whiteoutline' style="margin-top: -30px;margin-left: 10px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Ranked </p>
+         </div>
+         <div class="cupbtn" style="width: 200px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(7)">
+            <img src="./Images/UI/Icon/InfoLap01.png" style="width: 52px;height: 52px;">
+            <p id="text_mode7" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Tour Summary </p>
          </div>
          <div class="cupbtn" style="width: 135px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(5)">
             <img src="./Images/UI/Icon/Setting.png" style="width: 52px;height: 52px;">
-            <p class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Settings </p>
+            <p id="text_mode5" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Settings </p>
          </div>
       </div>
    </div>
@@ -376,6 +380,46 @@
          <!--<div id="pipe">
             <h3>Pipe</h3>
             </div>-->
+            <div id="tour" style="height:auto;display:none;">
+               <div id="navigate_tour" class="stripedbg" style="padding-top:10px;padding-left: 15px;display:block;width: auto;height: 64px;right: 0;left: 0;margin: 0px auto;position: sticky;top: 75px;z-index: 30;">
+                  <!--<div style="width: 200px;height: 52px;display: inline-block;cursor: pointer;">
+                     <p>Tour Summary</p>
+                  </div>-->
+                  <div class="cupbtn" style="width: 200px;height: 52px;display: inline-block;cursor: pointer;" onclick="changeTabTour('cupselect')">
+                     <img src="./Images/UI/cupranked.png" style="width: 52px;height: 52px;">
+                     <p id="text_cupselect" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Cup Selection </p>
+                  </div>
+                  <div class="cupbtn" style="width: 170px;height: 52px;display: inline-block;cursor: pointer;" onclick="changeTabTour('summary')">
+                     <img src="./Images/UI/Icon/InfoLap01.png" style="width: 52px;height: 52px;">
+                     <p id="text_summary" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Summary </p>
+                  </div>
+               </div>
+               
+               <div id="cupselect" style="display:none;"> 
+                  <div id="cupheaderdiv"></div>
+                  <div id="cupcourses"></div>
+               </div>
+               <div id="summary" style="display:none;"> 
+                  <img style="position: sticky;background: rgba(0,0,0,0.2);padding: 1px;" src="./Images/UI/Tour/header.png">
+               </div>
+               <div id="summary_driver" style="display:none;"> 
+                  <img style="position: sticky;background: rgba(0,0,0,0.2);padding: 1px;" src="./Images/UI/Tour/driver.png">
+                  <div id="summary_driver_items" style="width: 1015px;margin: 0 auto;"></div>
+               </div>
+               <div id="summary_kart" style="display:none;"> 
+                  <img style="position: sticky;background: rgba(0,0,0,0.2);padding: 1px;" src="./Images/UI/Tour/kart.png">
+                  <div id="summary_kart_items" style="width: 1015px;margin: 0 auto;"></div>
+               </div>
+               <div id="summary_glider" style="display:none;"> 
+                  <img style="position: sticky;background: rgba(0,0,0,0.2);padding: 1px;" src="./Images/UI/Tour/glider.png">
+                  <div id="summary_glider_items" style="width: 1015px;margin: 0 auto;"></div>
+               </div>
+               <div id="summary_item" style="display:none;"> 
+                  <img style="position: sticky;background: rgba(0,0,0,0.2);padding: 1px;" src="./Images/UI/Tour/item.png">
+                  <div id="summary_item_items" style="width: 1015px;margin: 0 auto;"></div>
+               </div>
+
+            </div>
          <div id="settings" style="height:auto;display:none;">
             <h3 style="font-family: tour;font-size: 28px;text-align: center;margin-left: 10px;text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;">Settings</h3>
             <!--<div id='general' style="width: 480px;height: 280px;vertical-align: top;display: inline-block;background-color: rgb(78 188 255 / 29%);padding:0px;margin-left: 10px;">-->
@@ -498,6 +542,7 @@
       <script type="text/javascript" src="./Script/missing.js"></script>
       <script type="text/javascript" src="./Script/calculator.js"></script>
       <script type="text/javascript" src="./Script/ranked.js"></script>
+      <script type="text/javascript" src="./Script/acr.js"></script>
       <!--<script type="text/javascript" src="./Script/pipe.js"></script>-->
       <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
@@ -527,6 +572,9 @@
                            case 3:
                            courseimages = JSON.parse(allText);
                            break;
+                           case 4:
+                           season = JSON.parse(allText);
+                           break;
                          }
                      }
                  }
@@ -537,6 +585,7 @@
          generateArrays();
          readTextFile("./Data/course_names.json", 2);
          readTextFile("./Data/course_image.json", 3);
+         readTextFile("./Data/SeasonCup/Season54.json", 4);
          convertToUsable();
          makeDataFields();
          if(localStorage.getItem("MKTVSaveData") != null){

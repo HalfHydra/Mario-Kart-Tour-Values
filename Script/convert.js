@@ -39,10 +39,9 @@ function convertToUsable() {
 		});
 
 	});
-	console.log(convertedData);
-	console.log(values);
+	//console.log(convertedData);
+	//console.log(values);
 	values = convertedData;
-	console.log(values);
-	console.log(coursedata);
+	//console.log(coursedata);
 	generateCourseList();
 }

@@ -1,6 +1,7 @@
 //tour specific
 var currentTourName = "Peach vs. Daisy Tour";
 var currentTourFileName = currentTourName.replace(/ /g, "");
+var currentTourId = "Season54";
 
 //global
 var currentCup = 0;
@@ -122,6 +123,8 @@ var gliderid = [];
 var gliderrarity = [];
 var glideritem = [];
 
+let itemarray = [`00`,`01`,`02`,`03`,`04`,`05`,`06`,`07`,`10`,`11`,`12`,`13`,`14`,`15`,`16`,`17`,`22`,`23`,`24`,`26`,`27`,`31`,`32`,`33`,`44`,`45`,`47`,`48`,`49`,`50`,`51`,`52`,`55`,`57`,`58`,`99`];
+
 var inventorymodal = document.getElementById('inventorymodal');
 
 let driverTable = [];
@@ -197,12 +200,6 @@ function generateArrays(){
         glideritem.push(it.item);
     });
 
-
-
-
-
-
-
 }
 
 window.onclick = function(event) {
@@ -219,6 +216,15 @@ function hideModal() {
 
 //changemode(0);
 function changemode(mode) {
+    document.getElementById('text_mode0').style.color = 'white';
+    document.getElementById('text_mode1').style.color = 'white';
+    document.getElementById('text_mode2').style.color = 'white';
+    document.getElementById('text_mode3').style.color = 'white';
+    document.getElementById('text_mode4').style.color = 'white';
+    document.getElementById('text_mode5').style.color = 'white';
+    document.getElementById('text_mode6').style.color = 'white';
+    document.getElementById('text_mode7').style.color = 'white';
+    document.getElementById(`text_mode` + mode).style.color = 'springgreen';
     switch (mode) {
     case 0:
         hideAllBesidesOne('intro');
@@ -256,15 +262,17 @@ function changemode(mode) {
         hideAllBesidesOne('settings');
         break;
     case 6:
-    alert('This section will be updated into an entire tour section where you can keep track of all your scores and their frenzies. Soon.');
+    alert('This section will be moved into the tour section.');
         hideAllBesidesOne('ranked');
         getCurrentRanked();
         if(!upToDateSections.includes("rnk")){
            updateRanked(); 
            upToDateSections.push("rnk");
         }
-        
-        //alert('Ranked Review and Bonus Points Calculator - Coming Soon!');
+        break;
+        case 7:
+        hideAllBesidesOne('tour');
+        loadSaveData();
         break;
     }
     currentCup = mode;
@@ -279,6 +287,7 @@ function hideAllBesidesOne(mode){
     document.getElementById('courses').style.display = "none";
     document.getElementById('bonuspoints').style.display = "none";
     document.getElementById('ranked').style.display = "none";
+    document.getElementById('tour').style.display = "none";
     document.getElementById('settings').style.display = "none";
     document.getElementById(mode).style.display = "block";
 }
