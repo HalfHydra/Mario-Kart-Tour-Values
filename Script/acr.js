@@ -74,7 +74,15 @@ function makeSummary() {
         });
     });
 
+    document.getElementById('summary').innerHTML = "";
+
     let summaryout = document.getElementById('summary');
+
+    let headerimg = document.createElement('img');
+    headerimg.src = "./Images/UI/Tour/header.png";
+    headerimg.className = `tour_summary_headerimg`;
+    summaryout.appendChild(headerimg);
+
     tour_courses.forEach((course, i) => {
         let currentCup = Math.floor(i/3);
 
@@ -704,6 +712,8 @@ function updateCompleted(yon, index, cup, course){
     currentSummaryIndex = index;
 
     savedata.Seasons[currentTourId][`Cup_${currentSummaryCup}`][currentSummaryCourse].completed = yon;
+
+    document.getElementById(`tour_summary_completedin${index}`).checked = yon;
 
     document.getElementById(`tour_summary_panel${index}`).value = yon;
     (yon ? document.getElementById(`tour_summary_panel${index}`).style.backgroundImage = `url('../Images/UI/Tour/panelbgcompleted.png')` : document.getElementById(`tour_summary_panel${index}`).style.backgroundImage = `url('../Images/UI/Tour/panelbg.png')`)

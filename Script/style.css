@@ -2239,7 +2239,7 @@ width: 608px;z-index: 99;height: 1080px;margin:0 auto;position: relative;overflo
     width: 1200px;
     height: 205px;
     border: 1px solid #ffffff;
-    background-image: url('../Images/UI/Tour/bgcomplete.png');
+    background-image: url('./Images/UI/Tour/bgcomplete.png');
     position: relative;
 }
 
@@ -2487,4 +2487,10 @@ width: 608px;z-index: 99;height: 1080px;margin:0 auto;position: relative;overflo
     position: absolute;
     margin-left: -3px;
     z-index: 10;
+}
+
+.tour_summary_headerimg {
+    position: sticky;
+    background: rgba(0,0,0,0.2);
+    padding: 1px;
 }
