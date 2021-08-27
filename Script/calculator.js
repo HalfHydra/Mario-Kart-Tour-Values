@@ -1,4 +1,5 @@
       var activepanels = [];
+      var intCalcPanels = [];
 
       function makeCalcPanel(itemid, type, rarity, item){
       var output = document.getElementById('bonuspointspanels');
@@ -9,6 +10,7 @@
       }
 
       openedCalcPanels.push(itemid);
+      intCalcPanels.push(parseInt(itemid));
 
 
       var calcpaneldateid = new Date().getTime();
@@ -348,6 +350,7 @@
         xbtn.addEventListener('click', function() {
             removeCalcPanel(calcpaneldateid);
             openedCalcPanels.splice(openedCalcPanels.indexOf(itemid), 1);
+            intCalcPanels.splice(intCalcPanels.indexOf(parseInt(itemid)), 1);
             if(document.getElementById(`calcpanelimg_${itemid}`) != null){
             document.getElementById(`calcpanelimg_${itemid}`).className = `topimg`;
             }

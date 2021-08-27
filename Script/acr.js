@@ -1,7 +1,7 @@
 var season = {};
-var seasonbonus_course2 = [77,70100,30365];
-var seasonbonus_course3 = [46,189,70222,70296,30150,30188];
-var cupBonus = {"LuigiCup":4,"ChoropooCup":93,"RosettaCup":22,"IggyCup":30,"MarioCup":5,"BbLuigiCup":24,"FunkyKongCup":128,"KinopioCup":2,"LudwigCup":33,"MetalPeachCup":19,"BrosFireCup":59,"MarioIceCup":161}
+var seasonbonus_course2 = [56, 70304, 30316];
+var seasonbonus_course3 = [145, 12, 70245, 70305, 30203, 30097];
+var cupBonus = {"LuigiCup":4,"ChoropooCup":93,"RosettaCup":22,"IggyCup":30,"MarioCup":5,"BbLuigiCup":24,"FunkyKongCup":128,"KinopioCup":2,"LudwigCup":33,"MetalPeachCup":19,"BrosFireCup":59,"MarioIceCup":161,"KameckCup":56,"HoneKoopaCup":12,"PaulineCup":41,"KinopeachCup":41,"LemmyCup":32,"HeyhoCup":10}
 
 let courseSaveDefault = {
     driver: -1,
@@ -28,13 +28,13 @@ function changeTabTour(tour) {
 
 //Savedata
 function loadSaveData() {
-    prepareSave();
+    //prepareSave();
     makeCups();
-    makeSummaryCharacters();
-    makeSummaryKarts();
-    makeSummaryGliders();
-    makeSummaryItems();
-    makeSummary();
+    //makeSummaryCharacters();
+    //makeSummaryKarts();
+    //makeSummaryGliders();
+    //makeSummaryItems();
+    //makeSummary();
 }
 
 function prepareSave() {
@@ -716,7 +716,7 @@ function updateCompleted(yon, index, cup, course){
     document.getElementById(`tour_summary_completedin${index}`).checked = yon;
 
     document.getElementById(`tour_summary_panel${index}`).value = yon;
-    (yon ? document.getElementById(`tour_summary_panel${index}`).style.backgroundImage = `url('../Images/UI/Tour/panelbgcompleted.png')` : document.getElementById(`tour_summary_panel${index}`).style.backgroundImage = `url('../Images/UI/Tour/panelbg.png')`)
+    (yon ? document.getElementById(`tour_summary_panel${index}`).style.backgroundImage = `url('./Images/UI/Tour/panelbgcompleted.png')` : document.getElementById(`tour_summary_panel${index}`).style.backgroundImage = `url('./Images/UI/Tour/panelbg.png')`)
     updateLocalSaveData();
 }
 

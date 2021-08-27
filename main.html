@@ -24,7 +24,7 @@
       </div>
       <div style="width:100%;background-image: url('./Images/UI/Background/BlackPattern.png');background-size: 194px auto;padding:10px;margin-top: -8px;margin-left: -12px;position: sticky;
     top: 0;z-index:9999">
-      <div style="margin: 0px auto;width: 1400px;right: 0;left: 0;">
+      <div style="margin: 0px auto;width: 1200px;right: 0;left: 0;">
          <div class="cupbtn" style="width: 200px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(0)">
             <img src="./Images/UI/Icon/Guide.png" style="width: 55px;height: 52px;">
             <p id="text_mode0" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Usage Guide </p>
@@ -45,16 +45,20 @@
             <img src="./Images/UI/Icon/BonusPoints.png" style="width: 52px;height: 52px;">
             <p id="text_mode4" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Calculator </p>
          </div>
-         <div class="cupbtn" style="width: 160px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(6)">
+         <div class="cupbtn" style="width: 160px;height: 52px;display: inline-block;cursor: pointer;display:none" onclick="changemode(6)">
          <div style="width:50px;height:50px;display:inline-block;transform: scale(1.2);">
             <img src="./Images/UI/cupranked.png" style="width: 50px;height: 50px;/*filter: brightness(30%);*/">
             <img id="rankcupimg" style="width: 30px;height: 30px;position: absolute;margin-left: -40px;margin-top: 10px;display:none;" onclick="changemode(6)">
          </div>
             <p id="text_mode6" class='whiteoutline' style="margin-top: -30px;margin-left: 10px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Ranked </p>
          </div>
-         <div class="cupbtn" style="width: 200px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(7)">
+         <!--<div class="cupbtn" style="width: 200px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(7)">
             <img src="./Images/UI/Icon/InfoLap01.png" style="width: 52px;height: 52px;">
             <p id="text_mode7" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Tour Summary </p>
+         </div>-->
+         <div class="cupbtn" style="width: 172px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(7)">
+            <img src="./Images/UI/cupranked.png" style="width: 52px;height: 52px;">
+            <p id="text_mode7" class='whiteoutline' style="margin-top: -30px;margin-left: 5px;font-family: headername2;font-size: 15px;text-align: center;display: inline-block;vertical-align: middle;"> Cup Select </p>
          </div>
          <div class="cupbtn" style="width: 135px;height: 52px;display: inline-block;cursor: pointer;" onclick="changemode(5)">
             <img src="./Images/UI/Icon/Setting.png" style="width: 52px;height: 52px;">
@@ -381,7 +385,7 @@
             <h3>Pipe</h3>
             </div>-->
             <div id="tour" style="height:auto;display:none;">
-               <div id="navigate_tour" class="stripedbg" style="padding-top:10px;padding-left: 15px;display:block;width: auto;height: 64px;right: 0;left: 0;margin: 0px auto;position: sticky;top: 75px;z-index: 30;">
+               <div id="navigate_tour" class="stripedbg" style="padding-top:10px;padding-left: 15px;display:block;width: auto;height: 64px;right: 0;left: 0;margin: 0px auto;position: sticky;top: 75px;z-index: 30;display: none;">
                   <!--<div style="width: 200px;height: 52px;display: inline-block;cursor: pointer;">
                      <p>Tour Summary</p>
                   </div>-->
@@ -395,7 +399,7 @@
                   </div>
                </div>
                
-               <div id="cupselect" style="display:none;"> 
+               <div id="cupselect" style="display:block;"> 
                   <div id="cupheaderdiv"></div>
                   <div id="cupcourses"></div>
                </div>
@@ -581,11 +585,11 @@
              }
              rawFile.send(null);
          }
-         readTextFile("./Data/Paris_Tour_2021_Preferred_Courses_Extended.json", 1);
+         readTextFile("./Data/Kamek_Tour_Preferred_Courses_Extended.json", 1);
          generateArrays();
          readTextFile("./Data/course_names.json", 2);
          readTextFile("./Data/course_image.json", 3);
-         readTextFile("./Data/SeasonCup/Season54.json", 4);
+         readTextFile("./Data/SeasonCup/Season61.json", 4);
          convertToUsable();
          makeDataFields();
          if(localStorage.getItem("MKTVSaveData") != null){
