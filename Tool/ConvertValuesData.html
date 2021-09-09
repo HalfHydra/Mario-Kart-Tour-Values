@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<body background="./InfoPattern.png">
+    </style>
+    <div>
+        <div style="margin-top: 15px">
+            <p id="p1" class="paragraph1"></p>
+            <p id="p2" class="paragraph1">
+            </p>
+        </div>
+        <style type="text/css">
+            textarea {
+                width: 410px;
+                height: 250px;
+                font-size: 12px;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+
+            p {
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
+        </select>
+        
+        <p> Input Values Data: </p>
+        <textarea id="inputvalues" rows="20" cols="50"></textarea>
+        <p> </p>
+        <button onclick="convertValuesData()">Convert Values Data</button>
+        <p> </p>
+        <textarea id="outputdata" rows="20" cols="50"></textarea>
+
+    </div>
+    <p> </p>
+    <!--<textarea id="output" rows="20" cols="50"></textarea> -->
+    <script src="./FileSaver.js"></script>
+    <script src="./jszip.js"></script>
+    <script>
+        var itemNames = {};
+        var new_values = {};
+
+        var coursenames = {};
+        var courseimage = {};
+        var coursedata = {};
+
+        var missingItemNames = [];
+
+        var courseList = [];
+
+        var coursedata = {};
+
+        var convertedData = {};
+        var convertedvalues = {};
+
+        var coursedata = {
+            Courses: {}
+        }
+
+        function convertValuesData(){
+            new_values = JSON.parse(document.getElementById("inputvalues").value);
+            addTotals();
+            generateCourseList();
+            createCourseData();
+            convertInternalCourse();
+            alphabetizeCourseList();
+            removeForwardSlashRT();
+        }
+
+        function addTotals(){
+            Object.keys(new_values).forEach((t,i)=> {
+                new_values[t].totalCourses = new_values[t].moreGoodAt.length;
+                new_values[t].goodAt.forEach((a,i)=> {
+                    if(a.promotionLevel != 0){
+                        new_values[t].totalCourses++;
+                    }
+                });
+            });
+        }
+
+        function generateCourseList(){
+            Object.keys(new_values).forEach((t,i)=> {
+                new_values[t].moreGoodAt.forEach((a,i)=> {
+                    if(!courseList.includes(a.name)){
+                        courseList.push(a.name);
+                    }
+                });
+            });
+            console.log(courseList);
+        }
+
+        function convertToUsable() {
+	Object.keys(new_values).forEach((t,i)=>{
+		if(t == "Courses"){
+			return;
+		}
+		convertedData[t] = {};
+		convertedData[t].nameEng = values[t].nameEng;
+		convertedData[t].rarityId = values[t].rarityId;
+		convertedData[t].itemTypeId = values[t].itemTypeId;
+		convertedData[t].sortId = values[t].sortId;
+		convertedData[t].moreGoodAt = [];
+		convertedData[t].goodAt = [];
+		convertedData[t].unlock3 = [];
+		convertedData[t].unlock6 = [];
+
+		Object.values(values[t].moreGoodAt).forEach((y, i) => {
+			convertedData[t].moreGoodAt.push(y.name);
+		});
+
+		Object.values(values[t].goodAt).forEach((y, i) => {
+			switch(y.promotionLevel){
+				case 0:
+				convertedData[t].goodAt.push(y.name);
+				break;
+				case 3:
+				convertedData[t].goodAt.push(y.name);
+				convertedData[t].unlock3.push(y.name);
+				break;
+				case 6:
+				convertedData[t].goodAt.push(y.name);
+				convertedData[t].unlock6.push(y.name);
+				break;
+			}
+		});
+
+	});
+	convertedvalues = convertedData;
+}
+
+        function createCourseData(){
+        
+        coursedata.Courses[t] = {};
+        coursedata.Courses[t].moreGoodAt = {};
+        coursedata.Courses[t].goodAt = {};
+        coursedata.Courses[t].unlock3 = {};
+        coursedata.Courses[t].unlock6 = {};
+        coursedata.Courses[t].moreGoodAt.Drivers = [];
+        coursedata.Courses[t].moreGoodAt.Karts = [];
+        coursedata.Courses[t].moreGoodAt.Gliders = [];
+        coursedata.Courses[t].goodAt.Drivers = [];
+        coursedata.Courses[t].goodAt.Karts = [];
+        coursedata.Courses[t].goodAt.Gliders = [];
+        coursedata.Courses[t].unlock3.Drivers = [];
+        coursedata.Courses[t].unlock3.Karts = [];
+        coursedata.Courses[t].unlock3.Gliders = [];
+        coursedata.Courses[t].unlock6.Drivers = [];
+        coursedata.Courses[t].unlock6.Karts = [];
+        coursedata.Courses[t].unlock6.Gliders = [];
+
+        }
+
+        function convertInternalCourse(){
+            courseList.forEach((t,i)=> {
+                courseList[i] = coursenames[`${t}`]
+            });
+        }
+
+        function alphabetizeCourseList(){
+            courseList.sort();
+        }
+
+        function removeForwardSlashRT(){
+            courseList.forEach((t,i)=> {
+                console.log(t);
+                if(t == undefined){
+                    return;
+                }
+                if(t.includes("/")){
+                    courseList[i] = courseList[i].replaceAll('/','')
+                }
+            });
+        }
+
+        function readTextFile(file, unit)
+         {
+             var rawFile = new XMLHttpRequest();
+             rawFile.open("GET", file, false);
+             rawFile.onreadystatechange = function ()
+             {
+                 if(rawFile.readyState === 4)
+                 {
+                     if(rawFile.status === 200 || rawFile.status == 0)
+                     {
+                         var allText = rawFile.responseText;
+                         switch(unit){
+                            case 1:
+                            new_values = JSON.parse(allText);
+                            break;
+                            case 2:
+                            itemNames = JSON.parse(allText);
+                            break;
+                            case 3:
+                            coursedata = JSON.parse(allText);
+                            break;
+                            case 4:
+                            coursenames = JSON.parse(allText);
+                            break;
+                         }
+                     }
+                 }
+             }
+             rawFile.send(null);
+         }
+
+         readTextFile("../Data/course_names.json", 4);
+
+    </script>
+    <style>
+        p {
+            color: Blue;
+        }
+
+        .paragraph1 {
+            font-size: 12px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            line-height: 2px;
+        }
+
+        .paragraph2 {
+            font-size: 13px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 var season = {};
 var seasonbonus_course2 = [56, 70304, 30316];
 var seasonbonus_course3 = [145, 12, 70245, 70305, 30203, 30097];
-var cupBonus = {"LuigiCup":4,"ChoropooCup":93,"RosettaCup":22,"IggyCup":30,"MarioCup":5,"BbLuigiCup":24,"FunkyKongCup":128,"KinopioCup":2,"LudwigCup":33,"MetalPeachCup":19,"BrosFireCup":59,"MarioIceCup":161,"KameckCup":56,"HoneKoopaCup":12,"PaulineCup":41,"KinopeachCup":41,"LemmyCup":32,"HeyhoCup":10}
+var cupBonus = {"LuigiCup":4,"ChoropooCup":93,"RosettaCup":22,"IggyCup":30,"MarioCup":5,"BbLuigiCup":24,"FunkyKongCup":128,"KinopioCup":2,"LudwigCup":33,"MetalPeachCup":19,"BrosFireCup":59,"MarioIceCup":161,"KameckCup":56,"HoneKoopaCup":12,"PaulineCup":41,"KinopeachCup":41,"LemmyCup":32,"HeyhoCup":10,"YoshiCup":9,"BbMarioCup":25,"WarioCup":21,"KingTeresaCup":15,"KinopicoCup":16,"WaluigiCup":20,"LarryCup":31}
 
 let courseSaveDefault = {
     driver: -1,

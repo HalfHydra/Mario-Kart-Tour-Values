@@ -27,8 +27,8 @@
     width: 67.5px;
     height: 87.5px;
     display: inline-block;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
 }
 
 .datackgpanelenabled {
@@ -111,8 +111,8 @@
     width: 67.5px;
     height: 87.5px;
     display: inline-block;
-    filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
+    filter: brightness(50%);
+    -moz-filter: brightness(50%);
 }
 .ckgpanelcalc {
     width: 67.5px;

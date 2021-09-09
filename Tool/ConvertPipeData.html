@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<body background="./InfoPattern.png">
+    </style>
+    <div>
+        <div style="margin-top: 15px">
+            <p id="p1" class="paragraph1"></p>
+            <p id="p2" class="paragraph1">
+            </p>
+        </div>
+        <style type="text/css">
+            textarea {
+                width: 410px;
+                height: 250px;
+                font-size: 12px;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+
+            p {
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
+        </select>
+
+        <p> Pipe Name: </p>
+        <textarea id="inputname" rows="2" cols="30" style="width:280px;height:20px;"></textarea>
+        <p> Pipe Id ([season]_[index]): </p>
+        <textarea id="inputid" rows="2" cols="20" style="width:40px;height:20px;"></textarea>
+        <p> <input type="checkbox" id="notescb" style="width:20px;height:20px;"> Notes: </p>
+        <textarea id="inputnote" rows="20" cols="50" style="width:400px;height:50px;"></textarea>
+        <p> Input Values Data: </p>
+        <textarea id="inputvalues" rows="20" cols="50"></textarea>
+        <p> Input Raw Pipe Data: </p>
+        <textarea id="inputdata" rows="20" cols="50"></textarea>
+        <p> </p>
+        <button onclick="convertPipeData()">Convert Pipe Data</button>
+        <p> </p>
+        <textarea id="outputdata" rows="20" cols="50"></textarea>
+
+    </div>
+    <p> </p>
+    <!--<textarea id="output" rows="20" cols="50"></textarea> -->
+    <script src="./FileSaver.js"></script>
+    <script src="./jszip.js"></script>
+    <script>
+        var itemNames = {};
+        var new_values = {};
+
+        var coursenames = {};
+        var courseimage = {};
+        var coursedata = {};
+
+        var missingItemNames = [];
+
+        function convertPipeData() {
+            new_values = JSON.parse(document.getElementById("inputvalues").value);
+            let pipeData = document.getElementById("inputdata").value;
+            //pipeData.replace("\\\"", "");
+            pipeData = prepareJSON(pipeData);
+            //-Convert this to a regular string not a URL
+            try {
+            pipeData = urlDecode(pipeData);
+            } catch (e) { // catches a malformed URI
+                console.error(e);
+            }
+            //-Remove the function call around the actual data
+
+            //pipeData = pipeData.replace("\\\"", "");
+
+            document.getElementById('inputdata').value = pipeData;
+            //- Iterate through and separate from the data what is necessary
+            document.getElementById('outputdata').value = seperateData(pipeData);
+            //JSON.stringify(pipeData, null, 3)
+            //- Compile into final format that is used by my pipe simulator
+        }
+
+        function urlDecode(input) {
+            return decodeURI(input);
+        }
+
+        function prepareJSON(input) {
+            //Remove //"setAllBoxContentsByAssetJson('
+            return input.substring(input.indexOf("%7B"), (input.length - 2));
+        }
+
+        function seperateData(pipeData) {
+            let parseJSON = JSON.parse(pipeData);
+            let outputJSON = {};
+
+            outputJSON["Name"] = `${document.getElementById('inputname').value}`;
+            outputJSON["Icon"] = `./Images/Pipe/Banner/${document.getElementById('inputid').value}.png`;
+            outputJSON["Type"] = `Official`;
+            outputJSON["Term"] = `${parseJSON["term"]}`;
+
+            if(document.getElementById('notescb').checked){
+                outputJSON["Notes"] = `${document.getElementById('inputnote').value}`;
+            }
+            
+            console.log(parseJSON);
+
+            let total_spotlight_highend_d = 0;
+            let total_spotlight_highend_k = 0;
+            let total_spotlight_highend_g = 0;
+            let total_spotlight_super_d = 0;
+            let total_spotlight_super_k = 0;
+            let total_spotlight_super_g = 0;
+            let total_spotlight_normal_d = 0;
+            let total_spotlight_normal_k = 0;
+            let total_spotlight_normal_g = 0;
+            let total_highend_d = 0;
+            let total_highend_k = 0;
+            let total_highend_g = 0;
+            let total_super_d = 0;
+            let total_super_k = 0;
+            let total_super_g = 0;
+            let total_normal_d = 0;
+            let total_normal_k = 0;
+            let total_normal_g = 0;
+
+            let spotlights = [];
+            /*let items_spotlight_highend_d = [];
+            let items_spotlight_highend_k = [];
+            let items_spotlight_highend_g = [];
+            let items_spotlight_super_d = [];
+            let items_spotlight_super_k = [];
+            let items_spotlight_super_g = [];
+            let items_spotlight_normal_d = [];
+            let items_spotlight_normal_k = [];
+            let items_spotlight_normal_g = [];*/
+            let items_highend_d = [];
+            let items_highend_k = [];
+            let items_highend_g = [];
+            let items_super_d = [];
+            let items_super_k = [];
+            let items_super_g = [];
+            let items_normal_d = [];
+            let items_normal_k = [];
+            let items_normal_g = [];
+
+            parseJSON["box_contents"].forEach((t, i) => {
+                switch (t.rarity_name) {
+                    case "High-End Spotlight":
+                        t["item_types"].forEach((a, i) => {
+                            switch (a.type_name) {
+                                case "Drivers":
+                                    total_spotlight_highend_d = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Karts":
+                                    total_spotlight_highend_k = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Gliders":
+                                    total_spotlight_highend_g = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                            }
+                        });
+                        break;
+                    case "Super Spotlight":
+                        t["item_types"].forEach((a, i) => {
+                            switch (a.type_name) {
+                                case "Drivers":
+                                    total_spotlight_super_d = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Karts":
+                                    total_spotlight_super_k = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Gliders":
+                                    total_spotlight_super_g = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                            }
+                        });
+                        break;
+                    case "Normal Spotlight":
+                        t["item_types"].forEach((a, i) => {
+                            switch (a.type_name) {
+                                case "Drivers":
+                                    total_spotlight_normal_d = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Karts":
+                                    total_spotlight_normal_k = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Gliders":
+                                    total_spotlight_normal_g = a.total;
+                                    a.items.forEach((b, i) => {
+                                        spotlights.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                            }
+                        });
+                        break;
+                    case "High-End":
+                        t["item_types"].forEach((a, i) => {
+                            switch (a.type_name) {
+                                case "Drivers":
+                                    total_highend_d = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_highend_d.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Karts":
+                                    total_highend_k = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_highend_k.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Gliders":
+                                    total_highend_g = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_highend_g.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                            }
+                        });
+                        break;
+                    case "Super":
+                        t["item_types"].forEach((a, i) => {
+                            switch (a.type_name) {
+                                case "Drivers":
+                                    total_super_d = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_super_d.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Karts":
+                                    total_super_k = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_super_k.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Gliders":
+                                    total_super_g = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_super_g.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                            }
+                        });
+                        break;
+                    case "Normal":
+                        t["item_types"].forEach((a, i) => {
+                            switch (a.type_name) {
+                                case "Drivers":
+                                    total_normal_d = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_normal_d.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Karts":
+                                    total_normal_k = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_normal_k.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                                case "Gliders":
+                                    total_normal_g = a.total;
+                                    a.items.forEach((b, i) => {
+                                        items_normal_g.push(parseInt(convertNameToId(b.name)));
+                                    });
+                                    break;
+                            }
+                        });
+                            break;
+                        }
+            });
+
+            let total_sum = total_spotlight_highend_d + total_spotlight_highend_k + total_spotlight_highend_g + total_spotlight_super_d + total_spotlight_super_k + total_spotlight_super_g + total_spotlight_normal_d + total_spotlight_normal_k + total_spotlight_normal_g + total_highend_d + total_highend_k + total_highend_g + total_super_d + total_super_k + total_super_g + total_normal_d + total_normal_k + total_normal_g;
+
+            let item_amount_array = [];
+            item_amount_array.push(total_spotlight_highend_d);
+            item_amount_array.push(total_spotlight_highend_k);
+            item_amount_array.push(total_spotlight_highend_g);
+            item_amount_array.push(total_highend_d);
+            item_amount_array.push(total_highend_k);
+            item_amount_array.push(total_highend_g);
+            item_amount_array.push(total_spotlight_super_d);
+            item_amount_array.push(total_spotlight_super_k);
+            item_amount_array.push(total_spotlight_super_g);
+            item_amount_array.push(total_super_d);
+            item_amount_array.push(total_super_k);
+            item_amount_array.push(total_super_g);
+            item_amount_array.push(total_spotlight_normal_d);
+            item_amount_array.push(total_spotlight_normal_k);
+            item_amount_array.push(total_spotlight_normal_g);
+            item_amount_array.push(total_normal_d);
+            item_amount_array.push(total_normal_k);
+            item_amount_array.push(total_normal_g);
+            item_amount_array.push(0);
+
+            outputJSON["InitialAmount"] = total_sum;
+            outputJSON["Spotlights"] = spotlights;
+            outputJSON["Items"] = item_amount_array;
+            outputJSON["ExtraHE"] = {};
+            outputJSON.ExtraHE["Drivers"] = [];
+            outputJSON.ExtraHE["Karts"] = [];
+            outputJSON.ExtraHE["Gliders"] = [];
+            outputJSON["Normals"] = {};
+            outputJSON.Normals["HighEnd"] = {};
+            outputJSON.Normals["Super"] = {};
+            outputJSON.Normals["Normal"] = {};
+            outputJSON.Normals.HighEnd["Drivers"] = items_highend_d;
+            outputJSON.Normals.HighEnd["Karts"] = items_highend_k;
+            outputJSON.Normals.HighEnd["Gliders"] = items_highend_g;
+            outputJSON.Normals.Super["Drivers"] = items_super_d;
+            outputJSON.Normals.Super["Karts"] = items_super_k;
+            outputJSON.Normals.Super["Gliders"] = items_super_g;
+            outputJSON.Normals.Normal["Drivers"] = items_normal_d;
+            outputJSON.Normals.Normal["Karts"] = items_normal_k;
+            outputJSON.Normals.Normal["Gliders"] = items_normal_g;
+
+            let nestOJ = {};
+            nestOJ[`${document.getElementById('inputid').value}`] = outputJSON;
+            return JSON.stringify(nestOJ, null, 3);
+        }
+
+        function convertNameToId(input){
+            let itemId = 0;
+            Object.keys(new_values).forEach((t, i)=> {
+                if(input === new_values[t].nameEng){
+                    itemId = t;
+                }
+            });
+            return itemId;
+        }
+
+    </script>
+    <style>
+        p {
+            color: Blue;
+        }
+
+        .paragraph1 {
+            font-size: 12px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            line-height: 2px;
+        }
+
+        .paragraph2 {
+            font-size: 13px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+    </style>
+</body>
+
+</html>
