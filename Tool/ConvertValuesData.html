@@ -31,6 +31,8 @@
         <button onclick="convertValuesData()">Convert Values Data</button>
         <p> </p>
         <textarea id="outputdata" rows="20" cols="50"></textarea>
+        <!--<textarea id="outputdata2" rows="20" cols="50"></textarea>
+        <textarea id="outputdata3" rows="20" cols="50"></textarea>-->
 
     </div>
     <p> </p>
@@ -58,14 +60,29 @@
             Courses: {}
         }
 
+        var driverTable = [];
+        var machineTable = [];
+        var wingTable = [];
+
+        var alphabeticalItems = [];
+
         function convertValuesData(){
             new_values = JSON.parse(document.getElementById("inputvalues").value);
-            addTotals();
-            generateCourseList();
-            createCourseData();
-            convertInternalCourse();
-            alphabetizeCourseList();
-            removeForwardSlashRT();
+            convertToUsable(); //convert new_values into convertedvalues
+            //addTotals(); //adds totals to the original new_values
+            generateItemArrays(); //generates item based arrays
+            convertInternalCourseValues(); //converts internal to coursenames from new_values into convertedvalues
+            //removeForwardSlashRTValues();  //removes forward slashes from new_values into convertedvalues
+            //createCourseData(); 
+            removeForwardSlashRTValues();  //removes forward slashes from new_values into convertedvalues
+            //generateCourseList(); //generates courseList based on new_values
+            //convertInternalCourseList(); //converts courselist to be coursenames
+            //alphabetizeCourseList(); //alphabetizes courseList
+            //removeForwardSlashRTList();//removes all forward slashes in all courseList
+            createItemsListAlpha();
+            generateItemValuesCSV();
+            //generateItemCourseAmounts();
+            //generateCourseAmounts();
         }
 
         function addTotals(){
@@ -80,12 +97,9 @@
         }
 
         function generateCourseList(){
-            Object.keys(new_values).forEach((t,i)=> {
-                new_values[t].moreGoodAt.forEach((a,i)=> {
-                    if(!courseList.includes(a.name)){
-                        courseList.push(a.name);
-                    }
-                });
+            Object.keys(coursedata.Courses).forEach((t,i)=> {
+                console.log(t);
+                courseList.push(t);
             });
             console.log(courseList);
         }
@@ -96,20 +110,20 @@
 			return;
 		}
 		convertedData[t] = {};
-		convertedData[t].nameEng = values[t].nameEng;
-		convertedData[t].rarityId = values[t].rarityId;
-		convertedData[t].itemTypeId = values[t].itemTypeId;
-		convertedData[t].sortId = values[t].sortId;
+		convertedData[t].nameEng = new_values[t].nameEng;
+		convertedData[t].rarityId = new_values[t].rarityId;
+		convertedData[t].itemTypeId = new_values[t].itemTypeId;
+		convertedData[t].sortId = new_values[t].sortId;
 		convertedData[t].moreGoodAt = [];
 		convertedData[t].goodAt = [];
 		convertedData[t].unlock3 = [];
 		convertedData[t].unlock6 = [];
 
-		Object.values(values[t].moreGoodAt).forEach((y, i) => {
+		Object.values(new_values[t].moreGoodAt).forEach((y, i) => {
 			convertedData[t].moreGoodAt.push(y.name);
 		});
 
-		Object.values(values[t].goodAt).forEach((y, i) => {
+		Object.values(new_values[t].goodAt).forEach((y, i) => {
 			switch(y.promotionLevel){
 				case 0:
 				convertedData[t].goodAt.push(y.name);
@@ -125,12 +139,31 @@
 			}
 		});
 
+        convertedData[t].total = convertedData[t].moreGoodAt.length + convertedData[t].unlock3.length + convertedData[t].unlock6.length;
+
 	});
 	convertedvalues = convertedData;
 }
 
+        function generateItemArrays(){
+            Object.keys(new_values).forEach(itemId => {
+    if(itemId != 29 && itemId != 70057){
+      if(itemId.toString().length < 5){
+        driverTable.push(itemId);
+      }
+      if(itemId.toString().length == 5 && Math.round(itemId / 1000) == 30){
+        wingTable.push(itemId);
+      }
+      if(itemId.toString().length == 5 && Math.round(itemId / 1000) == 70){
+        machineTable.push(itemId);
+      }
+    }
+
+    }); 
+        }
+
         function createCourseData(){
-        
+        Object.values(coursenames).forEach((t,i)=>{
         coursedata.Courses[t] = {};
         coursedata.Courses[t].moreGoodAt = {};
         coursedata.Courses[t].goodAt = {};
@@ -148,12 +181,132 @@
         coursedata.Courses[t].unlock6.Drivers = [];
         coursedata.Courses[t].unlock6.Karts = [];
         coursedata.Courses[t].unlock6.Gliders = [];
+        coursedata.Courses[t].total = 0;
+        driverTable.forEach((charid,i)=> {
+            let moreGoodAt = convertedvalues[charid].moreGoodAt;
+            let goodAt = convertedvalues[charid].goodAt;
+            let unlock3 = convertedvalues[charid].unlock3;
+            let unlock6 = convertedvalues[charid].unlock6;
+            moreGoodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedata.Courses[t].moreGoodAt['Drivers'].push(charid);
+                }
+            }
+            );
+            goodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedata.Courses[t].goodAt['Drivers'].push(charid);
+                }
+            }
+            );
 
+            unlock3.forEach((courseid,i)=>{
+                if(courseid == t){
+                  coursedata.Courses[t].unlock3['Drivers'].push(charid);
+                }
+            }
+            );
+            unlock6.forEach((courseid,i)=>{
+                if(courseid == t){
+                  coursedata.Courses[t].unlock6['Drivers'].push(charid);
+                }
+            }
+            );
+        });
+        machineTable.forEach((karid,i)=> {
+            let moreGoodAt = convertedvalues[karid].moreGoodAt;
+            let goodAt = convertedvalues[karid].goodAt;
+            let unlock3 = convertedvalues[karid].unlock3;
+            let unlock6 = convertedvalues[karid].unlock6;
+            moreGoodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedata.Courses[t].moreGoodAt['Karts'].push(karid);
+                }
+            }
+            );
+            goodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedata.Courses[t].goodAt['Karts'].push(karid);
+                }
+            }
+            );
+
+            unlock3.forEach((courseid,i)=>{
+                if(courseid == t){
+                  coursedata.Courses[t].unlock3['Karts'].push(karid);
+                }
+            }
+            );
+            unlock6.forEach((courseid,i)=>{
+                if(courseid == t){
+                  coursedata.Courses[t].unlock6['Karts'].push(karid);
+                }
+            }
+            );
+        });
+        wingTable.forEach((glidid,i)=> {
+            let moreGoodAt = convertedvalues[glidid].moreGoodAt;
+            let goodAt = convertedvalues[glidid].goodAt;
+            let unlock3 = convertedvalues[glidid].unlock3;
+            let unlock6 = convertedvalues[glidid].unlock6;
+            moreGoodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedata.Courses[t].moreGoodAt['Gliders'].push(glidid);
+                }
+            }
+            );
+            goodAt.forEach((courseid,i)=>{
+                if (courseid == t) {
+                    coursedata.Courses[t].goodAt['Gliders'].push(glidid);
+                }
+            }
+            );
+
+            unlock3.forEach((courseid,i)=>{
+                if(courseid == t){
+                  coursedata.Courses[t].unlock3['Gliders'].push(glidid);
+                }
+            }
+            );
+            unlock6.forEach((courseid,i)=>{
+                if(courseid == t){
+                  coursedata.Courses[t].unlock6['Gliders'].push(glidid);
+                }
+            }
+            );
+        });
+        coursedata.Courses[t].total += coursedata.Courses[t].moreGoodAt.Drivers.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].moreGoodAt.Karts.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].moreGoodAt.Gliders.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].unlock3.Drivers.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].unlock3.Karts.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].unlock3.Gliders.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].unlock6.Drivers.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].unlock6.Karts.length;
+        coursedata.Courses[t].total += coursedata.Courses[t].unlock6.Gliders.length;
+        });
         }
 
-        function convertInternalCourse(){
+        function convertInternalCourseList(){
             courseList.forEach((t,i)=> {
                 courseList[i] = coursenames[`${t}`]
+            });
+        }
+
+        function convertInternalCourseValues(){
+            Object.keys(convertedvalues).forEach((t,i)=> {
+                convertedvalues[t].moreGoodAt.forEach((a,i)=> {
+                    convertedvalues[t].moreGoodAt[i] = coursenames[`${a}`]
+                });
+                convertedvalues[t].goodAt.forEach((a,i)=> {
+                    convertedvalues[t].goodAt[i] = coursenames[`${a}`]
+                });
+                convertedvalues[t].unlock3.forEach((a,i)=> {
+                    convertedvalues[t].unlock3[i] = coursenames[`${a}`]
+                });
+                convertedvalues[t].unlock6.forEach((a,i)=> {
+                    convertedvalues[t].unlock6[i] = coursenames[`${a}`]
+                });
             });
         }
 
@@ -161,7 +314,7 @@
             courseList.sort();
         }
 
-        function removeForwardSlashRT(){
+        function removeForwardSlashRTList(){
             courseList.forEach((t,i)=> {
                 console.log(t);
                 if(t == undefined){
@@ -171,6 +324,106 @@
                     courseList[i] = courseList[i].replaceAll('/','')
                 }
             });
+        }
+
+        function removeForwardSlashRTValues(){
+            Object.keys(convertedvalues).forEach((t,i)=> {
+                convertedvalues[t].moreGoodAt.forEach((a,i)=> {
+                    let name = convertedvalues[t].moreGoodAt[i];
+                    if(name == undefined){
+                    return;
+                    }
+                    if(name.includes("/")){
+                    convertedvalues[t].moreGoodAt[i] = convertedvalues[t].moreGoodAt[i].replaceAll('/','')
+                    }
+                });
+                convertedvalues[t].goodAt.forEach((a,i)=> {
+                    let name = convertedvalues[t].goodAt[i];
+                    if(name == undefined){
+                    return;
+                    }
+                    if(name.includes("/")){
+                    convertedvalues[t].goodAt[i] = convertedvalues[t].goodAt[i].replaceAll('/','')
+                    }
+                });
+                convertedvalues[t].unlock3.forEach((a,i)=> {
+                    let name = convertedvalues[t].unlock3[i];
+                    if(name == undefined){
+                    return;
+                    }
+                    if(name.includes("/")){
+                    convertedvalues[t].unlock3[i] = convertedvalues[t].unlock3[i].replaceAll('/','')
+                    }
+                });
+                convertedvalues[t].unlock6.forEach((a,i)=> {
+                    let name = convertedvalues[t].unlock6[i];
+                    if(name == undefined){
+                    return;
+                    }
+                    if(name.includes("/")){
+                    convertedvalues[t].unlock6[i] = convertedvalues[t].unlock6[i].replaceAll('/','')
+                    }
+                });
+            });
+        }
+
+        function convertNameToId(input){
+            let itemId = 0;
+            Object.keys(new_values).forEach((t, i)=> {
+                if(input === new_values[t].nameEng){
+                    itemId = t;
+                }
+            });
+            return itemId;
+        }
+        
+        function createItemsListAlpha(){
+            driverTable.forEach((t,i)=> {
+                alphabeticalItems.push(new_values[t].nameEng);
+            });
+            machineTable.forEach((t,i)=> {
+                alphabeticalItems.push(new_values[t].nameEng);
+            });
+            wingTable.forEach((t,i)=> {
+                alphabeticalItems.push(new_values[t].nameEng);
+            });
+            alphabeticalItems.sort();
+        }
+
+        function generateItemValuesCSV(){
+            let output = document.getElementById('outputdata');
+            alphabeticalItems.forEach((t,i) => {
+                let item = convertedvalues[convertNameToId(t)];
+                item.unlock6.forEach((a,i)=>{
+                    output.value += `${t},,,${a}\n`;
+                })
+                item.unlock3.forEach((a,i)=>{
+                    output.value += `${t},,${a},\n`;
+                })
+                item.moreGoodAt.forEach((a,i)=>{
+                    output.value += `${t},${a},,\n`;
+                })
+            });
+        }
+
+        function generateItemCourseAmounts(){
+            let output = document.getElementById('outputdata2');
+            alphabeticalItems.forEach((t,i) => {
+                let item = convertedvalues[convertNameToId(t)];
+                output.value += `${t},${item.total}\n`;
+            });
+        }
+
+        function generateCourseAmounts(){
+            let output = document.getElementById('outputdata3');
+            //coursedata.Courses.sort();
+            courseList.forEach((t,i)=> {
+                output.value += `${coursedata.Courses[t].total},${t}\n`
+            });
+        }
+
+        function convertCourseDataItemNames(){
+
         }
 
         function readTextFile(file, unit)
